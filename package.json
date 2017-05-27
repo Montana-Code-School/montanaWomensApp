@@ -1,0 +1,20 @@
+{
+  "name": "women-wellness-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.client.js",
+  "scripts": {
+    "dev:client": "webpack --config webpack.config.client.js --watch",
+    "dev:server": "webpack --config webpack.config.server.js --watch",
+    "dev:start": "nodemon dist/server.js --watch dist/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "express": "^4.15.3",
+    "webpack": "^2.6.1"
+  }
+}
