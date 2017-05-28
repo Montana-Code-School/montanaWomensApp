@@ -6,7 +6,7 @@ module.exports = {
     context: srcPath,
     target: 'web',
 
-    entry: './public/js/script.js',
+    entry: './public/js/app.js',
     output: {
         path: srcPath,
         filename: './public/js/bundle.js',
