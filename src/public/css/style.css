@@ -1,0 +1,128 @@
+body{
+
+  margin-top: 5em;
+  background-image:url(/home/osboxes/Dropbox/background-imager/Elegant_Background-6.jpg);
+}
+
+ul{
+  display:flex;
+}
+
+li{
+/*  width:10em;
+  height:2em;
+  margin:2em;*/
+}
+.parag-styling{
+  margin: 5px 55px 5px 55px;
+
+
+}
+.main {
+  padding-left: .05em;
+
+}
+.title{
+  font-size: 60;
+  margin:1em;
+  background-image: url(https://cdn.pixabay.com/photo/2017/03/31/12/46/america-2191303__340.jpg);
+  height:5em;
+  text-align: center;
+
+
+}
+
+.categories{
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+
+
+}
+.parag {
+
+
+}
+/*.btn {
+
+  text-align: right;
+  margin-left: 25;
+  margin-right: 5;
+
+
+}*/
+.Physical {
+  font-size: 20;
+  text-emphasis-color: black;
+  background-color:#D94B7A;
+
+}
+.phy-title {
+  font-size: 40;
+  border-style: groove;
+  border-width: 4px;
+  margin: 5 5 5 5;
+  text-align: center;
+
+
+
+}
+.Counseling {
+  font-size: 20;
+  text-emphasis-color: black;
+  background-color:#BCBCFA;
+
+}
+.couns-title {
+  font-size: 40;
+  border-style: groove;
+  border-width: 4px;
+  margin: 5 5 5 5;
+  text-align: center;
+
+}
+
+.Doctors {
+  font-size: 20;
+  text-emphasis-color: black;
+  background-color:#FDFDDD;
+
+}
+.doc-title {
+  font-size: 40;
+  border-style: groove;
+  border-width: 4px;
+  margin: 5 5 5 5;
+  text-align: center;
+
+}
+.Stores {
+  font-size: 20;
+  text-emphasis-color: black;
+  background-color:#92ABCC;
+}
+.st-title {
+  font-size: 40;
+  border-style: groove;
+  border-width: 4px;
+  margin: 5 5 5 5;
+  text-align: center;
+
+}
+
+.Pharmacies {
+  font-size: 20;
+  text-emphasis-color: black;
+  background-color:#FDDDDD;
+
+}
+.phar-title {
+  font-size: 40;
+  border-style: groove;
+  border-width: 4px;
+  margin: 5 5 5 5;
+
+  text-align: center;
+
+}

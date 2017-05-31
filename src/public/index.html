@@ -22,6 +22,170 @@
             })
           });
 </script>-->
+
+
+<style>
+.dropbtn {
+   background-color: grey;
+   color: white;
+   padding: 16px;
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+   background-color: grey;
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   overflow: auto;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+}
+
+.dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+.dropdown a:hover {background-color: white}
+
+.show {display:block;}
+
+</style>
+
+</head>
+<body>
+
+<div class = 'container'>
+   <ul class='main' style='list-style-type:none'>
+
+       <li class='title'>Montana Women's<br> Health Source</br></h1></li>
+       <li>
+         <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Help Line</button>
+            <div id="myDropdown" class="dropdown-content">
+             <a href="#emergency">Emergency Call 911</a>
+             <a href="#substance">Substance Abuse</a>
+             <a href="#physical">Physical Abuse</a>
+            </div>
+         </div>
+       </li>
+        <li><button class ='btn btn-default target text-right' id='chat'>Chat Bot</button></li>
+   </ul>
+   <script>
+ /* When the user clicks on the button,
+ toggle between hiding and showing the dropdown content */
+ function myFunction() {
+     document.getElementById("myDropdown").classList.toggle("show");
+ }
+
+ // Close the dropdown if the user clicks outside of it
+ window.onclick = function(event) {
+   if (!event.target.matches('.dropbtn')) {
+
+     var dropdowns = document.getElementsByClassName("dropdown-content");
+     var i;
+     for (i = 0; i < dropdowns.length; i++) {
+       var openDropdown = dropdowns[i];
+       if (openDropdown.classList.contains('show')) {
+         openDropdown.classList.remove('show');
+       }
+     }
+   }
+ }
+ </script>
+
+   <div class='Statement'>
+     <p class='paragraph'> Montana Women's Health Source is a resource created specifically for Monatan women.
+       Montana Women's Health Source strives to keep medical help and resources at every Montana woman's fingertips.
+       The emotional, and physical needs of Montana women is our top priority. </p>
+   </div>
+
+   <div class='categories'>
+     <ul class='Physical' style='list-style-type:none'>
+         <li class='phy-title'>Physical<br> Health</br></h1></li>
+       <div class='parag-styling'>
+         <li class='parag'>Physical health is very important to a womans
+           over-all health.  Find a health gym just for women right here.</li>
+       </div>
+         <li class='btn'><form action="/submit-zip-code">
+           <input type="text" placeholder="Zip Code">
+           <button type="submit">Submit</button>
+         </form>
+       </li>
+    </ul>
+
+
+    <ul class='Counseling' style='list-style-type:none'>
+         <li class='couns-title'>Counseling </li>
+       <div class='parag-styling'>
+         <li class='parag'> Search for counselors in your area for emotional support.</li>
+       </div>
+         <li class='btn'><form action="/submit-zip-code">
+           <input type="text" placeholder="Zip Code">
+           <button type="submit">Submit</button>
+         </form>
+       </li>
+   </ul>
+
+
+
+   <ul class='Doctors' style = 'list-style-type:none'>
+         <li class = 'doc-title'>Doctors and <br> Clinics</br></li>
+       <div class='parag-styling'>
+         <li class='parag'>Look up doctors and clinics near you to meet your medical needs.  Find addresses, phone numbers and Skipe with
+            your doctor.</li>
+       </div>
+         <li class='btn'>
+           <form action="/submit-zip-code">
+             <input type="text" placeholder="Zip Code">
+             <button type="submit">Submit</button>
+           </form>
+         </li>
+   </ul>
+
+   <ul class='Stores' style='list-style-type:none'>
+         <li class='st-title'>Stores Near You</li>
+       <div class='parag-styling'>
+         <li class='parag'>Find a store near you that has feminine products you need in a hurry</li>
+       </div>
+         <li class='btn'>
+           <form action="/submit-zip-code">
+             <input type="text" placeholder="Zip Code">
+             <button type="submit">Submit</button>
+           </form>
+         </li>
+   </ul>
+
+   <ul class='Pharmacies' style='list-style-type:none'>
+       <li class='phar-title'>Pharmacies</li>
+     <div class='parag-styling'>
+       <li class='parag'>Locate a pharmacy in your area for those medical needs</li>
+     </div>
+       <li class='btn'>
+        <form action="/submit-zip-code">
+          <input type="text" placeholder="Zip Code">
+          <button type="submit">Submit</button>
+        </form>
+       </li>
+   </ul>
+ </div>
+
+</div>
+
   </head>
   <body>
     <div id="container">
