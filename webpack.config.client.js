@@ -1,18 +1,18 @@
+const webpack = require('webpack');
 const path = require('path');
-const srcPath = path.resolve(__dirname, 'src');
+const srcPath = path.resolve(__dirname, 'src/public');
 const distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
     context: srcPath,
     target: 'web',
-
     entry: {
-      a: './public/js/app.js',
-      b: './public/symptom_selector/selector.js'
-    }
+      vendor: './symptom_selector/selector.js',
+      app: './js/app.js'
+    },
     output: {
         path: srcPath,
-        filename: './public/js/bundle.js',
+        filename: '[name].bundle.js',
         publicPath: '/'
     },
     resolve: {
@@ -30,8 +30,12 @@ module.exports = {
             }
 
           ]
-
     },
+    // plugins: [
+    //         new webpack.optimize.CommonsChunkPlugin({
+    //             name: 'main_bundle' // Specify the common bundle's name.
+    //         })
+    //     ]
 
-    devtool: 'source-map'
+    devtool: 'source-map',
 };
