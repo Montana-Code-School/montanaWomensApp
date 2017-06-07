@@ -7,22 +7,22 @@ import striptags from 'striptags';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      categories: []
-    };
-  }
-
-
-componentDidMount() {
-  axios.get('http://localhost:3003/api/info')
-    .then(res => {
-      const data = res.data;
-      var newData = striptags(data, [], '\n' );
-      this.setState({categories:newData});
-    });
-  }
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       categories: []
+//     };
+//   }
+//
+//
+// componentDidMount() {
+//   axios.get('http://localhost:3003/api/info')
+//     .then(res => {
+//       const data = res.data;
+//       var newData = striptags(data, [], '\n' );
+//       this.setState({categories:newData});
+//     });
+//   }
 
 render() {
 
@@ -30,7 +30,7 @@ render() {
 
     <div>
       <h1>DATA LOOKS LIKE:</h1>
-      {this.state.categories}
+
     </div>
 
     );

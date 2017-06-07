@@ -6,7 +6,10 @@ module.exports = {
     context: srcPath,
     target: 'web',
 
-    entry: './public/js/app.js',
+    entry: {
+      a: './public/js/app.js',
+      b: './public/symptom_selector/selector.js'
+    }
     output: {
         path: srcPath,
         filename: './public/js/bundle.js',
@@ -25,20 +28,7 @@ module.exports = {
                   presets:['es2015', 'react']
                 }
             }
-            // {
-            //     test: /\.css$/,
-            //     loader: combineLoaders([
-            //       {
-            //         loader: 'style-loader'
-            //       },
-            //       {
-            //         loader: 'css-loader',
-            //         query: {
-            //           modules: true,
-            //           localIdentName: '[name]__[local]___[hash:base64:5]'
-            //         }
-            //       }
-            //     ])}
+
           ]
 
     },
