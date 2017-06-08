@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 body{
 
   margin-top: 5em;
-  background-image:url(/home/osboxes/Dropbox/background-imager/Elegant_Background-6.jpg);
+  background-image:
 }
 
 ul{
@@ -123,13 +122,9 @@ li{
   border-style: groove;
   border-width: 4px;
   margin: 5 5 5 5;
-
   text-align: center;
-
-=======
-
+}
 .box {
     font-size:1em;
     color:pink;
->>>>>>> dfc67e959b4ac0986885df00c0d80a79a8382119
 }
