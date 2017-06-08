@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
 
   margin-top: 5em;
@@ -125,4 +126,10 @@ li{
 
   text-align: center;
 
+=======
+
+.box {
+    font-size:1em;
+    color:pink;
+>>>>>>> dfc67e959b4ac0986885df00c0d80a79a8382119
 }

@@ -1,15 +1,18 @@
+const webpack = require('webpack');
 const path = require('path');
-const srcPath = path.resolve(__dirname, 'src');
+const srcPath = path.resolve(__dirname, 'src/public');
 const distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
     context: srcPath,
     target: 'web',
-
-    entry: './public/js/app.js',
+    entry: {
+      vendor: './symptom_selector/selector.js',
+      app: './js/app.js'
+    },
     output: {
         path: srcPath,
-        filename: './public/js/bundle.js',
+        filename: '[name].bundle.js',
         publicPath: '/'
     },
     resolve: {
@@ -20,9 +23,19 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                  presets:['es2015', 'react']
+                }
             }
-        ]
+
+          ]
     },
-    devtool: 'source-map'
+    // plugins: [
+    //         new webpack.optimize.CommonsChunkPlugin({
+    //             name: 'main_bundle' // Specify the common bundle's name.
+    //         })
+    //     ]
+
+    devtool: 'source-map',
 };
