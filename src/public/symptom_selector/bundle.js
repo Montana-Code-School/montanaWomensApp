@@ -68,7 +68,12 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
  * ApiMedic.com Sample Avatar, a demo implementation of the ApiMedic.com Symptom Checker by priaid Inc, Switzerland
@@ -234,7 +239,7 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
 
             return this.each(function () {
                 _plugin = $(this);
@@ -270,18 +275,18 @@ var mode = "diagnosis";
                 _ajaxGetSpecificResources();
             });
         },
-        Resize: function (options) {
+        Resize: function Resize(options) {
             var currentAvatar = _getAvatarByStatus(_selectedSelectorStatus);
             _resizeSelector(currentAvatar);
         },
-        Select: function (options) {
+        Select: function Select(options) {
             var currentAvatar = _getAvatarByStatus(_selectedSelectorStatus);
             _resizeSelector(currentAvatar);
         },
-        GetSelectedSymptoms: function (options) {
+        GetSelectedSymptoms: function GetSelectedSymptoms(options) {
             return $("#" + symptomListId).symptomList("GetSelectedSymptoms");
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             if (_symptomList.children().length != 0) _symptomList.symptomList("Unbind");
             if ($("#" + _diagnosisListId).children().length != 0) $("#" + _diagnosisListId).diagnosis("Unbind");
 
@@ -297,7 +302,7 @@ var mode = "diagnosis";
     $.fn.symptomSelector = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.symptomSelector');
@@ -322,16 +327,16 @@ var mode = "diagnosis";
             dataType: "jsonp",
             jsonp: "callback",
             jsonpCallback: "fillResults",
-            success: function (responseData) {
+            success: function success(responseData) {
                 fillResults(responseData, initTypeAhead);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 $('#loader').show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 $('#loader').hide();
             }
         });
@@ -353,14 +358,14 @@ var mode = "diagnosis";
             dataType: "jsonp",
             jsonp: "callback",
             jsonpCallback: "_setSpecificResourcesCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _setSpecificResourcesCallback(responseData);
             },
-            beforeSend: function (jqXHR, settings) {},
-            error: function (xhr, ajaxOptions, thrownError) {
+            beforeSend: function beforeSend(jqXHR, settings) {},
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {}
+            complete: function complete() {}
         });
     }
 
@@ -553,7 +558,7 @@ var mode = "diagnosis";
             coords: "150,1, 124,8, 115,17, 110,36, 104,54, 98,71, 96,85, 98,102, 107,119, 118,130, 122,138, 185,138, 189,135, 187,132, 189,125, 201,113, 207,95, 208,76, 205,65, 201,52, 199,33, 195,24, 185,11, 168,3, 153,1",
             accesskey: "0",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Head);
             }
         });
@@ -563,7 +568,7 @@ var mode = "diagnosis";
             coords: "121,139, 105,139, 95,187, 89,208, 90,220, 96,227, 103,235, 105,245, 204,245, 206,236, 211,226, 218,217, 221,209, 219,194, 201,142, 188,139, 120,139",
             accesskey: "1",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Chest);
             }
         });
@@ -573,7 +578,7 @@ var mode = "diagnosis";
             coords: "104,244, 106,270, 108,292, 103,311, 97,329, 92,346, 90,359, 90,375, 91,386, 222,386, 223,365, 220,348, 217,329, 211,315, 208,300, 203,287, 203,277, 204,260, 205,244, 103,244",
             accesskey: "2",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Hips);
             }
         });
@@ -583,7 +588,7 @@ var mode = "diagnosis";
             coords: "91,386, 94,437, 101,489, 109,532, 105,554, 99,577, 98,595, 102,621, 112,664, 116,704, 105,729, 96,742, 94,752, 104,760, 121,764, 133,762, 139,755, 143,747, 143,735, 138,714, 140,662, 144,626, 146,596, 141,559, 140,545, 142,513, 145,482, 148,447, 150,410, 147,397, 151,392, 157,396, 159,423, 160,463, 163,505, 167,537, 165,565, 159,594, 162,625, 166,652, 168,687, 166,714, 163,735, 162,752, 169,761, 185,765, 204,760, 213,747, 211,738, 205,732, 195,715, 191,695, 192,674, 197,653, 203,630, 209,607, 211,585, 207,568, 202,556, 200,540, 199,523, 205,501, 211,475, 215,456, 221,426, 221,405, 222,386, 94,386",
             accesskey: "3",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Legs);
             }
         });
@@ -593,7 +598,7 @@ var mode = "diagnosis";
             coords: "106,141, 84,141, 68,148, 60,163, 56,184, 53,227, 49,264, 47,289, 38,316, 28,344, 13,361, 3,368, 3,374, 13,375, 7,390, 8,400, 15,407, 33,403, 41,388, 46,374, 46,361, 53,344, 64,323, 74,298, 80,275, 83,247, 85,217, 93,194, 106,141, 205,141, 224,141, 234,148, 251,169, 256,189, 259,217, 263,245, 269,267, 276,293, 279,326, 283,346, 295,359, 304,370, 301,375, 293,374, 300,386, 302,396, 296,404, 287,407, 276,404, 270,393, 266,380, 262,364, 263,351, 258,335, 249,315, 244,294, 237,267, 233,241, 226,213, 200,141",
             accesskey: "4",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Arms);
             }
         });
@@ -618,7 +623,7 @@ var mode = "diagnosis";
             coords: "125,1, 89,12, 78,32, 75,63, 79,92, 91,115, 101,128, 96,152, 160,152, 154,129, 169,111, 177,91, 182,61, 180,33, 168,13, 147,4, 128,2",
             accesskey: "0",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Head);
             }
         });
@@ -628,7 +633,7 @@ var mode = "diagnosis";
             coords: "94,147, 92,147, 70,153, 56,158, 56,263, 59,286, 62,307, 196,307, 204,266, 199,161, 163,152, 94,152",
             accesskey: "1",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Chest);
             }
         });
@@ -638,7 +643,7 @@ var mode = "diagnosis";
             coords: "60,307, 59,343, 58,376, 61,439, 192,439, 197,399, 199,362, 197,329, 197,307, 66,307",
             accesskey: "2",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Hips);
             }
         });
@@ -648,7 +653,7 @@ var mode = "diagnosis";
             coords: "61,439, 61,474, 66,531, 65,569, 69,613, 74,651, 78,693, 75,716, 56,746, 57,756, 73,762, 89,764, 102,758, 111,744, 114,730, 113,720, 110,706, 113,676, 117,643, 121,598, 119,568, 121,539, 123,511, 125,475, 127,440, 131,511, 132,559, 133,597, 135,627, 139,660, 147,701, 144,733, 150,751, 164,761, 183,764, 202,757, 202,749, 195,737, 184,714, 179,688, 184,651, 188,610, 189,581, 187,556, 186,526, 189,489, 191,458, 193,439, 64,439",
             accesskey: "3",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Legs);
             }
         });
@@ -658,7 +663,7 @@ var mode = "diagnosis";
             coords: "56,158, 34,175, 27,193, 21,216, 18,246, 16,276, 11,300, 6,329, 6,356, 7,389, 9,415, 10,437, 12,450, 18,459, 34,465, 43,463, 46,445, 47,432, 46,419, 40,407, 38,387, 41,356, 46,323, 46,305, 48,281, 56,264, 56,158, 199,162, 218,173, 229,196, 236,235, 243,290, 252,324, 251,349, 249,382, 252,412, 250,448, 234,464, 221,465, 214,449, 212,432, 216,415, 221,401, 223,380, 217,348, 215,321, 211,299, 204,273, 199,162",
             accesskey: "4",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Arms);
             }
         });
@@ -692,7 +697,7 @@ var mode = "diagnosis";
         var statusLink = jQuery("<a/>", {
             "class": "status-change-link",
             href: "javascript:void(0)",
-            click: function () {
+            click: function click() {
                 _setSelectorStatus(selectedStatus);
             }
         });
@@ -711,7 +716,7 @@ var mode = "diagnosis";
             "class": "skin-link",
             href: "javascript:void(0)",
             //text: skinText,
-            click: function () {
+            click: function click() {
                 _selectBodyPart(SymptomsLocations.Skin);
             }
         });
@@ -1110,7 +1115,7 @@ var mode = "diagnosis";
         }
     }
 
-    var substringMatcher = function (strs) {
+    var substringMatcher = function substringMatcher(strs) {
         return function findMatches(q, cb) {
             var matches, substrRegex;
 
@@ -1134,7 +1139,7 @@ var mode = "diagnosis";
         };
     };
 
-    var fillResults = function (symptoms, initTypeAhead) {
+    var fillResults = function fillResults(symptoms, initTypeAhead) {
         var _symptoms = new Array();
         $.each(symptoms, function () {
             if (this.Name !== "" && this.Name !== " ") _symptoms.push(this);
@@ -1261,7 +1266,7 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
             return this.each(function () {
                 _plugin = $(this);
                 _initSymptomList();
@@ -1280,21 +1285,21 @@ var mode = "diagnosis";
                 }
             });
         },
-        LoadBodyLocations: function (options) {
+        LoadBodyLocations: function LoadBodyLocations(options) {
             _ajaxLoadBodyLocations(options.LocationId);
         },
-        LoadBodySublocations: function (options) {
+        LoadBodySublocations: function LoadBodySublocations(options) {
             _avatarOptions = options;
             _loadBodySublocation(options.LocationId, options.SelectorStatus);
             _header.text(_locations[options.LocationId]);
         },
-        GetSelectedSymptoms: function (options) {
+        GetSelectedSymptoms: function GetSelectedSymptoms(options) {
             return _getSelectedSymptoms();
         },
-        SelectSymptom: function (options) {
+        SelectSymptom: function SelectSymptom(options) {
             _selectSymptom(options);
         },
-        SetValidSymptoms: function (options) {
+        SetValidSymptoms: function SetValidSymptoms(options) {
             _validSymptoms = options.ValidSymptoms;
             _avatarOptions.LocationId = options.LocationId;
             _avatarOptions.SelectorStatus = options.SelectorStatus;
@@ -1327,14 +1332,14 @@ var mode = "diagnosis";
                 _addSelectedSymptoms(symptoms);
             }
         },
-        GetValidSymptoms: function (options) {
+        GetValidSymptoms: function GetValidSymptoms(options) {
             return _validSymptoms;
         },
-        LoadProposedSymptoms: function (options) {
+        LoadProposedSymptoms: function LoadProposedSymptoms(options) {
             _clearProposedSymptom();
             _ajaxLoadProposedSymptoms(options.Symptoms, options.Gender, options.YearOfBirth);
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             _selectedList.unbind('click');
             _selectedList.empty();
             _plugin.unbind('click');
@@ -1346,7 +1351,7 @@ var mode = "diagnosis";
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.symptomList');
@@ -1367,14 +1372,14 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addLocationsCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _addLocationsCallback(responseData, selectedLocationId);
             },
-            beforeSend: function (jqXHR, settings) {},
-            error: function (xhr, ajaxOptions, thrownError) {
+            beforeSend: function beforeSend(jqXHR, settings) {},
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {}
+            complete: function complete() {}
         });
     }
 
@@ -1391,16 +1396,16 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addSublocationsCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _addSublocationsCallback(responseData, locationId);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _loader.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _loader.hide();
             }
         });
@@ -1424,16 +1429,16 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addProposedSymptomsCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _addProposedSymptomsCallback(responseData);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 $('#loader').show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 $('#loader').hide();
             }
         });
@@ -1454,16 +1459,16 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_getRedFlagCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _getRedFlagCallback(responseData);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 $('#loader').show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 $('#loader').hide();
             }
         });
@@ -1922,7 +1927,7 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
 
             return this.each(function () {
                 _plugin = $(this);
@@ -1930,11 +1935,11 @@ var mode = "diagnosis";
                 _initDiagnosisList();
             });
         },
-        GetDiagnosis: function (options) {
+        GetDiagnosis: function GetDiagnosis(options) {
             _clearDiagnosis();
             _ajaxGetDiagnosis(options.Symptoms, options.Gender, options.YearOfBirth);
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             _plugin.unbind('click');
             _plugin.empty();
         }
@@ -1944,7 +1949,7 @@ var mode = "diagnosis";
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.diagnosis');
@@ -2186,16 +2191,16 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addDiagnosisCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _addDiagnosisCallback(responseData);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _loader.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _loader.hide();
             }
         });
@@ -2215,17 +2220,17 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addIssueInfoCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _addIssueInfoCallback(responseData);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _infoPage.find("#infoPageLoader").show();
                 _infoPage.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _infoPage.find("#infoPageLoader").hide();
             }
         });
@@ -2251,7 +2256,7 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
 
             return this.each(function () {
                 _plugin = $(this);
@@ -2259,11 +2264,11 @@ var mode = "diagnosis";
                 _initSpecialisationList();
             });
         },
-        GetSpecialisations: function (options) {
+        GetSpecialisations: function GetSpecialisations(options) {
             _clearSpecialisations();
             _ajaxGetSpecialisations(options.Symptoms, options.Gender, options.YearOfBirth);
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             _plugin.unbind('click');
             _plugin.empty();
         }
@@ -2273,7 +2278,7 @@ var mode = "diagnosis";
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.diagnosis');
@@ -2390,16 +2395,16 @@ var mode = "diagnosis";
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addSpecialisationsCallback",
-            success: function (responseData) {
+            success: function success(responseData) {
                 _addSpecialisationsCallback(responseData);
             },
-            beforeSend: function (jqXHR, settings) {
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _loader.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function error(xhr, ajaxOptions, thrownError) {
                 if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _loader.hide();
             }
         });

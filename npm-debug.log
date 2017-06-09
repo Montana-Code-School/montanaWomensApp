@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'dev:client' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 verbose run-script [ 'predev:client', 'dev:client', 'postdev:client' ]
+5 info lifecycle women-wellness-app@1.0.0~predev:client: women-wellness-app@1.0.0
+6 silly lifecycle women-wellness-app@1.0.0~predev:client: no script for predev:client, continuing
+7 info lifecycle women-wellness-app@1.0.0~dev:client: women-wellness-app@1.0.0
+8 verbose lifecycle women-wellness-app@1.0.0~dev:client: unsafe-perm in lifecycle true
+9 verbose lifecycle women-wellness-app@1.0.0~dev:client: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/mnbaird/code/montanaWomensApp/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+10 verbose lifecycle women-wellness-app@1.0.0~dev:client: CWD: /Users/mnbaird/code/montanaWomensApp
+11 silly lifecycle women-wellness-app@1.0.0~dev:client: Args: [ '-c', 'webpack --config webpack.config.client.js --watch' ]
+12 silly lifecycle women-wellness-app@1.0.0~dev:client: Returned: code: 1  signal: null
+13 info lifecycle women-wellness-app@1.0.0~dev:client: Failed to exec dev:client script
+14 verbose stack Error: women-wellness-app@1.0.0 dev:client: `webpack --config webpack.config.client.js --watch`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid women-wellness-app@1.0.0
+16 verbose cwd /Users/mnbaird/code/montanaWomensApp
+17 error Darwin 15.0.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev:client"
+19 error node v6.10.3
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error women-wellness-app@1.0.0 dev:client: `webpack --config webpack.config.client.js --watch`
+22 error Exit status 1
+23 error Failed at the women-wellness-app@1.0.0 dev:client script 'webpack --config webpack.config.client.js --watch'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the women-wellness-app package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     webpack --config webpack.config.client.js --watch
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs women-wellness-app
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls women-wellness-app
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

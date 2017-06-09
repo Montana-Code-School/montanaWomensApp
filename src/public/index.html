@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="eng" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Project Tampon</title>
+    <title>Montana Women</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-       <title>MT Women's App</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
        <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
        <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css" />
        <script src="libs/jquery-1.12.2.min.js"></script>
@@ -13,9 +13,100 @@
        <script src="libs/typeahead.bundle.js"></script>
        <script src="symptom_selector/selector.js?v=3.3"></script>
 
-
     </head>
     <body>
+      <div id="container">
+
+      </div>
+
+      <div id="map-header">
+      <h3>Find Resources Near You!</h3>
+      </div>
+
+      <div id="map"></div>
+      <script>
+        // function initMap() {
+        //   var uluru = {lat: 46.877510, lng: -114.013121};
+        //   var map = new google.maps.Map(document.getElementById('map'), {
+        //     zoom: 12,
+        //     scrollwheel: false,
+        //     center: uluru
+        //   });
+        //   var marker = new google.maps.Marker({
+        //     position: uluru,
+        //     map: map
+        //   });
+        // }
+
+       var map;
+       var infowindow;
+
+       function initMap() {
+          // var styledMapType = new google.mapsStyledMapType(
+          // [
+          //   {
+          //       "featureType": "poi.medical",
+          //       "elementType": "labels.icon",
+          //       "stylers": [
+          //         {
+          //           "color": "#ff1c5e"
+          //         }
+          //     ]
+          //   }
+          // ],
+          // {name: 'Styled Map'});
+
+         var missoula = {lat: 46.878178, lng: -114.001003};
+
+         map = new google.maps.Map(document.getElementById('map'), {
+           center: missoula,
+           zoom: 12,
+           scrollwheel: false
+          //  mapTypeControlOptions: {
+          //    mapTypeIds: ['styled_map']
+          //  }
+         });
+
+        //  map.mapTypes.set('styled_map', styledMapType);
+        //  map.setMapTypeId('styled_map');
+
+         infowindow = new google.maps.InfoWindow();
+         var service = new google.maps.places.PlacesService(map);
+         service.nearbySearch({
+           location: missoula,
+           radius: 5000,
+           type: ['doctor']
+         }, callback);
+       }
+
+       function callback(results, status) {
+         if (status === google.maps.places.PlacesServiceStatus.OK) {
+           for (var i = 0; i < results.length; i++) {
+             createMarker(results[i]);
+           }
+         }
+       }
+
+       function createMarker(place) {
+         var placeLoc = place.geometry.location;
+         var marker = new google.maps.Marker({
+           map: map,
+           position: place.geometry.location
+         });
+
+         google.maps.event.addListener(marker, 'click', function() {
+           infowindow.setContent(place.name);
+           infowindow.open(map, this);
+         });
+       }
+
+
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE&callback=initMap&libraries=places">
+
+      </script>
+
       <h1>Symptom Checker</h1>
        <table class="container-table">
            <tr>
@@ -35,10 +126,6 @@
            <span><a class="priaid-powered" target="_blank" href="http://corporate.priaid.ch"> powered by priaid</a> </span>
        </div>
 
-    <div id="container">
-
-    </div>
-
 
     <script src="js/bundle.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
@@ -46,7 +133,7 @@
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
     <!-- <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
         $(document).ready(function () {
             $("#symptomSelector").symptomSelector(
@@ -55,9 +142,10 @@
                 webservice: "https://sandbox-healthservice.priaid.ch", //or for live data https://healthservice.priaid.ch
                 language: "en-gb", // You can change language here to de-ch, tr-tr...
                 specUrl: "sampleSpecialisationPage",// Here should come url for specialisations doctor search page
-                accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhbHR3b0BnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjE3NTMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMTctMDYtMDUiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTQ5NjgwNjg5NywibmJmIjoxNDk2Nzk5Njk3fQ._tFY8aohHsai8eiHN1q9kM9kPLmPH4Z3y7RbQlcUO-U" //Place here your token
+                accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1uYmFpcmRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMjAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE3LTA2LTAyIiwiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LWF1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE0OTY4NjU4MDEsIm5iZiI6MTQ5Njg1ODYwMX0.mBaknA6Y_wjPBD8cDierBOnIJBYQPxb9MDdHJKjtjI8" //Place here your token
             });
         });
-    </script>
+    </script> -->
+
   </body>
 </html>

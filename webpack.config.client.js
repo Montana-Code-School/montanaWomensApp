@@ -3,18 +3,15 @@ const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
-    context: srcPath,
-    target: 'web',
+   context: srcPath,
+   target: 'web',
 
-    entry: {
-      a: './public/js/app.js',
-      b: './public/symptom_selector/selector.js'
-    }
-    output: {
-        path: srcPath,
-        filename: './public/js/bundle.js',
-        publicPath: '/'
-    },
+   entry: './public/js/app.js',
+   output: {
+       path: srcPath,
+       filename: './public/js/bundle.js',
+       publicPath: '/'
+   },
     resolve: {
         modules: ['node_modules', 'src'],
         extensions: ['*', '.js', '.json']
