@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Gmap from './gmap';
+
 
 
 
@@ -67,17 +69,16 @@ function Box(prop) {
   var boxStyle = {
     backgroundColor: prop.bgcolor,
     display: "inline-block",
-    paddingTop: 10,
-    paddingBottom: 40,
-    paddingLeft:5,
-    paddingRight:5,
+    padding: "5px",
+    margin: "5px",
     textAlign: "center",
-    fontSize: "20"
+    fontSize: "20",
+    // color: "white"
 
   };
   return (
-    <div className= "col-lg-3" style={boxStyle}>
-      <h2> {prop.title} </h2>
+    <div className= "col-lg-4" style={boxStyle}>
+      <h2><a href={prop.link}> {prop.title} </a></h2>
       <p> {prop.description} </p>
     </div>
   );
@@ -86,10 +87,17 @@ function Box(prop) {
 function Row() {
   return(
   <div>
-    <Box bgcolor="#8F3985" title="Pharmacies" description="Find a pharmacy near you"/>
-    <Box bgcolor="#1B998B" title="Doctors/Clinics" description="Find a clinic/doctor to suit your needs" />
-    <Box bgcolor="#D664BE" title="Counseling" description="Find the help you need." />
-    <Box bgcolor="#A44200" title="Resources" description="Connect with local women!" />
+    <ul className='row'>
+    <Box bgcolor="#8f3985" className="col-lg-4" title="Pharmacies" description="Find a pharmacy near you"/>
+    <Box bgcolor="#1B998B" link="/doctors.html" className="col-lg-4" title="Doctors/Clinics" description="Find a clinic/doctor to suit your needs" />
+    <Box bgcolor="#A44200" link="/counseling" className="col-lg-4" title="Counseling" description="Find the help you need." />
+    </ul>
+
+    <ul className='row'>
+    <Box bgcolor="#C9621e" link="/birthcontrol.html" title="Birth Control Methods" description="Explore different methods" />
+    <Box bgcolor="#D664BE" link="/resources.html" title="Resources" description="Connect with local women!" />
+    <Box bgcolor="#1B998B" link="/symptomchecker.html" title="Symptom Checker" description=" blahhhhhh" />
+    </ul>
   </div>
   );
 }
@@ -101,6 +109,7 @@ function App() {
       <Navbar />
       <Header/>
       <Row />
+      <Gmap />
     </div>
   );
 }
