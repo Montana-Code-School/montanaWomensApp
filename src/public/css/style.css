@@ -56,7 +56,12 @@ ul.row {
 
  }
 
- a {
-   color:inherit;
+ a:link {
+   color:black;
    decoration: none;
  }
+
+a:visited {
+  color: black;
+  decoration: none;
+}

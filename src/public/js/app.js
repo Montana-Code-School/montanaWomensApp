@@ -59,7 +59,6 @@ function Header() {
 
       <h1> Montana Women </h1>
       <h3> Empowering Montana Women With the Resources They Need </h3>
-      <h4> "The Women's Swiss Army Knife!"</h4>
 
     </div>
   );
@@ -88,15 +87,15 @@ function Row() {
   return(
   <div>
     <ul className='row'>
-    <Box bgcolor="#8f3985" className="col-lg-4" title="Pharmacies" description="Find a pharmacy near you"/>
+    <Box bgcolor="#8f3985" link="/pharmacies.html" className="col-lg-4" title="Pharmacies" description="Find a pharmacy near you"/>
     <Box bgcolor="#1B998B" link="/doctors.html" className="col-lg-4" title="Doctors/Clinics" description="Find a clinic/doctor to suit your needs" />
-    <Box bgcolor="#A44200" link="/counseling" className="col-lg-4" title="Counseling" description="Find the help you need." />
+    <Box bgcolor="#A44200" link="/counseling.html" className="col-lg-4" title="Counseling" description="Find the help you need." />
     </ul>
 
     <ul className='row'>
     <Box bgcolor="#C9621e" link="/birthcontrol.html" title="Birth Control Methods" description="Explore different methods" />
     <Box bgcolor="#D664BE" link="/resources.html" title="Resources" description="Connect with local women!" />
-    <Box bgcolor="#1B998B" link="/symptomchecker.html" title="Symptom Checker" description=" blahhhhhh" />
+    <Box bgcolor="#1B998B" link="/symptomchecker.html" title="Symptom Checker" description=" Check Yoself!" />
     </ul>
   </div>
   );

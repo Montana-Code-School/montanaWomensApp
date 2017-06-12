@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>Resources</title>
+  </head>
+  <body>
+    <div id="container">
+
+    </div>
+    <script type="text/babel">
+
+    function Navbar(prop){
+
+      return(
+        <div className="navbar navbar-default">
+          <div className="navbar-header">
+            <ul className="navbar-nav">
+              <li className="active"><a href="/index.html">Home</a></li>
+              <li className="color"><a href="#">Emergency Hotline: 1-800-000-000</a></li>
+            </ul>
+          </div>
+        </div>
+      );
+    }
+
+      function Header() {
+        return(
+          <div className="jumbotron">
+            <h1> Resources </h1>
+          </div>
+        );
+      }
+
+      function List(prop) {
+        return (
+          <div>
+          <h1> {prop.title} </h1>
+          <p> {prop.description} </p>
+          <h5> {prop.website} </h5>
+          <h6> {prop.number} </h6>
+          </div>
+        );
+      }
+
+      function Rows() {
+        return(
+          <div>
+            <ul>
+              <List title="1" description="this is a description"  website="www.something.com"/>
+              <List title="2" description="this is a description"  website="www.something.com"/>
+              <List title="3" description="this is a description"  website="www.something.com"/>
+              <List title="4" description="this is a description"  website="www.something.com"/>
+              <List title="5" description="this is a description"  website="www.something.com"/>
+              <List title="6" description="this is a description"  website="www.something.com"/>
+              <List title="7" description="this is a description"  website="www.something.com"/>
+              <List title="8" description="this is a description"  website="www.something.com"/>
+            </ul>
+          </div>
+        );
+      }
+
+
+      function App() {
+        return(
+          <div>
+            <Navbar/>
+            <Header/>
+            <Rows/>
+          </div>
+        );
+      }
+
+
+      ReactDOM.render(
+        <App />,
+      document.getElementById('container')
+    );
+
+    </script>
+  </body>
+</html>
