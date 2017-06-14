@@ -44,10 +44,21 @@ function Navbar(prop){
   return(
     <div className="navbar navbar-default">
       <div className="navbar-header">
-        <ul className="navbar-nav">
-          <li className="active"><a href="#">Home</a></li>
-          <li className="color"><a href="#">Emergency Hotline: 1-800-000-000</a></li>
-        </ul>
+       <div className='dropdown'>
+        <button className = 'btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle ='dropdown'
+        aria-haspopup='true' aria-expanded='false'>
+        Help Line
+        </button>
+      <div className='dropdownMenu' aria-labelledby='dropdownMenuButton'>
+        <a className ='dropdownItem' href='#'> Emergency call 911</a>
+        <a className ='dropdownItem' href='#'> Drug and Alcohol Abuse 1-(855)603-2445</a>
+        <a className ='dropdownItem' href='#'> Domestic Violence Hotline 1-(800)799-7233</a>
+       </div>
+      </div>
+      //  <ul className="navbar-nav">
+        //  <li className="active"><a href="#">Home</a></li>
+          //<li className="color"><a href="#">Emergency Hotline: 1-800-000-000</a></li>
+        //</ul>
       </div>
     </div>
   );
@@ -72,7 +83,7 @@ function Box(prop) {
     padding: "5px",
     margin: "5px",
     textAlign: "center",
-    fontSize: "20",
+    fontSize: 20,
     // color: "white"
 
   };
@@ -85,6 +96,11 @@ function Box(prop) {
 }
 
 function Row() {
+  render:function(){
+    var rowStyle={
+      WebkitFilter: 'drop-shadow(0px 0px 5px  #666)',
+      filter: 'drop-shadow(0px 0px 5px #666)'
+   };
   return(
   <div>
     <ul className='row'>
@@ -100,6 +116,7 @@ function Row() {
     </ul>
   </div>
   );
+ }
 }
 
 
