@@ -16,10 +16,23 @@
     </div>
     <script type="text/babel">
 
+    // render(
+    //   <div>
+    //   <Navbar navColor='rgba(143, 57, 133, 0.6)'>
+    //     <Nav pullLeft>
+    //       <NavItem className="nav-item"><a href="/index.html">HOME</a></NavItem>
+    //       <NavItem className="nav-item">ABOUT US</NavItem>
+    //     </Nav>
+    //     <Nav pullRight>
+    //       <NavItem className="nav-item">CONTACT</NavItem>
+    //     </Nav>
+    //   </Navbar>
+    // );
+
     function Navbar(prop){
 
       return(
-        <div className="navbar navbar-default">
+        <div className="navbar nav-item">
           <div className="navbar-header">
             <ul className="navbar-nav">
               <li className="active"><a href="/index.html">Home</a></li>
@@ -31,19 +44,35 @@
     }
 
       function Header() {
+        var headerStyle = {
+          textAlign: "center"
+        }
         return(
-          <div className="jumbotron">
+          <div className="jumbotron" style={headerStyle}>
             <h1> Birth Control Methods </h1>
           </div>
         );
       }
 
       function List(prop) {
+        var headerStyle = {
+          textAlign: "center"
+        }
+        var imgStyle = {
+          margin: "auto",
+          paddingBottom: "20px",
+          paddingTop: "10px"
+        }
+        var pStyle = {
+          paddingRight: "10px",
+          marginRight: "10px"
+        }
+
         return (
           <div className="col-lg-3">
-          <h1> {prop.title} </h1>
-          <img className="img-responsive" src={prop.link} />
-          <p> {prop.description} </p>
+          <h1 style={headerStyle}> {prop.title} </h1>
+          <img style={imgStyle} className="img-responsive" src={prop.link} />
+          <p style={pStyle}> {prop.description} </p>
           </div>
         );
       }

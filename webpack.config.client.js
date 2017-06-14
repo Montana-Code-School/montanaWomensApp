@@ -1,15 +1,18 @@
 const path = require('path');
-const srcPath = path.resolve(__dirname, 'src');
+const srcPath = path.resolve(__dirname, 'src/public');
 const distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
    context: srcPath,
    target: 'web',
 
-   entry: './public/js/app.js',
+   entry: {
+     vendor: './symptom_selector/selector.js',
+     app: './js/app.js'
+   },
    output: {
        path: srcPath,
-       filename: './public/js/bundle.js',
+       filename: '[name].bundle.js',
        publicPath: '/'
    },
     resolve: {
