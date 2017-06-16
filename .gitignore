@@ -1,2 +1,4 @@
 node_modules
-dist
+dist/*
+*.bundle.js
+*.bundle.map.js
