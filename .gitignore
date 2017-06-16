@@ -1,2 +1,6 @@
+dist/*
 node_modules
-dist
+src/public/app.bundle.js
+src/public/vendor.bundle.js
+src/public/app.bundle.map.js
+src/public/vendor.bundle.map.js
