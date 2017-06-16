@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="eng" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Project Tampon</title>
     <meta charset="utf-8">
+    <title>MT Women's App</title>
+    <script src="libs/jquery-1.12.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-       <title>MT Women's App</title>
-       <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
-       <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css" />
-       <script src="libs/jquery-1.12.2.min.js"></script>
-       <script src="libs/json2.js"></script><!-- json for ie7 -->
-       <script src="libs/jquery.imagemapster.min.js?v=1.1"></script>
-       <script src="libs/typeahead.bundle.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
+    <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css">
+    <script src="libs/json2.js"></script><!-- json for ie7 -->
 
+    <script src="libs/jquery.imagemapster.min.js?v=1.1"></script>
+    <script src="libs/typeahead.bundle.js"></script>
 
-    </head>
+    <script src="symptom_selector/selector.js?v=3.3"></script>
+
+  </head>
     <body>
       <h1>Symptom Checker</h1>
        <table class="container-table">
@@ -39,12 +40,13 @@
 
     </div>
 
-    <script src="symptom_selector/selector.js?v=3.3"></script>
-    <script src="../app.bundle.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
     <script src="https://unpkg.com/react@15.3.1/dist/react.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../app.bundle.js"></script>
+
+
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -54,7 +56,7 @@
                 webservice: "https://sandbox-healthservice.priaid.ch", //or for live data https://healthservice.priaid.ch
                 language: "en-gb", // You can change language here to de-ch, tr-tr...
                 specUrl: "sampleSpecialisationPage",// Here should come url for specialisations doctor search page
-                accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhbHR3b0BnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjE3NTMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMTctMDYtMDUiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTQ5Njg3OTkyMCwibmJmIjoxNDk2ODcyNzIwfQ.vSVdMYBuw0JTmNHvcRmvqbShUHhdYEZdHWMUiFS-BYI" //Place here your token
+                accessToken: "" //Place here your token
             });
         });
     </script>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import xml2js from 'xml2js';
-import striptags from 'striptags';
+// import striptags from 'striptags';
 
 
 class App extends React.Component {

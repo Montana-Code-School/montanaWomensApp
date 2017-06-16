@@ -1,4 +1,82 @@
-﻿/**
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 397);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 397:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
  * ApiMedic.com Sample Avatar, a demo implementation of the ApiMedic.com Symptom Checker by priaid Inc, Switzerland
  *
  * Copyright (C) 2012 priaid inc, Switzerland
@@ -17,31 +95,30 @@
  * Authors: priaid inc, Switzerland
  */
 
-var keys = [
-    "litTermsOfUsePolicyPrivacy",//disclaimerText
-    "litDisclaimerNotChecked",//disclaimerNotAcceptedText
-    "litAddAdditionalComplaints",//noSelectedSymptomsText
-    "litEmergencyInfo",//diagnosisMessage
-    "litEmptyDiagnosisDataTemplate",//noDiagnosisMessage
-    "litSuggestedSymptoms",//proposedSymptomsText
-    "litCarouselItem4",//symptomListMessage
-    "genAvatarText",//skinText
-    "litYears",//bornOnText
-    "litSearchSymptoms",//typeYourSymptomsText
-    "genSelectSymptoms",//selectSymptomsText
-    "genSelectedSymptoms",//selectedSymptomsText
-    "genPossibleDiseases",//possibleDiseasesText
-    "btnGenerateDiagnose",//makeDiagnosisText
-    "txtProfessionalName",//litProfName
-    "genShortDescription",//litShortDescription
-    "genDescription",//litDescription
-    "genOccurrence",//litOccurrence
-    "genSymptom",//litSymptom
-    "genFollow1",//litFollow
-    "genTreatment",//litTreatment
-    "litPossibleSymptoms",//litPossibleSymptoms
-    "litTermsOfUse", //litTermsOfUse
-    "litPrivacyPolicy" // litPrivacyPolicy
+var keys = ["litTermsOfUsePolicyPrivacy", //disclaimerText
+"litDisclaimerNotChecked", //disclaimerNotAcceptedText
+"litAddAdditionalComplaints", //noSelectedSymptomsText
+"litEmergencyInfo", //diagnosisMessage
+"litEmptyDiagnosisDataTemplate", //noDiagnosisMessage
+"litSuggestedSymptoms", //proposedSymptomsText
+"litCarouselItem4", //symptomListMessage
+"genAvatarText", //skinText
+"litYears", //bornOnText
+"litSearchSymptoms", //typeYourSymptomsText
+"genSelectSymptoms", //selectSymptomsText
+"genSelectedSymptoms", //selectedSymptomsText
+"genPossibleDiseases", //possibleDiseasesText
+"btnGenerateDiagnose", //makeDiagnosisText
+"txtProfessionalName", //litProfName
+"genShortDescription", //litShortDescription
+"genDescription", //litDescription
+"genOccurrence", //litOccurrence
+"genSymptom", //litSymptom
+"genFollow1", //litFollow
+"genTreatment", //litTreatment
+"litPossibleSymptoms", //litPossibleSymptoms
+"litTermsOfUse", //litTermsOfUse
+"litPrivacyPolicy" // litPrivacyPolicy
 ];
 
 var disclaimerText = "";
@@ -70,8 +147,6 @@ var litPossibleSymptoms = "";
 var litTermsOfUse = "";
 var litPrivacyPolicy = "";
 var resObj = {};
-
-
 
 /////////////////////////////Optional parameters//////////////////////////////////
 
@@ -115,29 +190,26 @@ var mode = "diagnosis";
 
     var _plugin;
 
-    var selectorStatus =
-        {
-            Man: "Man",
-            Woman: "Woman",
-            Boy: "Boy",
-            Girl: "Girl"
-        };
+    var selectorStatus = {
+        Man: "Man",
+        Woman: "Woman",
+        Boy: "Boy",
+        Girl: "Girl"
+    };
 
-    var Gender =
-        {
-            Male: "Male",
-            Female: "Female"
-        };
+    var Gender = {
+        Male: "Male",
+        Female: "Female"
+    };
 
-    var SymptomsLocations =
-        {
-            Head: 6,
-            Chest: 15,
-            Arms: 7,
-            Legs: 10,
-            Hips: 16,
-            Skin: 17
-        };
+    var SymptomsLocations = {
+        Head: 6,
+        Chest: 15,
+        Arms: 7,
+        Legs: 10,
+        Hips: 16,
+        Skin: 17
+    };
 
     var _childAvatar;
     var _womanAvatar;
@@ -166,11 +238,9 @@ var mode = "diagnosis";
     var symptomListId = "symptomList";
     var _diagnosisListId = "diagnosisList";
 
-
-
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
 
             return this.each(function () {
                 _plugin = $(this);
@@ -182,11 +252,9 @@ var mode = "diagnosis";
                     specUrl = options.specUrl;
                 }
 
-                if (options.includeAllSpec)
-                    includeAllSpec = options.includeAllSpec;
+                if (options.includeAllSpec) includeAllSpec = options.includeAllSpec;
 
-                if (options.platform)
-                    currentPlatform = options.platform;
+                if (options.platform) currentPlatform = options.platform;
 
                 if (options.redirectUrl) {
                     setCookie("selectedBodyPart", "", -1);
@@ -206,25 +274,22 @@ var mode = "diagnosis";
                 }
 
                 _ajaxGetSpecificResources();
-
             });
         },
-        Resize: function (options) {
+        Resize: function Resize(options) {
             var currentAvatar = _getAvatarByStatus(_selectedSelectorStatus);
             _resizeSelector(currentAvatar);
         },
-        Select: function (options) {
+        Select: function Select(options) {
             var currentAvatar = _getAvatarByStatus(_selectedSelectorStatus);
             _resizeSelector(currentAvatar);
         },
-        GetSelectedSymptoms: function (options) {
+        GetSelectedSymptoms: function GetSelectedSymptoms(options) {
             return $("#" + symptomListId).symptomList("GetSelectedSymptoms");
         },
-        Unbind: function (options) {
-            if (_symptomList.children().length != 0)
-                _symptomList.symptomList("Unbind");
-            if ($("#" + _diagnosisListId).children().length != 0)
-                $("#" + _diagnosisListId).diagnosis("Unbind");
+        Unbind: function Unbind(options) {
+            if (_symptomList.children().length != 0) _symptomList.symptomList("Unbind");
+            if ($("#" + _diagnosisListId).children().length != 0) $("#" + _diagnosisListId).diagnosis("Unbind");
 
             var avatar = _getAvatarByStatus(_selectedSelectorStatus);
             avatar.mapster('unbind');
@@ -238,12 +303,11 @@ var mode = "diagnosis";
     $.fn.symptomSelector = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.symptomSelector');
         }
-
     };
 
     //////////////////ajax calls//////////////////////////////////////////
@@ -252,60 +316,57 @@ var mode = "diagnosis";
         $.ajax({
             url: pathToWebservice + "/symptoms/0/" + _selectedSelectorStatus,
             type: "GET",
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language,
-                    platform: currentPlatform
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language,
+                platform: currentPlatform
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             async: false,
             dataType: "jsonp",
             jsonp: "callback",
             jsonpCallback: "fillResults",
-            success: function (responseData) { fillResults(responseData, initTypeAhead); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                fillResults(responseData, initTypeAhead);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 $('#loader').show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 $('#loader').hide();
             }
         });
-
     }
 
     function _ajaxGetSpecificResources() {
         $.ajax({
             url: pathToWebservice + "/specificresources",
             type: "GET",
-            data:
-                {
-                    keys: JSON.stringify(keys),
-                    token: token,
-                    format: "json",
-                    language: language
-                },
+            data: {
+                keys: JSON.stringify(keys),
+                token: token,
+                format: "json",
+                language: language
+            },
             async: false,
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonp: "callback",
             jsonpCallback: "_setSpecificResourcesCallback",
-            success: function (responseData) { _setSpecificResourcesCallback(responseData); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _setSpecificResourcesCallback(responseData);
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            beforeSend: function beforeSend(jqXHR, settings) {},
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
-            }
+            complete: function complete() {}
         });
     }
 
@@ -335,11 +396,9 @@ var mode = "diagnosis";
     }
 
     function _createSelectorTable() {
-        var selectorTable = jQuery("<table/>", {
-        });
+        var selectorTable = jQuery("<table/>", {});
 
-        var selectorTableRow = jQuery("<tr/>", {
-        });
+        var selectorTableRow = jQuery("<tr/>", {});
 
         var statusContainer = _createChangeStatusContainer();
 
@@ -411,19 +470,19 @@ var mode = "diagnosis";
         });
 
         switch (_selectedSelectorStatus) {
-            case (selectorStatus.Man):
+            case selectorStatus.Man:
                 this._womanAvatar.hide();
                 this._childAvatar.hide();
                 break;
-            case (selectorStatus.Woman):
+            case selectorStatus.Woman:
                 this._manAvatar.hide();
                 this._childAvatar.hide();
                 break;
-            case (selectorStatus.Boy):
+            case selectorStatus.Boy:
                 this._manAvatar.hide();
                 this._womanAvatar.hide();
                 break;
-            case (selectorStatus.Girl):
+            case selectorStatus.Girl:
                 this._manAvatar.hide();
                 this._womanAvatar.hide();
                 break;
@@ -445,7 +504,9 @@ var mode = "diagnosis";
             coords: "152,3, 150,1, 134,5, 123,12, 116,26, 114,41, 111,52, 114,64, 120,77, 124,86, 126,98, 123,110, 183,110, 179,98, 181,87, 183,75, 189,66, 195,59, 193,51, 191,46, 187,39, 186,31, 186,25, 181,17, 177,12, 171,6, 161,1, 154,1",
             accesskey: "0",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Head); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Head);
+            }
         });
 
         var area2 = jQuery("<area/>", {
@@ -453,7 +514,9 @@ var mode = "diagnosis";
             coords: "122,109, 119,106, 109,115, 97,121, 86,123, 79,126, 75,127, 75,182, 75,202, 76,213, 78,227, 79,237, 82,252, 84,258, 86,268, 221,268, 230,233, 233,213, 233,187, 233,175, 233,160, 233,126, 229,124, 204,117, 189,110, 117,110",
             accesskey: "1",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Chest); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Chest);
+            }
         });
 
         var area3 = jQuery("<area/>", {
@@ -461,7 +524,9 @@ var mode = "diagnosis";
             coords: "85,268, 91,303, 90,319, 87,342, 84,363, 83,380, 80,400, 79,411, 79,420, 80,433, 231,433, 231,398, 229,375, 224,340, 222,316, 220,287, 221,268, 84,268",
             accesskey: "2",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Hips); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Hips);
+            }
         });
 
         var area4 = jQuery("<area/>", {
@@ -469,7 +534,9 @@ var mode = "diagnosis";
             coords: "80,433, 78,433, 80,453, 84,481, 85,505, 84,532, 80,559, 77,585, 79,612, 83,653, 85,691, 85,716, 79,734, 76,753, 85,764, 99,767, 111,766, 120,762, 126,754, 125,741, 123,725, 121,707, 116,671, 117,647, 126,626, 127,606, 127,590, 124,577, 124,567, 135,524, 141,489, 146,466, 150,450, 153,438, 158,441, 166,468, 172,505, 181,547, 186,569, 182,592, 183,612, 188,639, 191,659, 188,704, 186,738, 185,754, 190,767, 207,767, 224,762, 232,753, 232,742, 227,730, 222,720, 223,705, 221,685, 221,677, 225,653, 230,622, 232,599, 231,567, 228,538, 228,511, 230,488, 232,467, 231,447, 231,433, 79,433",
             accesskey: "3",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Legs); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Legs);
+            }
         });
 
         var area5 = jQuery("<area/>", {
@@ -477,7 +544,9 @@ var mode = "diagnosis";
             coords: "51,130, 33,146, 25,170, 25,187, 26,222, 24,239, 27,265, 22,283, 20,301, 21,316, 22,326, 16,338, 8,354, 6,363, 1,376, 6,380, 14,369, 23,382, 26,401, 34,414, 47,411, 50,405, 52,396, 56,392, 60,378, 59,360, 55,347, 53,337, 54,324, 59,303, 65,288, 66,270, 65,253, 65,249, 75,236, 75,221, 75,124, 53,129, 233,126, 262,136, 274,152, 280,174, 279,194, 282,221, 286,253, 283,286, 285,312, 288,340, 297,348, 301,362, 307,374, 305,378, 298,373, 293,366, 288,383, 282,403, 273,413, 266,411, 261,404, 258,397, 254,394, 250,375, 248,357, 250,349, 251,344, 255,333, 255,326, 250,300, 246,276, 244,255, 233,242, 233,237, 233,125",
             accesskey: "4",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Arms); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Arms);
+            }
         });
 
         manMap.append(area1);
@@ -500,7 +569,9 @@ var mode = "diagnosis";
             coords: "150,1, 124,8, 115,17, 110,36, 104,54, 98,71, 96,85, 98,102, 107,119, 118,130, 122,138, 185,138, 189,135, 187,132, 189,125, 201,113, 207,95, 208,76, 205,65, 201,52, 199,33, 195,24, 185,11, 168,3, 153,1",
             accesskey: "0",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Head); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Head);
+            }
         });
 
         var area2 = jQuery("<area/>", {
@@ -508,7 +579,9 @@ var mode = "diagnosis";
             coords: "121,139, 105,139, 95,187, 89,208, 90,220, 96,227, 103,235, 105,245, 204,245, 206,236, 211,226, 218,217, 221,209, 219,194, 201,142, 188,139, 120,139",
             accesskey: "1",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Chest); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Chest);
+            }
         });
 
         var area3 = jQuery("<area/>", {
@@ -516,7 +589,9 @@ var mode = "diagnosis";
             coords: "104,244, 106,270, 108,292, 103,311, 97,329, 92,346, 90,359, 90,375, 91,386, 222,386, 223,365, 220,348, 217,329, 211,315, 208,300, 203,287, 203,277, 204,260, 205,244, 103,244",
             accesskey: "2",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Hips); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Hips);
+            }
         });
 
         var area4 = jQuery("<area/>", {
@@ -524,7 +599,9 @@ var mode = "diagnosis";
             coords: "91,386, 94,437, 101,489, 109,532, 105,554, 99,577, 98,595, 102,621, 112,664, 116,704, 105,729, 96,742, 94,752, 104,760, 121,764, 133,762, 139,755, 143,747, 143,735, 138,714, 140,662, 144,626, 146,596, 141,559, 140,545, 142,513, 145,482, 148,447, 150,410, 147,397, 151,392, 157,396, 159,423, 160,463, 163,505, 167,537, 165,565, 159,594, 162,625, 166,652, 168,687, 166,714, 163,735, 162,752, 169,761, 185,765, 204,760, 213,747, 211,738, 205,732, 195,715, 191,695, 192,674, 197,653, 203,630, 209,607, 211,585, 207,568, 202,556, 200,540, 199,523, 205,501, 211,475, 215,456, 221,426, 221,405, 222,386, 94,386",
             accesskey: "3",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Legs); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Legs);
+            }
         });
 
         var area5 = jQuery("<area/>", {
@@ -532,7 +609,9 @@ var mode = "diagnosis";
             coords: "106,141, 84,141, 68,148, 60,163, 56,184, 53,227, 49,264, 47,289, 38,316, 28,344, 13,361, 3,368, 3,374, 13,375, 7,390, 8,400, 15,407, 33,403, 41,388, 46,374, 46,361, 53,344, 64,323, 74,298, 80,275, 83,247, 85,217, 93,194, 106,141, 205,141, 224,141, 234,148, 251,169, 256,189, 259,217, 263,245, 269,267, 276,293, 279,326, 283,346, 295,359, 304,370, 301,375, 293,374, 300,386, 302,396, 296,404, 287,407, 276,404, 270,393, 266,380, 262,364, 263,351, 258,335, 249,315, 244,294, 237,267, 233,241, 226,213, 200,141",
             accesskey: "4",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Arms); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Arms);
+            }
         });
 
         womanMap.append(area1);
@@ -555,7 +634,9 @@ var mode = "diagnosis";
             coords: "125,1, 89,12, 78,32, 75,63, 79,92, 91,115, 101,128, 96,152, 160,152, 154,129, 169,111, 177,91, 182,61, 180,33, 168,13, 147,4, 128,2",
             accesskey: "0",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Head); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Head);
+            }
         });
 
         var area2 = jQuery("<area/>", {
@@ -563,7 +644,9 @@ var mode = "diagnosis";
             coords: "94,147, 92,147, 70,153, 56,158, 56,263, 59,286, 62,307, 196,307, 204,266, 199,161, 163,152, 94,152",
             accesskey: "1",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Chest); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Chest);
+            }
         });
 
         var area3 = jQuery("<area/>", {
@@ -571,7 +654,9 @@ var mode = "diagnosis";
             coords: "60,307, 59,343, 58,376, 61,439, 192,439, 197,399, 199,362, 197,329, 197,307, 66,307",
             accesskey: "2",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Hips); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Hips);
+            }
         });
 
         var area4 = jQuery("<area/>", {
@@ -579,7 +664,9 @@ var mode = "diagnosis";
             coords: "61,439, 61,474, 66,531, 65,569, 69,613, 74,651, 78,693, 75,716, 56,746, 57,756, 73,762, 89,764, 102,758, 111,744, 114,730, 113,720, 110,706, 113,676, 117,643, 121,598, 119,568, 121,539, 123,511, 125,475, 127,440, 131,511, 132,559, 133,597, 135,627, 139,660, 147,701, 144,733, 150,751, 164,761, 183,764, 202,757, 202,749, 195,737, 184,714, 179,688, 184,651, 188,610, 189,581, 187,556, 186,526, 189,489, 191,458, 193,439, 64,439",
             accesskey: "3",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Legs); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Legs);
+            }
         });
 
         var area5 = jQuery("<area/>", {
@@ -587,7 +674,9 @@ var mode = "diagnosis";
             coords: "56,158, 34,175, 27,193, 21,216, 18,246, 16,276, 11,300, 6,329, 6,356, 7,389, 9,415, 10,437, 12,450, 18,459, 34,465, 43,463, 46,445, 47,432, 46,419, 40,407, 38,387, 41,356, 46,323, 46,305, 48,281, 56,264, 56,158, 199,162, 218,173, 229,196, 236,235, 243,290, 252,324, 251,349, 249,382, 252,412, 250,448, 234,464, 221,465, 214,449, 212,432, 216,415, 221,401, 223,380, 217,348, 215,321, 211,299, 204,273, 199,162",
             accesskey: "4",
             href: "javascript:void(0)",
-            click: function () { _selectBodyPart(SymptomsLocations.Arms); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Arms);
+            }
         });
 
         childMap.append(area1);
@@ -619,7 +708,9 @@ var mode = "diagnosis";
         var statusLink = jQuery("<a/>", {
             "class": "status-change-link",
             href: "javascript:void(0)",
-            click: function () { _setSelectorStatus(selectedStatus); }
+            click: function click() {
+                _setSelectorStatus(selectedStatus);
+            }
         });
 
         var statusLinkImg = jQuery("<img/>", {
@@ -636,7 +727,9 @@ var mode = "diagnosis";
             "class": "skin-link",
             href: "javascript:void(0)",
             //text: skinText,
-            click: function () { _selectBodyPart(SymptomsLocations.Skin); }
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Skin);
+            }
         });
 
         var skin_Text = jQuery("<span/>", {
@@ -650,11 +743,9 @@ var mode = "diagnosis";
             alt: skinText
         });
 
-        skinLink.hover(
-        function () {
+        skinLink.hover(function () {
             $(this).find(".skin-image").attr("src", pathToImages + "/skin-joint-general-bw-hellgrau-smallhover.png");
-        },
-        function () {
+        }, function () {
             $(this).find(".skin-image").attr("src", pathToImages + "/skin-joint-general-bw-hellgrau-small.png");
         });
 
@@ -683,10 +774,7 @@ var mode = "diagnosis";
             "class": "fa fa-square-o"
         });
 
-        if (_selectedGender == Gender.Male)
-            male.append(checkIconChecked);
-        else
-            male.append(checkIconUnchecked);
+        if (_selectedGender == Gender.Male) male.append(checkIconChecked);else male.append(checkIconUnchecked);
 
         male.append(maleIcon);
 
@@ -695,7 +783,7 @@ var mode = "diagnosis";
             $(this).find(".fa-square-o").addClass("fa-check-square-o");
             $(this).find(".fa-square-o").removeClass("fa-square-o");
             $("#btnFemale").find(".fa-check-square-o").addClass("fa-square-o");
-            $("#btnFemale").find(".fa-check-square-o").removeClass("fa-check-square-o")
+            $("#btnFemale").find(".fa-check-square-o").removeClass("fa-check-square-o");
             $("#btnFemale").removeClass("disabled");
             _setSelectedGender(Gender.Male);
             _setSelectorStatus(selectorStatus.Boy);
@@ -723,10 +811,7 @@ var mode = "diagnosis";
             "class": "fa fa-square-o"
         });
 
-        if (_selectedGender == Gender.Female)
-            female.append(checkIconChecked);
-        else
-            female.append(checkIconUnchecked);
+        if (_selectedGender == Gender.Female) female.append(checkIconChecked);else female.append(checkIconUnchecked);
 
         female.append(femaleIcon);
 
@@ -764,8 +849,7 @@ var mode = "diagnosis";
 
     function _createSelectorHeader() {
         SetTranslationResources();
-        var header = jQuery("<div/>", {
-        });
+        var header = jQuery("<div/>", {});
 
         var searchField = _createSearchField();
         this._yearSelector = _createYearsField();
@@ -815,7 +899,7 @@ var mode = "diagnosis";
         var d = new Date();
         var n = parseInt(d.getFullYear());
 
-        for (var i = n; i > (n - 100) ; i--) {
+        for (var i = n; i > n - 100; i--) {
             var opt = jQuery("<option/>", {
                 "text": i,
                 "value": i
@@ -837,23 +921,14 @@ var mode = "diagnosis";
 
         if (parseInt(selectedYear) < _edgeYears) {
             if (_selectedSelectorStatus == selectorStatus.Boy || _selectedSelectorStatus == selectorStatus.Girl) {
-                if (_selectedGender == Gender.Male)
-                    _setSelectorStatus(selectorStatus.Man);
-                else
-                    _setSelectorStatus(selectorStatus.Woman);
-            }
-            else {
+                if (_selectedGender == Gender.Male) _setSelectorStatus(selectorStatus.Man);else _setSelectorStatus(selectorStatus.Woman);
+            } else {
                 _makeDiagnosis();
             }
-        }
-        else {
+        } else {
             if (_selectedSelectorStatus == selectorStatus.Man || _selectedSelectorStatus == selectorStatus.Woman) {
-                if (_selectedGender == Gender.Male)
-                    _setSelectorStatus(selectorStatus.Boy);
-                else
-                    _setSelectorStatus(selectorStatus.Girl);
-            }
-            else {
+                if (_selectedGender == Gender.Male) _setSelectorStatus(selectorStatus.Boy);else _setSelectorStatus(selectorStatus.Girl);
+            } else {
                 _setSelectorStatus(_selectedSelectorStatus);
             }
         }
@@ -887,8 +962,7 @@ var mode = "diagnosis";
     }
 
     function _selectBodyPart(location) {
-        if (location === "")
-            return;
+        if (location === "") return;
 
         var currentAvatar = _getAvatarByStatus(_selectedSelectorStatus);
         _setSelectedBodyPart(location);
@@ -896,8 +970,7 @@ var mode = "diagnosis";
         // use try/catch to hide image mapster child resizing problem
         try {
             $('area').mapster('deselect');
-        }
-        catch (e) { }
+        } catch (e) {}
 
         switch (location) {
             case SymptomsLocations.Head:
@@ -921,12 +994,13 @@ var mode = "diagnosis";
         }
 
         if (redirectUrl !== "") {
-            setTimeout(function () { window.location = redirectUrl; }, 500);
+            setTimeout(function () {
+                window.location = redirectUrl;
+            }, 500);
             return;
         }
 
-        if (location !== "")
-            _fillBodySublocationList(location);
+        if (location !== "") _fillBodySublocationList(location);
     }
 
     function _fillBodySublocationList(location) {
@@ -989,29 +1063,25 @@ var mode = "diagnosis";
         _markSelectedStatus(selectedStatus);
 
         switch (selectedStatus) {
-            case (selectorStatus.Man):
+            case selectorStatus.Man:
                 _setSelectedGender(Gender.Male);
                 _removeChildGenderSelector();
-                if (_edgeYears <= parseInt(this._yearSelector.val()))
-                    _setSelectedYear(_defaultAdultYear);
+                if (_edgeYears <= parseInt(this._yearSelector.val())) _setSelectedYear(_defaultAdultYear);
                 break;
-            case (selectorStatus.Woman):
+            case selectorStatus.Woman:
                 _setSelectedGender(Gender.Female);
                 _removeChildGenderSelector();
-                if (_edgeYears <= parseInt(this._yearSelector.val()))
-                    _setSelectedYear(_defaultAdultYear);
+                if (_edgeYears <= parseInt(this._yearSelector.val())) _setSelectedYear(_defaultAdultYear);
                 break;
-            case (selectorStatus.Boy):
+            case selectorStatus.Boy:
                 _removeChildGenderSelector();
                 _createChildGenderSelector();
-                if (_edgeYears > parseInt(this._yearSelector.val()))
-                    _setSelectedYear(_defaultChildYear);
+                if (_edgeYears > parseInt(this._yearSelector.val())) _setSelectedYear(_defaultChildYear);
                 break;
-            case (selectorStatus.Girl):
+            case selectorStatus.Girl:
                 _removeChildGenderSelector();
                 _createChildGenderSelector();
-                if (_edgeYears > parseInt(this._yearSelector.val()))
-                    _setSelectedYear(_defaultChildYear);
+                if (_edgeYears > parseInt(this._yearSelector.val())) _setSelectedYear(_defaultChildYear);
                 break;
         }
         _ajaxGetSymptoms(false);
@@ -1040,8 +1110,7 @@ var mode = "diagnosis";
     }
 
     function _makeDiagnosis() {
-        if (mode == "booking")
-            return;
+        if (mode == "booking") return;
 
         if (isDisclaimerChecked()) {
             var options = new Object();
@@ -1049,18 +1118,15 @@ var mode = "diagnosis";
             options.Symptoms = _symptomList.symptomList("GetSelectedSymptoms");
             options.Gender = _selectedGender;
             options.YearOfBirth = _selectedYear;
-            if (mode == "diagnosis")
-                $("#" + _diagnosisListId).diagnosis("GetDiagnosis", options);
+            if (mode == "diagnosis") $("#" + _diagnosisListId).diagnosis("GetDiagnosis", options);
 
-            if (mode == "specialisations")
-                $("#" + _diagnosisListId).specialisations("GetSpecialisations", options);
+            if (mode == "specialisations") $("#" + _diagnosisListId).specialisations("GetSpecialisations", options);
 
             _symptomList.symptomList("LoadProposedSymptoms", options);
         }
-
     }
 
-    var substringMatcher = function (strs) {
+    var substringMatcher = function substringMatcher(strs) {
         return function findMatches(q, cb) {
             var matches, substrRegex;
 
@@ -1084,11 +1150,10 @@ var mode = "diagnosis";
         };
     };
 
-    var fillResults = function (symptoms, initTypeAhead) {
+    var fillResults = function fillResults(symptoms, initTypeAhead) {
         var _symptoms = new Array();
         $.each(symptoms, function () {
-            if (this.Name !== "" && this.Name !== " ")
-                _symptoms.push(this);
+            if (this.Name !== "" && this.Name !== " ") _symptoms.push(this);
         });
 
         var options = new Object();
@@ -1100,13 +1165,10 @@ var mode = "diagnosis";
 
         _symptomList.symptomList("SetValidSymptoms", options);
 
-        if (initTypeAhead)
-            _initTypeAhead();
-        else {
+        if (initTypeAhead) _initTypeAhead();else {
             $("#prefetch .typeahead").typeahead("destroy");
             _initTypeAhead();
         }
-
     };
 
     function _initTypeAhead() {
@@ -1114,15 +1176,15 @@ var mode = "diagnosis";
             hint: true,
             highlight: true,
             minLength: 2
-        },
-        {
+        }, {
             name: '_symptoms',
             displayKey: 'value',
 
             source: substringMatcher(_symptomList.symptomList("GetValidSymptoms"))
-        }
-        ).bind("typeahead:selected", function (obj, datum, name) {
-            var result = $.grep(_symptomList.symptomList("GetValidSymptoms"), function (e) { return e.Name == datum.value; });
+        }).bind("typeahead:selected", function (obj, datum, name) {
+            var result = $.grep(_symptomList.symptomList("GetValidSymptoms"), function (e) {
+                return e.Name == datum.value;
+            });
             var options = new Object();
             options.ID = result[0].ID;
             options.Name = result[0].Name;
@@ -1130,11 +1192,10 @@ var mode = "diagnosis";
         });
     }
 
-
     function _setResourcesCallback(resources) {
 
         if (resources.length > 0) {
-            var skinText = resources[0].Key;//("btnContactForm");
+            var skinText = resources[0].Key; //("btnContactForm");
         }
     }
 
@@ -1144,7 +1205,6 @@ var mode = "diagnosis";
 
             $.each(resources, function () {
                 resObj[this.Key] = this.Value;
-
             });
             SetTranslationResources();
             _setUpSelector();
@@ -1186,7 +1246,6 @@ var mode = "diagnosis";
     }
 
     //////////////////end private functions//////////////////////////////////////////
-
 })(jQuery);
 
 /////////////Symptom selector plugin end//////////////////////////////////
@@ -1218,18 +1277,16 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
             return this.each(function () {
                 _plugin = $(this);
                 _initSymptomList();
                 _avatarOptions = options;
 
                 if (redirectUrl === "") {
-                    if (mode == "diagnosis")
-                        $("#" + _diagnosisListId).diagnosis();
+                    if (mode == "diagnosis") $("#" + _diagnosisListId).diagnosis();
 
-                    if (mode == "specialisations")
-                        $("#" + _diagnosisListId).specialisations();
+                    if (mode == "specialisations") $("#" + _diagnosisListId).specialisations();
 
                     var symptoms = _getSelectedSymptoms();
                     if (symptoms.length !== 0) {
@@ -1239,21 +1296,21 @@ var mode = "diagnosis";
                 }
             });
         },
-        LoadBodyLocations: function (options) {
+        LoadBodyLocations: function LoadBodyLocations(options) {
             _ajaxLoadBodyLocations(options.LocationId);
         },
-        LoadBodySublocations: function (options) {
+        LoadBodySublocations: function LoadBodySublocations(options) {
             _avatarOptions = options;
             _loadBodySublocation(options.LocationId, options.SelectorStatus);
             _header.text(_locations[options.LocationId]);
         },
-        GetSelectedSymptoms: function (options) {
+        GetSelectedSymptoms: function GetSelectedSymptoms(options) {
             return _getSelectedSymptoms();
         },
-        SelectSymptom: function (options) {
+        SelectSymptom: function SelectSymptom(options) {
             _selectSymptom(options);
         },
-        SetValidSymptoms: function (options) {
+        SetValidSymptoms: function SetValidSymptoms(options) {
             _validSymptoms = options.ValidSymptoms;
             _avatarOptions.LocationId = options.LocationId;
             _avatarOptions.SelectorStatus = options.SelectorStatus;
@@ -1262,7 +1319,7 @@ var mode = "diagnosis";
 
             var synonyms = new Array();
             $.each(_validSymptoms, function () {
-                if (this.Synonyms != null && typeof (this.Synonyms) !== "undefined" && this.Synonyms.length > 0) {
+                if (this.Synonyms != null && typeof this.Synonyms !== "undefined" && this.Synonyms.length > 0) {
                     var currentId = this.ID;
                     var name = this.Name;
                     var hasRedFlag = this.HasRedFlag;
@@ -1286,14 +1343,14 @@ var mode = "diagnosis";
                 _addSelectedSymptoms(symptoms);
             }
         },
-        GetValidSymptoms: function (options) {
+        GetValidSymptoms: function GetValidSymptoms(options) {
             return _validSymptoms;
         },
-        LoadProposedSymptoms: function (options) {
+        LoadProposedSymptoms: function LoadProposedSymptoms(options) {
             _clearProposedSymptom();
             _ajaxLoadProposedSymptoms(options.Symptoms, options.Gender, options.YearOfBirth);
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             _selectedList.unbind('click');
             _selectedList.empty();
             _plugin.unbind('click');
@@ -1305,12 +1362,11 @@ var mode = "diagnosis";
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.symptomList');
         }
-
     };
 
     //////////////////ajax calls/////////////////////////////////////////////////////
@@ -1318,25 +1374,23 @@ var mode = "diagnosis";
         $.ajax({
             url: pathToWebservice + "/body/locations",
             type: "GET",
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addLocationsCallback",
-            success: function (responseData) { _addLocationsCallback(responseData, selectedLocationId); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _addLocationsCallback(responseData, selectedLocationId);
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            beforeSend: function beforeSend(jqXHR, settings) {},
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
-            }
+            complete: function complete() {}
         });
     }
 
@@ -1344,25 +1398,25 @@ var mode = "diagnosis";
         $.ajax({
             url: pathToWebservice + "/body/locations/" + locationId,
             type: "GET",
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addSublocationsCallback",
-            success: function (responseData) { _addSublocationsCallback(responseData, locationId); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _addSublocationsCallback(responseData, locationId);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _loader.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _loader.hide();
             }
         });
@@ -1373,29 +1427,29 @@ var mode = "diagnosis";
             url: pathToWebservice + "/symptoms/proposed",
             type: "GET",
             async: true,
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language,
-                    symptoms: JSON.stringify(symptoms),
-                    gender: gender,
-                    year_of_birth: year_of_birth,
-                    platform: currentPlatform
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language,
+                symptoms: JSON.stringify(symptoms),
+                gender: gender,
+                year_of_birth: year_of_birth,
+                platform: currentPlatform
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addProposedSymptomsCallback",
-            success: function (responseData) { _addProposedSymptomsCallback(responseData); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _addProposedSymptomsCallback(responseData);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 $('#loader').show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 $('#loader').hide();
             }
         });
@@ -1406,26 +1460,26 @@ var mode = "diagnosis";
             url: pathToWebservice + "/redflag",
             type: "GET",
             async: true,
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language,
-                    symptomId: symptomId
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language,
+                symptomId: symptomId
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_getRedFlagCallback",
-            success: function (responseData) { _getRedFlagCallback(responseData); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _getRedFlagCallback(responseData);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 $('#loader').show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 $('#loader').hide();
             }
         });
@@ -1477,7 +1531,6 @@ var mode = "diagnosis";
 
         _redFlagMessage.hide();
 
-
         $("body").append(_redFlagMessage);
 
         var content = jQuery("<div/>", { "id": "redFlagContent", "class": "warning" });
@@ -1497,8 +1550,7 @@ var mode = "diagnosis";
     function _loadBodySublocation(locationId, selectorStatus) {
         _header.show();
 
-        if (_selectorStatus != "" && _selectorStatus != selectorStatus)
-            _hideSymptoms(_selectorStatus);
+        if (_selectorStatus != "" && _selectorStatus != selectorStatus) _hideSymptoms(_selectorStatus);
 
         _selectorStatus = selectorStatus;
 
@@ -1507,15 +1559,12 @@ var mode = "diagnosis";
         if (!_isLoadedSublocations(locationId)) {
             _symptomListMessage.hide();
             _ajaxLoadBodySublocations(locationId);
-        }
-        else
-            _symptomList.find(".location_" + locationId).show();
+        } else _symptomList.find(".location_" + locationId).show();
     }
 
     //create body sublocations list elements
     function _addBodySublocation(sublocation, locationId) {
-        if (_isValidSublocation(sublocation.ID) == false)
-            return;
+        if (_isValidSublocation(sublocation.ID) == false) return;
 
         var sublocationListElement = jQuery("<li/>", {
             "id": "sublocation_" + sublocation.ID,
@@ -1528,10 +1577,8 @@ var mode = "diagnosis";
         //});
 
         sublocationListElement.bind('click', function () {
-            if (_isLoadedSymptoms(sublocation.ID))
-                _symptomList.find("#symptoms_" + _selectorStatus + "_" + sublocation.ID).toggle();
-            else {
-                var symptoms = _getSublocationSymptoms(sublocation.ID)
+            if (_isLoadedSymptoms(sublocation.ID)) _symptomList.find("#symptoms_" + _selectorStatus + "_" + sublocation.ID).toggle();else {
+                var symptoms = _getSublocationSymptoms(sublocation.ID);
                 _fillSublocations(symptoms, sublocation.ID);
             }
 
@@ -1551,10 +1598,11 @@ var mode = "diagnosis";
             "symptom_id": symptom.ID
         });
 
-        var isSelected = $.grep(selectedSymptoms, function (e) { return parseInt(e) == parseInt(symptom.ID); });
+        var isSelected = $.grep(selectedSymptoms, function (e) {
+            return parseInt(e) == parseInt(symptom.ID);
+        });
 
-        if (isSelected.length != 0)
-            sublocationSymptomListElement.hide();
+        if (isSelected.length != 0) sublocationSymptomListElement.hide();
 
         sublocationSymptomListElement.bind('click', function () {
             _selectSymptom(symptom);
@@ -1568,8 +1616,7 @@ var mode = "diagnosis";
             _locations[this.ID] = this.Name;
         });
 
-        if (selectedLocationId !== null && selectedLocationId !== "")
-            _header.text(_locations[selectedLocationId]);
+        if (selectedLocationId !== null && selectedLocationId !== "") _header.text(_locations[selectedLocationId]);
     }
 
     function _addSublocationsCallback(sublocations, locationId) {
@@ -1597,8 +1644,7 @@ var mode = "diagnosis";
             var valid = false;
             $.each(e.HealthSymptomLocationIDs, function () {
 
-                if (parseInt(this) == sublocationId)
-                    valid = true;
+                if (parseInt(this) == sublocationId) valid = true;
             });
             return valid;
         });
@@ -1619,7 +1665,9 @@ var mode = "diagnosis";
         $.each(symptoms, function () {
             var symptomId = this;
 
-            var symptom = $.grep(_validSymptoms, function (e) { return parseInt(e.ID) == parseInt(symptomId); });
+            var symptom = $.grep(_validSymptoms, function (e) {
+                return parseInt(e.ID) == parseInt(symptomId);
+            });
             _createSelectedSymptomElement(symptom[0]);
         });
     }
@@ -1634,20 +1682,19 @@ var mode = "diagnosis";
 
     function _selectSymptom(symptom) {
         var symptoms = _getSelectedSymptoms();
-        if (inArray(symptom.ID, symptoms) >= 0)// already exist
+        if (inArray(symptom.ID, symptoms) >= 0) // already exist
             return;
 
         var selected = getCookie("selectedSymptoms");
 
-        if (selected != "")
-            selected += "," + symptom.ID;
-        else
-            selected = symptom.ID;
+        if (selected != "") selected += "," + symptom.ID;else selected = symptom.ID;
 
         setCookie("selectedSymptoms", selected, 1);
 
         if (redirectUrl !== "") {
-            setTimeout(function () { window.location = redirectUrl; }, 500);
+            setTimeout(function () {
+                window.location = redirectUrl;
+            }, 500);
             return;
         }
 
@@ -1669,8 +1716,7 @@ var mode = "diagnosis";
         var valid = false;
         $.each(_validSymptoms, function () {
             $.each(this.HealthSymptomLocationIDs, function () {
-                if (parseInt(this) == parseInt(sublocationId))
-                    valid = true;
+                if (parseInt(this) == parseInt(sublocationId)) valid = true;
             });
         });
 
@@ -1680,14 +1726,13 @@ var mode = "diagnosis";
     function _sortByName(a, b) {
         var aName = a.Name.toLowerCase();
         var bName = b.Name.toLowerCase();
-        return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+        return aName < bName ? -1 : aName > bName ? 1 : 0;
     }
 
     ////////////////////selected list////////////////////////////////////////////////
 
     function _createSelectedSymptomElement(symptom) {
-        if (_selectedList.find("#selected_" + symptom.ID).length > 0)
-            return;
+        if (_selectedList.find("#selected_" + symptom.ID).length > 0) return;
 
         var symptomElement = jQuery("<li/>", {
             "text": symptom.Name,
@@ -1713,8 +1758,7 @@ var mode = "diagnosis";
     function _getSelectedSymptoms() {
         var symptoms = new Array();
         var selected = getCookie("selectedSymptoms");
-        if (selected !== "")
-            symptoms = selected.split(",");
+        if (selected !== "") symptoms = selected.split(",");
 
         return symptoms;
     }
@@ -1741,11 +1785,9 @@ var mode = "diagnosis";
         _avatarOptions.Symptoms = _getSelectedSymptoms();
 
         if (isDisclaimerChecked()) {
-            if (mode == "diagnosis")
-                $("#" + _diagnosisListId).diagnosis("GetDiagnosis", _avatarOptions);
+            if (mode == "diagnosis") $("#" + _diagnosisListId).diagnosis("GetDiagnosis", _avatarOptions);
 
-            if (mode == "specialisations")
-                $("#" + _diagnosisListId).specialisations("GetSpecialisations", _avatarOptions);
+            if (mode == "specialisations") $("#" + _diagnosisListId).specialisations("GetSpecialisations", _avatarOptions);
         }
 
         if (_avatarOptions.Symptoms.length > 0) {
@@ -1758,12 +1800,11 @@ var mode = "diagnosis";
         var selected = _getSelectedSymptoms();
 
         selected = jQuery.grep(selected, function (el) {
-            return (parseInt(el) !== symptomId);
+            return parseInt(el) !== symptomId;
         });
         setCookie("selectedSymptoms", selected, 1);
 
-        if (selected.length == 0)
-            _hideTerms();
+        if (selected.length == 0) _hideTerms();
 
         _symptomList.find(".symptom_" + symptomId).show();
 
@@ -1801,8 +1842,7 @@ var mode = "diagnosis";
             if (this.checked) {
                 setCookie("diagnosisDisclaimer", "true", 0.1);
                 _selectedList.find("#termsNotAcceptedMessage").hide();
-            }
-            else {
+            } else {
                 setCookie("diagnosisDisclaimer", "false", -1);
             }
             isDisclaimerChecked();
@@ -1814,8 +1854,7 @@ var mode = "diagnosis";
         var litPrivacyPolicyInText = '#' + litPrivacyPolicy.replace(/ /g, '').toLowerCase() + '#';
         disclaimerText = disclaimerText.replace(litTermsOfUseInText, "<a href='" + termsUrl + "' class='terms' target='_blank' >" + litTermsOfUse + "</a>").replace(litPrivacyPolicyInText, "<a href='" + privacyUrl + "' class='terms' target='_blank' >" + litPrivacyPolicy + "</a>");
 
-        var termsText = jQuery("<label/>", {
-        });
+        var termsText = jQuery("<label/>", {});
 
         termsText.html(disclaimerText);
 
@@ -1856,10 +1895,7 @@ var mode = "diagnosis";
     //////////////////proposed symptoms list/////////////////////////////////////////
 
     function _addProposedSymptomsCallback(symptoms) {
-        if (symptoms.length > 0)
-            _proposedListHeader.show();
-        else
-            _proposedListHeader.hide();
+        if (symptoms.length > 0) _proposedListHeader.show();else _proposedListHeader.hide();
 
         $.each(symptoms, function () {
             _addProposedSymptom(this);
@@ -1884,7 +1920,6 @@ var mode = "diagnosis";
     }
 
     //////////////////end private functions//////////////////////////////////////////
-
 })(jQuery);
 
 /////////////symptom list plugin end/////////////////////////
@@ -1903,7 +1938,7 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
 
             return this.each(function () {
                 _plugin = $(this);
@@ -1911,11 +1946,11 @@ var mode = "diagnosis";
                 _initDiagnosisList();
             });
         },
-        GetDiagnosis: function (options) {
+        GetDiagnosis: function GetDiagnosis(options) {
             _clearDiagnosis();
             _ajaxGetDiagnosis(options.Symptoms, options.Gender, options.YearOfBirth);
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             _plugin.unbind('click');
             _plugin.empty();
         }
@@ -1925,12 +1960,11 @@ var mode = "diagnosis";
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.diagnosis');
         }
-
     };
 
     //////////////////private functions//////////////////////////////////////////
@@ -1986,8 +2020,7 @@ var mode = "diagnosis";
         if (diagnosis.length > 0) {
             _plugin.parent().removeClass("box-inactive");
             _setDiagnosisMessage(diagnosisMessage);
-        }
-        else {
+        } else {
             _plugin.parent().addClass("box-inactive");
             _setDiagnosisMessage(noDiagnosisMessage);
         }
@@ -2014,7 +2047,7 @@ var mode = "diagnosis";
             htmlContent += "<h3>" + litDescription + "</h3><p class='healthIssueInfo'>" + issueInfo.Description + "</p>";
         }
 
-        if (issueInfo.MedicalCondition != null && issueInfo.MedicalCondition != "" && typeof (issueInfo.MedicalCondition) != 'undefined' && issueInfo.MedicalCondition != null) {
+        if (issueInfo.MedicalCondition != null && issueInfo.MedicalCondition != "" && typeof issueInfo.MedicalCondition != 'undefined' && issueInfo.MedicalCondition != null) {
             htmlContent += "<h3>" + litOccurrence + " + " + litSymptom + "</h3><p class='healthIssueInfo'>" + issueInfo.MedicalCondition + "</p>";
         }
 
@@ -2038,8 +2071,7 @@ var mode = "diagnosis";
     }
 
     function _createDiagnosisNameElement(issueId, diagnosisName) {
-        var diagnosisListElement = jQuery("<li/>", {
-        });
+        var diagnosisListElement = jQuery("<li/>", {});
 
         var diagnosisNameElement = jQuery("<h4/>", {
             "text": diagnosisName,
@@ -2062,8 +2094,7 @@ var mode = "diagnosis";
     }
 
     function _createProbabilityElement(accuracy) {
-        diagnosisListElement = jQuery("<li/>", {
-        });
+        diagnosisListElement = jQuery("<li/>", {});
 
         var progress = jQuery("<div/>", {
             "class": "progress"
@@ -2093,8 +2124,7 @@ var mode = "diagnosis";
 
         if (!includeAllSpec) {
             $.each(specialisation, function () {
-                specListElement = jQuery("<li/>", {
-                });
+                specListElement = jQuery("<li/>", {});
                 var spec = jQuery("<a/>", {
                     "text": this.Name,
                     //TODO
@@ -2105,15 +2135,13 @@ var mode = "diagnosis";
                 specListElement.append(spec);
                 specList.append(specListElement);
             });
-        }
-        else {
+        } else {
             var specNames = new Array();
             $.each(specialisation, function () {
                 specNames.push(this.Name);
             });
             $.each(specialisation, function () {
-                specListElement = jQuery("<li/>", {
-                });
+                specListElement = jQuery("<li/>", {});
                 var spec = jQuery("<a/>", {
                     "text": this.Name,
                     "href": specUrl + "?specs=" + JSON.stringify(specNames)
@@ -2124,9 +2152,7 @@ var mode = "diagnosis";
             });
         }
 
-
-        var element = jQuery("<li/>", {
-        });
+        var element = jQuery("<li/>", {});
 
         element.append(specList);
         return element;
@@ -2143,8 +2169,8 @@ var mode = "diagnosis";
 
     function _print(printSource) {
         var name = printSource.find("h1").text();
-        var printFooter = "<div style=\"float:right;\"><img src=\"symptom_selector/images/logo.jpg\" alt=\"priaid\" class=\"logo\"><span><a href=\"http://www.priaid.com\" target=\"_blank\" class=\"priaid-powered\"> powered by  </a> </span></div>"
-        printFooter += "<div style=\"float:right;padding-right:16px;clear:both;\"><span><a href=\"http://www.priaid.com\" target=\"_blank\"  class=\"priaid-powered padding0\">(www.priaid.com)</a> </span> </div></div>"
+        var printFooter = "<div style=\"float:right;\"><img src=\"symptom_selector/images/logo.jpg\" alt=\"priaid\" class=\"logo\"><span><a href=\"http://www.priaid.com\" target=\"_blank\" class=\"priaid-powered\"> powered by  </a> </span></div>";
+        printFooter += "<div style=\"float:right;padding-right:16px;clear:both;\"><span><a href=\"http://www.priaid.com\" target=\"_blank\"  class=\"priaid-powered padding0\">(www.priaid.com)</a> </span> </div></div>";
         var printContent = printSource.clone();
 
         printContent = printContent.html();
@@ -2163,29 +2189,29 @@ var mode = "diagnosis";
         $.ajax({
             url: pathToWebservice + "/diagnosis",
             type: "GET",
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language,
-                    symptoms: JSON.stringify(symptoms),
-                    gender: gender,
-                    year_of_birth: year_of_birth,
-                    platform: currentPlatform
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language,
+                symptoms: JSON.stringify(symptoms),
+                gender: gender,
+                year_of_birth: year_of_birth,
+                platform: currentPlatform
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addDiagnosisCallback",
-            success: function (responseData) { _addDiagnosisCallback(responseData); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _addDiagnosisCallback(responseData);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _loader.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _loader.hide();
             }
         });
@@ -2195,38 +2221,35 @@ var mode = "diagnosis";
         $.ajax({
             url: pathToWebservice + "/issues/" + issueId + "/info",
             type: "GET",
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language,
-                    platform: currentPlatform
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language,
+                platform: currentPlatform
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addIssueInfoCallback",
-            success: function (responseData) { _addIssueInfoCallback(responseData); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _addIssueInfoCallback(responseData);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _infoPage.find("#infoPageLoader").show();
                 _infoPage.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _infoPage.find("#infoPageLoader").hide();
             }
         });
-
-
     }
 
     //////////////////end ajax calls//////////////////////////////////////////
 
     //////////////////end private functions//////////////////////////////////////////
-
 })(jQuery);
 
 /////////////diagosis result plugin end/////////////////////////
@@ -2244,7 +2267,7 @@ var mode = "diagnosis";
 
     var methods = {
 
-        init: function (options) {
+        init: function init(options) {
 
             return this.each(function () {
                 _plugin = $(this);
@@ -2252,11 +2275,11 @@ var mode = "diagnosis";
                 _initSpecialisationList();
             });
         },
-        GetSpecialisations: function (options) {
+        GetSpecialisations: function GetSpecialisations(options) {
             _clearSpecialisations();
             _ajaxGetSpecialisations(options.Symptoms, options.Gender, options.YearOfBirth);
         },
-        Unbind: function (options) {
+        Unbind: function Unbind(options) {
             _plugin.unbind('click');
             _plugin.empty();
         }
@@ -2266,12 +2289,11 @@ var mode = "diagnosis";
 
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
+        } else if ((typeof method === "undefined" ? "undefined" : _typeof(method)) === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist on jQuery.diagnosis');
         }
-
     };
 
     //////////////////private functions//////////////////////////////////////////
@@ -2306,16 +2328,14 @@ var mode = "diagnosis";
         if (specialisations.length > 0) {
             _plugin.parent().removeClass("box-inactive");
             _setDiagnosisMessage(diagnosisMessage);
-        }
-        else {
+        } else {
             _plugin.parent().addClass("box-inactive");
             _setDiagnosisMessage(noDiagnosisMessage);
         }
     }
 
     function _createSpecialisationNameElement(allSuggestedSpec, specName) {
-        var specListElement = jQuery("<li/>", {
-        });
+        var specListElement = jQuery("<li/>", {});
 
         var spec = jQuery("<a/>", {
             "class": "suggested_spec",
@@ -2335,8 +2355,7 @@ var mode = "diagnosis";
     }
 
     function _createProbabilityElement(accuracy) {
-        specListElement = jQuery("<li/>", {
-        });
+        specListElement = jQuery("<li/>", {});
 
         var progress = jQuery("<div/>", {
             "class": "progress"
@@ -2374,29 +2393,29 @@ var mode = "diagnosis";
         $.ajax({
             url: pathToWebservice + "/diagnosis/specialisations",
             type: "GET",
-            data:
-                {
-                    token: token,
-                    format: "json",
-                    language: language,
-                    symptoms: JSON.stringify(symptoms),
-                    gender: gender,
-                    year_of_birth: year_of_birth,
-                    platform: currentPlatform
-                },
+            data: {
+                token: token,
+                format: "json",
+                language: language,
+                symptoms: JSON.stringify(symptoms),
+                gender: gender,
+                year_of_birth: year_of_birth,
+                platform: currentPlatform
+            },
             contentType: "application/json; charset=utf-8",
             cache: false,
             dataType: "jsonp",
             jsonpCallback: "_addSpecialisationsCallback",
-            success: function (responseData) { _addSpecialisationsCallback(responseData); },
-            beforeSend: function (jqXHR, settings) {
+            success: function success(responseData) {
+                _addSpecialisationsCallback(responseData);
+            },
+            beforeSend: function beforeSend(jqXHR, settings) {
                 _loader.show();
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                if (window.console)
-                    console.log(xhr.responseText);
+            error: function error(xhr, ajaxOptions, thrownError) {
+                if (window.console) console.log(xhr.responseText);
             },
-            complete: function () {
+            complete: function complete() {
                 _loader.hide();
             }
         });
@@ -2404,7 +2423,6 @@ var mode = "diagnosis";
     //////////////////end ajax calls//////////////////////////////////////////
 
     //////////////////end private functions//////////////////////////////////////////
-
 })(jQuery);
 
 /////////////specialisation result plugin end/////////////////////////
@@ -2415,7 +2433,7 @@ var mode = "diagnosis";
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
     var expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
@@ -2435,15 +2453,21 @@ function isDisclaimerChecked() {
     return isChecked !== "" ? isChecked : false;
 }
 
-
 //////////////end cookies functions //////////////////////////////////
 
 function inArray(val, arr) {
     cnt = 0;
     index = -1;
     $(arr).each(function () {
-        if (parseInt(this) == parseInt(val)) { index = cnt; }
+        if (parseInt(this) == parseInt(val)) {
+            index = cnt;
+        }
         cnt++;
     });
     return index;
 }
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=vendor.bundle.js.map
