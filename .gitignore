@@ -1,4 +1,4 @@
 node_modules
 dist/*
-*.bundle.js
-*.bundle.map.js
+src/public/app.bundle.js
+src/public/vendor.bundle.js
