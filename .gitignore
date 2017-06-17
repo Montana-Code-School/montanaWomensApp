@@ -1,2 +1,8 @@
 node_modules
 dist
+src/public/vendor.bundle.js
+  src/public/app.bundle.js.map
+  src/public/vendor.bundle.js.map
+ src/public/vendor.bundle.map.js
+ src/public/app.bundle.map.js
+ src/public/libs/typeahead.bundle.js

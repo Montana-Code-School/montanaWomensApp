@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+      <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+      <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link type="text/css" rel="stylesheet" href="css/style.css" />
     <title>Mt Women/Local Doctors</title>
   </head>
   <body>
-    <h1> Find a Doctor in Missoula! </h1>  
+      <div id="container"></div>
+
+      <script type="text/babel">
+
+      function Navbar(prop){
+        var navStyle = {
+          backgroundColor: "rgba(143, 57, 133, .8)",
+          listStyle: "none",
+          fontWeight: "700",
+
+        }
+        var noBull = {
+          listStyle: "none",
+          fontSize: "1em",
+          backgroundColor: "#8f3985 !important"
+        }
+
+        return(
+          <div style={navStyle}className="navbar navbar-default">
+            <div className="navbar-header">
+              <ul className="navbar-nav">
+                <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
+              </ul>
+            </div>
+          </div>
+        );
+      }
+
+    function Header() {
+      var headerStyle = {
+        textAlign: "center"
+      }
+      return(
+        <div className="jumbotron" style={headerStyle}>
+          <h1> Doctors and Clinics in Missoula </h1>
+        </div>
+      );
+    }
+
+    function App() {
+      return(
+        <div>
+          <Navbar/>
+          <Header/>
+        </div>
+      );
+    }
+
+    ReactDOM.render(
+      <App />,
+    document.getElementById('container')
+  );
+
+  </script>
+
+
     <div id="map"></div>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -20,6 +82,8 @@
         padding: 0;
       }
     </style>
+
+
 
       <script>
 
@@ -75,6 +139,8 @@
       // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE&callback=initMap&libraries=places">
       //
       // </script>
+
+
 
   </body>
 </html>

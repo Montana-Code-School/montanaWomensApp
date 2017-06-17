@@ -8,7 +8,7 @@ module.exports = {
 
    entry: {
      vendor: './symptom_selector/selector.js',
-     app: './js/app.js'
+     app: './js/main.js'
    },
    output: {
        path: srcPath,

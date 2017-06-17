@@ -15,6 +15,11 @@
     color: #d2021d !important;
 }*/
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: white;
+    background-color: rgba(143, 57, 133, .1);
+    padding-top: 10px;
+}
 
 /*.jumbotron {
     margin-bottom: 0px;
@@ -76,6 +81,17 @@ body {
   margin: 0
 }
 
+.jumbo-bg {
+  h1 {
+    text-align: center;
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .jumbo-fadeUp {
   font-size: 1.5em;
   padding-top: 111px;
@@ -122,9 +138,9 @@ body {
 
 
 
-.jumbo-fadeUp.right {
+/*.jumbo-fadeUp.right {
   padding-right: 111px
-}
+}*/
 
 .jumbo-fadeUp.left {
   padding-left: 111px
