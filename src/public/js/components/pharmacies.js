@@ -1,5 +1,7 @@
 import React from 'react';
 import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
+import axios from 'axios';
+import cors from 'cors';
 
       const coords = {
         lat: 46.878178,
@@ -8,8 +10,19 @@ import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 
       const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
 
-      export default class Gmap extends React.Component {
+      //make axios call to wellness api
 
+      export default class Gmap extends React.Component {
+      constructor(props) {
+        super(props);
+        axios.get('http://localhost:3003/api/places')
+    .then(res => {
+      console.log(res);
+
+    });
+
+
+      }
 
 
         onMapCreated(map) {

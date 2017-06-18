@@ -35,11 +35,13 @@ class Homepage extends React.Component {
   <div>
   <Jumbotron>
     <JumbotronCol className="jumbo-fadeUp right img">
-      <img src="./css/img/banner_larger.jpg" className="waves-graphic"/>
+
+      <img src="./css/img/banner_larger.jpg" className="photo"/>
+      <h1 className="banner" > MT Womens Wellness Resource </h1>
     </JumbotronCol>
    </Jumbotron>
 
-   
+
     <HoverRow className="hover-row1">
       <Link to ='/counselors'><HoverCol imgSrc="css/img/text-counseling.png" /></Link>
       <a href="/resources"><HoverCol imgSrc="css/img/text-resources.png" /></a>
@@ -87,3 +89,10 @@ export default class Home extends React.Component {
     )
   }
 }
+axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=46.878178,-114.001003&radius=5000&type=pharmacy&key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
