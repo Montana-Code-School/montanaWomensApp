@@ -1,43 +1,53 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import xml2js from 'xml2js';
-// import striptags from 'striptags';
 
+import {Router, Route, Link, IndexRoute, hashHistory, browserHistory} from 'react-router';
+import cors from 'cors';
+// // import Gmap from './gmap';
 
-class App extends React.Component {
-
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       categories: []
-//     };
-//   }
 //
+// infowindow = new google.maps.InfoWindow();
+//    var service = new google.maps.places.PlacesService(map);
+//    service.nearbySearch({
+//      location: missoula,
+//      radius: 5000,
+//      type: ['pharmacy']
+//    }, callback);
+//  }
 //
-// componentDidMount() {
-//   axios.get('http://localhost:3003/api/info')
-//     .then(res => {
-//       const data = res.data;
-//       var newData = striptags(data, [], '\n' );
-//       this.setState({categories:newData});
-//     });
-//   }
+//  function callback(results, status) {
+//    if (status === google.maps.places.PlacesServiceStatus.OK) {
+//      for (var i = 0; i < results.length; i++) {
+//        createMarker(results[i]);
+//      }
+//    }
+//  }
+ export default class GooglePlaces extends React.Component{
 
-render() {
+   var Google_Places_API_key='AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE';
 
-  return (
+   var BaseUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=46.878178,-114.001003&radius=5000&type=pharmacy';
+ getInitialState: function(){
+   return {
+     data:[]
 
-    <div>
-      <h1>DATA LOOKS LIKE:</h1>
+   }
+ },
+  componentDidMount:function(){
+    var _this=this;
+    this.serverRequest =
 
-    </div>
+ axios
+ .get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=46.878178,-114.001003&radius=5000&type=pharmacy&key')
+   .then(function (response) {
+     _this.setState({
 
-    );
-  }
+     console.log(response);
+   })
+   .catch(function (error) {
+     console.log(error);
+   });
+
+ }
 }
-
-
-    ReactDOM.render(
-      <App />,
-      document.getElementById('container'));

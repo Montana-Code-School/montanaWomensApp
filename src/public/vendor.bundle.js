@@ -376,7 +376,7 @@ var mode = "diagnosis";
     function _setUpSelector() {
         _selectedSelectorStatus = getCookie("selectedSelectorStatus") !== "" ? getCookie("selectedSelectorStatus") : selectorStatus.Man;
         _selectedBodyPart = getCookie("selectedBodyPart") !== "" ? parseInt(getCookie("selectedBodyPart")) : "";
-        //_selectedBodyPart = "";
+        _selectedBodyPart = "";
         _selectedGender = getCookie("selectedGender") !== "" ? getCookie("selectedGender") : Gender.Male;
         _selectedYear = getCookie("selectedYear") !== "" ? parseInt(getCookie("selectedYear")) : _defaultAdultYear;
 
@@ -726,7 +726,7 @@ var mode = "diagnosis";
         var skinLink = jQuery("<a/>", {
             "class": "skin-link",
             href: "javascript:void(0)",
-            //text: skinText,
+            text: skinText,
             click: function click() {
                 _selectBodyPart(SymptomsLocations.Skin);
             }
@@ -939,15 +939,15 @@ var mode = "diagnosis";
         currentAvatar.mapster({
             fillColor: 'acacac',
             fillOpacity: 0.3,
-            //isSelectable: true,
+            // isSelectable: true,
             clickNavigate: true,
             scaleMap: true,
-            //singleSelect: true,
+            // singleSelect: true,
             mapKey: 'accesskey' //  (see http://www.outsharked.com/imagemapster/default.aspx?docs.html)
-            //stroke: true,
-            //strokeColor: "585858",
-            //strokeOpacity: 0.8,
-            //strokeWidth: 1
+            // stroke: true,
+            // strokeColor: "585858",
+            // strokeOpacity: 0.8,
+            // strokeWidth: 1
         });
         _selectBodyPart(_selectedBodyPart);
         _resizeSelector(currentAvatar);
