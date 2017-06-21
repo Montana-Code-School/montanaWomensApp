@@ -16,7 +16,8 @@ module.exports = {
        path: srcPath,
        filename: '[name].bundle.js',
        publicPath: '/'
-   }
+   },
+
     resolve: {
         modules: ['node_modules', 'src'],
         extensions: ['*', '.js', '.json']
