@@ -63,17 +63,12 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 397);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-<<<<<<< HEAD:src/public/vendor.bundle.js
-/******/ ({
-
-/***/ 397:
-=======
 /******/ ([
-/* 0 */
->>>>>>> f05b0cc7e1b78997eb05a9a52b763c5618f9130e:src/public/symptom_selector/bundle.js
+/* 0 */,
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2473,6 +2468,5 @@ function inArray(val, arr) {
 }
 
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=vendor.bundle.js.map
