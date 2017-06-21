@@ -20,6 +20,7 @@
     "express": "^4.15.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-dynamic-ui": "0.0.21",
     "react-gmaps": "^1.6.0",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
