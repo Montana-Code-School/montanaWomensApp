@@ -20,15 +20,17 @@
     "express": "^4.15.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-gmaps": "^1.6.0",
     "striptags": "^3.0.1",
     "webpack": "^2.6.1",
     "xml2js": "^0.4.17",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.1",
+    "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.0",

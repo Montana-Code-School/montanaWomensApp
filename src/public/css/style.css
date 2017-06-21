@@ -1,5 +1,63 @@
 
-.box {
-    font-size:1em;
-    color:pink;
+.navbar {
+     margin-bottom: 0;
+     border-radius: 0;
+     font-size: 3em;
+     text-align: center;
 }
+
+.navbar-nav {
+  list-style: none;
+  text-align: center;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #d2021d !important;
+}
+
+
+.jumbotron {
+    margin-bottom: 0px;
+    height: 575px;
+    color: white;
+    text-align: center;
+    background-image: url('img/banner_larger.jpg') !important;
+    background-size:100% 100%;
+
+}
+
+h4 {
+  font-style: italic;
+}
+
+.col-lg-4 {
+  margin:0px !important;
+  position: relative;
+}
+
+ul.row {
+  padding:0px !important;
+  margin:0px;
+  list-style: none;
+  text-align: center;
+}
+
+
+#map-header {
+  text-align: center;
+  margin:5px;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+#map {
+  height: 500px;
+  width: 90%;
+  margin: 10px;
+
+ }
+
+ a {
+   color:inherit;
+   decoration: none;
+ }
