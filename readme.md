@@ -34,4 +34,10 @@ Week of June 5-12
 
     * got APIMedic symptom checker API up and running. Using the sandbox API since it is good for development and doesn't have any transaction limits.
     * figured out how to create multiple entry points for webpack and then how to divide up the bundles into different bundles.  Since we didn't want to mess up our third-party API code we decided to try bundling it into a separate webpack bundle.
-    * Changed some of the code in the selector.js file so that it would only show the woman/girl avatars.  However, the changes somehow screwed up the links to the css styling and broke the code. Once the full code for all avatars was restored the symptom checker worked again.  Will have to be careful modifying any of the styling or elements in the current selector.js file so as not to break it again. 
+    * Changed some of the code in the selector.js file so that it would only show the woman/girl avatars.  However, the changes somehow screwed up the links to the css styling and broke the code. Once the full code for all avatars was restored the symptom checker worked again.  Will have to be careful modifying any of the styling or elements in the current selector.js file so as not to break it again.
+
+    Week of June 20
+
+    * to get symptom checker in a react element
+      - Put api call in ComponentDidMount() section before render()
+      - resolve td valign issue in react (currently not working)
