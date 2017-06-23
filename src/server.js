@@ -7,7 +7,7 @@ app.use(express.static('src/public'));
 app.use(cors());
 
 app.get('/',(req, res) =>{
-  res.sendFile('main.js');
+  res.sendFile('index.html');
 });
 
 
