@@ -1,227 +1,88 @@
 <!DOCTYPE html>
 <html lang="eng" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Project Tampon</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-       <title>MT Women's App</title>
-       <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
-       <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css" />
-       <script src="libs/jquery-1.12.2.min.js"></script>
-       <script src="libs/json2.js"></script> <!-- json for ie7-->
-       <script src="libs/jquery.imagemapster.min.js?v=1.1"></script>
-       <script src="libs/typeahead.bundle.js"></script>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta charset="utf-8">
+    <title>Montana Women</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- <link rel="stylesheet" type="text/css" media="screen and (max-width: 360px)" href="portrait.css">
+      <link rel="stylesheet" type="text/css" media="screen and (min-width: 361px) and (max-width: 480px)" href="landscape.css">
+      <link rel="stylesheet" type="text/css" media="screen and (min-width: 481px)" href="desktop.css"> -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
+      <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css" />
+      <script src="libs/jquery-1.12.2.min.js"></script>
+      <script src="libs/json2.js"></script> <!-- json for ie7-->
+      <script src="libs/jquery.imagemapster.min.js?v=1.1"></script>
+      <script src="libs/typeahead.bundle.js"></script>
+      <script src="symptom_selector/selector.js?v=3.3"></script>
+       <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+     </head>
+     <body>
+      <div id="container">
+
+      </div>
 
 
+      <div id="map"></div>
+      <script>
 
-    </head>
-    <body>
-      <h1>Symptom Checker</h1>
-       <table class="container-table">
-           <tr>
-               <td valign="middle" colspan="2" class="td-header box-white bordered-box width50"><h4 class="header" id="selectSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">1</span></h4></td>
-               <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="selectedSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">2</span></h4></td>
-               <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="possibleDiseasesTitle"><span class="badge pull-left badge-primary visible-lg margin5R">3</span></h4></td>
-           </tr>
-           <tr>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomSelector"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomList"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="selectedSymptomList"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="diagnosisList"></div></td>
-           </tr>
-       </table>
-       <div>
-           <a target="_blank" href="http://corporate.priaid.ch"><img class="logo" alt="priaid" src="symptom_selector/images/logo.jpg" /></a>
-           <span><a class="priaid-powered" target="_blank" href="http://corporate.priaid.ch"> powered by priaid</a> </span>
-       </div>
 
-<style>
-.dropbtn {
-   background-color: grey;
-   color: white;
-   padding: 16px;
-   font-size: 16px;
-   border: none;
-   cursor: pointer;
-}
+      var map;
+      var infowindow;
 
-.dropbtn:hover, .dropbtn:focus {
-   background-color: grey;
-}
+   function initMap() {
 
-.dropdown {
-   position: relative;
-   display: inline-block;
-}
 
-.dropdown-content {
-   display: none;
-   position: absolute;
-   background-color: #f9f9f9;
-   min-width: 160px;
-   overflow: auto;
-   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-   z-index: 1;
-}
+     var missoula = {lat: 46.878178, lng: -114.001003};
 
-.dropdown-content a {
-   color: black;
-   padding: 12px 16px;
-   text-decoration: none;
-   display: block;
-}
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: missoula,
+            zoom: 12,
+            scrollwheel: false
 
-.dropdown a:hover {background-color: white}
+          });
 
-.show {display:block;}
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: missoula,
+          radius: 5000,
+          type: ['pharmacy']
+        }, callback);
+      }
 
-</style>
-
-</head>
-<body>
-
-<div class = 'container'>
-   <ul class='main' style='list-style-type:none'>
-
-       <li class='title'>Montana Women's<br> Health Source</br></h1></li>
-       <li>
-         <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn">Help Line</button>
-            <div id="myDropdown" class="dropdown-content">
-             <a href="#emergency">Emergency Call 911</a>
-             <a href="#substance">Substance Abuse</a>
-             <a href="#physical">Physical Abuse</a>
-            </div>
-         </div>
-       </li>
-        <li><button class ='btn btn-default target text-right' id='chat'>Chat Bot</button></li>
-   </ul>
-   <script>
- /* When the user clicks on the button,
- toggle between hiding and showing the dropdown content */
- function myFunction() {
-     document.getElementById("myDropdown").classList.toggle("show");
- }
-
- // Close the dropdown if the user clicks outside of it
- window.onclick = function(event) {
-   if (!event.target.matches('.dropbtn')) {
-
-     var dropdowns = document.getElementsByClassName("dropdown-content");
-     var i;
-     for (i = 0; i < dropdowns.length; i++) {
-       var openDropdown = dropdowns[i];
-       if (openDropdown.classList.contains('show')) {
-         openDropdown.classList.remove('show');
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+           createMarker(results[i]);
+           }
+        }
        }
-     }
-   }
- }
- </script>
 
-   <div class='Statement'>
-     <p class='paragraph'> Montana Women's Health Source is a resource created specifically for Monatan women.
-       Montana Women's Health Source strives to keep medical help and resources at every Montana woman's fingertips.
-       The emotional, and physical needs of Montana women is our top priority. </p>
-   </div>
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
 
-   <div class='categories'>
-     <ul class='Physical' style='list-style-type:none'>
-         <li class='phy-title'>Physical<br> Health</br></h1></li>
-       <div class='parag-styling'>
-         <li class='parag'>Physical health is very important to a womans
-           over-all health.  Find a health gym just for women right here.</li>
-       </div>
-         <li class='btn'><form action="/submit-zip-code">
-           <input type="text" placeholder="Zip Code">
-           <button type="submit">Submit</button>
-         </form>
-       </li>
-    </ul>
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+      });
+      }
 
+  </script>
 
-    <ul class='Counseling' style='list-style-type:none'>
-         <li class='couns-title'>Counseling </li>
-       <div class='parag-styling'>
-         <li class='parag'> Search for counselors in your area for emotional support.</li>
-       </div>
-         <li class='btn'><form action="/submit-zip-code">
-           <input type="text" placeholder="Zip Code">
-           <button type="submit">Submit</button>
-         </form>
-       </li>
-   </ul>
-
-
-
-   <ul class='Doctors' style = 'list-style-type:none'>
-         <li class = 'doc-title'>Doctors and <br> Clinics</br></li>
-       <div class='parag-styling'>
-         <li class='parag'>Look up doctors and clinics near you to meet your medical needs.  Find addresses, phone numbers and Skipe with
-            your doctor.</li>
-       </div>
-         <li class='btn'>
-           <form action="/submit-zip-code">
-             <input type="text" placeholder="Zip Code">
-             <button type="submit">Submit</button>
-           </form>
-         </li>
-   </ul>
-
-   <ul class='Stores' style='list-style-type:none'>
-         <li class='st-title'>Stores Near You</li>
-       <div class='parag-styling'>
-         <li class='parag'>Find a store near you that has feminine products you need in a hurry</li>
-       </div>
-         <li class='btn'>
-           <form action="/submit-zip-code">
-             <input type="text" placeholder="Zip Code">
-             <button type="submit">Submit</button>
-           </form>
-         </li>
-   </ul>
-
-   <ul class='Pharmacies' style='list-style-type:none'>
-       <li class='phar-title'>Pharmacies</li>
-     <div class='parag-styling'>
-       <li class='parag'>Locate a pharmacy in your area for those medical needs</li>
-     </div>
-       <li class='btn'>
-        <form action="/submit-zip-code">
-          <input type="text" placeholder="Zip Code">
-          <button type="submit">Submit</button>
-        </form>
-       </li>
-   </ul>
- </div>
-
-</div>
-
-  </head>
-  <body>
-
-    <div id="container">
-
-    </div>
-
-    <script src="symptom_selector/selector.js?v=3.3"></script>
-    <script src="./app.bundle.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
     <script src="https://unpkg.com/react@15.3.1/dist/react.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../app.bundle.js"></script>
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            $("#symptomSelector").symptomSelector(
-            {
-                mode: "diagnosis",
-                webservice: "https://sandbox-healthservice.priaid.ch", //or for live data https://healthservice.priaid.ch
-                language: "en-gb", // You can change language here to de-ch, tr-tr...
-                specUrl: "sampleSpecialisationPage",// Here should come url for specialisations doctor search page
-                accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhbHR3b0BnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjE3NTMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMTctMDYtMDUiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTQ5Njg3OTkyMCwibmJmIjoxNDk2ODcyNzIwfQ.vSVdMYBuw0JTmNHvcRmvqbShUHhdYEZdHWMUiFS-BYI" //Place here your token
-            });
-        });
+
     </script>
   </body>
 </html>

@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 398);
+/******/ 	return __webpack_require__(__webpack_require__.s = 312);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 398:
+/***/ 312:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -376,7 +376,7 @@ var mode = "diagnosis";
     function _setUpSelector() {
         _selectedSelectorStatus = getCookie("selectedSelectorStatus") !== "" ? getCookie("selectedSelectorStatus") : selectorStatus.Man;
         _selectedBodyPart = getCookie("selectedBodyPart") !== "" ? parseInt(getCookie("selectedBodyPart")) : "";
-        //_selectedBodyPart = "";
+        _selectedBodyPart = "";
         _selectedGender = getCookie("selectedGender") !== "" ? getCookie("selectedGender") : Gender.Male;
         _selectedYear = getCookie("selectedYear") !== "" ? parseInt(getCookie("selectedYear")) : _defaultAdultYear;
 
@@ -422,12 +422,12 @@ var mode = "diagnosis";
             "class": "status-container"
         });
 
-        // this._manAvatarSmall = _createStatusChangeLink(selectorStatus.Man);
+        this._manAvatarSmall = _createStatusChangeLink(selectorStatus.Man);
         this._womanAvatarSmall = _createStatusChangeLink(selectorStatus.Woman);
         //TODO: ADD girl avatar
         this._childAvatarSmall = _createStatusChangeLink(selectorStatus.Boy);
 
-        // statusContainer.append(this._manAvatarSmall);
+        statusContainer.append(this._manAvatarSmall);
         statusContainer.append(this._womanAvatarSmall);
         statusContainer.append(this._childAvatarSmall);
 
@@ -444,18 +444,18 @@ var mode = "diagnosis";
 
     function _createImageMaps() {
         _addImages();
-        // _createManMap();
+        _createManMap();
         _createWomanMap();
         _createChildMap();
         _createSkinLink();
     }
 
     function _addImages() {
-        // this._manAvatar = jQuery("<img/>", {
-        //     id: "manImg",
-        //     src: pathToImages + "/male.png",
-        //     usemap: "#manMap"
-        // });
+        this._manAvatar = jQuery("<img/>", {
+            id: "manImg",
+            src: pathToImages + "/male.png",
+            usemap: "#manMap"
+        });
 
         this._womanAvatar = jQuery("<img/>", {
             id: "womanImage",
@@ -470,83 +470,93 @@ var mode = "diagnosis";
         });
 
         switch (_selectedSelectorStatus) {
-            // case (selectorStatus.Man):
-            //     this._womanAvatar.hide();
-            //     this._childAvatar.hide();
-            //     break;
-            case selectorStatus.Woman:
-                // this._manAvatar.hide();
+            case selectorStatus.Man:
+                this._womanAvatar.hide();
                 this._childAvatar.hide();
                 break;
-            // case (selectorStatus.Boy):
-            //     this._manAvatar.hide();
-            //     this._womanAvatar.hide();
-            //     break;
+            case selectorStatus.Woman:
+                this._manAvatar.hide();
+                this._childAvatar.hide();
+                break;
+            case selectorStatus.Boy:
+                this._manAvatar.hide();
+                this._womanAvatar.hide();
+                break;
             case selectorStatus.Girl:
-                // this._manAvatar.hide();
+                this._manAvatar.hide();
                 this._womanAvatar.hide();
                 break;
         }
 
-        // _plugin.find(".avatar-container").append(this._manAvatar);
+        _plugin.find(".avatar-container").append(this._manAvatar);
         _plugin.find(".avatar-container").append(this._womanAvatar);
         _plugin.find(".avatar-container").append(this._childAvatar);
     }
 
-    // function _createManMap() {
-    //     var manMap = jQuery("<map/>", {
-    //         id: "manMap",
-    //         name: "manMap"
-    //     });
-    //
-    //     var area1 = jQuery("<area/>", {
-    //         shape: "poly",
-    //         coords: "152,3, 150,1, 134,5, 123,12, 116,26, 114,41, 111,52, 114,64, 120,77, 124,86, 126,98, 123,110, 183,110, 179,98, 181,87, 183,75, 189,66, 195,59, 193,51, 191,46, 187,39, 186,31, 186,25, 181,17, 177,12, 171,6, 161,1, 154,1",
-    //         accesskey: "0",
-    //         href: "javascript:void(0)",
-    //         click: function () { _selectBodyPart(SymptomsLocations.Head); }
-    //     });
-    //
-    //     var area2 = jQuery("<area/>", {
-    //         shape: "poly",
-    //         coords: "122,109, 119,106, 109,115, 97,121, 86,123, 79,126, 75,127, 75,182, 75,202, 76,213, 78,227, 79,237, 82,252, 84,258, 86,268, 221,268, 230,233, 233,213, 233,187, 233,175, 233,160, 233,126, 229,124, 204,117, 189,110, 117,110",
-    //         accesskey: "1",
-    //         href: "javascript:void(0)",
-    //         click: function () { _selectBodyPart(SymptomsLocations.Chest); }
-    //     });
-    //
-    //     var area3 = jQuery("<area/>", {
-    //         shape: "poly",
-    //         coords: "85,268, 91,303, 90,319, 87,342, 84,363, 83,380, 80,400, 79,411, 79,420, 80,433, 231,433, 231,398, 229,375, 224,340, 222,316, 220,287, 221,268, 84,268",
-    //         accesskey: "2",
-    //         href: "javascript:void(0)",
-    //         click: function () { _selectBodyPart(SymptomsLocations.Hips); }
-    //     });
-    //
-    //     var area4 = jQuery("<area/>", {
-    //         shape: "poly",
-    //         coords: "80,433, 78,433, 80,453, 84,481, 85,505, 84,532, 80,559, 77,585, 79,612, 83,653, 85,691, 85,716, 79,734, 76,753, 85,764, 99,767, 111,766, 120,762, 126,754, 125,741, 123,725, 121,707, 116,671, 117,647, 126,626, 127,606, 127,590, 124,577, 124,567, 135,524, 141,489, 146,466, 150,450, 153,438, 158,441, 166,468, 172,505, 181,547, 186,569, 182,592, 183,612, 188,639, 191,659, 188,704, 186,738, 185,754, 190,767, 207,767, 224,762, 232,753, 232,742, 227,730, 222,720, 223,705, 221,685, 221,677, 225,653, 230,622, 232,599, 231,567, 228,538, 228,511, 230,488, 232,467, 231,447, 231,433, 79,433",
-    //         accesskey: "3",
-    //         href: "javascript:void(0)",
-    //         click: function () { _selectBodyPart(SymptomsLocations.Legs); }
-    //     });
-    //
-    //     var area5 = jQuery("<area/>", {
-    //         shape: "poly",
-    //         coords: "51,130, 33,146, 25,170, 25,187, 26,222, 24,239, 27,265, 22,283, 20,301, 21,316, 22,326, 16,338, 8,354, 6,363, 1,376, 6,380, 14,369, 23,382, 26,401, 34,414, 47,411, 50,405, 52,396, 56,392, 60,378, 59,360, 55,347, 53,337, 54,324, 59,303, 65,288, 66,270, 65,253, 65,249, 75,236, 75,221, 75,124, 53,129, 233,126, 262,136, 274,152, 280,174, 279,194, 282,221, 286,253, 283,286, 285,312, 288,340, 297,348, 301,362, 307,374, 305,378, 298,373, 293,366, 288,383, 282,403, 273,413, 266,411, 261,404, 258,397, 254,394, 250,375, 248,357, 250,349, 251,344, 255,333, 255,326, 250,300, 246,276, 244,255, 233,242, 233,237, 233,125",
-    //         accesskey: "4",
-    //         href: "javascript:void(0)",
-    //         click: function () { _selectBodyPart(SymptomsLocations.Arms); }
-    //     });
-    //
-    //     manMap.append(area1);
-    //     manMap.append(area2);
-    //     manMap.append(area3);
-    //     manMap.append(area4);
-    //     manMap.append(area5);
-    //
-    //     _plugin.find(".avatar-container").append(manMap);
-    // }
+    function _createManMap() {
+        var manMap = jQuery("<map/>", {
+            id: "manMap",
+            name: "manMap"
+        });
+
+        var area1 = jQuery("<area/>", {
+            shape: "poly",
+            coords: "152,3, 150,1, 134,5, 123,12, 116,26, 114,41, 111,52, 114,64, 120,77, 124,86, 126,98, 123,110, 183,110, 179,98, 181,87, 183,75, 189,66, 195,59, 193,51, 191,46, 187,39, 186,31, 186,25, 181,17, 177,12, 171,6, 161,1, 154,1",
+            accesskey: "0",
+            href: "javascript:void(0)",
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Head);
+            }
+        });
+
+        var area2 = jQuery("<area/>", {
+            shape: "poly",
+            coords: "122,109, 119,106, 109,115, 97,121, 86,123, 79,126, 75,127, 75,182, 75,202, 76,213, 78,227, 79,237, 82,252, 84,258, 86,268, 221,268, 230,233, 233,213, 233,187, 233,175, 233,160, 233,126, 229,124, 204,117, 189,110, 117,110",
+            accesskey: "1",
+            href: "javascript:void(0)",
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Chest);
+            }
+        });
+
+        var area3 = jQuery("<area/>", {
+            shape: "poly",
+            coords: "85,268, 91,303, 90,319, 87,342, 84,363, 83,380, 80,400, 79,411, 79,420, 80,433, 231,433, 231,398, 229,375, 224,340, 222,316, 220,287, 221,268, 84,268",
+            accesskey: "2",
+            href: "javascript:void(0)",
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Hips);
+            }
+        });
+
+        var area4 = jQuery("<area/>", {
+            shape: "poly",
+            coords: "80,433, 78,433, 80,453, 84,481, 85,505, 84,532, 80,559, 77,585, 79,612, 83,653, 85,691, 85,716, 79,734, 76,753, 85,764, 99,767, 111,766, 120,762, 126,754, 125,741, 123,725, 121,707, 116,671, 117,647, 126,626, 127,606, 127,590, 124,577, 124,567, 135,524, 141,489, 146,466, 150,450, 153,438, 158,441, 166,468, 172,505, 181,547, 186,569, 182,592, 183,612, 188,639, 191,659, 188,704, 186,738, 185,754, 190,767, 207,767, 224,762, 232,753, 232,742, 227,730, 222,720, 223,705, 221,685, 221,677, 225,653, 230,622, 232,599, 231,567, 228,538, 228,511, 230,488, 232,467, 231,447, 231,433, 79,433",
+            accesskey: "3",
+            href: "javascript:void(0)",
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Legs);
+            }
+        });
+
+        var area5 = jQuery("<area/>", {
+            shape: "poly",
+            coords: "51,130, 33,146, 25,170, 25,187, 26,222, 24,239, 27,265, 22,283, 20,301, 21,316, 22,326, 16,338, 8,354, 6,363, 1,376, 6,380, 14,369, 23,382, 26,401, 34,414, 47,411, 50,405, 52,396, 56,392, 60,378, 59,360, 55,347, 53,337, 54,324, 59,303, 65,288, 66,270, 65,253, 65,249, 75,236, 75,221, 75,124, 53,129, 233,126, 262,136, 274,152, 280,174, 279,194, 282,221, 286,253, 283,286, 285,312, 288,340, 297,348, 301,362, 307,374, 305,378, 298,373, 293,366, 288,383, 282,403, 273,413, 266,411, 261,404, 258,397, 254,394, 250,375, 248,357, 250,349, 251,344, 255,333, 255,326, 250,300, 246,276, 244,255, 233,242, 233,237, 233,125",
+            accesskey: "4",
+            href: "javascript:void(0)",
+            click: function click() {
+                _selectBodyPart(SymptomsLocations.Arms);
+            }
+        });
+
+        manMap.append(area1);
+        manMap.append(area2);
+        manMap.append(area3);
+        manMap.append(area4);
+        manMap.append(area5);
+
+        _plugin.find(".avatar-container").append(manMap);
+    }
 
     function _createWomanMap() {
         var womanMap = jQuery("<map/>", {
@@ -681,15 +691,15 @@ var mode = "diagnosis";
     function _createStatusChangeLink(selectedStatus) {
         var imgSrc;
         switch (selectedStatus) {
-            // case selectorStatus.Man:
-            //     imgSrc = pathToImages + "/male_small.png";
-            //     break;
+            case selectorStatus.Man:
+                imgSrc = pathToImages + "/male_small.png";
+                break;
             case selectorStatus.Woman:
                 imgSrc = pathToImages + "/female_small.png";
                 break;
-            // case selectorStatus.Boy:
-            //     imgSrc = pathToImages + "/child_small.png";
-            //     break;
+            case selectorStatus.Boy:
+                imgSrc = pathToImages + "/child_small.png";
+                break;
             case selectorStatus.Girl:
                 imgSrc = pathToImages + "/child_small.png";
                 break;
@@ -716,7 +726,7 @@ var mode = "diagnosis";
         var skinLink = jQuery("<a/>", {
             "class": "skin-link",
             href: "javascript:void(0)",
-            //text: skinText,
+            text: skinText,
             click: function click() {
                 _selectBodyPart(SymptomsLocations.Skin);
             }
@@ -929,15 +939,15 @@ var mode = "diagnosis";
         currentAvatar.mapster({
             fillColor: 'acacac',
             fillOpacity: 0.3,
-            //isSelectable: true,
+            // isSelectable: true,
             clickNavigate: true,
             scaleMap: true,
-            //singleSelect: true,
+            // singleSelect: true,
             mapKey: 'accesskey' //  (see http://www.outsharked.com/imagemapster/default.aspx?docs.html)
-            //stroke: true,
-            //strokeColor: "585858",
-            //strokeOpacity: 0.8,
-            //strokeWidth: 1
+            // stroke: true,
+            // strokeColor: "585858",
+            // strokeOpacity: 0.8,
+            // strokeWidth: 1
         });
         _selectBodyPart(_selectedBodyPart);
         _resizeSelector(currentAvatar);
