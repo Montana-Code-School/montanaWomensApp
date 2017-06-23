@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
-
+import Map from 'google-maps-react';
 import Home from './components/home';
 import Counselors from './components/counselors';
 import Gmap from './components/pharmacies';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
+
 
 
 const Navigation = ()=> (
