@@ -5,7 +5,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 import Map from 'google-maps-react';
 import Home from './components/home';
 import Counselors from './components/counselors';
-import Gmap from './components/pharmacies';
+import Pharmacy from './components/pharmacies';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
 
@@ -43,7 +43,7 @@ const Main = ()=> (
   <Switch>
    <Route exact path = '/' component = {Home}/>
    <Route path = '/counselors' component = {Counselors}/>
-   <Route path = '/pharmacies' component = {Gmap}/>
+   <Route path = '/pharmacies' component = {Pharmacy}/>
    <Route path = '/birthcontrol' component = {Birthcontrol}/>
    <Route path = '/resources' component = {Resources}/>
   </Switch>

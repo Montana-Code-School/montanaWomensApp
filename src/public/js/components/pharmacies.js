@@ -1,58 +1,44 @@
+import React from 'react';
+import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
+import Gmap from 'public/js/gmap';
+// import BasicTable from './table';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 
-//
-// import React from 'react';
-// import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 
-var Promise = require('q').Promise;
-//
-// var arrayContaining = jasmine.arrayContaining;
-// var objectContaining = jasmine.objectContaining;
-// var stringMatching = jasmine.stringMatching;
-// import axios from 'axios';
-// import cors from 'cors';
-//
-//       const coords = {
-//         lat: 46.878178,
-//         lng:-114.001003
-//       };
-//
-//       const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
-//
-//       //make axios call to wellness api
-
-  // var googleMapsClient = require('@google/maps').createClient({
-  // key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'
-  // });
-
-  export default class Gmap extends React.Component {
+  export default class Pharmacy extends React.Component {
 
     constructor(props) {
       super(props);
-      this.state = {type: 'pharmacy'}
-    //   googleMapsClient.geocode({
-    //   location: "-33.865, 151.038"
-    // }, function(err, response) {
-    //   if (!err) {
-    //     console.log(response.json.results);
-    //   }
-    // });
+      this.state = {
+        type: 'pharmacy',
+        array: []
+      }
+
       axios.get("http://localhost:3003/api/places/"+this.state.type)
-        .then(res => {
-          console.log(res.data.results[0].name);
-        })
-    }
-     onSubmit (event) {
-      this.setState({type: this.state.type})
-      event.preventDefault();
-    }
+              .then(res => {
+
+                const array = res.data.results;
+                this.setState({array});
+                console.log(array);
+              })
+          }
+
+
+
     render() {
       return (
-        <div>
-          <ul>
-            <li></li>
-          </ul>
-        </div>
+          <div>
+          {this.state.array.map((pharmacy, i) =>
+              <BootstrapTable  data = {pharmacy} height='300' scrollTop={ 'Bottom' }>
+                  <TableHeaderColumn dataField='name' isKey>NAME</TableHeaderColumn>
+                  <TableHeaderColumn dataField='vicinity'>ADDRESS</TableHeaderColumn>
+                  <TableHeaderColumn dataField='rating'>RATING</TableHeaderColumn>
+              </BootstrapTable>
+            )
+          }
+          </div>
+
       )};
 
 }

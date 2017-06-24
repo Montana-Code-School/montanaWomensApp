@@ -89,10 +89,3 @@ export default class Home extends React.Component {
     )
   }
 }
-axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=46.878178,-114.001003&radius=5000&type=pharmacy&key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
