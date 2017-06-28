@@ -31,40 +31,30 @@ class Gmap extends React.Component {
 
   render() {
 
-    // var markLoop = this.props.array.map((place, i) => {
-    //   return(
-    //     <Marker
-    //       key={place.placeId}
-    //       lat={place.latitude}
-    //       lng={place.longitude}
-    //       draggable={false}
-    //       clickable={true}
-    //      />
-    //   );
-    // });
+    var markLoop = this.props.array.map((place, i) => {
+      return(
+        <Marker
+          key={place.place_id}
+          lat={place.geometry.location.lat}
+          lng={place.geometry.location.lng}
+          draggable={false}
+          clickable={true}
+         />
+      );
+    });
 
     return(
       <Gmaps
-        width={'800 px'}
+        width={'700px'}
         height= {'600px'}
         lat={coords.lat}
         lng={coords.lng}
-        radius={5000}
-        zoom={12}
+        zoom={13}
         scrollwheel={false}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>
-        {this.props.array.map((place, i) => {
-          <Marker
-            lat={place.geometry.location.lat}
-            lng={place.geometry.location.lng}
-            draggable={false}
-            clickable={true}
-            />
-          })
-        }
-
+        {markLoop}
       </Gmaps>
     )
   };

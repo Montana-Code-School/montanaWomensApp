@@ -17,6 +17,7 @@
     "babel-preset-react": "^6.24.1",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "flexbox-react": "^4.4.0",
     "google-maps-react": "^1.0.19",
     "invariant": "^2.2.2",
     "prop-types": "^15.5.10",
