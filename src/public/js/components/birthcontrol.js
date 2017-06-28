@@ -1,5 +1,31 @@
 import React from 'react';
 
+
+    function Navbar(prop){
+      var navStyle = {
+        backgroundColor: "rgba(143, 57, 133, .8)",
+        listStyle: "none",
+        fontWeight: "700",
+
+      }
+      var noBull = {
+       listStyle: "none",
+       fontSize: "1em",
+       backgroundColor: "#8f3985 !important"
+
+     }
+
+     return(
+        <div style={navStyle}className="navbar navbar-default">
+         <div className="navbar-header">
+            <ul className="navbar-nav">
+              <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
+            </ul>
+          </div>
+        </div>
+      );
+   }
+
     // function Navbar(prop){
     //   var navStyle = {
     //     backgroundColor: "rgba(143, 57, 133, .8)",
@@ -24,6 +50,7 @@ import React from 'react';
     //   );
     // }
 
+
       //export default class Birthcontrol extends React.Component {
       var headerStyle = {
        textAlign: "center"
@@ -41,6 +68,7 @@ import React from 'react';
       class List extends React.Component {
 
 
+
       //    var headerStyle = {
       //     textAlign: "center"
       //  }
@@ -54,6 +82,7 @@ import React from 'react';
       //    marginRight: "10px",
       //    fontSize: "18px"
       // }
+
       render (){
        return (
          <div className="col-lg-3">
@@ -102,13 +131,28 @@ import React from 'react';
  export default class Birthcontrol extends React.Component {
 
     render () {
+
+      var birthcontrolStyle = {
+        padding:50,
+        marginTop:65,
+        height: 300,
+        backgroundColor:'#e65c00',
+        color: "#333",
+        fontFamily: "monospace",
+        fontSize: 55,
+        textAlign: "center"
+      };
       return (
         <div>
+             <h1 style = {birthcontrolStyle}>Discover The Many Different Options For Birthcontrol </h1>
+
+
           <Rows/>
        </div>
       );
     }
   }
+
 
 
 

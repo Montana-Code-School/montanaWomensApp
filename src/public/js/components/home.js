@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactRouter from 'react-router';
 import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Flexbox from 'flexbox-react';
-
 
   var headerStyle = {
     marginBottom: "0px",
@@ -22,12 +23,10 @@ class Homepage extends React.Component {
   return (
 
   <div>
-  <Flexbox flexDirection="row" justifyContent="center">
-    // <JumbotronCol className="jumbo-fadeUp right img">
 
+  <Flexbox flexDirection="row" justifyContent="center">
       <img src="./css/img/banner_larger.jpg" className="photo"/>
-      <h1 className="banner" > MT Womens Wellness Resource </h1>
-    // </JumbotronCol>
+      <h1 className="banner" > Montana Women&rsquo;s Wellness Resource </h1>
    </Flexbox>
 
    <div style={{height: '1em'}}>
@@ -42,7 +41,7 @@ class Homepage extends React.Component {
 
 
    <div>
-    <Flexbox flexDirection="row" justifyContent="center" minHeight="20vh" paddingTop="5em">
+    <Flexbox flexDirection="row" justifyContent="center" flexWrap="wrap" minHeight="20vh" paddingTop="5em">
       <Flexbox element='section'>
         <Link to ='/counselors'><HoverCol imgSrc="css/img/text-counseling.png" /></Link>
         <Link to='/resources'><HoverCol imgSrc="css/img/text-resources.png" /></Link>
@@ -55,23 +54,25 @@ class Homepage extends React.Component {
       <Link to="/birthcontrol"><HoverCol imgSrc="css/img/text-birth-control.png" /></Link>
     </Flexbox>
   </Flexbox>
-</div>
-
-    <Jumbotron className="jumbo-fadeIn fade-stagger">
-
-    <JumbotronCol fadeEffect="fadeInRight" style={{width: '50%'}}>
-      <h1 style={{paddingTop: '150px'}}>Not Feeling Right?</h1>
-      <h3>Try our quick and easy symptom checker as a first step toward discovering what might be wrong. </h3>
-      <a href="/symptomchecker.html"><button className="btn">SYMPTOM CHECKER</button></a>
-    </JumbotronCol>
-
-    <JumbotronCol className="jumbo-fadeUp right img">
-      <img src="css/img/health-symbol.jpg" className="waves-graphic"/>
-    </JumbotronCol>
-
-  </Jumbotron>
-   <div style={{height: '1em'}}>
   </div>
+
+
+
+  <Jumbotron className="jumbo-fadeIn fade-stagger">
+
+<JumbotronCol fadeEffect="fadeInRight" style={{width: '50%'}}>
+  <h1 style={{paddingTop: '150px'}}>Not Feeling Right?</h1>
+  <h3>Try our quick and easy symptom checker as a first step toward discovering what might be wrong. </h3>
+  <a href="/symptomchecker.html"><button className="btn">SYMPTOM CHECKER</button></a>
+</JumbotronCol>
+
+<JumbotronCol className="jumbo-fadeUp right img">
+  <img src="css/img/health-symbol.jpg" className="waves-graphic"/>
+</JumbotronCol>
+
+</Jumbotron>
+
+
 </div>
   )};
 }
@@ -82,13 +83,6 @@ export default class Home extends React.Component {
       <div>
         <Homepage />
       </div>
-    )
+    );
   }
-}
-axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=46.878178,-114.001003&radius=5000&type=pharmacy&key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+};
