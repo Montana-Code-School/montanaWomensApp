@@ -12,33 +12,53 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
       super(props);
       this.state = {
         type: 'pharmacy',
-        array: []
+        array: [],
+        latitude: [],
+        longitude: [],
+        placeId: [],
+        markers: [{
+          position: {lat: 46.472828,
+                    lng: -114.035341},
+          key: `key`,
+        }]
       }
 
       axios.get("http://localhost:3003/api/places/"+this.state.type)
-              .then(res => {
+            .then(res => {
+              const array = res.data.results;
+              const latitude = [];
+              const longitude = [];
+              const placeId = [];
 
-                const array = res.data.results;
-                this.setState({array});
-                console.log(array);
+              array.map(pharmacy => {
+                latitude.push(pharmacy.geometry.location.lat);
+                longitude.push(pharmacy.geometry.location.lng);
+                placeId.push(pharmacy.place_id);
+              });
+
+
+              this.setState({
+                array: array,
+                latitude: latitude,
+                longitude: longitude,
+                placeId: placeId
               })
-          }
-
-
+              console.log(this.state.latitude);
+            });
+    }
 
     render() {
       return (
           <div>
+          <Gmap array={this.state.array} />
+
+          <ul>
           {this.state.array.map((pharmacy, i) =>
-              <BootstrapTable  data = {pharmacy} height='300' scrollTop={ 'Bottom' }>
-                  <TableHeaderColumn dataField='name' isKey>NAME</TableHeaderColumn>
-                  <TableHeaderColumn dataField='vicinity'>ADDRESS</TableHeaderColumn>
-                  <TableHeaderColumn dataField='rating'>RATING</TableHeaderColumn>
-              </BootstrapTable>
-            )
-          }
+            <li key={i}>{pharmacy.name}</li>
+
+            )}
+          </ul>
           </div>
 
-      )};
-
-}
+      )}
+    };

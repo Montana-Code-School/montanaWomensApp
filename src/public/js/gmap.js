@@ -11,7 +11,6 @@ const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
 
 class Gmap extends React.Component {
 
-
   onMapCreated(map) {
     map.setOptions({
       disableDefaultUI: true
@@ -31,32 +30,44 @@ class Gmap extends React.Component {
   }
 
   render() {
+
+    // var markLoop = this.props.array.map((place, i) => {
+    //   return(
+    //     <Marker
+    //       key={place.placeId}
+    //       lat={place.latitude}
+    //       lng={place.longitude}
+    //       draggable={false}
+    //       clickable={true}
+    //      />
+    //   );
+    // });
+
     return(
       <Gmaps
         width={'800 px'}
         height= {'600px'}
         lat={coords.lat}
         lng={coords.lng}
+        radius={5000}
         zoom={12}
         scrollwheel={false}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>
-      <Marker
-        lat={coords.lat}
-        lng={coords.lng}
-        draggable={true}
-        onDragEnd={this.onDragEnd} />
-      <InfoWindow
-        lat={coords.lat}
-        lng={coords.lng}
-        content={'Hello, React'}
-        onCloseClick={this.onCloseClick} />
+        {this.props.array.map((place, i) => {
+          <Marker
+            lat={place.geometry.location.lat}
+            lng={place.geometry.location.lng}
+            draggable={false}
+            clickable={true}
+            />
+          })
+        }
 
       </Gmaps>
-    );
-  }
-
-};
+    )
+  };
+}
 
 export default Gmap;
