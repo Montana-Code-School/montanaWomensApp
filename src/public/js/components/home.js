@@ -6,53 +6,6 @@ import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Flexbox from 'flexbox-react';
 
 
-
-
-
-
-
-
-//   var headerStyle = {
-//     marginBottom: "0px",
-//     marginTop: "0px",
-//     height: "575px",
-//     paddingTop: "90px",
-//     color: "white",
-//     textAlign: "center",
-//     backgroundImage: "url('css/img/banner_larger.jpg')",
-//     backgroundSize:"contain",
-//     backgroundPosition: "center",
-//     backgroundRepeat:"no-repeat"
-// }
-
-// class Header extends React.Component {
-//   render() {
-//   return(
-//     <div style={headerStyle} className="jumbotron img-responsive">
-//
-//       <h1> MT Womens Wellness </h1>
-//       <h3> Empowering Montana Women With the Resources They Need </h3>
-//
-//     </div>
-//   );
-// }
-//
-// <Flexbox flexDirection="column" minHeight="100vh">
-//   <Flexbox element="header" height="60px">
-//     Header
-//   </Flexbox>
-//
-//   <Flexbox flexGrow={1}>
-//     Content
-//   </Flexbox>
-//
-//   <Flexbox element="footer" height="60px">
-//     Footer
-//   </Flexbox>
-// </Flexbox>
-//
-
-
 class Homepage extends React.Component {
   render() {
   return (
@@ -63,7 +16,7 @@ class Homepage extends React.Component {
     <Flexbox justifyContent='center'>
 
       <img src="./css/img/banner_larger.jpg" className="photo"/>
-      <h1 className="banner" > MT Womens Wellness Resource </h1>
+      <h1 className="banner" >Montana Womens Wellness Resource</h1>
     </Flexbox>
     </div>
 
@@ -96,8 +49,9 @@ class Homepage extends React.Component {
          </Flexbox>
      </div>
 
-    <div>
-       <Flexbox flexDirection="row" justifyContent="flex-start" minHeight="20vh" paddingTop ="2em" className="jumbo-fadeIn fade-stagger">
+    <div className='symptoms'>
+
+       <Flexbox flexDirection="row" justifyContent="center" minHeight="20vh" className="jumbo-fadeIn fade-stagger">
 
        <Flexbox flexDirection='column' element='section' style={{width: '50%'}}>
          <h1 className='symptomheader'style={{paddingTop: '5em'}}>Not Feeling Right?</h1>

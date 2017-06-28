@@ -1,9 +1,6 @@
 import React from 'react';
 
 
-
-
-
    export default class Resources extends React.Component {
 
       render () {
@@ -29,64 +26,38 @@ import React from 'react';
     }
 
 
-    // function Navbar(prop){
-    //   var navStyle = {
-    //     backgroundColor: "rgba(143, 57, 133, .8)",
-    //     listStyle: "none",
-    //     fontWeight: "700",
-    //
-    //   }
-    //   var noBull = {
-    //     listStyle: "none",
-    //     fontSize: "1em",
-    //     backgroundColor: "#8f3985 !important"
-    //   }
-    //
-    //   return(
-    //     <div style={navStyle}className="navbar navbar-default">
-    //       <div className="navbar-header">
-    //         <ul className="navbar-nav">
-    //           <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   );
-    // }
-    //
-    //   function Header() {
-    //     var headerStyle = {
-    //       textAlign: "center"
-    //     }
-    //     return(
-    //       <div className="jumbotron">
-    //         <h1 style={headerStyle}> Resources </h1>
-    //       </div>
-    //     );
-    //   }
 
+    var pStyle = {
+      fontSize: "20px",
+      padding: "5px",
+      textAlign:"center"
+    }
 
+    var fontStyle = {
+      fontSize: "18px",
+      padding: "5px",
+      textAlign:"center"
+    }
 
-        var pStyle = {
-          fontSize: "20px",
-          padding: "5px"
-        }
+    var titleStyle ={
+      textAlign:"center"
+    }
 
-        var fontStyle = {
-          fontSize: "18px",
-          padding: "5px"
-        }
+    var websiteStyle = {
+      textAlign:"center"
+    }
 
- class List extends React.Component {
-        render () {
-        return (
-          <div>
-          <h1> {this.props.title} </h1>
-          <p style={pStyle}> {this.props.description} </p>
-          <a href = "#"><h5 style={fontStyle}> {this.props.website} </h5> </a>
-          <h6 style={fontStyle}> {this.props.number} </h6>
-          </div>
-        );
-      }
+    class List extends React.Component {
+      render (){
+      return (
+        <div>
+        <h1 style = {titleStyle}> {this.props.title} </h1>
+        <p style = {pStyle}> {this.props.description} </p>
+        <h5 style = {websiteStyle}> {this.props.website} </h5>
+        <h6 style = {fontStyle}> {this.props.number} </h6>
+        </div>
+      );
+     }
     }
 
       class Rows extends React.Component {
@@ -109,14 +80,3 @@ import React from 'react';
       }
 
     }
-
-      // export default class Resources extends React.Component {
-      //
-      //    render () {
-      //      return (
-      //        <div>
-      //          <Rows/>
-      //       </div>
-      //      );
-      //    }
-      //  }

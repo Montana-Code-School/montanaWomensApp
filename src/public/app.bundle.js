@@ -563,7 +563,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var _prodInvariant = __webpack_require__(4);
 
 var DOMProperty = __webpack_require__(16);
-var ReactDOMComponentFlags = __webpack_require__(74);
+var ReactDOMComponentFlags = __webpack_require__(75);
 
 var invariant = __webpack_require__(1);
 
@@ -813,7 +813,7 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(70)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(71)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -845,11 +845,11 @@ var _Redirect2 = __webpack_require__(240);
 
 var _Redirect3 = _interopRequireDefault(_Redirect2);
 
-var _Route2 = __webpack_require__(96);
+var _Route2 = __webpack_require__(97);
 
 var _Route3 = _interopRequireDefault(_Route2);
 
-var _Router2 = __webpack_require__(58);
+var _Router2 = __webpack_require__(59);
 
 var _Router3 = _interopRequireDefault(_Router2);
 
@@ -861,7 +861,7 @@ var _Switch2 = __webpack_require__(242);
 
 var _Switch3 = _interopRequireDefault(_Switch2);
 
-var _matchPath2 = __webpack_require__(59);
+var _matchPath2 = __webpack_require__(60);
 
 var _matchPath3 = _interopRequireDefault(_matchPath2);
 
@@ -1361,9 +1361,9 @@ module.exports = { debugTool: debugTool };
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(72);
+var CallbackQueue = __webpack_require__(73);
 var PooledClass = __webpack_require__(18);
-var ReactFeatureFlags = __webpack_require__(77);
+var ReactFeatureFlags = __webpack_require__(78);
 var ReactReconciler = __webpack_require__(21);
 var Transaction = __webpack_require__(34);
 
@@ -2325,7 +2325,7 @@ var warning = __webpack_require__(2);
 var canDefineProperty = __webpack_require__(37);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(99);
+var REACT_ELEMENT_TYPE = __webpack_require__(100);
 
 var RESERVED_PROPS = {
   key: true,
@@ -2664,11 +2664,11 @@ module.exports = ReactElement;
 
 
 
-var DOMNamespaces = __webpack_require__(43);
+var DOMNamespaces = __webpack_require__(44);
 var setInnerHTML = __webpack_require__(36);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(50);
-var setTextContent = __webpack_require__(91);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(51);
+var setTextContent = __webpack_require__(92);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -2961,7 +2961,7 @@ module.exports = ReactReconciler;
 
 var _assign = __webpack_require__(5);
 
-var ReactBaseClasses = __webpack_require__(98);
+var ReactBaseClasses = __webpack_require__(99);
 var ReactChildren = __webpack_require__(251);
 var ReactDOMFactories = __webpack_require__(252);
 var ReactElement = __webpack_require__(19);
@@ -2976,9 +2976,9 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(60);
+  var lowPriorityWarning = __webpack_require__(61);
   var canDefineProperty = __webpack_require__(37);
-  var ReactElementValidator = __webpack_require__(100);
+  var ReactElementValidator = __webpack_require__(101);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3212,11 +3212,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(4);
 
 var EventPluginRegistry = __webpack_require__(31);
-var EventPluginUtils = __webpack_require__(44);
-var ReactErrorUtils = __webpack_require__(48);
+var EventPluginUtils = __webpack_require__(45);
+var ReactErrorUtils = __webpack_require__(49);
 
-var accumulateInto = __webpack_require__(84);
-var forEachAccumulated = __webpack_require__(85);
+var accumulateInto = __webpack_require__(85);
+var forEachAccumulated = __webpack_require__(86);
 var invariant = __webpack_require__(1);
 
 /**
@@ -3490,10 +3490,10 @@ module.exports = EventPluginHub;
 
 
 var EventPluginHub = __webpack_require__(25);
-var EventPluginUtils = __webpack_require__(44);
+var EventPluginUtils = __webpack_require__(45);
 
-var accumulateInto = __webpack_require__(84);
-var forEachAccumulated = __webpack_require__(85);
+var accumulateInto = __webpack_require__(85);
+var forEachAccumulated = __webpack_require__(86);
 var warning = __webpack_require__(2);
 
 var getListener = EventPluginHub.getListener;
@@ -3682,7 +3682,7 @@ module.exports = ReactInstanceMap;
 
 var SyntheticEvent = __webpack_require__(15);
 
-var getEventTarget = __webpack_require__(53);
+var getEventTarget = __webpack_require__(54);
 
 /**
  * @interface UIEvent
@@ -4088,10 +4088,10 @@ var _assign = __webpack_require__(5);
 
 var EventPluginRegistry = __webpack_require__(31);
 var ReactEventEmitterMixin = __webpack_require__(172);
-var ViewportMetrics = __webpack_require__(83);
+var ViewportMetrics = __webpack_require__(84);
 
 var getVendorPrefixedEventName = __webpack_require__(207);
-var isEventSupported = __webpack_require__(54);
+var isEventSupported = __webpack_require__(55);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -4414,9 +4414,9 @@ module.exports = ReactBrowserEventEmitter;
 
 
 var SyntheticUIEvent = __webpack_require__(28);
-var ViewportMetrics = __webpack_require__(83);
+var ViewportMetrics = __webpack_require__(84);
 
-var getEventModifierState = __webpack_require__(52);
+var getEventModifierState = __webpack_require__(53);
 
 /**
  * @interface MouseEvent
@@ -4852,12 +4852,12 @@ module.exports = escapeTextContentForBrowser;
 
 
 var ExecutionEnvironment = __webpack_require__(7);
-var DOMNamespaces = __webpack_require__(43);
+var DOMNamespaces = __webpack_require__(44);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(50);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(51);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -4974,6 +4974,15 @@ module.exports = canDefineProperty;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(153);
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5045,7 +5054,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5139,7 +5148,7 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 };
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5232,7 +5241,7 @@ var createTransitionManager = function createTransitionManager() {
 exports.default = createTransitionManager;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5252,7 +5261,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5273,9 +5282,9 @@ var Danger = __webpack_require__(145);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(50);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(51);
 var setInnerHTML = __webpack_require__(36);
-var setTextContent = __webpack_require__(91);
+var setTextContent = __webpack_require__(92);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -5484,7 +5493,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5509,7 +5518,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5527,7 +5536,7 @@ module.exports = DOMNamespaces;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactErrorUtils = __webpack_require__(48);
+var ReactErrorUtils = __webpack_require__(49);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -5741,7 +5750,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5805,7 +5814,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5823,8 +5832,8 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(82);
-var propTypesFactory = __webpack_require__(69);
+var ReactPropTypesSecret = __webpack_require__(83);
+var propTypesFactory = __webpack_require__(70);
 
 var React = __webpack_require__(22);
 var PropTypes = propTypesFactory(React.isValidElement);
@@ -5949,7 +5958,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5999,7 +6008,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6081,7 +6090,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6323,7 +6332,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6360,7 +6369,7 @@ var createMicrosoftUnsafeLocalFunction = function createMicrosoftUnsafeLocalFunc
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6415,7 +6424,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6463,7 +6472,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6503,7 +6512,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6568,7 +6577,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6617,7 +6626,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6994,7 +7003,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7033,7 +7042,7 @@ navbarStyle.itemHover = Object.assign({}, navbarStyle.item, { cursor: 'pointer',
 exports.default = navbarStyle;
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7183,7 +7192,7 @@ Router.childContextTypes = {
 exports.default = Router;
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7266,7 +7275,7 @@ var matchPath = function matchPath(pathname) {
 exports.default = matchPath;
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7337,16 +7346,29 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(153);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _Flexbox = __webpack_require__(131);
+
+var _Flexbox2 = _interopRequireDefault(_Flexbox);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+exports.default = _Flexbox2.default;
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7407,7 +7429,7 @@ function _interopRequireDefault(obj) {
 module.exports = { Button: _Button2.default, HeroVideo: _HeroVideo2.default, Jumbotron: _Jumbotron2.default, JumbotronCol: _JumbotronCol2.default, HoverRow: _HoverRow2.default, HoverCol: _HoverCol2.default, DrawerContainer: _DrawerContainer2.default, MenuItem: _MenuItem2.default, Navbar: _Navbar2.default, NavItem: _NavItem2.default, Nav: _Nav2.default };
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7426,7 +7448,7 @@ var _HashRouter2 = __webpack_require__(227);
 
 var _HashRouter3 = _interopRequireDefault(_HashRouter2);
 
-var _Link2 = __webpack_require__(95);
+var _Link2 = __webpack_require__(96);
 
 var _Link3 = _interopRequireDefault(_Link2);
 
@@ -7487,7 +7509,7 @@ exports.matchPath = _matchPath3.default;
 exports.withRouter = _withRouter3.default;
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7500,7 +7522,7 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7590,7 +7612,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7622,7 +7644,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7667,7 +7689,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7728,7 +7750,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 };
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7748,7 +7770,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
 
-var factory = __webpack_require__(70);
+var factory = __webpack_require__(71);
 module.exports = function (isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -7756,7 +7778,7 @@ module.exports = function (isValidElement) {
 };
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7777,7 +7799,7 @@ var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
-var ReactPropTypesSecret = __webpack_require__(41);
+var ReactPropTypesSecret = __webpack_require__(42);
 var checkPropTypes = __webpack_require__(137);
 
 module.exports = function (isValidElement, throwOnDirectAccess) {
@@ -8255,7 +8277,7 @@ module.exports = function (isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8414,7 +8436,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8539,7 +8561,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8780,7 +8802,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8803,7 +8825,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8821,7 +8843,7 @@ module.exports = ReactDOMComponentFlags;
 
 var _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(46);
+var LinkedValueUtils = __webpack_require__(47);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 
@@ -9009,7 +9031,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9044,7 +9066,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9071,7 +9093,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9145,7 +9167,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9163,9 +9185,9 @@ module.exports = ReactHostComponent;
 
 var ReactDOMSelection = __webpack_require__(163);
 
-var containsNode = __webpack_require__(118);
-var focusNode = __webpack_require__(66);
-var getActiveElement = __webpack_require__(67);
+var containsNode = __webpack_require__(119);
+var focusNode = __webpack_require__(67);
+var getActiveElement = __webpack_require__(68);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -9273,7 +9295,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9299,19 +9321,19 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(155);
 var ReactDOMFeatureFlags = __webpack_require__(157);
-var ReactFeatureFlags = __webpack_require__(77);
+var ReactFeatureFlags = __webpack_require__(78);
 var ReactInstanceMap = __webpack_require__(27);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactMarkupChecksum = __webpack_require__(177);
 var ReactReconciler = __webpack_require__(21);
-var ReactUpdateQueue = __webpack_require__(49);
+var ReactUpdateQueue = __webpack_require__(50);
 var ReactUpdates = __webpack_require__(13);
 
 var emptyObject = __webpack_require__(29);
-var instantiateReactComponent = __webpack_require__(89);
+var instantiateReactComponent = __webpack_require__(90);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(36);
-var shouldUpdateReactComponent = __webpack_require__(55);
+var shouldUpdateReactComponent = __webpack_require__(56);
 var warning = __webpack_require__(2);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -9817,7 +9839,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9863,7 +9885,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9885,7 +9907,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9915,7 +9937,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9979,7 +10001,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10015,7 +10037,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10031,7 +10053,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ReactNodeTypes = __webpack_require__(81);
+var ReactNodeTypes = __webpack_require__(82);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -10050,7 +10072,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10088,7 +10110,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10215,7 +10237,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10237,8 +10259,8 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var ReactCompositeComponent = __webpack_require__(152);
-var ReactEmptyComponent = __webpack_require__(76);
-var ReactHostComponent = __webpack_require__(78);
+var ReactEmptyComponent = __webpack_require__(77);
+var ReactHostComponent = __webpack_require__(79);
 
 var getNextDebugID = __webpack_require__(259);
 var invariant = __webpack_require__(1);
@@ -10352,7 +10374,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10408,7 +10430,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10465,7 +10487,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10490,7 +10512,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(171);
 
 var getIteratorFn = __webpack_require__(205);
 var invariant = __webpack_require__(1);
-var KeyEscapeUtils = __webpack_require__(45);
+var KeyEscapeUtils = __webpack_require__(46);
 var warning = __webpack_require__(2);
 
 var SEPARATOR = '.';
@@ -10649,7 +10671,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10682,7 +10704,7 @@ var drawerStyle = {
 exports.default = drawerStyle;
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10750,7 +10772,7 @@ jumbotronStyle.fadeInRight = Object.assign({}, jumbotronStyle.fadeInLeft, { anim
 exports.default = jumbotronStyle;
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10886,7 +10908,7 @@ Link.contextTypes = {
 exports.default = Link;
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10910,7 +10932,7 @@ var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _matchPath = __webpack_require__(59);
+var _matchPath = __webpack_require__(60);
 
 var _matchPath2 = _interopRequireDefault(_matchPath);
 
@@ -11062,7 +11084,7 @@ Route.childContextTypes = {
 exports.default = Route;
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11119,7 +11141,7 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([_propTypes2.d
 })]);
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11140,12 +11162,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(23),
     _assign = __webpack_require__(5);
 
-var ReactNoopUpdateQueue = __webpack_require__(101);
+var ReactNoopUpdateQueue = __webpack_require__(102);
 
 var canDefineProperty = __webpack_require__(37);
 var emptyObject = __webpack_require__(29);
 var invariant = __webpack_require__(1);
-var lowPriorityWarning = __webpack_require__(60);
+var lowPriorityWarning = __webpack_require__(61);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -11270,7 +11292,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11295,7 +11317,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11327,9 +11349,9 @@ var ReactElement = __webpack_require__(19);
 var checkReactTypeSpec = __webpack_require__(257);
 
 var canDefineProperty = __webpack_require__(37);
-var getIteratorFn = __webpack_require__(102);
+var getIteratorFn = __webpack_require__(103);
 var warning = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(60);
+var lowPriorityWarning = __webpack_require__(61);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -11558,7 +11580,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11659,7 +11681,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11705,7 +11727,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11720,6 +11742,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _flexboxReact = __webpack_require__(62);
+
+var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11744,21 +11770,21 @@ function Navbar(prop) {
   };
 
   return _react2.default.createElement(
-    "div",
-    { style: navStyle, className: "navbar navbar-default" },
+    'div',
+    { style: navStyle, className: 'navbar navbar-default' },
     _react2.default.createElement(
-      "div",
-      { className: "navbar-header" },
+      'div',
+      { className: 'navbar-header' },
       _react2.default.createElement(
-        "ul",
-        { className: "navbar-nav" },
+        'ul',
+        { className: 'navbar-nav' },
         _react2.default.createElement(
-          "li",
-          { style: noBull, className: "active" },
+          'li',
+          { style: noBull, className: 'active' },
           _react2.default.createElement(
-            "a",
-            { href: "/index.html" },
-            "HOME"
+            'a',
+            { href: '/index.html' },
+            'HOME'
           )
         )
       )
@@ -11766,32 +11792,6 @@ function Navbar(prop) {
   );
 }
 
-// function Navbar(prop){
-//   var navStyle = {
-//     backgroundColor: "rgba(143, 57, 133, .8)",
-//     listStyle: "none",
-//     fontWeight: "700",
-//
-//   }
-//   var noBull = {
-//     listStyle: "none",
-//     fontSize: "1em",
-//     backgroundColor: "#8f3985 !important"
-//   }
-//
-//   return(
-//     <div style={navStyle}className="navbar navbar-default">
-//       <div className="navbar-header">
-//         <ul className="navbar-nav">
-//           <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-//export default class Birthcontrol extends React.Component {
 var headerStyle = {
   textAlign: "center"
 };
@@ -11816,41 +11816,25 @@ var List = function (_React$Component) {
   }
 
   _createClass(List, [{
-    key: "render",
-
-
-    //    var headerStyle = {
-    //     textAlign: "center"
-    //  }
-    //   var imgStyle = {
-    //     margin: "auto",
-    //     paddingBottom: "20px",
-    //     paddingTop: "10px"
-    //   }
-    // var pStyle = {
-    //     paddingRight: "10px",
-    //    marginRight: "10px",
-    //    fontSize: "18px"
-    // }
-
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "col-lg-3" },
+        'div',
+        { className: 'col-lg-3' },
         _react2.default.createElement(
-          "h1",
+          'h1',
           { style: headerStyle },
-          " ",
+          ' ',
           this.props.title,
-          " "
+          ' '
         ),
-        _react2.default.createElement("img", { style: imgStyle, className: "img-responsive", src: this.props.link }),
+        _react2.default.createElement('img', { style: imgStyle, className: 'img-responsive', src: this.props.link }),
         _react2.default.createElement(
-          "p",
+          'p',
           { style: pStyle },
-          " ",
+          ' ',
           this.props.description,
-          " "
+          ' '
         )
       );
     }
@@ -11869,42 +11853,42 @@ var Rows = function (_React$Component2) {
   }
 
   _createClass(Rows, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-          "ul",
-          { className: "row" },
-          _react2.default.createElement(List, { title: "IUD", link: "css/img/iud.png", description: "The IUD is a little, t-shaped piece of plastic that gets put in your uterus to mess with the way sperm can move and prevent them from fertilizing an egg. Sounds odd, but it works like a charm. IUDs offer years of protection\u2014between three and twelve, depending on the type you get. And if you want to get pregnant, you can have the IUD removed at any time. There aretwo types: Hormonal and non-hormonal. In the U.S., there five IUDs: Mirena, ParaGard, Skyla, Liletta, and Kyleena." }),
-          _react2.default.createElement(List, { title: "Implant", link: "css/img/implant.jpeg", description: "The implant is a teeny-tiny rod that's inserted under the skin of your upper arm. It's so small, in fact, most people can't see it once it's inserted\u2014which means it can be your little secret, if you're so inclined. The implant releases progestin, a hormone that keeps your ovaries from releasing eggs and thickens your cervical mucus\u2014which helps block sperm from getting to the egg in the first place. It prevents pregnancy for up to four years. Not too shabby." }),
-          _react2.default.createElement(List, { title: "The Shot", link: "css/img/the_shot.jpg", description: "The shot is just what it sounds like\u2014a shot that keeps you from getting pregnant. Once you get it, your birth control is covered for three full months\u2014there\u2019s nothing else you have to do. Some people call the shot \u201CDepo,\u201D short for Depo-Provera. (Pronounced like Johnny Depp-oh.) The shot contains progestin, a hormone that prevents your ovaries from releasing eggs. It also thickens your cervical mucus, which helps block sperm from getting to the egg in the first place. Worth considering even if you're afraid of needles... Because what's a little prick compared to a pregnancy?" }),
-          _react2.default.createElement(List, { title: "The Patch", link: "css/img/patch.jpg", description: "The patch is a thin, beige piece of plastic that looks like a square Band-Aid. It's a little less than two inches across, and comes in one\u2014and only one\u2014color. (Beige.) You stick the patch on your skin and it gives off hormones that prevent your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place. The brand name Ortho Evra isn't being produced anymore so if you use the patch, ask for the generic, Xulane." })
+          'ul',
+          { className: 'row' },
+          _react2.default.createElement(List, { title: 'IUD', link: 'css/img/iud.png', description: 'The IUD is a little, t-shaped piece of plastic that gets put in your uterus to mess with the way sperm can move and prevent them from fertilizing an egg. Sounds odd, but it works like a charm. IUDs offer years of protection\u2014between three and twelve, depending on the type you get. And if you want to get pregnant, you can have the IUD removed at any time. There aretwo types: Hormonal and non-hormonal. In the U.S., there five IUDs: Mirena, ParaGard, Skyla, Liletta, and Kyleena.' }),
+          _react2.default.createElement(List, { title: 'Implant', link: 'css/img/implant.jpeg', description: 'The implant is a teeny-tiny rod that\'s inserted under the skin of your upper arm. It\'s so small, in fact, most people can\'t see it once it\'s inserted\u2014which means it can be your little secret, if you\'re so inclined. The implant releases progestin, a hormone that keeps your ovaries from releasing eggs and thickens your cervical mucus\u2014which helps block sperm from getting to the egg in the first place. It prevents pregnancy for up to four years. Not too shabby.' }),
+          _react2.default.createElement(List, { title: 'The Shot', link: 'css/img/the_shot.jpg', description: 'The shot is just what it sounds like\u2014a shot that keeps you from getting pregnant. Once you get it, your birth control is covered for three full months\u2014there\u2019s nothing else you have to do. Some people call the shot \u201CDepo,\u201D short for Depo-Provera. (Pronounced like Johnny Depp-oh.) The shot contains progestin, a hormone that prevents your ovaries from releasing eggs. It also thickens your cervical mucus, which helps block sperm from getting to the egg in the first place. Worth considering even if you\'re afraid of needles... Because what\'s a little prick compared to a pregnancy?' }),
+          _react2.default.createElement(List, { title: 'The Patch', link: 'css/img/patch.jpg', description: 'The patch is a thin, beige piece of plastic that looks like a square Band-Aid. It\'s a little less than two inches across, and comes in one\u2014and only one\u2014color. (Beige.) You stick the patch on your skin and it gives off hormones that prevent your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place. The brand name Ortho Evra isn\'t being produced anymore so if you use the patch, ask for the generic, Xulane.' })
         ),
         _react2.default.createElement(
-          "ul",
-          { className: "row" },
-          _react2.default.createElement(List, { title: "The Pill", link: "css/img/pills.jpg", description: "'The Pill' is a pill. Some people call it 'oral contraception.' You take it once a day, at the same time every day. There are lots of different kinds of pills on the market, and new ones come out all the time. Most work by releasing hormones that keep your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place." }),
-          _react2.default.createElement(List, { title: "Internal Condom", link: "css/img/Female_Condom.png", description: "An internal (a.k.a. female) condom is a pouch you insert into your vagina. It's not the prettiest thing in the world (it looks a bit like a floppy, clear elephant trunk) but it is a method that gives you lots of control. Internal condoms work the same way that condoms do, except that you wear one on the inside instead of sticking it on a penis. They keep the guy's sperm inside the condom and out of your vagina." }),
-          _react2.default.createElement(List, { title: "Sponge", link: "css/img/sponge.png", description: "The sponge is a round piece of white plastic foam with a little dimple on one side and a nylon loop across the top that looks like shoelace material. It's pretty small\u2014just two inches across\u2014and you insert it way up in your vagina before you have sex. The sponge works in two ways: It blocks your cervix to keep sperm from getting into your uterus, and it continuously releases spermicide. Think of it like a bouncer at the nightclub door to your uterus." }),
-          _react2.default.createElement(List, { title: "Diaphragm", link: "css/img/diaphragm.jpg", description: "A diaphragm is a shallow, dome-shaped cup made of silicone. (Honestly, it looks like Meg Griffin's hat on The Family Guy. Except it's only a few inches in diameter.) You insert the diaphragm into your vagina. Then it covers your cervix and keeps sperm out of your uterus. One super important thing to remember: For a diaphragm to work effectively, you need to use it with spermicide." })
+          'ul',
+          { className: 'row' },
+          _react2.default.createElement(List, { title: 'The Pill', link: 'css/img/pills.jpg', description: '\'The Pill\' is a pill. Some people call it \'oral contraception.\' You take it once a day, at the same time every day. There are lots of different kinds of pills on the market, and new ones come out all the time. Most work by releasing hormones that keep your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place.' }),
+          _react2.default.createElement(List, { title: 'Internal Condom', link: 'css/img/Female_Condom.png', description: 'An internal (a.k.a. female) condom is a pouch you insert into your vagina. It\'s not the prettiest thing in the world (it looks a bit like a floppy, clear elephant trunk) but it is a method that gives you lots of control. Internal condoms work the same way that condoms do, except that you wear one on the inside instead of sticking it on a penis. They keep the guy\'s sperm inside the condom and out of your vagina.' }),
+          _react2.default.createElement(List, { title: 'Sponge', link: 'css/img/sponge.png', description: 'The sponge is a round piece of white plastic foam with a little dimple on one side and a nylon loop across the top that looks like shoelace material. It\'s pretty small\u2014just two inches across\u2014and you insert it way up in your vagina before you have sex. The sponge works in two ways: It blocks your cervix to keep sperm from getting into your uterus, and it continuously releases spermicide. Think of it like a bouncer at the nightclub door to your uterus.' }),
+          _react2.default.createElement(List, { title: 'Diaphragm', link: 'css/img/diaphragm.jpg', description: 'A diaphragm is a shallow, dome-shaped cup made of silicone. (Honestly, it looks like Meg Griffin\'s hat on The Family Guy. Except it\'s only a few inches in diameter.) You insert the diaphragm into your vagina. Then it covers your cervix and keeps sperm out of your uterus. One super important thing to remember: For a diaphragm to work effectively, you need to use it with spermicide.' })
         ),
         _react2.default.createElement(
-          "ul",
-          { className: "row" },
-          _react2.default.createElement(List, { title: "The Ring", link: "css/img/ring.jpg", description: "The ring (brand name: NuvaRing) is a small, bendable ring that you insert into your vagina. (It kind of looks like one of those jelly bracelets from the 80s, but it feels a tiny bit stiffer.) You leave it in place for three weeks at a time, then take it out for the fourth week. The ring works by giving off hormones that prevent your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place." }),
-          _react2.default.createElement(List, { title: "Condom", link: "css/img/condoms.jpg", description: "Condoms are one of the most popular forms of birth control out there. They slip over the penis to prevent pregnancy and lower the risk of STIs by keeping sperm inside the condom and out of the vagina. (There are also internal condoms that go inside the vagina.) Condoms come in hundreds of shapes and sizes, with lube and without." }),
-          _react2.default.createElement(List, { title: "'Not Right Now'", link: "css/img/no.png", description: "'Not right now' is our way of saying 'no vaginal sex.' It\u2019s a great method as far as effectiveness is concerned\u2014if you use it 100% of the time, you\u2019re guaranteed to not get pregnant. And if you\u2019re avoiding sexual activity altogether, you\u2019ll be safe from STIs too. But it does involve a whole lot of self-control." }),
-          _react2.default.createElement(List, { title: "Spermicide", link: "css/img/spermicide.png", description: "Spermicide describes a bunch of different creams, films, foams, gels, and suppositories that contain chemicals that stop sperm from moving. You insert it deep in your vagina, so it also keeps sperm from getting through your cervix and into your uterus." })
+          'ul',
+          { className: 'row' },
+          _react2.default.createElement(List, { title: 'The Ring', link: 'css/img/ring.jpg', description: 'The ring (brand name: NuvaRing) is a small, bendable ring that you insert into your vagina. (It kind of looks like one of those jelly bracelets from the 80s, but it feels a tiny bit stiffer.) You leave it in place for three weeks at a time, then take it out for the fourth week. The ring works by giving off hormones that prevent your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place.' }),
+          _react2.default.createElement(List, { title: 'Condom', link: 'css/img/condoms.jpg', description: 'Condoms are one of the most popular forms of birth control out there. They slip over the penis to prevent pregnancy and lower the risk of STIs by keeping sperm inside the condom and out of the vagina. (There are also internal condoms that go inside the vagina.) Condoms come in hundreds of shapes and sizes, with lube and without.' }),
+          _react2.default.createElement(List, { title: '\'Not Right Now\'', link: 'css/img/no.png', description: '\'Not right now\' is our way of saying \'no vaginal sex.\' It\u2019s a great method as far as effectiveness is concerned\u2014if you use it 100% of the time, you\u2019re guaranteed to not get pregnant. And if you\u2019re avoiding sexual activity altogether, you\u2019ll be safe from STIs too. But it does involve a whole lot of self-control.' }),
+          _react2.default.createElement(List, { title: 'Spermicide', link: 'css/img/spermicide.png', description: 'Spermicide describes a bunch of different creams, films, foams, gels, and suppositories that contain chemicals that stop sperm from moving. You insert it deep in your vagina, so it also keeps sperm from getting through your cervix and into your uterus.' })
         ),
         _react2.default.createElement(
-          "ul",
-          { className: "row" },
-          _react2.default.createElement(List, { title: "Cervical Cap", link: "css/img/cervical_cap.png", description: "A cervical cap is a silicone cup you insert in your vagina to cover your cervix and keep sperm out of your uterus. The 'cap' part of the name is pretty dead on\u2014the thing looks like a little rubber sailor's hat, maybe an inch and a half wide and one inch high. There's only one brand of cervical cap available in the U.S. today, and it's jauntily named the FemCap. One super important thing to remember: You need to use a cervical cap with spermicide for it to be most effective." }),
-          _react2.default.createElement(List, { title: "Emergency Contraception", link: "css/img/EC.png", description: "Emergency Contraception (EC) can stop a pregnancy before it starts. (That means the EC pills are not the same as the abortion pill.) There are four types of EC to choose from and they all work up to 5 days (or 120 hours) after unprotected sex. But use it sooner rather than later to reduce the possibility of getting pregnant." }),
-          _react2.default.createElement(List, { title: "Withdrawal", link: "css/img/exit.jpg", description: "Withdrawal is the oldest form of birth control on the planet. There's not much to explain, really. The guy pulls out before he ejaculates. End of story. Some people call withdrawal the 'pull out method.' The key thing to remember is this: You've got to do it right\u2014every single time\u2014for withdrawal to be effective." }),
-          _react2.default.createElement(List, { title: "Fertility Awareness", link: "css/img/awareness.jpg", description: "Fertility awareness-based methods\u2014or natural family planning\u2014are all about tracking your menstrual cycle to determine the days that you can get pregnant. The tricky part is actually knowing when those days are. To do that, you'll need to pay very close attention to your body and its patterns. Here we list all the different ways you can monitor your day-to-day fertility." })
+          'ul',
+          { className: 'row' },
+          _react2.default.createElement(List, { title: 'Cervical Cap', link: 'css/img/cervical_cap.png', description: 'A cervical cap is a silicone cup you insert in your vagina to cover your cervix and keep sperm out of your uterus. The \'cap\' part of the name is pretty dead on\u2014the thing looks like a little rubber sailor\'s hat, maybe an inch and a half wide and one inch high. There\'s only one brand of cervical cap available in the U.S. today, and it\'s jauntily named the FemCap. One super important thing to remember: You need to use a cervical cap with spermicide for it to be most effective.' }),
+          _react2.default.createElement(List, { title: 'Emergency Contraception', link: 'css/img/EC.png', description: 'Emergency Contraception (EC) can stop a pregnancy before it starts. (That means the EC pills are not the same as the abortion pill.) There are four types of EC to choose from and they all work up to 5 days (or 120 hours) after unprotected sex. But use it sooner rather than later to reduce the possibility of getting pregnant.' }),
+          _react2.default.createElement(List, { title: 'Withdrawal', link: 'css/img/exit.jpg', description: 'Withdrawal is the oldest form of birth control on the planet. There\'s not much to explain, really. The guy pulls out before he ejaculates. End of story. Some people call withdrawal the \'pull out method.\' The key thing to remember is this: You\'ve got to do it right\u2014every single time\u2014for withdrawal to be effective.' }),
+          _react2.default.createElement(List, { title: 'Fertility Awareness', link: 'css/img/awareness.jpg', description: 'Fertility awareness-based methods\u2014or natural family planning\u2014are all about tracking your menstrual cycle to determine the days that you can get pregnant. The tricky part is actually knowing when those days are. To do that, you\'ll need to pay very close attention to your body and its patterns. Here we list all the different ways you can monitor your day-to-day fertility.' })
         )
       );
     }
@@ -11923,10 +11907,11 @@ var Birthcontrol = function (_React$Component3) {
   }
 
   _createClass(Birthcontrol, [{
-    key: "render",
+    key: 'render',
     value: function render() {
 
       var birthcontrolStyle = {
+
         padding: 50,
         marginTop: 65,
         height: 300,
@@ -11937,12 +11922,16 @@ var Birthcontrol = function (_React$Component3) {
         textAlign: "center"
       };
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-          "h1",
-          { style: birthcontrolStyle },
-          "Discover The Many Different Options For Birthcontrol "
+          _flexboxReact2.default,
+          { flexDirection: 'row' },
+          _react2.default.createElement(
+            'h1',
+            { style: birthcontrolStyle },
+            'Discover The Many Different Options For Birthcontrol '
+          )
         ),
         _react2.default.createElement(Rows, null)
       );
@@ -11965,7 +11954,7 @@ var Birthcontrol = function (_React$Component3) {
 exports.default = Birthcontrol;
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11981,9 +11970,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _flexboxReact = __webpack_require__(62);
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12001,12 +11992,12 @@ var Photo = function (_React$Component) {
   }
 
   _createClass(Photo, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
-        _react2.default.createElement("img", { src: "css/img/health-symbol.jpg", style: imgStyle, className: "waves-graphic" })
+        _react2.default.createElement('img', { src: 'css/img/health-symbol.jpg', style: imgStyle, className: 'waves-graphic' })
       );
     }
   }]);
@@ -12014,50 +12005,8 @@ var Photo = function (_React$Component) {
   return Photo;
 }(_react2.default.Component);
 
-var Header = function (_React$Component2) {
-  _inherits(Header, _React$Component2);
-
-  function Header() {
-    _classCallCheck(this, Header);
-
-    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
-  }
-
-  _createClass(Header, [{
-    key: "render",
-    value: function render() {
-      return padding, marginTop, height, backgroundColor, color, fontFamily, fontSize, textAlign;
-    }
-  }]);
-
-  return Header;
-}(_react2.default.Component);
-
-var Map = function (_React$Component3) {
-  _inherits(Map, _React$Component3);
-
-  function Map() {
-    _classCallCheck(this, Map);
-
-    return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
-  }
-
-  _createClass(Map, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "h1",
-        null,
-        " Hello world"
-      );
-    }
-  }]);
-
-  return Map;
-}(_react2.default.Component);
-
-var Counselors = function (_React$Component4) {
-  _inherits(Counselors, _React$Component4);
+var Counselors = function (_React$Component2) {
+  _inherits(Counselors, _React$Component2);
 
   function Counselors() {
     _classCallCheck(this, Counselors);
@@ -12066,27 +12015,28 @@ var Counselors = function (_React$Component4) {
   }
 
   _createClass(Counselors, [{
-    key: "render",
+    key: 'render',
     value: function render() {
-      var _counselorsStyle;
-
-      var counselorsStyle = (_counselorsStyle = {
-        // padding: 5,
-        // margin: 5,
-        backgroundColor: '#F00',
+      var counselorsStyle = {
         padding: 50,
         marginTop: 65,
-        height: 300
-      }, _defineProperty(_counselorsStyle, "backgroundColor", '#b34700'), _defineProperty(_counselorsStyle, "color", "#333"), _defineProperty(_counselorsStyle, "fontFamily", "monospace"), _defineProperty(_counselorsStyle, "fontSize", 55), _defineProperty(_counselorsStyle, "textAlign", "center"), _counselorsStyle);
+        height: 300,
+        backgroundColor: '#b34700',
+        color: "#333",
+        fontFamily: "monospace",
+        fontSize: 55,
+        textAlign: "center"
+
+      };
       return _react2.default.createElement(
-        "div",
-        { style: counselorsStyle },
+        'div',
+        null,
         _react2.default.createElement(
-          "h1",
-          null,
-          " Find a Local Counselor Near You to Get Help and Support for Youself or Your Family Members"
+          'h1',
+          { style: counselorsStyle },
+          ' Find a Local Counselor Near You to Get Help and Support for Youself or Your Family Members'
         ),
-        _react2.default.createElement(Map, null)
+        _react2.default.createElement(Rows, null)
       );
     }
   }]);
@@ -12096,8 +12046,113 @@ var Counselors = function (_React$Component4) {
 
 exports.default = Counselors;
 
+
+var pStyle = {
+  fontSize: "20px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var fontStyle = {
+  fontSize: "18px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var titleStyle = {
+  textAlign: "center"
+};
+
+var websiteStyle = {
+  textAlign: "center"
+};
+
+var List = function (_React$Component3) {
+  _inherits(List, _React$Component3);
+
+  function List() {
+    _classCallCheck(this, List);
+
+    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+  }
+
+  _createClass(List, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { style: titleStyle },
+          ' ',
+          this.props.title,
+          ' '
+        ),
+        _react2.default.createElement(
+          'p',
+          { style: pStyle },
+          ' ',
+          this.props.description,
+          ' '
+        ),
+        _react2.default.createElement(
+          'h5',
+          { style: websiteStyle },
+          ' ',
+          this.props.website,
+          ' '
+        ),
+        _react2.default.createElement(
+          'h6',
+          { style: fontStyle },
+          ' ',
+          this.props.number,
+          ' '
+        )
+      );
+    }
+  }]);
+
+  return List;
+}(_react2.default.Component);
+
+var Rows = function (_React$Component4) {
+  _inherits(Rows, _React$Component4);
+
+  function Rows() {
+    _classCallCheck(this, Rows);
+
+    return _possibleConstructorReturn(this, (Rows.__proto__ || Object.getPrototypeOf(Rows)).apply(this, arguments));
+  }
+
+  _createClass(Rows, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(List, { title: 'Aletheia Marriage Counseling', description: 'James W. Ramsey,  MA, MFT, LCPC  You\'ll be surprised how fast couples experience incredible results after putting into practice just a few simple principles.  It starts with a desire to have a better relationship and the.willingness to have something different.  All our coaching and counseling programs are designed to meet you....where you\'re at now....no matter how bad it may feel. Located at 2870 St. Michael Drive  Missoula Mt 59803', website: 'www.aletheiamarriagecounseling.net', number: '(406)251-7073' }),
+          _react2.default.createElement(List, { title: 'Marriage and Couple Counseling', description: 'David Meurer, LCSW  In my marriage and couples counseling Missoula practice, I help people foster more caring and support in their relationship. This includes helping people build a strong connection to each other and bring more joy into their life together. I help couples learn the skills they need to move through conflict well. This means learning to value each other\u2019s unique input when facing challenges and stress. In my marriage and couples counseling Missoula practice, I rely on models that have been tested through years of research. These models can bring people to new understandings and insights, which can help them make sense of the difficulties they are having. Then they can learn new ways to solve problems and take care of each other.Located at 415 N Higgins #132 Missoul Mt 59802 ', website: 'www.counselingmissoula.com', number: '(406)531-6250' }),
+          _react2.default.createElement(List, { title: 'Stepping Stones Counseling', description: 'Today you are one step closer to a new you where you feel empowered and on a positive path to personal growth and managing your alcohol use by keeping to low-risk guidelines or choosing abstinence for all mood-altering chemicals. As solution-focused counselors, our goal is to help you uncover your true potential and lead a life that is worth celebrating. While we can\'t change difficult situations of the past, we can work together to better understand and resolve the challenges in your life created by your alcohol or drug use. By applying complementary therapy approaches and techniques, we will unearth long-standing behavior patterns or negative perceptions that may be holding you back from experiencing a more fulfilling and meaningful life. If you\'re looking for extra support and guidance through a challenging situation or you\'re just ready to address the issues created by your alcohol or drug use, we look forward to working with you to achieve your goals. Located at 202 Brooks St Ste 300 Missoula Mt ', website: 'www.steppingstonesmissoula.com', number: '(406)926-1453' }),
+          _react2.default.createElement(List, { title: 'Nardi and Stube', description: ' Julie A Nardi MA and David B Stube PhD.  As a couple counseling couples, we can offer not only male and female perspectives to each struggle brought to us, but an understanding of the intensity of emotions in partnerships and the desire to hang on to the myth of the promise of ease and effortless relationship. As well, we have a great appreciation of the difficulty and fear involved in change. We can help you move from a relationship in which you feel miles away from your partner to one that includes deep emotional connection, greater acceptance of self, and greater skill in ceasing your efforts to mold your partner into who you want them to be rather than who they are. Located at 537 Stephens Ave Missoula Mt 59801', website: 'www.gardencitycouples.com', number: '(406)542-8222' }),
+          _react2.default.createElement(List, { title: 'Women\'s Counseling Center', description: 'Diane Adams LCSW MAC offers therapy for Individuals, Partners, EMDR, Addiction treatment, she offers Daring Way groups, Private retreats, and Sex Positive Culture.  Located at 725 W Alder Ste 18  Missoula Mt 59802', website: 'www.womenscounselingcenter.org', number: '(406)728-8388 or email at wcc@blackfoot.net' }),
+          _react2.default.createElement(List, { title: 'Leanne Young MA LCPC', description: 'Leanne Young, MA, LCPC is a licensed clinical professional counselor in private practice in Missoula, Montana. She has over 22 years of education and experience in her field. Prior to the establishment of her private practice, she worked for various agencies and the University of Montana. She has extensive experience providing psychotherapy with adults, couples, families and adolescents in various capacities. Leanne aims to flexibly structure the course of treatment to accommodate her client\'s therapeutic needs. She assists people to transform from feeling blocked in some area of their lives to achieving their own definition of success from weekly sessions. The decision to attend therapy is a significant one. People seek therapy to deal with issues, conflicts, and problems associated with a range of topics. What underlies a successful therapeutic relationship is the creation of a safe place for one to explore conflicts, issues, and feelings. From that premise, meaningful and significant growth occurs. The kind of growth one is seeking is best decided upon by careful collaboration between the therapist and the client. Working as a general practitioner, she has additional specialized expertise in: Depression, Anxiety, Eating disorders (anorexia, bulimia, and overeating), Couples Counseling, Parenting, Divorce adjustment.  In addition to her work as a therapist, she also is certified in Divorce and Family Mediation with a specialization in development of parenting plans, emphasizing the best possible adjustment of the children. Located at 111 N Higgins Ave Missoula Mt 59802', website: 'www.leanneyoung.com', number: '(406)360-3262' }),
+          _react2.default.createElement(List, { title: 'Dr Q Counnseling', description: 'If you\'d like to discuss your concerns with a counselor, visit Dr. Q Counseling in Missoula, MT. If necessary, we can also come to you. We work hard to help individuals and families who are struggling with particular mental health issues or general anxieties and fears. We accept most insurance plans and take Medicaid. If you\'d like to receive counseling for a gambling problem, we offer funding to help cover the costs. If you\'re nervous about receiving care, we\'ll do our best to put your mind at ease. Our counselor graduated from the University of Montana and is a member of the American Mental Health Counselors Association. At our clinic, we want our patients to move beyond their struggles, and we offer a variety of treatments in an effort to help them do so. This includes: Gambling addiction therapy, Parent-child interaction therapy, Addiction counseling, Trauma counseling.  Located at 725 W Central Ave  Ste 209 Missoula, Mt 59801', website: 'www.missoulacounselingservices.com', number: '(406)203-0814' }),
+          _react2.default.createElement(List, { title: 'Bluebird Psychotherapy', description: 'My name is Ivy Irvine, LCSW, and I am a licensed clinical social worker and therapist at Bluebird Psychotherapy, located in downtown Missoula, Montana.  I provide counseling and consultation services for children, families, and adults.   I accept many forms of insurance and am happy to work with individuals and families on a sliding scale fee system. Therapy and support should be accessible to everyone regardless of cost. I specialize in working with children, families and adults who have experienced trauma, grief and loss and who need a place to experience safe, kind, and healing relationships. I work with children and adults who have needs around the following: Adoption, Attachment Issues (RAD), Anxiety, Behavioral Problems, Child Abuse and Neglect, Depression, Divorce, Domestic Violence, Emotional Disturbance, Family Conflict, Grief, Impulsivity, Oppositional Defiance, Parenting Peer Relationships, School Issues, Self-Esteem, Self-Harming Behaviors, Sexual Abuse, Stress, Suicideation, Trauma and PTSD.  Located at 725 W. Alder   Ste 28, Missoula, Mt 59802', website: 'www.bluebirdpsychotherapy.com', number: '(406)546-0082' })
+        )
+      );
+    }
+  }]);
+
+  return Rows;
+}(_react2.default.Component);
+
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12134,7 +12189,6 @@ var Doctors = function (_React$Component) {
     key: 'render',
     value: function render() {
       var doctorsStyle = {
-        //image:'css/img/health-symbol.jpg',
         padding: 50,
         marginTop: 65,
         height: 300,
@@ -12146,12 +12200,13 @@ var Doctors = function (_React$Component) {
       };
       return _react2.default.createElement(
         'div',
-        { style: doctorsStyle },
+        null,
         _react2.default.createElement(
           'h1',
-          null,
+          { style: doctorsStyle },
           'Take the Time to Choose From the Many Doctors and Clinics in Your Area'
-        )
+        ),
+        _react2.default.createElement(Rows, null)
       );
     }
   }]);
@@ -12161,8 +12216,114 @@ var Doctors = function (_React$Component) {
 
 exports.default = Doctors;
 
+
+var pStyle = {
+  fontSize: "20px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var fontStyle = {
+  fontSize: "18px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var titleStyle = {
+  textAlign: "center"
+};
+
+var websiteStyle = {
+  textAlign: "center"
+};
+
+var List = function (_React$Component2) {
+  _inherits(List, _React$Component2);
+
+  function List() {
+    _classCallCheck(this, List);
+
+    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+  }
+
+  _createClass(List, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { style: titleStyle },
+          ' ',
+          this.props.title,
+          ' '
+        ),
+        _react2.default.createElement(
+          'p',
+          { style: pStyle },
+          ' ',
+          this.props.description,
+          ' '
+        ),
+        _react2.default.createElement(
+          'h5',
+          { style: websiteStyle },
+          ' ',
+          this.props.website,
+          ' '
+        ),
+        _react2.default.createElement(
+          'h6',
+          { style: fontStyle },
+          ' ',
+          this.props.number,
+          ' '
+        )
+      );
+    }
+  }]);
+
+  return List;
+}(_react2.default.Component);
+
+var Rows = function (_React$Component3) {
+  _inherits(Rows, _React$Component3);
+
+  function Rows() {
+    _classCallCheck(this, Rows);
+
+    return _possibleConstructorReturn(this, (Rows.__proto__ || Object.getPrototypeOf(Rows)).apply(this, arguments));
+  }
+
+  _createClass(Rows, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(List, { title: 'Teen Challenge Montana Women\'s Outreach', description: 'Are you looking for an answer to your or a family member\'s drug addiction? Is alcohol abuse becoming chronic? Have these and other life-controlling problems been spinning out of control ? We have a proven track record of helping people just like you: good people with bad problems. At Pacific Northwest Adult & Teen Challenge we teach men and women principles with purpose. Through biblical principles we help them define who they are and provide them with the tools needed to assist them in the process of recovery. Our rigorous and regimented 12-month program offers personal growth, group studies, and counseling.', website: 'www.teenchallengepnw.com', number: '(406)543-1912' }),
+          _react2.default.createElement(List, { title: 'Care Net of Missoula Montana Pregnancy Center', description: 'If you are facing an unexpected pregnancy it is natural for you to be scared and to want a way out. The unknown and unexpected can be a fearful place. We are here to help you have a clear picture of the facts so that you can make the best, informed decision for your future.', website: 'www.carenetmissoula.org', number: '(406)549-0406' }),
+          _react2.default.createElement(List, { title: 'Missoula Urban Indian Health Center', description: 'The Missoula Urban Indian Health Center (MUIHC) serves the Native American community in Missoula, Montana and surrounding areas.  MUIHC provides a variety of services: Diabetes Medication Management & Self Care, Immunization and Variety Of Testing, Health Promotion & Disease Prevention, Chemical Dependency Counseling, Mental Healthcare, Community Services, Transportation', website: 'www.muihc.org', number: '(406)829-9515' }),
+          _react2.default.createElement(List, { title: 'Women\'s Choice of Missoula', description: 'Women\u2019s Choice of Missoula is the OB/Gyn clinic of Dr. Beverly L. Braak, a solo practitioner. We are open 4 days a week to assist you with any questions or concerns you might have. When Women\u2019s Choice of Missoula is closed, an answering service will answer your call and contact Dr. Braak as necessary. Dr. Braak is in a call group with many other great doctors, so if for some unfortunate reason Dr. Braak is not available, one of the other doctors in the group would be able to assist you. If you are an obstetrics patient of Women\u2019s Choice of Missoula, Dr. Braak will be on call for you throughout your entire pregnancy. Dr. Braak makes every effort to deliver her OB patients even when she\u2019s not on call. Dr. Braak has surgery privileges at both St. Patrick Hospital and Community Hospital in Missoula.', website: 'www.womenschoice of missoula.com', number: '(406)327-2875' }),
+          _react2.default.createElement(List, { title: 'Woman to Woman', description: 'Many women feel more comfortable with a woman doctor, and it\u2019s only natural. But it takes more to keep you at your healthiest. You want your doctor to have the quality credentials, experience and skill you can trust throughout your life. You deserve that level of medical care along with the personal understanding you expect from a woman doctor. Dr. Valerie Ann Knudsen has cared for the women in our area for 20 years. Women appreciate her warmth, compassion and dedication. Dr. Knudsen is also one of the most highly skilled physicians in the region. That\u2019s what makes it easy to choose Woman to Woman for your healthcare. Dr. Knudsen and our entire team look forward to keeping you at your best \u2013 with the care you can feel good about.', website: 'www.drknudsen.com', number: '(406)327-4395' }),
+          _react2.default.createElement(List, { title: 'Blue Mountain Clinic', description: 'Blue Mountain Clinic provides patient-centered, family and reproductive medicine services to the local community from a choice based perspective. We believe that choices in any health care decision should be met with dignity in a supportive environment.\\n\\nBlue Mountain Clinic strives to provide feminist based approaches to health care, education, and advocacy in the region. Essential activities to fulfill this mission require visible advocacy on the local level to improve policies that have a negative impact on patient\u2019s economic and political access to health care.', website: 'http://www.bluemountainclinic.org', number: '(406)721-1646' }),
+          _react2.default.createElement(List, { title: 'Planned Parenthood', description: 'Planned Parenthood is one of the nation\'s leading providers of high-quality, affordable health care for women, men, and young people, and the nation\'s largest provider of sex education.  Health services include: birth control, abortion, testing and treatment for STDs, HIV services, patient education and general health services.', website: 'https://www.plannedparenthood.org', number: '(406)728-5490' }),
+          _react2.default.createElement(List, { title: 'First Step Resource Center', description: 'provides medical evaluations, forensic interviews, mental health treatment, care coordination and referrals for child and adult victims of abuse or assault.\\n\\nFirst Step is dedicated to reducing trauma and promoting healing for child victims of abuse and adult victims of sexual assault. We serve children, families and adults in Missoula and surrounding counties.', website: 'http://montana.providence.org/hospitals/st-patrick/services/first-step', number: '(406)329-5776' }),
+          _react2.default.createElement(List, { title: 'Women\'s Care and Family Wellness', description: 'If you\u2019re looking for a doctor in Missoula for you and your family, the Providence Women\u2019s Care and Family Wellness clinic has providers for primary care and women\u2019s care. We also offer unique services like hormone therapy, functional medicine and naturopathic medicine if you\u2019re interested in other treatment options beyond traditional Western medicine.\\n\\nUnlike other clinics, we\u2019ll take a little more time with you during your appointment, getting to know you, your medical history and other factors that could be affecting your health. We\u2019ll take care of the specific health issue that prompted you to make an appointment, but we\u2019ll also focus on your wellness.', website: 'http://montana.providence.org/clinics/womens-care-and-family-wellness', number: '406-327-3057' })
+        )
+      );
+    }
+  }]);
+
+  return Rows;
+}(_react2.default.Component);
+
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12178,7 +12339,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(61);
+var _reactDom = __webpack_require__(38);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -12186,11 +12347,11 @@ var _reactRouter = __webpack_require__(9);
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-var _reactDynamicUi = __webpack_require__(62);
+var _reactDynamicUi = __webpack_require__(63);
 
-var _reactRouterDom = __webpack_require__(63);
+var _reactRouterDom = __webpack_require__(64);
 
-var _flexboxReact = __webpack_require__(131);
+var _flexboxReact = __webpack_require__(62);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -12201,47 +12362,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//   var headerStyle = {
-//     marginBottom: "0px",
-//     marginTop: "0px",
-//     height: "575px",
-//     paddingTop: "90px",
-//     color: "white",
-//     textAlign: "center",
-//     backgroundImage: "url('css/img/banner_larger.jpg')",
-//     backgroundSize:"contain",
-//     backgroundPosition: "center",
-//     backgroundRepeat:"no-repeat"
-// }
-
-// class Header extends React.Component {
-//   render() {
-//   return(
-//     <div style={headerStyle} className="jumbotron img-responsive">
-//
-//       <h1> MT Womens Wellness </h1>
-//       <h3> Empowering Montana Women With the Resources They Need </h3>
-//
-//     </div>
-//   );
-// }
-//
-// <Flexbox flexDirection="column" minHeight="100vh">
-//   <Flexbox element="header" height="60px">
-//     Header
-//   </Flexbox>
-//
-//   <Flexbox flexGrow={1}>
-//     Content
-//   </Flexbox>
-//
-//   <Flexbox element="footer" height="60px">
-//     Footer
-//   </Flexbox>
-// </Flexbox>
-//
-
 
 var Homepage = function (_React$Component) {
   _inherits(Homepage, _React$Component);
@@ -12393,10 +12513,10 @@ var Homepage = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'symptoms' },
           _react2.default.createElement(
             _flexboxReact2.default,
-            { flexDirection: 'row', justifyContent: 'flex-start', minHeight: '20vh', paddingTop: '2em', className: 'jumbo-fadeIn fade-stagger' },
+            { flexDirection: 'row', justifyContent: 'center', minHeight: '20vh', className: 'jumbo-fadeIn fade-stagger' },
             _react2.default.createElement(
               _flexboxReact2.default,
               { flexDirection: 'column', element: 'section', style: { width: '50%' } },
@@ -12461,7 +12581,7 @@ exports.default = Home;
 ;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12510,12 +12630,13 @@ var Pharmacies = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: pharmaciesStyle },
+        null,
         _react2.default.createElement(
           'h1',
-          null,
+          { style: pharmaciesStyle },
           'Find a Pharmacy That Fits Your Needs'
-        )
+        ),
+        _react2.default.createElement(Rows, null)
       );
     }
   }]);
@@ -12523,84 +12644,123 @@ var Pharmacies = function (_React$Component) {
   return Pharmacies;
 }(_react2.default.Component);
 
-// import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
-// import axios from 'axios';
-// import cors from 'cors';
-//
-//       const coords = {
-//         lat: 46.878178,
-//         lng:-114.001003
-//       };
-//
-//       const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
-//
-//       //make axios call to wellness api
-//
-//       export default class Gmap extends React.Component {
-//       constructor(props) {
-//         super(props);
-//         axios.get('http://localhost:3003/api/places')
-//     .then(res => {
-//       console.log(res);
-//
-//     });
-//
-//
-//       }
-//
-//
-//         onMapCreated(map) {
-//           map.setOptions({
-//             disableDefaultUI: true
-//           });
-//         }
-//
-//         onDragEnd(e) {
-//           console.log('onDragEnd', e);
-//         }
-//
-//         onCloseClick() {
-//           console.log('onCloseClick');
-//         }
-//
-//         onClick(e) {
-//           console.log('onClick', e);
-//         }
-//
-//         render() {
-//           return(
-//             <Gmaps
-//               width={'800 px'}
-//               height= {'600px'}
-//               lat={coords.lat}
-//               lng={coords.lng}
-//               zoom={12}
-//               scrollwheel={false}
-//               loadingMessage={'Be happy'}
-//               params={params}
-//               onMapCreated={this.onMapCreated}>
-//             <Marker
-//               lat={coords.lat}
-//               lng={coords.lng}
-//               draggable={true}
-//               onDragEnd={this.onDragEnd} />
-//             <InfoWindow
-//               lat={coords.lat}
-//               lng={coords.lng}
-//               content={'Hello, React'}
-//               onCloseClick={this.onCloseClick} />
-//
-//             </Gmaps>
-//           );
-//         }
-//
-//       };
-
-
 exports.default = Pharmacies;
 
+
+var pStyle = {
+  fontSize: "20px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var fontStyle = {
+  fontSize: "18px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var titleStyle = {
+  textAlign: "center"
+};
+
+var websiteStyle = {
+  textAlign: "center"
+};
+
+var List = function (_React$Component2) {
+  _inherits(List, _React$Component2);
+
+  function List() {
+    _classCallCheck(this, List);
+
+    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+  }
+
+  _createClass(List, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          { style: titleStyle },
+          ' ',
+          this.props.title,
+          ' '
+        ),
+        _react2.default.createElement(
+          'p',
+          { style: pStyle },
+          ' ',
+          this.props.description,
+          ' '
+        ),
+        _react2.default.createElement(
+          'h5',
+          { style: websiteStyle },
+          ' ',
+          this.props.website,
+          ' '
+        ),
+        _react2.default.createElement(
+          'h6',
+          { style: fontStyle },
+          ' ',
+          this.props.number,
+          ' '
+        )
+      );
+    }
+  }]);
+
+  return List;
+}(_react2.default.Component);
+
+var Rows = function (_React$Component3) {
+  _inherits(Rows, _React$Component3);
+
+  function Rows() {
+    _classCallCheck(this, Rows);
+
+    return _possibleConstructorReturn(this, (Rows.__proto__ || Object.getPrototypeOf(Rows)).apply(this, arguments));
+  }
+
+  _createClass(Rows, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(List, { title: 'CVS Pharmacy (two locations)', description: 'Pharmacy Hours for 1902 Brooks Street Missoula, MT 59801 and Target Location, 2420 N Reserve St Missoula, MT 59808,  Mon-Fri  8:00 AM - 9:00 PM, Sat 9:00 AM - 6:00 PM, Sun 10:00 AM - 6:00 PM', number: ' Phone number for Brooks St location (406) 728-1380, for Target location (406)728-9463' }),
+          _react2.default.createElement(List, { title: 'Granite Pharmacy', description: 'Located at 2230 27th Ave, Missoula, MT 59804. Pharmacy Hours Mon-Fri\t8:30AM\u20136:30PM, Sat 9AM\u20134PM', number: '(406)926-2940' }),
+          _react2.default.createElement(List, { title: 'Missoula Fresh Market Pharmacy on Broadway', description: 'Located at 800 W Broadway St, Missoula, MT 59802. Pharmacy Hours Mon -Fri 9AM - 9PM, Saturday\t9AM\u20136PM Sunday 10AM\u20136PM', number: '(406)721-6009' }),
+          _react2.default.createElement(List, { title: 'Walmart (two locations)', description: 'Pharmacy Hours for 4000 Hwy 93 S, Missoula, MT 59804 and 3555 Mullan Rd, Missoula, MT 59808 locations - Mon-Fri 9AM -9PM, Saturday\t9AM\u20137PM, Sunday\t10AM\u20136PM', number: 'Phone number for Hwy 93 location - (406)251-6066. Phone number for Mullan Rd. location - (406)829-8532' }),
+          _react2.default.createElement(List, { title: 'Montana Compounding Pharmacy', description: '111 N Higgins Ave, Missoula, MT 59802, Hours: Mon -Fri 9AM-5:30PM', number: '(406)542-2888' }),
+          _react2.default.createElement(List, { title: 'Missoula Pharmacy', description: '1211 S Reserve St #102, Missoula, MT 59801, Hours: Mon - Fri 9AM-5PM', number: '(406)728-5650' }),
+          _react2.default.createElement(List, { title: 'Broadway Pharmacy', description: '500 W Broadway St, Missoula, MT 59802, Hours:Mon-Fri 7AM -5:30PM', number: '(406)327-1650' }),
+          _react2.default.createElement(List, { title: 'Albertsons Pharmacy (4 locations)', description: '2205 Oxford St, Missoula, MT 59801,         3800 S Russell St, Missoula, MT 59801, 1003 E Broadway St, Missoula, MT 59802,  2230 N Reserve St, Missoula, MT 59808 Hours for all four locations: Mon-Fri 8AM-8PM Sat 9AM-6PM Sun 10AM-4PM', number: 'Phone number for 2205 Oxford St location (406)549-5127, for 3800 S Russell St location (406)549-7717,  for 1003 E Broadway St location (406)549-6163, for 2230 N Reserve St location (406)728-1118' }),
+          _react2.default.createElement(List, { title: 'Shopko Pharmacy', description: '2510 S Reserve St, Missoula, MT 59801, Hours: Mon-Fri 8AM-9PM Sat 9AM-6PM Sun 10AM-6PM', number: '(406)721-3789' }),
+          _react2.default.createElement(List, { title: 'Costco Pharmacy', description: '3220 N Reserve St, Missoula, MT 59808, Hours: Mon-Fri 10AM-7PM Sat 9:30AM-6PM', number: '(406)542-3807' }),
+          _react2.default.createElement(List, { title: ' Eastgate Pharmacy', description: '1003 E Broadway St # 2, Missoula, MT 59802, Hours: Mon-Fri 8:30AM-9PM Sat 9AM-6PM Sun 10AM-4PM', number: '(406)549-6163' }),
+          _react2.default.createElement(List, { title: 'Rosauers Pharmacy', description: '2350 S Reserve St, Missoula, MT 59801, Hours: Mon-Fri 9AM-8PM Sat 9AM-6PM Sun 10AM-6PM', number: '(406)721-5330' }),
+          _react2.default.createElement(List, { title: 'Savmor Drug 1', description: '1610 S 3rd St W #100, Missoula, MT 59801, Hours: Mon-Fri 9:30AM-6PM Sat 9:30AM-4PM', number: '(406)721-6017' }),
+          _react2.default.createElement(List, { title: 'Palmers Pharmacy', description: '918 SW Higgins Ave, Missoula, MT 59803, Hours: Mon-Fri 9AM-7PM Sat 9AM-3PM', number: '(406)549-4125' }),
+          _react2.default.createElement(List, { title: 'Walgreens Pharmacy', description: '2100 Brooks St, Missoula, MT 59801, Hours: Mon-Fri 8AM-8PM Sat 9AM-6PM Sun 10AM-6PM', number: '(406)728-2089' }),
+          _react2.default.createElement(List, { title: 'Pharmalogic Pharmacy', description: '4404 Expressway, Missoula, MT 59808,', number: '(406)543-1163' })
+        )
+      );
+    }
+  }]);
+
+  return Rows;
+}(_react2.default.Component);
+
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12663,51 +12823,27 @@ var Resources = function (_React$Component) {
   return Resources;
 }(_react2.default.Component);
 
-// function Navbar(prop){
-//   var navStyle = {
-//     backgroundColor: "rgba(143, 57, 133, .8)",
-//     listStyle: "none",
-//     fontWeight: "700",
-//
-//   }
-//   var noBull = {
-//     listStyle: "none",
-//     fontSize: "1em",
-//     backgroundColor: "#8f3985 !important"
-//   }
-//
-//   return(
-//     <div style={navStyle}className="navbar navbar-default">
-//       <div className="navbar-header">
-//         <ul className="navbar-nav">
-//           <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
-//
-//   function Header() {
-//     var headerStyle = {
-//       textAlign: "center"
-//     }
-//     return(
-//       <div className="jumbotron">
-//         <h1 style={headerStyle}> Resources </h1>
-//       </div>
-//     );
-//   }
-
-
 exports.default = Resources;
+
+
 var pStyle = {
   fontSize: "20px",
-  padding: "5px"
+  padding: "5px",
+  textAlign: "center"
 };
 
 var fontStyle = {
   fontSize: "18px",
-  padding: "5px"
+  padding: "5px",
+  textAlign: "center"
+};
+
+var titleStyle = {
+  textAlign: "center"
+};
+
+var websiteStyle = {
+  textAlign: "center"
 };
 
 var List = function (_React$Component2) {
@@ -12727,7 +12863,7 @@ var List = function (_React$Component2) {
         null,
         _react2.default.createElement(
           'h1',
-          null,
+          { style: titleStyle },
           ' ',
           this.props.title,
           ' '
@@ -12740,15 +12876,10 @@ var List = function (_React$Component2) {
           ' '
         ),
         _react2.default.createElement(
-          'a',
-          { href: '#' },
-          _react2.default.createElement(
-            'h5',
-            { style: fontStyle },
-            ' ',
-            this.props.website,
-            ' '
-          ),
+          'h5',
+          { style: websiteStyle },
+          ' ',
+          this.props.website,
           ' '
         ),
         _react2.default.createElement(
@@ -12799,19 +12930,8 @@ var Rows = function (_React$Component3) {
   return Rows;
 }(_react2.default.Component);
 
-// export default class Resources extends React.Component {
-//
-//    render () {
-//      return (
-//        <div>
-//          <Rows/>
-//       </div>
-//      );
-//    }
-//  }
-
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12839,7 +12959,7 @@ module.exports = function chain() {
 };
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13580,7 +13700,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13591,7 +13711,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(112);
+var _hasClass = __webpack_require__(113);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -13605,7 +13725,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13621,7 +13741,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13632,7 +13752,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13643,7 +13763,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.animationEnd = exports.animationDelay = exports.animationTiming = exports.animationDuration = exports.animationName = exports.transitionEnd = exports.transitionDuration = exports.transitionDelay = exports.transitionTiming = exports.transitionProperty = exports.transform = undefined;
 
-var _inDOM = __webpack_require__(64);
+var _inDOM = __webpack_require__(65);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -13748,7 +13868,7 @@ function getTransitionProperties() {
 }
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13758,7 +13878,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _inDOM = __webpack_require__(64);
+var _inDOM = __webpack_require__(65);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -13809,7 +13929,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13846,7 +13966,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13863,7 +13983,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(116);
+var camelize = __webpack_require__(117);
 
 var msPattern = /^-ms-/;
 
@@ -13891,7 +14011,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13908,7 +14028,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(126);
+var isTextNode = __webpack_require__(127);
 
 /*eslint-disable no-bitwise */
 
@@ -13936,7 +14056,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14071,7 +14191,7 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14092,8 +14212,8 @@ module.exports = createArrayFromMixed;
 
 var ExecutionEnvironment = __webpack_require__(7);
 
-var createArrayFromMixed = __webpack_require__(119);
-var getMarkupWrap = __webpack_require__(121);
+var createArrayFromMixed = __webpack_require__(120);
+var getMarkupWrap = __webpack_require__(122);
 var invariant = __webpack_require__(1);
 
 /**
@@ -14161,7 +14281,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14262,7 +14382,7 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14306,7 +14426,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14344,7 +14464,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14361,7 +14481,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(123);
+var hyphenate = __webpack_require__(124);
 
 var msPattern = /^ms-/;
 
@@ -14388,7 +14508,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14421,7 +14541,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14438,7 +14558,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(125);
+var isNode = __webpack_require__(126);
 
 /**
  * @param {*} object The object to check.
@@ -14451,7 +14571,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14486,7 +14606,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14514,7 +14634,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14531,7 +14651,7 @@ module.exports = performance || {};
  * @typechecks
  */
 
-var performance = __webpack_require__(128);
+var performance = __webpack_require__(129);
 
 var performanceNow;
 
@@ -14553,7 +14673,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14726,28 +14846,6 @@ Flexbox.defaultProps = {
 exports.default = Flexbox;
 
 /***/ }),
-/* 131 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _Flexbox = __webpack_require__(130);
-
-var _Flexbox2 = _interopRequireDefault(_Flexbox);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-exports.default = _Flexbox2.default;
-
-/***/ }),
 /* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14782,15 +14880,15 @@ var _invariant = __webpack_require__(30);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(39);
+var _LocationUtils = __webpack_require__(40);
 
 var _PathUtils = __webpack_require__(24);
 
-var _createTransitionManager = __webpack_require__(40);
+var _createTransitionManager = __webpack_require__(41);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(68);
+var _DOMUtils = __webpack_require__(69);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -15100,15 +15198,15 @@ var _invariant = __webpack_require__(30);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(39);
+var _LocationUtils = __webpack_require__(40);
 
 var _PathUtils = __webpack_require__(24);
 
-var _createTransitionManager = __webpack_require__(40);
+var _createTransitionManager = __webpack_require__(41);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(68);
+var _DOMUtils = __webpack_require__(69);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -15445,9 +15543,9 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(24);
 
-var _LocationUtils = __webpack_require__(39);
+var _LocationUtils = __webpack_require__(40);
 
-var _createTransitionManager = __webpack_require__(40);
+var _createTransitionManager = __webpack_require__(41);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -15690,7 +15788,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(1);
   var warning = __webpack_require__(2);
-  var ReactPropTypesSecret = __webpack_require__(41);
+  var ReactPropTypesSecret = __webpack_require__(42);
   var loggedTypeFailures = {};
 }
 
@@ -15757,7 +15855,7 @@ module.exports = checkPropTypes;
 
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
-var ReactPropTypesSecret = __webpack_require__(41);
+var ReactPropTypesSecret = __webpack_require__(42);
 
 module.exports = function () {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -15915,7 +16013,7 @@ module.exports = ARIADOMPropertyConfig;
 
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var focusNode = __webpack_require__(66);
+var focusNode = __webpack_require__(67);
 
 var AutoFocusUtils = {
   focusDOMComponent: function focusDOMComponent() {
@@ -16333,14 +16431,14 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var CSSProperty = __webpack_require__(71);
+var CSSProperty = __webpack_require__(72);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(12);
 
-var camelizeStyleName = __webpack_require__(117);
+var camelizeStyleName = __webpack_require__(118);
 var dangerousStyleValue = __webpack_require__(201);
-var hyphenateStyleName = __webpack_require__(124);
-var memoizeStringOnly = __webpack_require__(127);
+var hyphenateStyleName = __webpack_require__(125);
+var memoizeStringOnly = __webpack_require__(128);
 var warning = __webpack_require__(2);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -16561,10 +16659,10 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 var SyntheticEvent = __webpack_require__(15);
 
-var inputValueTracking = __webpack_require__(88);
-var getEventTarget = __webpack_require__(53);
-var isEventSupported = __webpack_require__(54);
-var isTextInputElement = __webpack_require__(90);
+var inputValueTracking = __webpack_require__(89);
+var getEventTarget = __webpack_require__(54);
+var isEventSupported = __webpack_require__(55);
+var isTextInputElement = __webpack_require__(91);
 
 var eventTypes = {
   change: {
@@ -16876,7 +16974,7 @@ var _prodInvariant = __webpack_require__(4);
 var DOMLazyTree = __webpack_require__(20);
 var ExecutionEnvironment = __webpack_require__(7);
 
-var createNodesFromMarkup = __webpack_require__(120);
+var createNodesFromMarkup = __webpack_require__(121);
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
 
@@ -17061,7 +17159,7 @@ var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(18);
 
-var getTextContentAccessor = __webpack_require__(87);
+var getTextContentAccessor = __webpack_require__(88);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -17400,10 +17498,10 @@ module.exports = HTMLDOMPropertyConfig;
 
 var ReactReconciler = __webpack_require__(21);
 
-var instantiateReactComponent = __webpack_require__(89);
-var KeyEscapeUtils = __webpack_require__(45);
-var shouldUpdateReactComponent = __webpack_require__(55);
-var traverseAllChildren = __webpack_require__(92);
+var instantiateReactComponent = __webpack_require__(90);
+var KeyEscapeUtils = __webpack_require__(46);
+var shouldUpdateReactComponent = __webpack_require__(56);
+var traverseAllChildren = __webpack_require__(93);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -17557,7 +17655,7 @@ module.exports = ReactChildReconciler;
 
 
 
-var DOMChildrenOperations = __webpack_require__(42);
+var DOMChildrenOperations = __webpack_require__(43);
 var ReactDOMIDOperations = __webpack_require__(158);
 
 /**
@@ -17596,12 +17694,12 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var React = __webpack_require__(22);
-var ReactComponentEnvironment = __webpack_require__(47);
+var ReactComponentEnvironment = __webpack_require__(48);
 var ReactCurrentOwner = __webpack_require__(14);
-var ReactErrorUtils = __webpack_require__(48);
+var ReactErrorUtils = __webpack_require__(49);
 var ReactInstanceMap = __webpack_require__(27);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactNodeTypes = __webpack_require__(81);
+var ReactNodeTypes = __webpack_require__(82);
 var ReactReconciler = __webpack_require__(21);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -17610,8 +17708,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyObject = __webpack_require__(29);
 var invariant = __webpack_require__(1);
-var shallowEqual = __webpack_require__(38);
-var shouldUpdateReactComponent = __webpack_require__(55);
+var shallowEqual = __webpack_require__(39);
+var shouldUpdateReactComponent = __webpack_require__(56);
 var warning = __webpack_require__(2);
 
 var CompositeTypes = {
@@ -18502,13 +18600,13 @@ module.exports = ReactCompositeComponent;
 
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(170);
-var ReactMount = __webpack_require__(80);
+var ReactMount = __webpack_require__(81);
 var ReactReconciler = __webpack_require__(21);
 var ReactUpdates = __webpack_require__(13);
 var ReactVersion = __webpack_require__(185);
 
 var findDOMNode = __webpack_require__(202);
-var getHostComponentFromComposite = __webpack_require__(86);
+var getHostComponentFromComposite = __webpack_require__(87);
 var renderSubtreeIntoContainer = __webpack_require__(209);
 var warning = __webpack_require__(2);
 
@@ -18625,17 +18723,17 @@ var _prodInvariant = __webpack_require__(4),
 var AutoFocusUtils = __webpack_require__(141);
 var CSSPropertyOperations = __webpack_require__(143);
 var DOMLazyTree = __webpack_require__(20);
-var DOMNamespaces = __webpack_require__(43);
+var DOMNamespaces = __webpack_require__(44);
 var DOMProperty = __webpack_require__(16);
-var DOMPropertyOperations = __webpack_require__(73);
+var DOMPropertyOperations = __webpack_require__(74);
 var EventPluginHub = __webpack_require__(25);
 var EventPluginRegistry = __webpack_require__(31);
 var ReactBrowserEventEmitter = __webpack_require__(32);
-var ReactDOMComponentFlags = __webpack_require__(74);
+var ReactDOMComponentFlags = __webpack_require__(75);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMInput = __webpack_require__(159);
 var ReactDOMOption = __webpack_require__(162);
-var ReactDOMSelect = __webpack_require__(75);
+var ReactDOMSelect = __webpack_require__(76);
 var ReactDOMTextarea = __webpack_require__(165);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactMultiChild = __webpack_require__(178);
@@ -18644,10 +18742,10 @@ var ReactServerRenderingTransaction = __webpack_require__(183);
 var emptyFunction = __webpack_require__(11);
 var escapeTextContentForBrowser = __webpack_require__(35);
 var invariant = __webpack_require__(1);
-var isEventSupported = __webpack_require__(54);
-var shallowEqual = __webpack_require__(38);
-var inputValueTracking = __webpack_require__(88);
-var validateDOMNesting = __webpack_require__(56);
+var isEventSupported = __webpack_require__(55);
+var shallowEqual = __webpack_require__(39);
+var inputValueTracking = __webpack_require__(89);
+var validateDOMNesting = __webpack_require__(57);
 var warning = __webpack_require__(2);
 
 var Flags = ReactDOMComponentFlags;
@@ -19633,7 +19731,7 @@ module.exports = ReactDOMComponent;
 
 
 
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(57);
 
 var DOC_NODE_TYPE = 9;
 
@@ -19761,7 +19859,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var DOMChildrenOperations = __webpack_require__(42);
+var DOMChildrenOperations = __webpack_require__(43);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 /**
@@ -19802,8 +19900,8 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMPropertyOperations = __webpack_require__(73);
-var LinkedValueUtils = __webpack_require__(46);
+var DOMPropertyOperations = __webpack_require__(74);
+var LinkedValueUtils = __webpack_require__(47);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 
@@ -20244,7 +20342,7 @@ var _assign = __webpack_require__(5);
 
 var React = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMSelect = __webpack_require__(75);
+var ReactDOMSelect = __webpack_require__(76);
 
 var warning = __webpack_require__(2);
 var didWarnInvalidOptionChildren = false;
@@ -20371,7 +20469,7 @@ module.exports = ReactDOMOption;
 var ExecutionEnvironment = __webpack_require__(7);
 
 var getNodeForCharacterOffset = __webpack_require__(206);
-var getTextContentAccessor = __webpack_require__(87);
+var getTextContentAccessor = __webpack_require__(88);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -20588,13 +20686,13 @@ module.exports = ReactDOMSelection;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMChildrenOperations = __webpack_require__(42);
+var DOMChildrenOperations = __webpack_require__(43);
 var DOMLazyTree = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var escapeTextContentForBrowser = __webpack_require__(35);
 var invariant = __webpack_require__(1);
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(57);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -20756,7 +20854,7 @@ module.exports = ReactDOMTextComponent;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(46);
+var LinkedValueUtils = __webpack_require__(47);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 
@@ -21187,7 +21285,7 @@ var ReactHostOperationHistoryHook = __webpack_require__(174);
 var ReactComponentTreeHook = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(7);
 
-var performanceNow = __webpack_require__(129);
+var performanceNow = __webpack_require__(130);
 var warning = __webpack_require__(2);
 
 var hooks = [];
@@ -21776,14 +21874,14 @@ module.exports = ReactEventEmitterMixin;
 
 var _assign = __webpack_require__(5);
 
-var EventListener = __webpack_require__(65);
+var EventListener = __webpack_require__(66);
 var ExecutionEnvironment = __webpack_require__(7);
 var PooledClass = __webpack_require__(18);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 
-var getEventTarget = __webpack_require__(53);
-var getUnboundedScrollPosition = __webpack_require__(122);
+var getEventTarget = __webpack_require__(54);
+var getUnboundedScrollPosition = __webpack_require__(123);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -21975,11 +22073,11 @@ module.exports = ReactHostOperationHistoryHook;
 
 var DOMProperty = __webpack_require__(16);
 var EventPluginHub = __webpack_require__(25);
-var EventPluginUtils = __webpack_require__(44);
-var ReactComponentEnvironment = __webpack_require__(47);
-var ReactEmptyComponent = __webpack_require__(76);
+var EventPluginUtils = __webpack_require__(45);
+var ReactComponentEnvironment = __webpack_require__(48);
+var ReactEmptyComponent = __webpack_require__(77);
 var ReactBrowserEventEmitter = __webpack_require__(32);
-var ReactHostComponent = __webpack_require__(78);
+var ReactHostComponent = __webpack_require__(79);
 var ReactUpdates = __webpack_require__(13);
 
 var ReactInjection = {
@@ -22112,7 +22210,7 @@ module.exports = ReactMarkupChecksum;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactComponentEnvironment = __webpack_require__(47);
+var ReactComponentEnvironment = __webpack_require__(48);
 var ReactInstanceMap = __webpack_require__(27);
 var ReactInstrumentation = __webpack_require__(12);
 
@@ -22694,13 +22792,13 @@ module.exports = ReactPropTypeLocationNames;
 
 var _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(72);
+var CallbackQueue = __webpack_require__(73);
 var PooledClass = __webpack_require__(18);
 var ReactBrowserEventEmitter = __webpack_require__(32);
-var ReactInputSelection = __webpack_require__(79);
+var ReactInputSelection = __webpack_require__(80);
 var ReactInstrumentation = __webpack_require__(12);
 var Transaction = __webpack_require__(34);
-var ReactUpdateQueue = __webpack_require__(49);
+var ReactUpdateQueue = __webpack_require__(50);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -23075,7 +23173,7 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-var ReactUpdateQueue = __webpack_require__(49);
+var ReactUpdateQueue = __webpack_require__(50);
 
 var warning = __webpack_require__(2);
 
@@ -23541,12 +23639,12 @@ module.exports = SVGDOMPropertyConfig;
 var EventPropagators = __webpack_require__(26);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInputSelection = __webpack_require__(79);
+var ReactInputSelection = __webpack_require__(80);
 var SyntheticEvent = __webpack_require__(15);
 
-var getActiveElement = __webpack_require__(67);
-var isTextInputElement = __webpack_require__(90);
-var shallowEqual = __webpack_require__(38);
+var getActiveElement = __webpack_require__(68);
+var isTextInputElement = __webpack_require__(91);
+var shallowEqual = __webpack_require__(39);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -23734,7 +23832,7 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventListener = __webpack_require__(65);
+var EventListener = __webpack_require__(66);
 var EventPropagators = __webpack_require__(26);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticAnimationEvent = __webpack_require__(189);
@@ -23750,7 +23848,7 @@ var SyntheticUIEvent = __webpack_require__(28);
 var SyntheticWheelEvent = __webpack_require__(198);
 
 var emptyFunction = __webpack_require__(11);
-var getEventCharCode = __webpack_require__(51);
+var getEventCharCode = __webpack_require__(52);
 var invariant = __webpack_require__(1);
 
 /**
@@ -24217,9 +24315,9 @@ module.exports = SyntheticInputEvent;
 
 var SyntheticUIEvent = __webpack_require__(28);
 
-var getEventCharCode = __webpack_require__(51);
+var getEventCharCode = __webpack_require__(52);
 var getEventKey = __webpack_require__(204);
-var getEventModifierState = __webpack_require__(52);
+var getEventModifierState = __webpack_require__(53);
 
 /**
  * @interface KeyboardEvent
@@ -24306,7 +24404,7 @@ module.exports = SyntheticKeyboardEvent;
 
 var SyntheticUIEvent = __webpack_require__(28);
 
-var getEventModifierState = __webpack_require__(52);
+var getEventModifierState = __webpack_require__(53);
 
 /**
  * @interface TouchEvent
@@ -24508,7 +24606,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(4);
 
 var ReactPropTypeLocationNames = __webpack_require__(180);
-var ReactPropTypesSecret = __webpack_require__(82);
+var ReactPropTypesSecret = __webpack_require__(83);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -24598,7 +24696,7 @@ module.exports = checkReactTypeSpec;
 
 
 
-var CSSProperty = __webpack_require__(71);
+var CSSProperty = __webpack_require__(72);
 var warning = __webpack_require__(2);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -24689,7 +24787,7 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstanceMap = __webpack_require__(27);
 
-var getHostComponentFromComposite = __webpack_require__(86);
+var getHostComponentFromComposite = __webpack_require__(87);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -24752,8 +24850,8 @@ module.exports = findDOMNode;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var KeyEscapeUtils = __webpack_require__(45);
-var traverseAllChildren = __webpack_require__(92);
+var KeyEscapeUtils = __webpack_require__(46);
+var traverseAllChildren = __webpack_require__(93);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -24833,7 +24931,7 @@ module.exports = flattenChildren;
 
 
 
-var getEventCharCode = __webpack_require__(51);
+var getEventCharCode = __webpack_require__(52);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -25212,7 +25310,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var ReactMount = __webpack_require__(80);
+var ReactMount = __webpack_require__(81);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
@@ -25421,7 +25519,7 @@ var _reactAddonsCssTransitionGroup = __webpack_require__(139);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-var _drawer = __webpack_require__(93);
+var _drawer = __webpack_require__(94);
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
@@ -25682,7 +25780,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jumbotron = __webpack_require__(94);
+var _jumbotron = __webpack_require__(95);
 
 var _jumbotron2 = _interopRequireDefault(_jumbotron);
 
@@ -25716,7 +25814,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jumbotron = __webpack_require__(94);
+var _jumbotron = __webpack_require__(95);
 
 var _jumbotron2 = _interopRequireDefault(_jumbotron);
 
@@ -25784,7 +25882,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _drawer = __webpack_require__(93);
+var _drawer = __webpack_require__(94);
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
@@ -25879,7 +25977,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _navbar = __webpack_require__(57);
+var _navbar = __webpack_require__(58);
 
 var _navbar2 = _interopRequireDefault(_navbar);
 
@@ -25925,7 +26023,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _navbar = __webpack_require__(57);
+var _navbar = __webpack_require__(58);
 
 var _navbar2 = _interopRequireDefault(_navbar);
 
@@ -26015,7 +26113,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _navbar = __webpack_require__(57);
+var _navbar = __webpack_require__(58);
 
 var _navbar2 = _interopRequireDefault(_navbar);
 
@@ -26369,7 +26467,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouter = __webpack_require__(9);
 
-var _Link = __webpack_require__(95);
+var _Link = __webpack_require__(96);
 
 var _Link2 = _interopRequireDefault(_Link);
 
@@ -26637,7 +26735,7 @@ var _createMemoryHistory = __webpack_require__(134);
 
 var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
-var _Router = __webpack_require__(58);
+var _Router = __webpack_require__(59);
 
 var _Router2 = _interopRequireDefault(_Router);
 
@@ -26939,7 +27037,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _PathUtils = __webpack_require__(24);
 
-var _Router = __webpack_require__(58);
+var _Router = __webpack_require__(59);
 
 var _Router2 = _interopRequireDefault(_Router);
 
@@ -27148,7 +27246,7 @@ var _warning = __webpack_require__(17);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _matchPath = __webpack_require__(59);
+var _matchPath = __webpack_require__(60);
 
 var _matchPath2 = _interopRequireDefault(_matchPath);
 
@@ -27257,7 +27355,7 @@ var _hoistNonReactStatics = __webpack_require__(135);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-var _Route = __webpack_require__(96);
+var _Route = __webpack_require__(97);
 
 var _Route2 = _interopRequireDefault(_Route);
 
@@ -27775,7 +27873,7 @@ var _CSSTransitionGroupChild = __webpack_require__(246);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
-var _PropTypes = __webpack_require__(97);
+var _PropTypes = __webpack_require__(98);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -27883,19 +27981,19 @@ var _extends = Object.assign || function (target) {
   }return target;
 };
 
-var _addClass = __webpack_require__(111);
+var _addClass = __webpack_require__(112);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(113);
+var _removeClass = __webpack_require__(114);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(115);
+var _requestAnimationFrame = __webpack_require__(116);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(114);
+var _properties = __webpack_require__(115);
 
 var _react = __webpack_require__(3);
 
@@ -27905,9 +28003,9 @@ var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(61);
+var _reactDom = __webpack_require__(38);
 
-var _PropTypes = __webpack_require__(97);
+var _PropTypes = __webpack_require__(98);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -28142,7 +28240,7 @@ var _extends = Object.assign || function (target) {
   }return target;
 };
 
-var _chainFunction = __webpack_require__(109);
+var _chainFunction = __webpack_require__(110);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
@@ -28920,7 +29018,7 @@ var ReactElement = __webpack_require__(19);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(100);
+  var ReactElementValidator = __webpack_require__(101);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -29120,7 +29218,7 @@ module.exports = ReactPropTypeLocationNames;
 var _require = __webpack_require__(19),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(69);
+var factory = __webpack_require__(70);
 
 module.exports = factory(isValidElement);
 
@@ -29277,14 +29375,14 @@ module.exports = checkReactTypeSpec;
 
 
 
-var _require = __webpack_require__(98),
+var _require = __webpack_require__(99),
     Component = _require.Component;
 
 var _require2 = __webpack_require__(19),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(101);
-var factory = __webpack_require__(110);
+var ReactNoopUpdateQueue = __webpack_require__(102);
+var factory = __webpack_require__(111);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
@@ -29380,9 +29478,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(23);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var REACT_ELEMENT_TYPE = __webpack_require__(99);
+var REACT_ELEMENT_TYPE = __webpack_require__(100);
 
-var getIteratorFn = __webpack_require__(102);
+var getIteratorFn = __webpack_require__(103);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(249);
 var warning = __webpack_require__(2);
@@ -33969,7 +34067,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(61);
+var _reactDom = __webpack_require__(38);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -33977,110 +34075,112 @@ var _reactRouter = __webpack_require__(9);
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-var _reactRouterDom = __webpack_require__(63);
+var _reactRouterDom = __webpack_require__(64);
 
-var _reactDynamicUi = __webpack_require__(62);
+var _reactDynamicUi = __webpack_require__(63);
 
-var _flexboxReact = __webpack_require__(131);
+var _flexboxReact = __webpack_require__(62);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
-var _home = __webpack_require__(106);
+var _home = __webpack_require__(107);
 
 var _home2 = _interopRequireDefault(_home);
 
-var _counselors = __webpack_require__(104);
+var _counselors = __webpack_require__(105);
 
 var _counselors2 = _interopRequireDefault(_counselors);
 
-var _pharmacies = __webpack_require__(107);
+var _pharmacies = __webpack_require__(108);
 
 var _pharmacies2 = _interopRequireDefault(_pharmacies);
 
-var _birthcontrol = __webpack_require__(103);
+var _birthcontrol = __webpack_require__(104);
 
 var _birthcontrol2 = _interopRequireDefault(_birthcontrol);
 
-var _resources = __webpack_require__(108);
+var _resources = __webpack_require__(109);
 
 var _resources2 = _interopRequireDefault(_resources);
 
-var _doctors = __webpack_require__(105);
+var _doctors = __webpack_require__(106);
 
 var _doctors2 = _interopRequireDefault(_doctors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import BrowserHistory from 'browser-history';
-
 var Navigation = function Navigation() {
   return _react2.default.createElement(
-    _reactDynamicUi.Navbar,
-    { navColor: 'rgba(143, 57, 133, .8)' },
+    'div',
+    { className: 'nav-item' },
     _react2.default.createElement(
-      _reactDynamicUi.Nav,
-      { pullright: true },
+      _flexboxReact2.default,
+      { flexDirection: 'row' },
       _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+        _reactDynamicUi.Navbar,
+        { navColor: 'rgba(143, 57, 133, .8)' },
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/' },
-          'Home'
-        )
-      ),
-      _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/' },
+            'Home'
+          )
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/counselors' },
-          'Counselors'
-        )
-      ),
-      _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/counselors' },
+            'Counselors'
+          )
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/pharmacies' },
-          'Pharmacies'
-        )
-      ),
-      _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/pharmacies' },
+            'Pharmacies'
+          )
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/birthcontrol' },
-          'Birth Control Methods'
-        )
-      ),
-      _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/birthcontrol' },
+            'Birth Control Methods'
+          )
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/resources' },
-          'Resources'
-        )
-      ),
-      _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/resources' },
+            'Resources'
+          )
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/doctors' },
-          'Doctors And Clinics'
-        )
-      ),
-      _react2.default.createElement(
-        _reactDynamicUi.NavItem,
-        { className: 'nav-item' },
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/doctors' },
+            'Doctors And Clinics'
+          )
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/symptomchecker' },
-          'Symptom Checker'
+          _reactDynamicUi.NavItem,
+          { className: 'nav-item' },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/symptomchecker' },
+            'Symptom Checker'
+          )
         )
       )
     )
@@ -34113,18 +34213,11 @@ var App = function App() {
   );
 };
 
-//var browserHistory = ReactRouter.browserHistory;
-
-
-_reactDom2.default.render(
-//  <Router history = {browserHistory}>
-_react2.default.createElement(
+_reactDom2.default.render(_react2.default.createElement(
   _reactRouterDom.BrowserRouter,
   null,
   _react2.default.createElement(App, null)
-)
-//</Router>
-, document.getElementById('container'));
+), document.getElementById('container'));
 
 /***/ })
 /******/ ]);

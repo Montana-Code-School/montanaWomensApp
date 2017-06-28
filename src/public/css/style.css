@@ -115,6 +115,7 @@ a:visited {
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 .jumbo-bg {
@@ -148,13 +149,6 @@ body {
   }
 }
 
-.jumbo-fadeIn {
-  padding-top: 15rem;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
-  font-size: 2.5em;
-
-}
 
   h1, h2, h3 {
     color: darken(#FFA566,10);
@@ -183,8 +177,27 @@ body {
 .jumbo-fadeIn.fade-stagger {
   h1, h2 {
     color: #437f91;
+
   }
 }
+
+.jumbo-fadeIn {
+
+   display: flex;
+   flex-direction: column;
+   padding-top: -1em;
+   padding-bottom: -1em;
+   margin-bottom: 1em;
+   font-size: 5em;
+
+}
+
+.symptoms {
+
+  padding-top: 1em;
+  padding-bottom: -1em;
+}
+
 
 
 
@@ -206,8 +219,10 @@ body {
     height: 300px
   }*/
 }
-
-
+a {
+  color: #ffffff !important;
+  text-decoration: none;
+}
 
 .waves-graphic {
   width: 30rem;
@@ -217,14 +232,28 @@ body {
 }
 
 .nav-item {
+
   text-decoration-color: white;
   font-size: 1em;
   letter-spacing: 0;
   font-weight: 500;
 
+
 }
 
-
+.flex-counsel {
+  display:flex;
+  flex-wrap: wrap
+  flex: 0 1 auto;
+  padding:50em;
+  margin-top: 1em;
+  height: 150em;
+  background-color: #b34700;
+  color:#333;
+  font-family: monospace;
+  font-size: 55px;
+  text-align: center;
+}
 
 p {
   font-family: 'Lato', sans-serif;

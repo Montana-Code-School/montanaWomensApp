@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactRouter from 'react-router';
-import {BrowserRouter, Switch, Route, /*Router,*/ Link} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Router, Link} from 'react-router-dom';
 import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
 import Flexbox from 'flexbox-react';
-//import BrowserHistory from 'browser-history';
+
 
 import Home from './components/home';
 import Counselors from './components/counselors';
@@ -15,10 +15,17 @@ import Doctors from './components/doctors';
 
 
 
-const Navigation = ()=> (
-<Navbar navColor='rgba(143, 57, 133, .8)'>
 
-  <Nav pullright>
+
+
+const Navigation = ()=> (
+
+<div className ='nav-item'>
+
+ <Flexbox flexDirection = 'row'>
+   <Navbar navColor='rgba(143, 57, 133, .8)'>
+
+
      <NavItem className="nav-item"><Link to = '/'>Home</Link></NavItem>
      <NavItem className="nav-item"><Link to ='/counselors'>Counselors</Link></NavItem>
      <NavItem className="nav-item"><Link to = '/pharmacies'>Pharmacies</Link></NavItem>
@@ -27,8 +34,10 @@ const Navigation = ()=> (
      <NavItem className="nav-item"><Link to = '/doctors'>Doctors And Clinics</Link></NavItem>
      <NavItem className="nav-item"><Link to ='/symptomchecker'>Symptom Checker</Link></NavItem>
 
-  </Nav>
-</Navbar>
+
+   </Navbar>
+ </Flexbox>
+</div>
 )
 
 const Main = ()=> (
@@ -54,13 +63,8 @@ const App = () => (
  )
 
 
- //var browserHistory = ReactRouter.browserHistory;
-
-
 ReactDOM.render((
-//  <Router history = {browserHistory}>
-   <BrowserRouter >
-  <App/>
-   </BrowserRouter>
-  //</Router>
+  <BrowserRouter >
+    <App/>
+  </BrowserRouter>
 ),  document.getElementById('container'))
