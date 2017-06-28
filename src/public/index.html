@@ -19,108 +19,11 @@
 
    </head>
    <style>
-   @media (max-width: 600px) {
- .facet_sidebar {
-   display: none;
-}}
+
    </style>
     <body>
       <div id='container'>
       </div>
-
-
-      <!-- <div id="map-header">
-      <h3>Find Resources Near You!</h3>
-      </div> -->
-
-        <!--<div id="map"></div>
-      <script>
-       // function initMap() {
-        //   var uluru = {lat: 46.877510, lng: -114.013121};
-        //   var map = new google.maps.Map(document.getElementById('map'), {
-        //     zoom: 12,
-        //     scrollwheel: false,
-        //     center: uluru
-        //   });
-        //   var marker = new google.maps.Marker({
-        //     position: uluru,
-        //     map: map
-        //   });
-        // }
-
-      var map;
-      var infowindow;
-
-   function initMap() {
-
-
-     var missoula = {lat: 46.878178, lng: -114.001003};
-
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: missoula,
-            zoom: 12,
-            scrollwheel: false
-
-          });
-
-
-
-        infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: missoula,
-          radius: 5000,
-          type: ['pharmacy']
-        }, callback);
-      }
-
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-           createMarker(results[i]);
-           }
-        }
-       }
-
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-      });
-      }
-
-
-  </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE&callback=initMap&libraries=places">
-
-    </script> -->
-
-      <!-- <h1>Symptom Checker</h1> -->
-       <!-- <table class="container-table">
-           <tr>
-               <td valign="middle" colspan="2" class="td-header box-white bordered-box width50"><h4 class="header" id="selectSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">1</span></h4></td>
-               <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="selectedSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">2</span></h4></td>
-               <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="possibleDiseasesTitle"><span class="badge pull-left badge-primary visible-lg margin5R">3</span></h4></td>
-           </tr>
-           <tr>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomSelector"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomList"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="selectedSymptomList"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="diagnosisList"></div></td>
-           </tr>
-       </table>
-       <div>
-           <a target="_blank" href="http://corporate.priaid.ch"><img class="logo" alt="priaid" src="symptom_selector/images/logo.jpg" /></a>
-           <span><a class="priaid-powered" target="_blank" href="http://corporate.priaid.ch"> powered by priaid</a> </span>
-       </div> -->
-
 
 
     <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>

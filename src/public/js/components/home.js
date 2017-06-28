@@ -22,7 +22,7 @@ class Homepage extends React.Component {
 
 
    <div className='drawerStyle' style={{height: '-1em'}}>
-     <DrawerContainer >
+     <DrawerContainer className="Drawer">
 
        <MenuItem hoverStyle={{backgroundColor: 'lightgray'}}>Emergency Help Lines</MenuItem>
        <MenuItem hoverStyle={{backgroundColor: 'lightgray'}}><a>Substance Abuse (Drug and Alcohol)<br/><b> 1(855)603-2445</b></a></MenuItem>
