@@ -1,42 +1,5 @@
 import React from 'react';
 
-
-    // function Navbar(prop){
-    //   var navStyle = {
-    //     backgroundColor: "rgba(143, 57, 133, .8)",
-    //     listStyle: "none",
-    //     fontWeight: "700",
-    //
-    //   }
-    //   var noBull = {
-    //     listStyle: "none",
-    //     fontSize: "1em",
-    //     backgroundColor: "#8f3985 !important"
-    //   }
-    //
-    //   return(
-    //     <div style={navStyle}className="navbar navbar-default">
-    //       <div className="navbar-header">
-    //         <ul className="navbar-nav">
-    //           <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   );
-    // }
-    //
-    //   function Header() {
-    //     var headerStyle = {
-    //       textAlign: "center"
-    //     }
-    //     return(
-    //       <div className="jumbotron">
-    //         <h1 style={headerStyle}> Resources </h1>
-    //       </div>
-    //     );
-    //   }
-
-
         var pStyle = {
           fontSize: "20px",
           padding: "5px"
@@ -78,7 +41,7 @@ import React from 'react';
           </div>
         );
       }
-    }  
+    }
 
       export default class Resources extends React.Component {
 

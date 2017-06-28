@@ -1,30 +1,5 @@
 import React from 'react';
 
-    // function Navbar(prop){
-    //   var navStyle = {
-    //     backgroundColor: "rgba(143, 57, 133, .8)",
-    //     listStyle: "none",
-    //     fontWeight: "700",
-    //
-    //   }
-    //   var noBull = {
-    //     listStyle: "none",
-    //     fontSize: "1em",
-    //     backgroundColor: "#8f3985 !important"
-    //   }
-    //
-    //   return(
-    //     <div style={navStyle}className="navbar navbar-default">
-    //       <div className="navbar-header">
-    //         <ul className="navbar-nav">
-    //           <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
-    //         </ul>
-    //       </div>
-    //     </div>
-    //   );
-    // }
-
-      //export default class Birthcontrol extends React.Component {
       var headerStyle = {
        textAlign: "center"
      }
@@ -41,19 +16,7 @@ import React from 'react';
       class List extends React.Component {
 
 
-      //    var headerStyle = {
-      //     textAlign: "center"
-      //  }
-      //   var imgStyle = {
-      //     margin: "auto",
-      //     paddingBottom: "20px",
-      //     paddingTop: "10px"
-      //   }
-      // var pStyle = {
-      //     paddingRight: "10px",
-      //    marginRight: "10px",
-      //    fontSize: "18px"
-      // }
+
       render (){
        return (
          <div className="col-lg-3">
@@ -109,15 +72,3 @@ import React from 'react';
       );
     }
   }
-
-
-
-
-//       ReactDOM.render(
-//         <App />,
-//       document.getElementById('container')
-//     );
-//
-//     </script>
-//   </body>
-// </html>

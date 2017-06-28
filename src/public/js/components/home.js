@@ -16,18 +16,6 @@ import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
     backgroundRepeat:"no-repeat"
 }
 
-// class Header extends React.Component {
-//   render() {
-//   return(
-//     <div style={headerStyle} className="jumbotron img-responsive">
-//
-//       <h1> MT Womens Wellness </h1>
-//       <h3> Empowering Montana Women With the Resources They Need </h3>
-//
-//     </div>
-//   );
-// }
-
 class Homepage extends React.Component {
   render() {
   return (
@@ -44,13 +32,13 @@ class Homepage extends React.Component {
 
     <HoverRow className="hover-row1">
       <Link to ='/counselors'><HoverCol imgSrc="css/img/text-counseling.png" /></Link>
-      <a href="/resources"><HoverCol imgSrc="css/img/text-resources.png" /></a>
+      <Link to="/resources"><HoverCol imgSrc="css/img/text-resources.png" /></Link>
     </HoverRow>
 
     <HoverRow className="hover-row2">
-      <a href="/pharmacies"><HoverCol imgSrc="css/img/text-pharmacy.png" /></a>
-      <a href="/doctors"><HoverCol imgSrc="css/img/text-docs.png" /></a>
-      <a href="/birthcontrol"><HoverCol imgSrc="css/img/text-birth-control.png" /></a>
+      <Link to="/pharmacies"><HoverCol imgSrc="css/img/text-pharmacy.png" /></Link>
+      <Link to="/doctors"><HoverCol imgSrc="css/img/text-docs.png" /></Link>
+      <Link to="/birthcontrol"><HoverCol imgSrc="css/img/text-birth-control.png" /></Link>
     </HoverRow>
 
     <Jumbotron className="jumbo-fadeIn fade-stagger">
@@ -89,10 +77,3 @@ export default class Home extends React.Component {
     )
   }
 }
-axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=46.878178,-114.001003&radius=5000&type=pharmacy&key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE')
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });

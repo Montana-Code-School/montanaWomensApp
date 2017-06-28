@@ -11,6 +11,13 @@ const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
 
 class Gmap extends React.Component {
 
+  constructor(props) {
+    super(props);
+    axios.get('http://localhost:3003/api/places')
+    .then(res => {
+      console.log(res);
+    });
+  }
 
   onMapCreated(map) {
     map.setOptions({

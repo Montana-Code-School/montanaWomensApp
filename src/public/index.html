@@ -20,74 +20,12 @@
 
       </div>
 
-      <!-- <div id="map-header">
-      <h3>Find Resources Near You!</h3>
-      </div> -->
-
-      <div id="map"></div>
-      <script>
-        <!-- // function initMap() {
-        //   var uluru = {lat: 46.877510, lng: -114.013121};
-        //   var map = new google.maps.Map(document.getElementById('map'), {
-        //     zoom: 12,
-        //     scrollwheel: false,
-        //     center: uluru
-        //   });
-        //   var marker = new google.maps.Marker({
-        //     position: uluru,
-        //     map: map
-        //   });
-        // }
-
-      var map;
-      var infowindow;
-
-   function initMap() {
 
 
-     var missoula = {lat: 46.878178, lng: -114.001003};
-
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: missoula,
-            zoom: 12,
-            scrollwheel: false
-
-          });
+      <div id="map">
+      </div>
 
 
-
-        infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: missoula,
-          radius: 5000,
-          type: ['pharmacy']
-        }, callback);
-      }
-
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-           createMarker(results[i]);
-           }
-        }
-       }
-
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-      });
-      }
-
-
-  </script>
       <!--<script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE&callback=initMap&libraries=places">
 
