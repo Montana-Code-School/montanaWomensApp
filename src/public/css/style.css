@@ -185,4 +185,15 @@ p {
 
 .pharmPage {
   display: flex;
+  position: relative;
+  top: 100px;
+  justify-content: center;
+}
+
+.infowindow h5 {
+    font-weight: bold;
+  }
+
+.material-icons {
+  color: blue;
 }

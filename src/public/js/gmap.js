@@ -41,11 +41,13 @@ class Gmap extends React.Component {
                   lng={place.geometry.location.lng}
                   clickable={true}
                   draggable={false}
+                  icon={this.props.icon}
                   title={place.name}
                   onClick={function(e){
                         var infowindow = new google.maps.InfoWindow({
-                                            content: place.name,
-                                            position: e.latLng
+                                            content: "<div className='infowindow'><h5>"+place.name+"</h5>"+place.vicinity+"</div>",
+                                            position: e.latLng,
+
                                         });
                         infowindow.open(this.get('map'), this);
                   }} />

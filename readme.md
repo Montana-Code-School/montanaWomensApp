@@ -41,3 +41,15 @@ Week of June 5-12
     * to get symptom checker in a react element
       - Put api call in ComponentDidMount() section before render()
       - resolve td valign issue in react (currently not working)
+
+
+      Credits:
+      npm packages/3rd party code/APIs:
+      -material-design-icons from Google
+      -Apimedic for symptom checker
+      -react-gmaps (facilitating interface with Google Maps API)
+      -flexbox-react
+      -Google Places API
+
+      future ideas:
+      * more interactivity--> getting more results on doctors and pharmacies pages, allowing for specific text searches (e.g. counselors)

@@ -78,7 +78,7 @@ import React from 'react';
           </div>
         );
       }
-    }  
+    }
 
       export default class Resources extends React.Component {
 
