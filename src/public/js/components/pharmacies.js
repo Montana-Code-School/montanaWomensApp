@@ -10,7 +10,9 @@ import Flexbox from 'flexbox-react';
       this.state = {
         type: 'pharmacy',
         array: [],
+        InfoWindow: null
       }
+      this.handleClick = this.handleClick.bind(this);
 
       axios .get("http://localhost:3003/api/places/"+this.state.type)
             .then(res => {
@@ -18,15 +20,23 @@ import Flexbox from 'flexbox-react';
 
               this.setState({
                 array: array,
-              })
             });
-    }
+
+          })
+        }
+
+        handleClick() {
+            this.setState(prevState => ({
+              infoWindow: !prevState.infoWindow
+            }));
+          }
 
     render() {
+
       return (
           <div className="pharmPage">
             <Flexbox flexDirection="row">
-              <Gmap array={this.state.array} />
+              <Gmap array={this.state.array} onClick={this.state.onClick}/>
               <ul>
                 {this.state.array.map((pharmacy, i) =>
                   <li key={i}>{pharmacy.name}</li>

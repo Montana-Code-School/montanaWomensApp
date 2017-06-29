@@ -9,6 +9,7 @@ const coords = {
 
 const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
 
+
 class Gmap extends React.Component {
 
   onMapCreated(map) {
@@ -29,19 +30,27 @@ class Gmap extends React.Component {
     console.log('onClick', e);
   }
 
-  render() {
 
-    var markLoop = this.props.array.map((place, i) => {
-      return(
-        <Marker
-          key={place.place_id}
-          lat={place.geometry.location.lat}
-          lng={place.geometry.location.lng}
-          draggable={false}
-          clickable={true}
-         />
-      );
-    });
+
+  render() {
+    var self = this;
+    var pinLoop = this.props.array.map((place) => {
+            return(
+                <Marker
+                  lat={place.geometry.location.lat}
+                  lng={place.geometry.location.lng}
+                  clickable={true}
+                  draggable={false}
+                  title={place.name}
+                  onClick={function(e){
+                        var infowindow = new google.maps.InfoWindow({
+                                            content: place.name,
+                                            position: e.latLng
+                                        });
+                        infowindow.open(this.get('map'), this);
+                  }} />
+            )
+        });
 
     return(
       <Gmaps
@@ -54,7 +63,7 @@ class Gmap extends React.Component {
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>
-        {markLoop}
+        {pinLoop}
       </Gmaps>
     )
   };
