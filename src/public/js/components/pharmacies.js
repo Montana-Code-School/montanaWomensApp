@@ -2,11 +2,8 @@ import React from 'react';
 import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import Gmap from 'public/js/gmap';
 
-
-
-
   export default class Pharmacy extends React.Component {
-
+    
     constructor(props) {
       super(props);
       this.state = {
@@ -22,8 +19,6 @@ import Gmap from 'public/js/gmap';
                 console.log(array);
               })
           }
-
-
 
       render() {
 

@@ -7,23 +7,26 @@ import Counselors from './components/counselors';
 import Pharmacy from './components/pharmacies';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
+import Flexbox from 'flexbox-react';
 
 
 
 const Navigation = ()=> (
 
-<Navbar navColor='rgba(143, 57, 133, .8)'>
-  <Nav pullLeft>
-     <NavItem className="nav-item"><Link to = '/'>Home</Link></NavItem>
-     <NavItem className="nav-item"><Link to ='/counselors'>Counselors</Link></NavItem>
-     <NavItem className="nav-item"><Link to = '/pharmacies'>Pharmacies</Link></NavItem>
-     <NavItem className="nav-item"><Link to = '/birthcontrol'>Birth Control Methods</Link></NavItem>
-     <NavItem className="nav-item"><Link to = '/resources'>Resources</Link></NavItem>
-  </Nav>
-  <Nav pullRight>
-    <NavItem className="nav-item">CONTACT</NavItem>
-  </Nav>
-</Navbar>
+  <div>
+
+   <Flexbox flexDirection = 'row'>
+     <Navbar navColor='rgba(143, 57, 133, .8)'>
+       <NavItem className="nav-item"><Link to = '/'>Home</Link></NavItem>
+       <NavItem className="nav-item"><Link to ='/counselors'>Counselors</Link></NavItem>
+       <NavItem className="nav-item"><Link to = '/pharmacies'>Pharmacies</Link></NavItem>
+       <NavItem className="nav-item"><Link to = '/birthcontrol'>Birth Control Methods</Link></NavItem>
+       <NavItem className="nav-item"><Link to = '/resources'>Resources</Link></NavItem>
+       <NavItem className="nav-item"><Link to = '/doctors'>Doctors And Clinics</Link></NavItem>
+       <NavItem className="nav-item"><Link to ='/symptomchecker.html'>Symptom Checker</Link></NavItem>
+     </Navbar>
+   </Flexbox>
+  </div>
 )
 
 const Main = ()=> (

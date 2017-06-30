@@ -16,13 +16,11 @@ export default class Doctors extends React.Component{
     return (
       <div>
            <h1 style = {doctorsStyle}>Take the Time to Choose From the Many Doctors and Clinics in Your Area</h1>
-
            <Rows/>
       </div>
-
-      );
-     }
+    );
    }
+}
 
    var pStyle = {
      fontSize: "20px",
@@ -43,6 +41,7 @@ export default class Doctors extends React.Component{
    var websiteStyle = {
      textAlign:"center"
    }
+
    class List extends React.Component {
         render (){
         return (
@@ -75,3 +74,16 @@ export default class Doctors extends React.Component{
         );
        }
       }
+
+   class List extends React.Component {
+     render (){
+     return (
+       <div>
+       <h1 style = {titleStyle}> {this.props.title} </h1>
+       <p style = {pStyle}> {this.props.description} </p>
+       <h5 style = {websiteStyle}> {this.props.website} </h5>
+       <h6 style = {fontStyle}> {this.props.number} </h6>
+       </div>
+     );
+    }
+   }
