@@ -1,6 +1,6 @@
 import React from 'react';
+import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import Gmap from 'public/js/gmap';
-import Flexbox from 'flexbox-react';
 
   export default class Pharmacy extends React.Component {
 

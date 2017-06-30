@@ -1,89 +1,51 @@
 <!DOCTYPE html>
-<html lang="eng" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Montana Women</title>
+<html lang="en-us">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta charset="utf-8">
-
-    <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
-    <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css">
-    <script src="libs/jquery-1.12.2.min.js"></script>
-    <script src="libs/json2.js"></script><!-- json for ie7 -->
-    <script src="libs/jquery.imagemapster.min.js?v=1.1"></script>
-    <script src="libs/typeahead.bundle.js"></script>
-    <script src="symptom_selector/selector.js?v=3.3"></script>
-    <link rel="stylesheet" src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css">
-</link>
-    <!-- <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script> -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+       <link rel="stylesheet" type="text/css" href="symptom_selector/selector.css?v=1">
+       <link rel="stylesheet" type="text/css" href="symptom_selector/fontawesome/assets/css/font-awesome.min.css" />
+       <script src="libs/jquery-1.12.2.min.js"></script>
+       <script src="libs/json2.js"></script>
+      <script src="libs/jquery.imagemapster.min.js?v=1.1"></script>
+       <script src="libs/typeahead.bundle.js"></script>
+       <script src="symptom_selector/selector.js?v=3.3"></script>
+        <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+        <script src="https://unpkg.com/history/umd/history.min.js"></script>
 
-  </head>
+   </head>
+   <style>
+
+   </style>
     <body>
-      <div id="container">
-
+      <div id='container'>
       </div>
 
-      <!-- <div id="map-header">
-      <h3>Find Resources Near You!</h3>
-      </div> -->
-
-      <div id="map"></div>
-      <script>
-        
-
-  </script>
-      <!--<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE&callback=initMap&libraries=places">
-
-    </script> -->
-
-      <!-- <h1>Symptom Checker</h1> -->
-       <!-- <table class="container-table">
-           <tr>
-               <td valign="middle" colspan="2" class="td-header box-white bordered-box width50"><h4 class="header" id="selectSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">1</span></h4></td>
-               <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="selectedSymptomsTitle"><span class="badge pull-left badge-primary visible-lg margin5R">2</span></h4></td>
-               <td valign="middle" class="td-header bordered-box box-white width25"><h4 class="header" id="possibleDiseasesTitle"><span class="badge pull-left badge-primary visible-lg margin5R">3</span></h4></td>
-           </tr>
-           <tr>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomSelector"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="symptomList"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="selectedSymptomList"></div></td>
-               <td valign="top" class="selector_container bordered-box box-white width25"><div id="diagnosisList"></div></td>
-           </tr>
-       </table>
-       <div>
-           <a target="_blank" href="http://corporate.priaid.ch"><img class="logo" alt="priaid" src="symptom_selector/images/logo.jpg" /></a>
-           <span><a class="priaid-powered" target="_blank" href="http://corporate.priaid.ch"> powered by priaid</a> </span>
-       </div> -->
-
-
+      <div id="map">
+      </div>
 
     <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
     <script src="https://unpkg.com/react@15.3.1/dist/react.js"></script>
     <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+    <!-- <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../app.bundle.js"></script>
-
-
-
-
     <script type="text/javascript">
 
-
-    // <script type="text/javascript">
-
-        // $(document).ready(function () {
-        //     $("#symptomSelector").symptomSelector(
-        //     {
-        //         mode: "diagnosis",
-        //         webservice: "https://sandbox-healthservice.priaid.ch", //or for live data https://healthservice.priaid.ch
-        //         language: "en-gb", // You can change language here to de-ch, tr-tr...
-        //         specUrl: "sampleSpecialisationPage",// Here should come url for specialisations doctor search page
-        //         accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1uYmFpcmRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMjAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE3LTA2LTAyIiwiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LWF1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE0OTc1NTU4NjksIm5iZiI6MTQ5NzU0ODY2OX0.VQgm22DmNzP23ewTrhp5frL_zh6i0l89fCAJOc7orqI" //Place here your token
-        //     });
-        // });
-
+        $(document).ready(function () {
+            $("#symptomSelector").symptomSelector(
+            {
+                mode: "diagnosis",
+                webservice: "https://sandbox-healthservice.priaid.ch", //or for live data https://healthservice.priaid.ch
+                language: "en-gb", // You can change language here to de-ch, tr-tr...
+                specUrl: "sampleSpecialisationPage",// Here should come url for specialisations doctor search page
+                accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1uYmFpcmRAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiIxNzQwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoiMjAwIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9saW1pdCI6Ijk5OTk5OTk5OSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbWVtYmVyc2hpcCI6IlByZW1pdW0iLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xhbmd1YWdlIjoiZW4tZ2IiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiIyMDk5LTEyLTMxIiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwc3RhcnQiOiIyMDE3LTA2LTAyIiwiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LWF1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE0OTc1NTU4NjksIm5iZiI6MTQ5NzU0ODY2OX0.VQgm22DmNzP23ewTrhp5frL_zh6i0l89fCAJOc7orqI" //Place here your token
+            });
+        });
     </script>
 
   </body>
