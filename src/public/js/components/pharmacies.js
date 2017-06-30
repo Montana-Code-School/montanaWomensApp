@@ -23,10 +23,10 @@ import Flexbox from 'flexbox-react';
 
     render() {
       return (
-          <div className="pharmPage">
+          <div className="healthPage pharmacy">
             <Flexbox flexDirection="row">
-              <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'}
-              />
+              <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'}/>
+
               <ul>
                 {this.state.array.map((pharmacy, i) =>
                   <li key={i}>{pharmacy.name}</li>

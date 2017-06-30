@@ -183,13 +183,20 @@ p {
   background-color: darken(#f77c77,8)
 }
 
-.pharmPage {
+.healthPage {
   display: flex;
   position: relative;
   top: 100px;
   justify-content: center;
 }
 
+.pharmacy {
+  background-color: #337ab7;
+}
+
+.doctor {
+  background-color: #009a8b;
+}
 .infowindow h5 {
     font-weight: bold;
   }

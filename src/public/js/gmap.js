@@ -7,6 +7,7 @@ const coords = {
   lng:-114.001003
 };
 
+const style
 const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
 
 

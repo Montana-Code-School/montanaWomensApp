@@ -23,7 +23,7 @@ import Flexbox from 'flexbox-react';
 
     render() {
       return (
-          <div className="pharmPage">
+          <div className="healthPage doctor">
             <Flexbox flexDirection="row">
               <Gmap array={this.state.array} icon={'../../css/img/icon_local_hospital.png'}
               />
