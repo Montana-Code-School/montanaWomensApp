@@ -25,13 +25,6 @@
   position:relative;
 
 }
-/*@media only screen and (max-width: 768px) {
-  .photo {
-   justify-content: 'flex-start';
-   flex-wrap: 'wrap';
-   height: '40em';
- }
-}*/
 
 body {
   margin: 0;

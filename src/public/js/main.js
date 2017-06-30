@@ -11,7 +11,6 @@ import Counselors from './components/counselors';
 import Pharmacies from './components/pharmacies';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
-import Symptomchecker from './components/symptomchecker';
 import Doctors from './components/doctors';
 
 
@@ -38,7 +37,6 @@ const Main = ()=> (
    <Route path = '/pharmacies' component = {Pharmacies}/>
    <Route path = '/birthcontrol' component = {Birthcontrol}/>
    <Route path = '/resources' component = {Resources}/>
-   <Route path = '/symptomchecker' component = {Symptomchecker}/>
    <Route path = '/doctors' component = {Doctors}/>
 
 
