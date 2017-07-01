@@ -7,9 +7,7 @@ const coords = {
   lng:-114.001003
 };
 
-const style
 const params = {v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE'};
-
 
 class Gmap extends React.Component {
 
@@ -57,7 +55,7 @@ class Gmap extends React.Component {
 
     return(
       <Gmaps
-        width={'700px'}
+        width={'600px'}
         height= {'600px'}
         lat={coords.lat}
         lng={coords.lng}

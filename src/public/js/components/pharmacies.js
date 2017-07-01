@@ -1,6 +1,8 @@
 import React from 'react';
 import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import Gmap from 'public/js/gmap';
+import Flexbox from 'flexbox-react';
+import Table from './table';
 
   export default class Pharmacy extends React.Component {
 
@@ -22,17 +24,26 @@ import Gmap from 'public/js/gmap';
         }
 
     render() {
-      return (
-          <div className="healthPage pharmacy">
-            <Flexbox flexDirection="row">
-              <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'}/>
+      var resourcesStyle = {
+        padding:50,
+        marginTop:65,
+        height: 300,
+        backgroundColor:'#ff80df',
+        color: "#333",
+        fontFamily: "helvetica",
+        fontSize: 55,
+        textAlign: "center"
+      };
 
-              <ul>
-                {this.state.array.map((pharmacy, i) =>
-                  <li key={i}>{pharmacy.name}</li>
-                )}
-              </ul>
+
+
+      return (
+        <div>
+        <h1 style = {resourcesStyle}>Local Pharmacies</h1>
+            <Flexbox className="healthPage pharmacy" flexDirection="row">
+              <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'}/>
+              <Table heading="Pharmacies near you" array={this.state.array} />
             </Flexbox>
-          </div>
+        </div>
       )}
     };

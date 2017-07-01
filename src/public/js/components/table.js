@@ -1,29 +1,25 @@
 import React from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-
-
-// function addProducts(quantity) {
-//   const startId = products.length;
-//   for (let i = 0; i < quantity; i++) {
-//     const id = startId + i;
-//     products.push({
-//       id: id,
-//       name: 'Item name ' + id,
-//       price: 2100 + i
-//     });
-//   }
-// }
-//
-// addProducts(20);
-
-class ScrollTable extends React.Component {
+export default class Table extends React.Component {
   render() {
     return (
-      <BootstrapTable data={ } height='120' scrollTop={ 'Bottom' }> <!-- Available value is Top, Bottom or any number value -->
-          <TableHeaderColumn dataField={ } isKey>Product ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='price'>Product Price</TableHeaderColumn>
-      </BootstrapTable>
+      <div className="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>{this.props.heading}</th>
+            </tr>
+          </thead>
+          <tbody>
+          {this.props.array.map((place, i) =>
+            <tr>
+              <td key={i}>{place.name}</td>
+              <td>{place.vicinity}</td>
+            </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     );
   }
+}  

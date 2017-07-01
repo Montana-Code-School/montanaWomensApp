@@ -5,9 +5,11 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 import Home from './components/home';
 import Counselors from './components/counselors';
 import Pharmacy from './components/pharmacies';
+import Doctors from './components/doctors';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
 import Flexbox from 'flexbox-react';
+
 
 
 
@@ -23,7 +25,6 @@ const Navigation = ()=> (
        <NavItem className="nav-item"><Link to = '/birthcontrol'>Birth Control Methods</Link></NavItem>
        <NavItem className="nav-item"><Link to = '/resources'>Resources</Link></NavItem>
        <NavItem className="nav-item"><Link to = '/doctors'>Doctors And Clinics</Link></NavItem>
-       <NavItem className="nav-item"><Link to ='/symptomchecker.html'>Symptom Checker</Link></NavItem>
      </Navbar>
    </Flexbox>
   </div>

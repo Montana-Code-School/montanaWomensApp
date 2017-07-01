@@ -58,7 +58,7 @@ class Homepage extends React.Component {
         <Flexbox flexDirection='column' element='section'>
           <h1 className='symptomheader'style={{paddingTop: '3em'}}>Not Feeling Right?</h1>
           <h3 className='symptomdescript'>Try our quick and easy symptom checker as a first step toward discovering what might be wrong. </h3>
-          <Link to="/symptomchecker.html"><button className="btn">SYMPTOM CHECKER</button></Link>
+          <a href="/symptomchecker.html"><button className="btn">SYMPTOM CHECKER</button></a>
         </Flexbox>
         </JumbotronCol>
 
@@ -69,8 +69,6 @@ class Homepage extends React.Component {
        </Flexbox>
        </Jumbotron>
      </div>
-
-
 
  </div>
   )};

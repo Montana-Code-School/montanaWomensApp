@@ -225,15 +225,17 @@ p {
 
 .health-symbol {
   padding-top: 7.5rem;
+}
+
 .healthPage {
   display: flex;
   position: relative;
-  top: 100px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .pharmacy {
-  background-color: #337ab7;
+  background-color: #d392cc;
 }
 
 .doctor {
@@ -243,6 +245,38 @@ p {
     font-weight: bold;
   }
 
-.material-icons {
-  color: blue;
+.map {
+  align-self: baseline;
 }
+table {
+  border-collapse: collapse;
+    padding: 0;
+    margin: 0 0 11px 0;
+    width: auto;
+    margin-left: 5%;
+  }
+
+table th {
+  text-align: left;
+    border-bottom: 2px solid #eee;
+    vertical-align: bottom;
+    padding: 0 10px 10px 10px;
+    text-align: right;
+  }
+
+table td {
+  border-bottom: 1px solid #eee;
+    vertical-align: top;
+    padding: 10px;
+    text-align: right;
+    font-size: 1em;
+  }
+.tableName {
+  font-size: 1.3em;
+}
+table th:nth-child(1),
+table td:nth-child(1) {
+  text-align: left;
+    padding-left: 0;
+    font-weight: bold;
+  }

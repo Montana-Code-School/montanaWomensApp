@@ -13,14 +13,13 @@ import React from 'react';
           fontFamily: "helvetica",
           fontSize: 55,
           textAlign: "center"
-
         };
 
         return (
          <div>
           <h1 style = {resourcesStyle}> Plug In and Get Connected With Other Local Women </h1>
 
-            <Rows/>
+            run
          </div>
         );
       }
