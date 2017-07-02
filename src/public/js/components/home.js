@@ -16,7 +16,7 @@ class Homepage extends React.Component {
     <Flexbox justifyContent='center'>
 
       <img src="./css/img/banner_larger.jpg" className="photo"/>
-      <h1 className="banner" >Montana Womens Wellness Resource</h1>
+      <h1 className="banner" >Montana Women&rsquo;s Wellness Resource</h1>
     </Flexbox>
     </div>
 
@@ -24,18 +24,20 @@ class Homepage extends React.Component {
    <div className='drawerStyle' style={{height: '-1em'}}>
      <DrawerContainer className="Drawer">
 
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}>Emergency Help Lines</MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Substance Abuse (Drug and Alcohol)<br/><b> 1(855)603-2445</b></a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Domenstic Violence<br/><b>1(800)799-7233</b></a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>YWCA <br/><b> 1(800)483-7858</b></a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Suicide Prevention Lifeline<br/><b> 1(800)273-8255</b></a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><b>Emergency Help Lines</b></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Emergency<br/><b> Dial 911</b></a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Substance Abuse (Drug and Alcohol)<br/> 1(855)603-2445</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Domenstic Violence<br/>1(800)799-7233</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>YWCA Crisis Hotline<br/> 1(800)483-7858</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Rape and Abuse National Hotline<br/> 1(800)656-HOPE</a></MenuItem>
+
      </DrawerContainer>
    </div>
 
      <div>
         <Flexbox flexDirection="row" justifyContent="center" minHeight="20vh" paddingTop ="2em">
            <Flexbox element = 'div'>
-            <Link to ='/counselors'><HoverCol imgSrc="css/img/text-counseling.png" /> </Link>
+            <Link to='/counselors'><HoverCol imgSrc="css/img/text-counseling.png" /> </Link>
 
             <Link to="/resources"><HoverCol imgSrc="css/img/text-resources.png" /></Link>
            </Flexbox>

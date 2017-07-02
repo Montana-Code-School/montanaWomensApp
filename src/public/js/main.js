@@ -15,11 +15,11 @@ import Flexbox from 'flexbox-react';
 
 const Navigation = ()=> (
 
-  <div>
+  <div className="navigation">
 
    <Flexbox flexDirection = 'row'>
      <Navbar navColor='rgba(143, 57, 133, .8)'>
-       <NavItem className="nav-item"><Link to = '/'>Home</Link></NavItem>
+       <NavItem className="nav-item"><a href= '/'>Home</a></NavItem>
        <NavItem className="nav-item"><Link to ='/counselors'>Counselors</Link></NavItem>
        <NavItem className="nav-item"><Link to = '/pharmacies'>Pharmacies</Link></NavItem>
        <NavItem className="nav-item"><Link to = '/birthcontrol'>Birth Control Methods</Link></NavItem>
@@ -50,7 +50,9 @@ const App = () => (
   </div>
  )
 
-ReactDOM.render((<BrowserRouter >
+
+
+ReactDOM.render((<BrowserRouter>
   <App/>
 </BrowserRouter>
 ),  document.getElementById('container'))
