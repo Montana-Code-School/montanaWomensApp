@@ -6993,7 +6993,7 @@ var navbarStyle = {
     height: '70px',
     position: 'fixed',
     top: '0',
-    zIndex: '200',
+    zIndex: '950',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -10858,7 +10858,7 @@ var jumbotronStyle = {
   fadeInLeft: {
     animationName: 'fadeInLeft',
     animationPlayState: 'paused',
-    animationTimingFunction: 'ease-out',
+    animationTimingFunction: 'ease-in',
     animationDuration: '0.7s',
     animationIterationCount: 1,
     animationDirection: 'normal',
@@ -11737,51 +11737,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function Navbar(prop) {
-  var navStyle = {
-    backgroundColor: "rgba(143, 57, 133, .8)",
-    listStyle: "none",
-    fontWeight: "700"
-
-  };
-  var noBull = {
-    listStyle: "none",
-    fontSize: "1em",
-    backgroundColor: "#8f3985 !important"
-
-  };
-
-  return _react2.default.createElement(
-    'div',
-    { style: navStyle, className: 'navbar navbar-default' },
-    _react2.default.createElement(
-      'div',
-      { className: 'navbar-header' },
-      _react2.default.createElement(
-        'ul',
-        { className: 'navbar-nav' },
-        _react2.default.createElement(
-          'li',
-          { style: noBull, className: 'active' },
-          _react2.default.createElement(
-            'a',
-            { href: '/index.html' },
-            'HOME'
-          )
-        )
-      )
-    )
-  );
-}
-
 var headerStyle = {
   textAlign: "center"
 };
+
 var imgStyle = {
   margin: "auto",
   paddingBottom: "20px",
   paddingTop: "10px"
 };
+
 var pStyle = {
   paddingRight: "10px",
   marginRight: "10px",
@@ -11894,12 +11859,14 @@ var Birthcontrol = function (_React$Component3) {
 
       var birthcontrolStyle = {
 
-        padding: 50,
+        paddingTop: '5rem',
+        paddingRight: '12rem',
+        paddingLeft: '7rem',
         marginTop: 65,
         height: 300,
         backgroundColor: '#e65c00',
         color: "#333",
-        fontFamily: "monospace",
+        fontFamily: "sans-serif",
         fontSize: 55,
         textAlign: "center"
       };
@@ -11912,7 +11879,7 @@ var Birthcontrol = function (_React$Component3) {
           _react2.default.createElement(
             'h1',
             { style: birthcontrolStyle },
-            'Discover The Many Different Options For Birthcontrol '
+            'Discover The Many Different Options For Birth Control '
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -11954,70 +11921,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Photo = function (_React$Component) {
-  _inherits(Photo, _React$Component);
-
-  function Photo() {
-    _classCallCheck(this, Photo);
-
-    return _possibleConstructorReturn(this, (Photo.__proto__ || Object.getPrototypeOf(Photo)).apply(this, arguments));
-  }
-
-  _createClass(Photo, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement('img', { src: 'css/img/health-symbol.jpg', style: imgStyle, className: 'waves-graphic' })
-      );
-    }
-  }]);
-
-  return Photo;
-}(_react2.default.Component);
-
-var Counselors = function (_React$Component2) {
-  _inherits(Counselors, _React$Component2);
-
-  function Counselors() {
-    _classCallCheck(this, Counselors);
-
-    return _possibleConstructorReturn(this, (Counselors.__proto__ || Object.getPrototypeOf(Counselors)).apply(this, arguments));
-  }
-
-  _createClass(Counselors, [{
-    key: 'render',
-    value: function render() {
-      var counselorsStyle = {
-        padding: 50,
-        marginTop: 65,
-        height: 300,
-        backgroundColor: '#b34700',
-        color: "#333",
-        fontFamily: "monospace",
-        fontSize: 55,
-        textAlign: "center"
-
-      };
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { style: counselorsStyle },
-          ' Find a Local Counselor Near You to Get Help and Support for Youself or Your Family Members'
-        )
-      );
-    }
-  }]);
-
-  return Counselors;
-}(_react2.default.Component);
-
-exports.default = Counselors;
-
-
 var pStyle = {
   fontSize: "20px",
   padding: "5px",
@@ -12035,11 +11938,12 @@ var titleStyle = {
 };
 
 var websiteStyle = {
-  textAlign: "center"
+  textAlign: "center",
+  fontSize: "1.5em"
 };
 
-var List = function (_React$Component3) {
-  _inherits(List, _React$Component3);
+var List = function (_React$Component) {
+  _inherits(List, _React$Component);
 
   function List() {
     _classCallCheck(this, List);
@@ -12052,7 +11956,7 @@ var List = function (_React$Component3) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'counsel' },
         _react2.default.createElement(
           'h1',
           { style: titleStyle },
@@ -12068,11 +11972,15 @@ var List = function (_React$Component3) {
           ' '
         ),
         _react2.default.createElement(
-          'h5',
-          { style: websiteStyle },
-          ' ',
-          this.props.website,
-          ' '
+          'a',
+          { href: '#' },
+          _react2.default.createElement(
+            'h5',
+            { style: websiteStyle },
+            ' ',
+            this.props.website,
+            ' '
+          )
         ),
         _react2.default.createElement(
           'h6',
@@ -12087,6 +11995,87 @@ var List = function (_React$Component3) {
 
   return List;
 }(_react2.default.Component);
+
+var Rows = function (_React$Component2) {
+  _inherits(Rows, _React$Component2);
+
+  function Rows() {
+    _classCallCheck(this, Rows);
+
+    return _possibleConstructorReturn(this, (Rows.__proto__ || Object.getPrototypeOf(Rows)).apply(this, arguments));
+  }
+
+  _createClass(Rows, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(List, { title: 'Aletheia Marriage Counseling', description: 'James W. Ramsey,  MA, MFT, LCPC  You\'ll be surprised how fast couples experience incredible results after putting into practice just a few simple principles.  It starts with a desire to have a better relationship and the.willingness to have something different.  All our coaching and counseling programs are designed to meet you....where you\'re at now....no matter how bad it may feel. Located at 2870 St. Michael Drive  Missoula Mt 59803', website: 'www.aletheiamarriagecounseling.net', number: '(406)251-7073' }),
+          _react2.default.createElement(List, { title: 'Marriage and Couple Counseling', description: 'David Meurer, LCSW  In my marriage and couples counseling Missoula practice, I help people foster more caring and support in their relationship. This includes helping people build a strong connection to each other and bring more joy into their life together. I help couples learn the skills they need to move through conflict well. This means learning to value each other\u2019s unique input when facing challenges and stress. In my marriage and couples counseling Missoula practice, I rely on models that have been tested through years of research. These models can bring people to new understandings and insights, which can help them make sense of the difficulties they are having. Then they can learn new ways to solve problems and take care of each other.Located at 415 N Higgins #132 Missoul Mt 59802 ', website: 'www.counselingmissoula.com', number: '(406)531-6250' }),
+          _react2.default.createElement(List, { title: 'Stepping Stones Counseling', description: 'Today you are one step closer to a new you where you feel empowered and on a positive path to personal growth and managing your alcohol use by keeping to lowrisk guidelines or choosing abstinence for all mood altering chemicals. As solution focused counselors, our goal is to help you uncover your true potential and lead a life that is worth celebrating. While we cant change difficult situations of the past, we can work together to better understand and resolve the challenges in your life created by your alcohol or drug use. By applying complementary therapy approaches and techniques, we will unearth longstanding behavior patterns or negative perceptions that may be holding you back from experiencing a more fulfilling and meaningful life. If youre looking for extra support and guidance through a challenging situation or youre just ready to address the issues created by your alcohol or drug use, we look forward to working with you to achieve your goals. Located at 202 Brooks St Ste 300 Missoula Mt', website: 'www.steppingstonesmissoula.com', number: '(406)926-1453' }),
+          _react2.default.createElement(List, { title: 'Nardi and Stube', description: ' Julie A Nardi MA and David B Stube PhD.  As a couple counseling couples, we can offer not only male and female perspectives to each struggle brought to us, but an understanding of the intensity of emotions in partnerships and the desire to hang on to the myth of the promise of ease and effortless relationship. As well, we have a great appreciation of the difficulty and fear involved in change. We can help you move from a relationship in which you feel miles away from your partner to one that includes deep emotional connection, greater acceptance of self, and greater skill in ceasing your efforts to mold your partner into who you want them to be rather than who they are. Located at 537 Stephens Ave Missoula Mt 59801', website: 'www.gardencitycouples.com', number: '(406)542-8222' }),
+          _react2.default.createElement(List, { title: 'Women\'s Counseling Center', description: 'Diane Adams LCSW MAC offers therapy for Individuals, Partners, EMDR, Addiction treatment, she offers Daring Way groups, Private retreats, and Sex Positive Culture.  Located at 725 W Alder Ste 18  Missoula Mt 59802', website: 'www.womenscounselingcenter.org', number: '(406)728-8388 or email at wcc@blackfoot.net' }),
+          _react2.default.createElement(List, { title: 'Leanne Young MA LCPC', description: 'Leanne Young, MA, LCPC is a licensed clinical professional counselor in private practice in Missoula, Montana. She has over 22 years of education and experience in her field. Prior to the establishment of her private practice, she worked for various agencies and the University of Montana.She has extensive experience providing psychotherapy with adults, couples, families and adolescents in various capacities. Leanne aims to flexibly structure the course of treatment to accommodate her clients therapeutic needs. She assists people to transform from feeling blocked in some area of their lives to achieving their own definition of success from weekly sessions.The decision to attend therapy is a significant one. People seek therapy to deal with issues, conflicts, and problems associated with a range of topics. What underlies a successful therapeutic relationship is the creation of a safe place for one to explore conflicts, issues, and feelings. From that premise, meaningful and significant growth occurs. The kind of growth one is seeking is best decided upon by careful collaboration between the therapist and the client. Working as a general practitioner, she has additional specialized expertise in: Depression, Anxiety, Eating disorders (anorexia, bulimia, and overeating), Couples Counseling, Parenting, Divorce adjustment.  In addition to her work as a therapist, she also is certified in Divorce and Family Mediation with a specialization in development of parenting plans, emphasizing the best possible adjustment of the children. Located at 111 N Higgins Ave Missoula Mt 59802', website: 'www.leanneyoung.com', number: '(406)360-3262' }),
+          _react2.default.createElement(List, { title: 'Dr Q Counnseling', description: 'If you\'d like to discuss your concerns with a counselor, visit Dr. Q Counseling in Missoula, MT. If necessary, we can also come to you. We work hard to help individuals and families who are struggling with particular mental health issues or general anxieties and fears. We accept most insurance plans and take Medicaid. If you\'d like to receive counseling for a gambling problem, we offer funding to help cover the costs. If you\'re nervous about receiving care, we\'ll do our best to put your mind at ease. Our counselor graduated from the University of Montana and is a member of the American Mental Health Counselors Association. At our clinic, we want our patients to move beyond their struggles, and we offer a variety of treatments in an effort to help them do so. This includes: Gambling addiction therapy, Parent-child interaction therapy, Addiction counseling, Trauma counseling.  Located at 725 W Central Ave  Ste 209 Missoula, Mt 59801', website: 'www.missoulacounselingservices.com', number: '(406)203-0814' }),
+          _react2.default.createElement(List, { title: 'Bluebird Psychotherapy', description: 'My name is Ivy Irvine, LCSW, and I am a licensed clinical social worker and therapist at Bluebird Psychotherapy, located in downtown Missoula, Montana.  I provide counseling and consultation services for children, families, and adults.   I accept many forms of insurance and am happy to work with individuals and families on a sliding scale fee system. Therapy and support should be accessible to everyone regardless of cost. I specialize in working with children, families and adults who have experienced trauma, grief and loss and who need a place to experience safe, kind, and healing relationships. I work with children and adults who have needs around the following: Adoption, Attachment Issues (RAD), Anxiety, Behavioral Problems, Child Abuse and Neglect, Depression, Divorce, Domestic Violence, Emotional Disturbance, Family Conflict, Grief, Impulsivity, Oppositional Defiance, Parenting Peer Relationships, School Issues, Self-Esteem, Self-Harming Behaviors, Sexual Abuse, Stress, Suicideation, Trauma and PTSD.  Located at 725 W. Alder   Ste 28, Missoula, Mt 59802', website: 'www.bluebirdpsychotherapy.com', number: '(406)546-0082' })
+        )
+      );
+    }
+  }]);
+
+  return Rows;
+}(_react2.default.Component);
+
+var Counselors = function (_React$Component3) {
+  _inherits(Counselors, _React$Component3);
+
+  function Counselors() {
+    _classCallCheck(this, Counselors);
+
+    return _possibleConstructorReturn(this, (Counselors.__proto__ || Object.getPrototypeOf(Counselors)).apply(this, arguments));
+  }
+
+  _createClass(Counselors, [{
+    key: 'render',
+    value: function render() {
+      var counselorsStyle = {
+        padding: 50,
+        marginTop: 65,
+        height: 300,
+        width: '100%',
+        backgroundColor: 'rgba(179,71,0, 0.9)',
+        color: "#333",
+        fontFamily: "sans-serif",
+        fontSize: 55,
+        textAlign: "center"
+
+      };
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _flexboxReact2.default,
+          { className: 'healthPage', flexDirection: 'row' },
+          _react2.default.createElement(
+            'h1',
+            { style: counselorsStyle },
+            ' Find a Local Counselor Near You'
+          )
+        ),
+        _react2.default.createElement(Rows, null)
+      );
+    }
+  }]);
+
+  return Counselors;
+}(_react2.default.Component);
+
+exports.default = Counselors;
 
 /***/ }),
 /* 110 */
@@ -12154,7 +12143,7 @@ var Homepage = function (_React$Component) {
             _react2.default.createElement(
               'h1',
               { className: 'banner' },
-              'Montana Womens Wellness Resource'
+              'Montana Women\u2019s Wellness Resource'
             )
           )
         ),
@@ -12167,7 +12156,26 @@ var Homepage = function (_React$Component) {
             _react2.default.createElement(
               _reactDynamicUi.MenuItem,
               { hoverStyle: { backgroundColor: '#cbe8ed' } },
-              'Emergency Help Lines'
+              _react2.default.createElement(
+                'b',
+                null,
+                'Emergency Help Lines'
+              )
+            ),
+            _react2.default.createElement(
+              _reactDynamicUi.MenuItem,
+              { hoverStyle: { backgroundColor: '#cbe8ed' } },
+              _react2.default.createElement(
+                'a',
+                null,
+                'Emergency',
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                  'b',
+                  null,
+                  ' Dial 911'
+                )
+              )
             ),
             _react2.default.createElement(
               _reactDynamicUi.MenuItem,
@@ -12177,11 +12185,7 @@ var Homepage = function (_React$Component) {
                 null,
                 'Substance Abuse (Drug and Alcohol)',
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  ' 1(855)603-2445'
-                )
+                ' 1(855)603-2445'
               )
             ),
             _react2.default.createElement(
@@ -12192,11 +12196,7 @@ var Homepage = function (_React$Component) {
                 null,
                 'Domenstic Violence',
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  '1(800)799-7233'
-                )
+                '1(800)799-7233'
               )
             ),
             _react2.default.createElement(
@@ -12205,13 +12205,9 @@ var Homepage = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 null,
-                'YWCA ',
+                'YWCA Crisis Hotline',
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  ' 1(800)483-7858'
-                )
+                ' 1(800)483-7858'
               )
             ),
             _react2.default.createElement(
@@ -12220,13 +12216,9 @@ var Homepage = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 null,
-                'Suicide Prevention Lifeline',
+                'Rape and Abuse National Hotline',
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  ' 1(800)273-8255'
-                )
+                ' 1(800)656-HOPE'
               )
             )
           )
@@ -12303,8 +12295,8 @@ var Homepage = function (_React$Component) {
                     'Try our quick and easy symptom checker as a first step toward discovering what might be wrong. '
                   ),
                   _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/symptomchecker.html' },
+                    'a',
+                    { href: '/symptomchecker.html' },
                     _react2.default.createElement(
                       'button',
                       { className: 'btn' },
@@ -12377,6 +12369,14 @@ var _gmap = __webpack_require__(281);
 
 var _gmap2 = _interopRequireDefault(_gmap);
 
+var _flexboxReact = __webpack_require__(31);
+
+var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _table = __webpack_require__(284);
+
+var _table2 = _interopRequireDefault(_table);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12399,10 +12399,11 @@ var Pharmacy = function (_React$Component) {
     };
 
     axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
-
       var array = res.data.results;
-      _this.setState({ array: array });
-      console.log(array);
+
+      _this.setState({
+        array: array
+      });
     });
     return _this;
   }
@@ -12410,34 +12411,31 @@ var Pharmacy = function (_React$Component) {
   _createClass(Pharmacy, [{
     key: 'render',
     value: function render() {
+      var resourcesStyle = {
+        padding: 50,
+        marginTop: 65,
+        height: 300,
+        backgroundColor: '#ff80df',
+        color: "#333",
+        fontFamily: "helvetica",
+        fontSize: 55,
+        textAlign: "center"
+      };
 
       return _react2.default.createElement(
         'div',
         null,
-        this.state.array.map(function (pharmacy, i) {
-          return _react2.default.createElement(
-            'ul',
-            null,
-            _react2.default.createElement(
-              'li',
-              { key: i },
-              ' ',
-              pharmacy.name,
-              ' '
-            ),
-            _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'li',
-                { key: i },
-                ' ',
-                pharmacy.vicinity,
-                ' '
-              )
-            )
-          );
-        })
+        _react2.default.createElement(
+          'h1',
+          { style: resourcesStyle },
+          'Local Pharmacies'
+        ),
+        _react2.default.createElement(
+          _flexboxReact2.default,
+          { className: 'healthPage pharmacy', flexDirection: 'row' },
+          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_pharmacy.png' }),
+          _react2.default.createElement(_table2.default, { heading: 'Pharmacies near you', array: this.state.array })
+        )
       );
     }
   }]);
@@ -12446,6 +12444,7 @@ var Pharmacy = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Pharmacy;
+;
 
 /***/ }),
 /* 112 */
@@ -12464,6 +12463,10 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _flexboxReact = __webpack_require__(31);
+
+var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12472,71 +12475,26 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Resources = function (_React$Component) {
-  _inherits(Resources, _React$Component);
-
-  function Resources() {
-    _classCallCheck(this, Resources);
-
-    return _possibleConstructorReturn(this, (Resources.__proto__ || Object.getPrototypeOf(Resources)).apply(this, arguments));
-  }
-
-  _createClass(Resources, [{
-    key: 'render',
-    value: function render() {
-      var resourcesStyle = {
-        padding: 50,
-        marginTop: 65,
-        height: 300,
-        backgroundColor: '#ff80df',
-        color: "#333",
-        fontFamily: "helvetica",
-        fontSize: 55,
-        textAlign: "center"
-
-      };
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { style: resourcesStyle },
-          ' Plug In and Get Connected With Other Local Women '
-        ),
-        _react2.default.createElement(Rows, null)
-      );
-    }
-  }]);
-
-  return Resources;
-}(_react2.default.Component);
-
-exports.default = Resources;
-
+var headerStyle = {
+  textAlign: "center"
+};
 
 var pStyle = {
-  fontSize: "20px",
-  padding: "5px",
+  paddingRight: "10px",
+  marginRight: "10px",
+  fontSize: "18px"
+};
+
+var webStyle = {
   textAlign: "center"
 };
 
-var fontStyle = {
-  fontSize: "18px",
-  padding: "5px",
+var phStyle = {
   textAlign: "center"
 };
 
-var titleStyle = {
-  textAlign: "center"
-};
-
-var websiteStyle = {
-  textAlign: "center"
-};
-
-var List = function (_React$Component2) {
-  _inherits(List, _React$Component2);
+var List = function (_React$Component) {
+  _inherits(List, _React$Component);
 
   function List() {
     _classCallCheck(this, List);
@@ -12549,10 +12507,10 @@ var List = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'col' },
         _react2.default.createElement(
           'h1',
-          { style: titleStyle },
+          { style: headerStyle },
           ' ',
           this.props.title,
           ' '
@@ -12565,15 +12523,19 @@ var List = function (_React$Component2) {
           ' '
         ),
         _react2.default.createElement(
-          'h5',
-          { style: websiteStyle },
-          ' ',
-          this.props.website,
-          ' '
+          'a',
+          { href: '#' },
+          _react2.default.createElement(
+            'h3',
+            { style: webStyle },
+            ' ',
+            this.props.website,
+            ' '
+          )
         ),
         _react2.default.createElement(
-          'h6',
-          { style: fontStyle },
+          'h4',
+          { style: phStyle },
           ' ',
           this.props.number,
           ' '
@@ -12584,6 +12546,89 @@ var List = function (_React$Component2) {
 
   return List;
 }(_react2.default.Component);
+
+var Rows = function (_React$Component2) {
+  _inherits(Rows, _React$Component2);
+
+  function Rows() {
+    _classCallCheck(this, Rows);
+
+    return _possibleConstructorReturn(this, (Rows.__proto__ || Object.getPrototypeOf(Rows)).apply(this, arguments));
+  }
+
+  _createClass(Rows, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(List, { title: 'The Women\'s Club', description: 'A community fitness center for women. More than a gym. A community of women who inspire one another and walk out the door confident and rejuvenated.', website: 'http://www.thewomensclub.com/' }),
+          _react2.default.createElement(List, { title: 'The Women\'s Center at U of M', description: 'We are a student-run, consensus based organization dedicated to raising awareness of women\'s, gender, and sexuality issues. We provide a current list of organizations and professionals that serve and assist women in Western Montana, as well as a safe place to meet people interested in discussing and actively responding to pertinent issues in our community. Our mission is to actively represent 21st century feminism as a dynamic discipline concerned with all issues of gender and inequality.  We are serious about advancing our agenda of tolerance, education and equality, but we love to have fun while we do it.', website: 'https://www.facebook.com/umwomensresourcecenter' }),
+          _react2.default.createElement(List, { title: 'WORD - Women\'s Opportunity & Resource Development, Inc.', description: 'WORD creates opportunities, programs and policies that inspire and support women\u2019s development, leadership and choice, for the benefit of our entire community.', website: 'https://womensopportunityandresourcedevelopment.wordpress.com/about' }),
+          _react2.default.createElement(List, { title: 'Montana Women Vote', description: 'Montana Women Vote is a coalition of non-profit organizations dedicated to educating and mobilizing low-income women and their allies to participate in the democratic process as informed voters, policy advocates, and community leaders.', website: 'http://www.montanawomenvote.org/about-mwv/history-and-mission/', number: '406-543-3747' }),
+          _react2.default.createElement(List, { title: 'Women\'s Voices for the Earth', description: 'Women\u2019s Voices for the Earth amplifies women\u2019s voices to\\neliminate the toxic chemicals that harm our health and communities.', website: 'http://www.womensvoices.org' }),
+          _react2.default.createElement(List, { title: 'YWCA Missoula', description: 'YWCA Missoula is dedicated to eliminating racism, empowering women and promoting peace, justice, freedom and dignity for all. The YWCA opens doors to opportunity and self-suf\uFB01ciency for women and families facing poverty, violence and discrimination.', website: 'http://ywcaofmissoula.org', number: '24 crisis: 1-800-483-7858' }),
+          _react2.default.createElement(List, { title: 'Montana Coalition Against Domestic & Sexual Violence', description: '(MCADSV) is a statewide coalition of individuals and organizations working together to end domestic and sexual violence through advocacy, public education, public policy, and program development. Our mission is to support and facilitate networking among our member organizations while advocating for social change in Montana.', website: 'http://mcadsv.com', number: 'National Domestic Violence Hotline:       1-800-799-7233\\nNational Sexual Assault Hotline: 1-800-656-4673' }),
+          _react2.default.createElement(List, { title: 'Powerhouse Montana', description: 'PowerHouse Montana is a new initiative of the Women\u2019s Foundation of Montana with two goals in mind: (1) connecting Montana women with the resources, mentors and opportunities they need to create thriving businesses and thriving lives, (2) increasing the number of Montana women in leadership by providing a go-to source for organizations and companies looking for their next CEO or board chair.', website: 'http://www.powerhousemt.org', number: '406-461-7695' }),
+          _react2.default.createElement(List, { title: 'League of Women Voters', description: 'The League of Women Voters is a nonpartisan political organization encouraging informed and active participation in government. It influences public policy through education and advocacy.', website: 'http://lwvmt.org' })
+        )
+      );
+    }
+  }]);
+
+  return Rows;
+}(_react2.default.Component);
+
+var Birthcontrol = function (_React$Component3) {
+  _inherits(Birthcontrol, _React$Component3);
+
+  function Birthcontrol() {
+    _classCallCheck(this, Birthcontrol);
+
+    return _possibleConstructorReturn(this, (Birthcontrol.__proto__ || Object.getPrototypeOf(Birthcontrol)).apply(this, arguments));
+  }
+
+  _createClass(Birthcontrol, [{
+    key: 'render',
+    value: function render() {
+
+      var birthcontrolStyle = {
+
+        paddingTop: '5rem',
+        paddingRight: '12rem',
+        paddingLeft: '7rem',
+        marginTop: 65,
+        height: 300,
+        backgroundColor: '#e65c00',
+        color: "#333",
+        fontFamily: "sans-serif",
+        fontSize: 55,
+        textAlign: "center"
+      };
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _flexboxReact2.default,
+          { flexDirection: 'row' },
+          _react2.default.createElement(
+            'h1',
+            { style: birthcontrolStyle },
+            ' Connect with Local Women! '
+          )
+        ),
+        _react2.default.createElement(Rows, null)
+      );
+    }
+  }]);
+
+  return Birthcontrol;
+}(_react2.default.Component);
+
+exports.default = Birthcontrol;
 
 /***/ }),
 /* 113 */
@@ -35097,15 +35142,10 @@ var params = { v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE' };
 var Gmap = function (_React$Component) {
   _inherits(Gmap, _React$Component);
 
-  function Gmap(props) {
+  function Gmap() {
     _classCallCheck(this, Gmap);
 
-    var _this = _possibleConstructorReturn(this, (Gmap.__proto__ || Object.getPrototypeOf(Gmap)).call(this, props));
-
-    axios.get('http://localhost:3003/api/places').then(function (res) {
-      console.log(res);
-    });
-    return _this;
+    return _possibleConstructorReturn(this, (Gmap.__proto__ || Object.getPrototypeOf(Gmap)).apply(this, arguments));
   }
 
   _createClass(Gmap, [{
@@ -35133,36 +35173,46 @@ var Gmap = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
+      var self = this;
+      var pinLoop = this.props.array.map(function (place) {
+        return _react2.default.createElement(_reactGmaps.Marker, {
+          lat: place.geometry.location.lat,
+          lng: place.geometry.location.lng,
+          clickable: true,
+          draggable: false,
+          icon: _this2.props.icon,
+          title: place.name,
+          onClick: function onClick(e) {
+            var infowindow = new google.maps.InfoWindow({
+              content: "<div className='infowindow'><h5>" + place.name + "</h5>" + place.vicinity + "</div>",
+              position: e.latLng
+
+            });
+            infowindow.open(this.get('map'), this);
+          } });
+      });
+
       return _react2.default.createElement(
         _reactGmaps.Gmaps,
         {
-          width: '800 px',
+          width: '600px',
           height: '600px',
           lat: coords.lat,
           lng: coords.lng,
-          zoom: 12,
+          zoom: 13,
           scrollwheel: false,
           loadingMessage: 'Be happy',
           params: params,
           onMapCreated: this.onMapCreated },
-        _react2.default.createElement(_reactGmaps.Marker, {
-          lat: coords.lat,
-          lng: coords.lng,
-          draggable: true,
-          onDragEnd: this.onDragEnd }),
-        _react2.default.createElement(_reactGmaps.InfoWindow, {
-          lat: coords.lat,
-          lng: coords.lng,
-          content: 'Hello, React',
-          onCloseClick: this.onCloseClick })
+        pinLoop
       );
     }
   }]);
 
   return Gmap;
 }(_react2.default.Component);
-
-;
 
 exports.default = Gmap;
 
@@ -35214,7 +35264,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Navigation = function Navigation() {
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'navigation' },
     _react2.default.createElement(
       _flexboxReact2.default,
       { flexDirection: 'row' },
@@ -35225,8 +35275,8 @@ var Navigation = function Navigation() {
           _reactDynamicUi.NavItem,
           { className: 'nav-item' },
           _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/' },
+            'a',
+            { href: '/' },
             'Home'
           )
         ),
@@ -35274,15 +35324,6 @@ var Navigation = function Navigation() {
             { to: '/doctors' },
             'Doctors And Clinics'
           )
-        ),
-        _react2.default.createElement(
-          _reactDynamicUi.NavItem,
-          { className: 'nav-item' },
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/symptomchecker.html' },
-            'Symptom Checker'
-          )
         )
       )
     )
@@ -35319,6 +35360,93 @@ _reactDom2.default.render(_react2.default.createElement(
   null,
   _react2.default.createElement(App, null)
 ), document.getElementById('container'));
+
+/***/ }),
+/* 283 */,
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Table = function (_React$Component) {
+  _inherits(Table, _React$Component);
+
+  function Table() {
+    _classCallCheck(this, Table);
+
+    return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
+  }
+
+  _createClass(Table, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "table-responsive" },
+        _react2.default.createElement(
+          "table",
+          null,
+          _react2.default.createElement(
+            "thead",
+            null,
+            _react2.default.createElement(
+              "tr",
+              null,
+              _react2.default.createElement(
+                "th",
+                null,
+                this.props.heading
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "tbody",
+            null,
+            this.props.array.map(function (place, i) {
+              return _react2.default.createElement(
+                "tr",
+                null,
+                _react2.default.createElement(
+                  "td",
+                  { key: i },
+                  place.name
+                ),
+                _react2.default.createElement(
+                  "td",
+                  null,
+                  place.vicinity
+                )
+              );
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Table;
+}(_react2.default.Component);
+
+exports.default = Table;
 
 /***/ })
 /******/ ]);
