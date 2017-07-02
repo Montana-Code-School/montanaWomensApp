@@ -1,46 +1,22 @@
 import React from 'react';
 import Flexbox from 'flexbox-react';
 
-
-    function Navbar(prop){
-      var navStyle = {
-        backgroundColor: "rgba(143, 57, 133, .8)",
-        listStyle: "none",
-        fontWeight: "700",
-
-      }
-      var noBull = {
-       listStyle: "none",
-       fontSize: "1em",
-       backgroundColor: "#8f3985 !important"
-
-     }
-
-     return(
-        <div style={navStyle}className="navbar navbar-default">
-         <div className="navbar-header">
-            <ul className="navbar-nav">
-              <li style = {noBull} className="active"><a href="/index.html">HOME</a></li>
-            </ul>
-          </div>
-        </div>
-      );
-   }
-
-
-      var headerStyle = {
+    var headerStyle = {
        textAlign: "center"
      }
+
      var imgStyle = {
        margin: "auto",
        paddingBottom: "20px",
        paddingTop: "10px"
      }
+
      var pStyle = {
        paddingRight: "10px",
       marginRight: "10px",
       fontSize: "18px"
      }
+
       class List extends React.Component {
 
       render (){
@@ -96,19 +72,22 @@ import Flexbox from 'flexbox-react';
 
       var birthcontrolStyle = {
 
-        padding:50,
+
+        paddingTop:'5rem',
+        paddingRight:'12rem',
+        paddingLeft:'7rem',
         marginTop:65,
         height: 300,
         backgroundColor:'#e65c00',
         color: "#333",
-        fontFamily: "monospace",
+        fontFamily: "sans-serif",
         fontSize: 55,
         textAlign: "center"
       };
       return (
         <div>
          <Flexbox flexDirection='row'>
-           <h1 style = {birthcontrolStyle}>Discover The Many Different Options For Birthcontrol </h1>
+           <h1 style = {birthcontrolStyle}>Discover The Many Different Options For Birth Control </h1>
          </Flexbox>
 
           <Rows/>
