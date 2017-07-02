@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 282);
+/******/ 	return __webpack_require__(__webpack_require__.s = 283);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -401,7 +401,7 @@ module.exports = warning;
 "use strict";
 
 
-module.exports = __webpack_require__(24);
+module.exports = __webpack_require__(25);
 
 /***/ }),
 /* 4 */
@@ -1319,7 +1319,7 @@ var _prodInvariant = __webpack_require__(4),
 var CallbackQueue = __webpack_require__(76);
 var PooledClass = __webpack_require__(18);
 var ReactFeatureFlags = __webpack_require__(81);
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(24);
 var Transaction = __webpack_require__(36);
 
 var invariant = __webpack_require__(1);
@@ -2656,6 +2656,28 @@ module.exports = reactProdInvariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _Flexbox = __webpack_require__(134);
+
+var _Flexbox2 = _interopRequireDefault(_Flexbox);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+exports.default = _Flexbox2.default;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2678,7 +2700,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2801,7 +2823,7 @@ DOMLazyTree.queueText = queueText;
 module.exports = DOMLazyTree;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2975,7 +2997,7 @@ module.exports = ReactReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3085,7 +3107,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3094,7 +3116,7 @@ module.exports = React;
 module.exports = __webpack_require__(158);
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3160,7 +3182,7 @@ var createPath = exports.createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3446,7 +3468,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3462,7 +3484,7 @@ module.exports = EventPluginHub;
 
 
 
-var EventPluginHub = __webpack_require__(27);
+var EventPluginHub = __webpack_require__(28);
 var EventPluginUtils = __webpack_require__(46);
 
 var accumulateInto = __webpack_require__(88);
@@ -3586,7 +3608,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3639,7 +3661,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3701,28 +3723,6 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _Flexbox = __webpack_require__(134);
-
-var _Flexbox2 = _interopRequireDefault(_Flexbox);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-exports.default = _Flexbox2.default;
 
 /***/ }),
 /* 32 */
@@ -4390,7 +4390,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 
-var SyntheticUIEvent = __webpack_require__(30);
+var SyntheticUIEvent = __webpack_require__(31);
 var ViewportMetrics = __webpack_require__(87);
 
 var getEventModifierState = __webpack_require__(54);
@@ -5047,7 +5047,7 @@ var _valueEqual = __webpack_require__(280);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
-var _PathUtils = __webpack_require__(26);
+var _PathUtils = __webpack_require__(27);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -5243,7 +5243,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var DOMLazyTree = __webpack_require__(22);
+var DOMLazyTree = __webpack_require__(23);
 var Danger = __webpack_require__(150);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
@@ -5800,7 +5800,7 @@ var _prodInvariant = __webpack_require__(4);
 var ReactPropTypesSecret = __webpack_require__(86);
 var propTypesFactory = __webpack_require__(73);
 
-var React = __webpack_require__(24);
+var React = __webpack_require__(25);
 var PropTypes = propTypesFactory(React.isValidElement);
 
 var invariant = __webpack_require__(1);
@@ -6078,7 +6078,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var ReactInstanceMap = __webpack_require__(29);
+var ReactInstanceMap = __webpack_require__(30);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactUpdates = __webpack_require__(13);
 
@@ -7365,7 +7365,7 @@ var _prodInvariant = __webpack_require__(20);
 var ReactNoopUpdateQueue = __webpack_require__(64);
 
 var canDefineProperty = __webpack_require__(39);
-var emptyObject = __webpack_require__(21);
+var emptyObject = __webpack_require__(22);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -9537,23 +9537,23 @@ module.exports = ReactInputSelection;
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(22);
+var DOMLazyTree = __webpack_require__(23);
 var DOMProperty = __webpack_require__(16);
-var React = __webpack_require__(24);
+var React = __webpack_require__(25);
 var ReactBrowserEventEmitter = __webpack_require__(34);
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(160);
 var ReactDOMFeatureFlags = __webpack_require__(162);
 var ReactFeatureFlags = __webpack_require__(81);
-var ReactInstanceMap = __webpack_require__(29);
+var ReactInstanceMap = __webpack_require__(30);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactMarkupChecksum = __webpack_require__(182);
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(24);
 var ReactUpdateQueue = __webpack_require__(51);
 var ReactUpdates = __webpack_require__(13);
 
-var emptyObject = __webpack_require__(21);
+var emptyObject = __webpack_require__(22);
 var instantiateReactComponent = __webpack_require__(92);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(38);
@@ -10082,7 +10082,7 @@ module.exports = ReactMount;
 
 var _prodInvariant = __webpack_require__(4);
 
-var React = __webpack_require__(24);
+var React = __webpack_require__(25);
 
 var invariant = __webpack_require__(1);
 
@@ -11725,9 +11725,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _flexboxReact = __webpack_require__(31);
+var _flexboxReact = __webpack_require__(21);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _reactDynamicUi = __webpack_require__(65);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11736,6 +11738,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var borderTop = {
+  borderTopStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+};
+
+var borderBottom = {
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+
+};
+
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+};
 
 var headerStyle = {
   textAlign: "center"
@@ -11767,7 +11789,7 @@ var List = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'col-lg-3' },
+        { className: 'col-lg-3 col-border' },
         _react2.default.createElement(
           'h1',
           { style: headerStyle },
@@ -11807,7 +11829,7 @@ var Rows = function (_React$Component2) {
         null,
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row col-border', style: topBottom },
           _react2.default.createElement(List, { title: 'IUD', link: 'css/img/iud.png', description: 'The IUD is a little, t-shaped piece of plastic that gets put in your uterus to mess with the way sperm can move and prevent them from fertilizing an egg. Sounds odd, but it works like a charm. IUDs offer years of protection\u2014between three and twelve, depending on the type you get. And if you want to get pregnant, you can have the IUD removed at any time. There aretwo types: Hormonal and non-hormonal. In the U.S., there five IUDs: Mirena, ParaGard, Skyla, Liletta, and Kyleena.' }),
           _react2.default.createElement(List, { title: 'Implant', link: 'css/img/implant.jpeg', description: 'The implant is a teeny-tiny rod that\'s inserted under the skin of your upper arm. It\'s so small, in fact, most people can\'t see it once it\'s inserted\u2014which means it can be your little secret, if you\'re so inclined. The implant releases progestin, a hormone that keeps your ovaries from releasing eggs and thickens your cervical mucus\u2014which helps block sperm from getting to the egg in the first place. It prevents pregnancy for up to four years. Not too shabby.' }),
           _react2.default.createElement(List, { title: 'The Shot', link: 'css/img/the_shot.jpg', description: 'The shot is just what it sounds like\u2014a shot that keeps you from getting pregnant. Once you get it, your birth control is covered for three full months\u2014there\u2019s nothing else you have to do. Some people call the shot \u201CDepo,\u201D short for Depo-Provera. (Pronounced like Johnny Depp-oh.) The shot contains progestin, a hormone that prevents your ovaries from releasing eggs. It also thickens your cervical mucus, which helps block sperm from getting to the egg in the first place. Worth considering even if you\'re afraid of needles... Because what\'s a little prick compared to a pregnancy?' }),
@@ -11815,7 +11837,7 @@ var Rows = function (_React$Component2) {
         ),
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row col-border', style: borderBottom },
           _react2.default.createElement(List, { title: 'The Pill', link: 'css/img/pills.jpg', description: '\'The Pill\' is a pill. Some people call it \'oral contraception.\' You take it once a day, at the same time every day. There are lots of different kinds of pills on the market, and new ones come out all the time. Most work by releasing hormones that keep your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place.' }),
           _react2.default.createElement(List, { title: 'Internal Condom', link: 'css/img/Female_Condom.png', description: 'An internal (a.k.a. female) condom is a pouch you insert into your vagina. It\'s not the prettiest thing in the world (it looks a bit like a floppy, clear elephant trunk) but it is a method that gives you lots of control. Internal condoms work the same way that condoms do, except that you wear one on the inside instead of sticking it on a penis. They keep the guy\'s sperm inside the condom and out of your vagina.' }),
           _react2.default.createElement(List, { title: 'Sponge', link: 'css/img/sponge.png', description: 'The sponge is a round piece of white plastic foam with a little dimple on one side and a nylon loop across the top that looks like shoelace material. It\'s pretty small\u2014just two inches across\u2014and you insert it way up in your vagina before you have sex. The sponge works in two ways: It blocks your cervix to keep sperm from getting into your uterus, and it continuously releases spermicide. Think of it like a bouncer at the nightclub door to your uterus.' }),
@@ -11823,7 +11845,7 @@ var Rows = function (_React$Component2) {
         ),
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row', style: borderBottom },
           _react2.default.createElement(List, { title: 'The Ring', link: 'css/img/ring.jpg', description: 'The ring (brand name: NuvaRing) is a small, bendable ring that you insert into your vagina. (It kind of looks like one of those jelly bracelets from the 80s, but it feels a tiny bit stiffer.) You leave it in place for three weeks at a time, then take it out for the fourth week. The ring works by giving off hormones that prevent your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place.' }),
           _react2.default.createElement(List, { title: 'Condom', link: 'css/img/condoms.jpg', description: 'Condoms are one of the most popular forms of birth control out there. They slip over the penis to prevent pregnancy and lower the risk of STIs by keeping sperm inside the condom and out of the vagina. (There are also internal condoms that go inside the vagina.) Condoms come in hundreds of shapes and sizes, with lube and without.' }),
           _react2.default.createElement(List, { title: '\'Not Right Now\'', link: 'css/img/no.png', description: '\'Not right now\' is our way of saying \'no vaginal sex.\' It\u2019s a great method as far as effectiveness is concerned\u2014if you use it 100% of the time, you\u2019re guaranteed to not get pregnant. And if you\u2019re avoiding sexual activity altogether, you\u2019ll be safe from STIs too. But it does involve a whole lot of self-control.' }),
@@ -11831,7 +11853,7 @@ var Rows = function (_React$Component2) {
         ),
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row', style: borderBottom },
           _react2.default.createElement(List, { title: 'Cervical Cap', link: 'css/img/cervical_cap.png', description: 'A cervical cap is a silicone cup you insert in your vagina to cover your cervix and keep sperm out of your uterus. The \'cap\' part of the name is pretty dead on\u2014the thing looks like a little rubber sailor\'s hat, maybe an inch and a half wide and one inch high. There\'s only one brand of cervical cap available in the U.S. today, and it\'s jauntily named the FemCap. One super important thing to remember: You need to use a cervical cap with spermicide for it to be most effective.' }),
           _react2.default.createElement(List, { title: 'Emergency Contraception', link: 'css/img/EC.png', description: 'Emergency Contraception (EC) can stop a pregnancy before it starts. (That means the EC pills are not the same as the abortion pill.) There are four types of EC to choose from and they all work up to 5 days (or 120 hours) after unprotected sex. But use it sooner rather than later to reduce the possibility of getting pregnant.' }),
           _react2.default.createElement(List, { title: 'Withdrawal', link: 'css/img/exit.jpg', description: 'Withdrawal is the oldest form of birth control on the planet. There\'s not much to explain, really. The guy pulls out before he ejaculates. End of story. Some people call withdrawal the \'pull out method.\' The key thing to remember is this: You\'ve got to do it right\u2014every single time\u2014for withdrawal to be effective.' }),
@@ -11858,28 +11880,51 @@ var Birthcontrol = function (_React$Component3) {
     value: function render() {
 
       var birthcontrolStyle = {
-
         paddingTop: '5rem',
         paddingRight: '12rem',
         paddingLeft: '7rem',
         marginTop: 65,
         height: 300,
-        backgroundColor: '#e65c00',
+        width: '100%',
+        backgroundColor: 'rgba(164, 66, 0, .9)',
         color: "#333",
         fontFamily: "sans-serif",
         fontSize: 55,
-        textAlign: "center"
+        textAlign: "center",
+        zIndex: 100
       };
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          _flexboxReact2.default,
-          { flexDirection: 'row' },
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
           _react2.default.createElement(
-            'h1',
-            { style: birthcontrolStyle },
-            'Discover The Many Different Options For Birth Control '
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Birth Control Options'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Discover and compare the many options available to you. '
+              )
+            )
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -11909,9 +11954,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _flexboxReact = __webpack_require__(31);
+var _flexboxReact = __webpack_require__(21);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _reactDynamicUi = __webpack_require__(65);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12059,12 +12106,34 @@ var Counselors = function (_React$Component3) {
         'div',
         null,
         _react2.default.createElement(
-          _flexboxReact2.default,
-          { className: 'healthPage', flexDirection: 'row' },
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
           _react2.default.createElement(
-            'h1',
-            { style: counselorsStyle },
-            ' Find a Local Counselor Near You'
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Counseling'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Mainting mental and emotional health is just as important as physical well-being.'
+              )
+            )
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -12094,7 +12163,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(25);
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -12106,7 +12175,7 @@ var _reactDynamicUi = __webpack_require__(65);
 
 var _reactRouterDom = __webpack_require__(66);
 
-var _flexboxReact = __webpack_require__(31);
+var _flexboxReact = __webpack_require__(21);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -12139,7 +12208,7 @@ var Homepage = function (_React$Component) {
           _react2.default.createElement(
             _flexboxReact2.default,
             { justifyContent: 'center' },
-            _react2.default.createElement('img', { src: './css/img/banner_larger.jpg', className: 'photo' }),
+            _react2.default.createElement('img', { src: './css/img/banner_larger.jpg', className: '' }),
             _react2.default.createElement(
               'h1',
               { className: 'banner' },
@@ -12365,17 +12434,19 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactGmaps = __webpack_require__(98);
 
-var _gmap = __webpack_require__(281);
+var _gmap = __webpack_require__(282);
 
 var _gmap2 = _interopRequireDefault(_gmap);
 
-var _flexboxReact = __webpack_require__(31);
+var _flexboxReact = __webpack_require__(21);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
-var _table = __webpack_require__(284);
+var _table = __webpack_require__(281);
 
 var _table2 = _interopRequireDefault(_table);
+
+var _reactDynamicUi = __webpack_require__(65);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12426,9 +12497,35 @@ var Pharmacy = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
-          'h1',
-          { style: resourcesStyle },
-          'Local Pharmacies'
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Pharmacies'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Find a pharmacy near you!'
+              )
+            )
+          )
         ),
         _react2.default.createElement(
           _flexboxReact2.default,
@@ -12463,9 +12560,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _flexboxReact = __webpack_require__(31);
+var _flexboxReact = __webpack_require__(21);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _reactDynamicUi = __webpack_require__(65);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12480,17 +12579,44 @@ var headerStyle = {
 };
 
 var pStyle = {
-  paddingRight: "10px",
-  marginRight: "10px",
-  fontSize: "18px"
+  fontSize: "20px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var fontStyle = {
+  fontSize: "18px",
+  padding: "5px",
+  textAlign: "center"
 };
 
 var webStyle = {
-  textAlign: "center"
+  textAlign: "center",
+  fontSize: '1.5em'
 };
 
 var phStyle = {
   textAlign: "center"
+};
+
+var borderTop = {
+  borderTopStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+};
+
+var borderBottom = {
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+
+};
+
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
 };
 
 var List = function (_React$Component) {
@@ -12507,7 +12633,7 @@ var List = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'col' },
+        { className: 'col counsel' },
         _react2.default.createElement(
           'h1',
           { style: headerStyle },
@@ -12526,7 +12652,7 @@ var List = function (_React$Component) {
           'a',
           { href: '#' },
           _react2.default.createElement(
-            'h3',
+            'h5',
             { style: webStyle },
             ' ',
             this.props.website,
@@ -12534,8 +12660,8 @@ var List = function (_React$Component) {
           )
         ),
         _react2.default.createElement(
-          'h4',
-          { style: phStyle },
+          'h6',
+          { style: fontStyle },
           ' ',
           this.props.number,
           ' '
@@ -12565,15 +12691,15 @@ var Rows = function (_React$Component2) {
         _react2.default.createElement(
           'ul',
           null,
-          _react2.default.createElement(List, { title: 'The Women\'s Club', description: 'A community fitness center for women. More than a gym. A community of women who inspire one another and walk out the door confident and rejuvenated.', website: 'http://www.thewomensclub.com/' }),
-          _react2.default.createElement(List, { title: 'The Women\'s Center at U of M', description: 'We are a student-run, consensus based organization dedicated to raising awareness of women\'s, gender, and sexuality issues. We provide a current list of organizations and professionals that serve and assist women in Western Montana, as well as a safe place to meet people interested in discussing and actively responding to pertinent issues in our community. Our mission is to actively represent 21st century feminism as a dynamic discipline concerned with all issues of gender and inequality.  We are serious about advancing our agenda of tolerance, education and equality, but we love to have fun while we do it.', website: 'https://www.facebook.com/umwomensresourcecenter' }),
-          _react2.default.createElement(List, { title: 'WORD - Women\'s Opportunity & Resource Development, Inc.', description: 'WORD creates opportunities, programs and policies that inspire and support women\u2019s development, leadership and choice, for the benefit of our entire community.', website: 'https://womensopportunityandresourcedevelopment.wordpress.com/about' }),
-          _react2.default.createElement(List, { title: 'Montana Women Vote', description: 'Montana Women Vote is a coalition of non-profit organizations dedicated to educating and mobilizing low-income women and their allies to participate in the democratic process as informed voters, policy advocates, and community leaders.', website: 'http://www.montanawomenvote.org/about-mwv/history-and-mission/', number: '406-543-3747' }),
-          _react2.default.createElement(List, { title: 'Women\'s Voices for the Earth', description: 'Women\u2019s Voices for the Earth amplifies women\u2019s voices to\\neliminate the toxic chemicals that harm our health and communities.', website: 'http://www.womensvoices.org' }),
-          _react2.default.createElement(List, { title: 'YWCA Missoula', description: 'YWCA Missoula is dedicated to eliminating racism, empowering women and promoting peace, justice, freedom and dignity for all. The YWCA opens doors to opportunity and self-suf\uFB01ciency for women and families facing poverty, violence and discrimination.', website: 'http://ywcaofmissoula.org', number: '24 crisis: 1-800-483-7858' }),
-          _react2.default.createElement(List, { title: 'Montana Coalition Against Domestic & Sexual Violence', description: '(MCADSV) is a statewide coalition of individuals and organizations working together to end domestic and sexual violence through advocacy, public education, public policy, and program development. Our mission is to support and facilitate networking among our member organizations while advocating for social change in Montana.', website: 'http://mcadsv.com', number: 'National Domestic Violence Hotline:       1-800-799-7233\\nNational Sexual Assault Hotline: 1-800-656-4673' }),
-          _react2.default.createElement(List, { title: 'Powerhouse Montana', description: 'PowerHouse Montana is a new initiative of the Women\u2019s Foundation of Montana with two goals in mind: (1) connecting Montana women with the resources, mentors and opportunities they need to create thriving businesses and thriving lives, (2) increasing the number of Montana women in leadership by providing a go-to source for organizations and companies looking for their next CEO or board chair.', website: 'http://www.powerhousemt.org', number: '406-461-7695' }),
-          _react2.default.createElement(List, { title: 'League of Women Voters', description: 'The League of Women Voters is a nonpartisan political organization encouraging informed and active participation in government. It influences public policy through education and advocacy.', website: 'http://lwvmt.org' })
+          _react2.default.createElement(List, { title: 'The Women\'s Club', description: 'A community fitness center for women. More than a gym. A community of women who inspire one another and walk out the door confident and rejuvenated.', website: 'www.thewomensclub.com' }),
+          _react2.default.createElement(List, { title: 'The Women\'s Center at U of M', description: 'We are a student-run, consensus based organization dedicated to raising awareness of women\'s, gender, and sexuality issues. We provide a current list of organizations and professionals that serve and assist women in Western Montana, as well as a safe place to meet people interested in discussing and actively responding to pertinent issues in our community. Our mission is to actively represent 21st century feminism as a dynamic discipline concerned with all issues of gender and inequality.  We are serious about advancing our agenda of tolerance, education and equality, but we love to have fun while we do it.', website: 'www.facebook.com/umwomensresourcecenter' }),
+          _react2.default.createElement(List, { title: 'WORD - Women\'s Opportunity & Resource Development, Inc.', description: 'WORD creates opportunities, programs and policies that inspire and support women\u2019s development, leadership and choice, for the benefit of our entire community.', website: 'womensopportunityandresourcedevelopment.wordpress.com/about' }),
+          _react2.default.createElement(List, { title: 'Montana Women Vote', description: 'Montana Women Vote is a coalition of non-profit organizations dedicated to educating and mobilizing low-income women and their allies to participate in the democratic process as informed voters, policy advocates, and community leaders.', website: 'www.montanawomenvote.org/about-mwv/history-and-mission/', number: '406-543-3747' }),
+          _react2.default.createElement(List, { title: 'Women\'s Voices for the Earth', description: 'Women\u2019s Voices for the Earth amplifies women\u2019s voices to\\neliminate the toxic chemicals that harm our health and communities.', website: 'www.womensvoices.org' }),
+          _react2.default.createElement(List, { title: 'YWCA Missoula', description: 'YWCA Missoula is dedicated to eliminating racism, empowering women and promoting peace, justice, freedom and dignity for all. The YWCA opens doors to opportunity and self-suf\uFB01ciency for women and families facing poverty, violence and discrimination.', website: 'ywcaofmissoula.org', number: '24 crisis: 1-800-483-7858' }),
+          _react2.default.createElement(List, { title: 'Montana Coalition Against Domestic & Sexual Violence', description: '(MCADSV) is a statewide coalition of individuals and organizations working together to end domestic and sexual violence through advocacy, public education, public policy, and program development. Our mission is to support and facilitate networking among our member organizations while advocating for social change in Montana.', website: 'mcadsv.com', number: 'National Domestic Violence Hotline:1-800-799-7233\\nNational Sexual Assault Hotline: 1-800-656-4673' }),
+          _react2.default.createElement(List, { title: 'Powerhouse Montana', description: 'PowerHouse Montana is a new initiative of the Women\u2019s Foundation of Montana with two goals in mind: (1) connecting Montana women with the resources, mentors and opportunities they need to create thriving businesses and thriving lives, (2) increasing the number of Montana women in leadership by providing a go-to source for organizations and companies looking for their next CEO or board chair.', website: 'www.powerhousemt.org', number: '406-461-7695' }),
+          _react2.default.createElement(List, { title: 'League of Women Voters', description: 'The League of Women Voters is a nonpartisan political organization encouraging informed and active participation in government. It influences public policy through education and advocacy.', website: 'lwvmt.org' })
         )
       );
     }
@@ -12602,7 +12728,8 @@ var Birthcontrol = function (_React$Component3) {
         paddingLeft: '7rem',
         marginTop: 65,
         height: 300,
-        backgroundColor: '#e65c00',
+        width: '100%',
+        backgroundColor: 'rgba(27, 153, 139, .9)',
         color: "#333",
         fontFamily: "sans-serif",
         fontSize: 55,
@@ -12612,12 +12739,34 @@ var Birthcontrol = function (_React$Component3) {
         'div',
         null,
         _react2.default.createElement(
-          _flexboxReact2.default,
-          { flexDirection: 'row' },
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
           _react2.default.createElement(
-            'h1',
-            { style: birthcontrolStyle },
-            ' Connect with Local Women! '
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Resources'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Connect with local women in your area! '
+              )
+            )
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -12679,7 +12828,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _assign = __webpack_require__(5);
 
-var emptyObject = __webpack_require__(21);
+var emptyObject = __webpack_require__(22);
 var _invariant = __webpack_require__(1);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -14573,7 +14722,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(41);
 
-var _PathUtils = __webpack_require__(26);
+var _PathUtils = __webpack_require__(27);
 
 var _createTransitionManager = __webpack_require__(42);
 
@@ -14891,7 +15040,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(41);
 
-var _PathUtils = __webpack_require__(26);
+var _PathUtils = __webpack_require__(27);
 
 var _createTransitionManager = __webpack_require__(42);
 
@@ -15232,7 +15381,7 @@ var _warning = __webpack_require__(17);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _PathUtils = __webpack_require__(26);
+var _PathUtils = __webpack_require__(27);
 
 var _LocationUtils = __webpack_require__(41);
 
@@ -15917,7 +16066,7 @@ module.exports = AutoFocusUtils;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var EventPropagators = __webpack_require__(28);
+var EventPropagators = __webpack_require__(29);
 var ExecutionEnvironment = __webpack_require__(7);
 var FallbackCompositionState = __webpack_require__(153);
 var SyntheticCompositionEvent = __webpack_require__(196);
@@ -16522,8 +16671,8 @@ module.exports = CSSPropertyOperations;
 
 
 
-var EventPluginHub = __webpack_require__(27);
-var EventPropagators = __webpack_require__(28);
+var EventPluginHub = __webpack_require__(28);
+var EventPropagators = __webpack_require__(29);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
@@ -16875,7 +17024,7 @@ module.exports = ChangeEventPlugin;
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(22);
+var DOMLazyTree = __webpack_require__(23);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var createNodesFromMarkup = __webpack_require__(124);
@@ -16958,7 +17107,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(28);
+var EventPropagators = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticMouseEvent = __webpack_require__(35);
 
@@ -17404,7 +17553,7 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(24);
 
 var instantiateReactComponent = __webpack_require__(92);
 var KeyEscapeUtils = __webpack_require__(47);
@@ -17604,20 +17753,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var React = __webpack_require__(24);
+var React = __webpack_require__(25);
 var ReactComponentEnvironment = __webpack_require__(49);
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactErrorUtils = __webpack_require__(50);
-var ReactInstanceMap = __webpack_require__(29);
+var ReactInstanceMap = __webpack_require__(30);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactNodeTypes = __webpack_require__(85);
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(24);
 
 if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(205);
 }
 
-var emptyObject = __webpack_require__(21);
+var emptyObject = __webpack_require__(22);
 var invariant = __webpack_require__(1);
 var shallowEqual = __webpack_require__(40);
 var shouldUpdateReactComponent = __webpack_require__(57);
@@ -18514,7 +18663,7 @@ module.exports = ReactCompositeComponent;
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(175);
 var ReactMount = __webpack_require__(84);
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(24);
 var ReactUpdates = __webpack_require__(13);
 var ReactVersion = __webpack_require__(190);
 
@@ -18635,11 +18784,11 @@ var _prodInvariant = __webpack_require__(4),
 
 var AutoFocusUtils = __webpack_require__(146);
 var CSSPropertyOperations = __webpack_require__(148);
-var DOMLazyTree = __webpack_require__(22);
+var DOMLazyTree = __webpack_require__(23);
 var DOMNamespaces = __webpack_require__(45);
 var DOMProperty = __webpack_require__(16);
 var DOMPropertyOperations = __webpack_require__(77);
-var EventPluginHub = __webpack_require__(27);
+var EventPluginHub = __webpack_require__(28);
 var EventPluginRegistry = __webpack_require__(33);
 var ReactBrowserEventEmitter = __webpack_require__(34);
 var ReactDOMComponentFlags = __webpack_require__(78);
@@ -19676,7 +19825,7 @@ module.exports = ReactDOMContainerInfo;
 
 var _assign = __webpack_require__(5);
 
-var DOMLazyTree = __webpack_require__(22);
+var DOMLazyTree = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var ReactDOMEmptyComponent = function ReactDOMEmptyComponent(instantiate) {
@@ -20243,7 +20392,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 var _assign = __webpack_require__(5);
 
-var React = __webpack_require__(24);
+var React = __webpack_require__(25);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMSelect = __webpack_require__(79);
 
@@ -20591,7 +20740,7 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var DOMChildrenOperations = __webpack_require__(44);
-var DOMLazyTree = __webpack_require__(22);
+var DOMLazyTree = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var escapeTextContentForBrowser = __webpack_require__(37);
@@ -21739,7 +21888,7 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var EventPluginHub = __webpack_require__(27);
+var EventPluginHub = __webpack_require__(28);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -21977,7 +22126,7 @@ module.exports = ReactHostOperationHistoryHook;
 
 
 var DOMProperty = __webpack_require__(16);
-var EventPluginHub = __webpack_require__(27);
+var EventPluginHub = __webpack_require__(28);
 var EventPluginUtils = __webpack_require__(46);
 var ReactComponentEnvironment = __webpack_require__(49);
 var ReactEmptyComponent = __webpack_require__(80);
@@ -22116,11 +22265,11 @@ module.exports = ReactMarkupChecksum;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactComponentEnvironment = __webpack_require__(49);
-var ReactInstanceMap = __webpack_require__(29);
+var ReactInstanceMap = __webpack_require__(30);
 var ReactInstrumentation = __webpack_require__(12);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(24);
 var ReactChildReconciler = __webpack_require__(155);
 
 var emptyFunction = __webpack_require__(11);
@@ -23546,7 +23695,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(28);
+var EventPropagators = __webpack_require__(29);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInputSelection = __webpack_require__(83);
@@ -23746,7 +23895,7 @@ module.exports = SelectEventPlugin;
 var _prodInvariant = __webpack_require__(4);
 
 var EventListener = __webpack_require__(69);
-var EventPropagators = __webpack_require__(28);
+var EventPropagators = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticAnimationEvent = __webpack_require__(194);
 var SyntheticClipboardEvent = __webpack_require__(195);
@@ -23757,7 +23906,7 @@ var SyntheticMouseEvent = __webpack_require__(35);
 var SyntheticDragEvent = __webpack_require__(197);
 var SyntheticTouchEvent = __webpack_require__(201);
 var SyntheticTransitionEvent = __webpack_require__(202);
-var SyntheticUIEvent = __webpack_require__(30);
+var SyntheticUIEvent = __webpack_require__(31);
 var SyntheticWheelEvent = __webpack_require__(203);
 
 var emptyFunction = __webpack_require__(11);
@@ -24145,7 +24294,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(30);
+var SyntheticUIEvent = __webpack_require__(31);
 
 /**
  * @interface FocusEvent
@@ -24228,7 +24377,7 @@ module.exports = SyntheticInputEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(30);
+var SyntheticUIEvent = __webpack_require__(31);
 
 var getEventCharCode = __webpack_require__(53);
 var getEventKey = __webpack_require__(209);
@@ -24317,7 +24466,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(30);
+var SyntheticUIEvent = __webpack_require__(31);
 
 var getEventModifierState = __webpack_require__(54);
 
@@ -24703,7 +24852,7 @@ var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInstanceMap = __webpack_require__(29);
+var ReactInstanceMap = __webpack_require__(30);
 
 var getHostComponentFromComposite = __webpack_require__(90);
 var invariant = __webpack_require__(1);
@@ -26222,7 +26371,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(25);
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27350,7 +27499,7 @@ var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _PathUtils = __webpack_require__(26);
+var _PathUtils = __webpack_require__(27);
 
 var _Router = __webpack_require__(61);
 
@@ -28329,7 +28478,7 @@ var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(25);
+var _reactDom = __webpack_require__(26);
 
 var _PropTypes = __webpack_require__(103);
 
@@ -29345,7 +29494,7 @@ var ReactElement = __webpack_require__(19);
 var ReactPropTypeLocationNames = __webpack_require__(106);
 var ReactNoopUpdateQueue = __webpack_require__(64);
 
-var emptyObject = __webpack_require__(21);
+var emptyObject = __webpack_require__(22);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -30292,7 +30441,7 @@ var _assign = __webpack_require__(5);
 var ReactComponent = __webpack_require__(63);
 var ReactNoopUpdateQueue = __webpack_require__(64);
 
-var emptyObject = __webpack_require__(21);
+var emptyObject = __webpack_require__(22);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -35118,7 +35267,93 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(25);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Table = function (_React$Component) {
+  _inherits(Table, _React$Component);
+
+  function Table() {
+    _classCallCheck(this, Table);
+
+    return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
+  }
+
+  _createClass(Table, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "table-responsive" },
+        _react2.default.createElement(
+          "table",
+          null,
+          _react2.default.createElement(
+            "thead",
+            null,
+            _react2.default.createElement(
+              "tr",
+              null,
+              _react2.default.createElement(
+                "th",
+                null,
+                this.props.heading
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "tbody",
+            null,
+            this.props.array.map(function (place, i) {
+              return _react2.default.createElement(
+                "tr",
+                null,
+                _react2.default.createElement(
+                  "td",
+                  { key: i },
+                  place.name
+                ),
+                _react2.default.createElement(
+                  "td",
+                  null,
+                  place.vicinity
+                )
+              );
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Table;
+}(_react2.default.Component);
+
+exports.default = Table;
+
+/***/ }),
+/* 282 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -35217,7 +35452,7 @@ var Gmap = function (_React$Component) {
 exports.default = Gmap;
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35227,7 +35462,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(25);
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -35255,7 +35490,7 @@ var _resources = __webpack_require__(112);
 
 var _resources2 = _interopRequireDefault(_resources);
 
-var _flexboxReact = __webpack_require__(31);
+var _flexboxReact = __webpack_require__(21);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -35360,93 +35595,6 @@ _reactDom2.default.render(_react2.default.createElement(
   null,
   _react2.default.createElement(App, null)
 ), document.getElementById('container'));
-
-/***/ }),
-/* 283 */,
-/* 284 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Table = function (_React$Component) {
-  _inherits(Table, _React$Component);
-
-  function Table() {
-    _classCallCheck(this, Table);
-
-    return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
-  }
-
-  _createClass(Table, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "table-responsive" },
-        _react2.default.createElement(
-          "table",
-          null,
-          _react2.default.createElement(
-            "thead",
-            null,
-            _react2.default.createElement(
-              "tr",
-              null,
-              _react2.default.createElement(
-                "th",
-                null,
-                this.props.heading
-              )
-            )
-          ),
-          _react2.default.createElement(
-            "tbody",
-            null,
-            this.props.array.map(function (place, i) {
-              return _react2.default.createElement(
-                "tr",
-                null,
-                _react2.default.createElement(
-                  "td",
-                  { key: i },
-                  place.name
-                ),
-                _react2.default.createElement(
-                  "td",
-                  null,
-                  place.vicinity
-                )
-              );
-            })
-          )
-        )
-      );
-    }
-  }]);
-
-  return Table;
-}(_react2.default.Component);
-
-exports.default = Table;
 
 /***/ })
 /******/ ]);

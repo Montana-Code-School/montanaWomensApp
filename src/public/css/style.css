@@ -84,8 +84,12 @@ a {
   padding-top :'0em';
   padding-bottom:'1em';
   position:relative;
+}
 
-
+.photo {
+  float:left;
+  z-index: 200;
+  padding-left: 5em;
 }
 
 body {
@@ -294,6 +298,7 @@ p {
 .map {
   align-self: baseline;
 }
+
 table {
   border-collapse: collapse;
     padding: 0;
@@ -317,6 +322,7 @@ table td {
     text-align: right;
     font-size: 1em;
   }
+
 .tableName {
   font-size: 1.3em;
 }
@@ -326,3 +332,9 @@ table td:nth-child(1) {
     padding-left: 0;
     font-weight: bold;
   }
+
+  .col-border: before {
+    position: static;
+    border-left: 1px solid #black;
+  }
+}

@@ -15,7 +15,7 @@ class Homepage extends React.Component {
     <div className ='design-photo'>
     <Flexbox justifyContent='center'>
 
-      <img src="./css/img/banner_larger.jpg" className="photo"/>
+      <img src="./css/img/banner_larger.jpg" className=""/>
       <h1 className="banner" >Montana Women&rsquo;s Wellness Resource</h1>
     </Flexbox>
     </div>
