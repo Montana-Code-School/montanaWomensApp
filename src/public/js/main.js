@@ -31,6 +31,8 @@ const Navigation = ()=> (
 const Main = ()=> (
   <main>
     <Switch>
+    //You need to pass the browserHistory object, imported from react-router-dom
+    //to your rout
        <Route exact path = '/' component = {Home}/>
        <Route path = '/counselors' component = {Counselors}/>
        <Route path = '/pharmacies' component = {Pharmacy}/>
@@ -45,7 +47,7 @@ const App = () => (
     <Navigation/>
     <Main/>
   </div>
- )
+)
 
 
 
