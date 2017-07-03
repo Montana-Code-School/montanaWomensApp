@@ -34,8 +34,15 @@ a {
 }
 
 .symptom {
-  text-align: center;
+  text-align: right;
+  background-color: #cbe8ed !important;
+  height: 400px;
+  font-size: 5em;
+  padding-right: 8.8em;
+  padding-top: 3em !important;
+  z-index: 195;
 }
+
 
 #nav {
 	width: 100%;
@@ -284,19 +291,20 @@ p {
   flex-wrap: wrap;
 }
 
-.pharmacy {
+/*.pharmacy {
   background-color: #d392cc;
 }
 
 .doctor {
   background-color: #009a8b;
-}
+}*/
 .infowindow h5 {
     font-weight: bold;
   }
 
 .map {
   align-self: baseline;
+  padding-top: 1em;
 }
 
 table {
@@ -305,6 +313,7 @@ table {
     margin: 0 0 11px 0;
     width: auto;
     margin-left: 5%;
+    list-style: none;
   }
 
 table th {
@@ -326,6 +335,12 @@ table td {
 .tableName {
   font-size: 1.3em;
 }
+
+table ul {
+  list-style: : none;
+  text-align: left;
+}
+
 table th:nth-child(1),
 table td:nth-child(1) {
   text-align: left;
@@ -333,8 +348,19 @@ table td:nth-child(1) {
     font-weight: bold;
   }
 
-  .col-border: before {
+  .col-border {
+    border-left: 1px solid #8f3985;
     position: static;
-    border-left: 1px solid #black;
+    top:0;
+    bottom: 0;
+    padding-left: 0;
   }
-}
+
+  .bc-row {
+    margin-left: -38px !important;
+    margin-right: -10px !important;
+  }
+
+  .one {
+    border-left:none;
+  }

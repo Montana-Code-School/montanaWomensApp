@@ -8,8 +8,8 @@ const app = express();
 app.use(express.static('src/public'));
 app.use(cors());
 
-app.get('/',(req, res) =>{
-  res.sendFile('index.html');
+app.get('*',(req, res) =>{
+  res.sendFile(path.resolve('src/public/index.html'));
 });
 
 

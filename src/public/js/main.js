@@ -7,6 +7,7 @@ import Counselors from './components/counselors';
 import Pharmacy from './components/pharmacies';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
+import Doctors from './components/doctors';
 import Flexbox from 'flexbox-react';
 
 
@@ -36,6 +37,7 @@ const Main = ()=> (
        <Route path = '/pharmacies' component = {Pharmacy}/>
        <Route path = '/birthcontrol' component = {Birthcontrol}/>
        <Route path = '/resources' component = {Resources}/>
+       <Route path = '/doctors' component = {Doctors} />
     </Switch>
   </main>
 )
