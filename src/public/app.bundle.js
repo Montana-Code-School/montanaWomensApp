@@ -1362,7 +1362,7 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(76);
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 var ReactFeatureFlags = __webpack_require__(81);
 var ReactReconciler = __webpack_require__(22);
 var Transaction = __webpack_require__(36);
@@ -1652,7 +1652,7 @@ module.exports = ReactCurrentOwner;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 
 var emptyFunction = __webpack_require__(11);
 var warning = __webpack_require__(3);
@@ -2185,6 +2185,28 @@ module.exports = warning;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _Flexbox = __webpack_require__(137);
+
+var _Flexbox2 = _interopRequireDefault(_Flexbox);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+exports.default = _Flexbox2.default;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2299,7 +2321,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2648,28 +2670,6 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _Flexbox = __webpack_require__(137);
-
-var _Flexbox2 = _interopRequireDefault(_Flexbox);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-exports.default = _Flexbox2.default;
-
-/***/ }),
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2986,7 +2986,7 @@ var _assign = __webpack_require__(5);
 var ReactBaseClasses = __webpack_require__(105);
 var ReactChildren = __webpack_require__(269);
 var ReactDOMFactories = __webpack_require__(270);
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(20);
 var ReactPropTypes = __webpack_require__(272);
 var ReactVersion = __webpack_require__(274);
 
@@ -9323,7 +9323,7 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 
 var invariant = __webpack_require__(1);
 
@@ -12312,7 +12312,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(10);
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(20);
 
 var checkReactTypeSpec = __webpack_require__(275);
 
@@ -12791,7 +12791,8 @@ var Gmap = function (_React$Component) {
         _reactGmaps.Gmaps,
         {
           width: '600px',
-          height: '600px',
+          height: '890px',
+          styles: this.props.styles,
           lat: coords.lat,
           lng: coords.lng,
           zoom: 13,
@@ -12826,7 +12827,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -13010,7 +13011,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -13195,13 +13196,19 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactGmaps = __webpack_require__(99);
+
 var _gmap = __webpack_require__(110);
 
 var _gmap2 = _interopRequireDefault(_gmap);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _table = __webpack_require__(284);
+
+var _table2 = _interopRequireDefault(_table);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13221,7 +13228,8 @@ var Doctors = function (_React$Component) {
 
     _this.state = {
       type: 'doctor',
-      array: []
+      array: [],
+      styles: [{ "featureType": "water", "elementType": "all", "stylers": [{ "hue": "#0072B2" }, { "saturation": 100 }, { "lightness": -54 }, { "visibility": "on" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "hue": "#E69F00" }, { "saturation": 100 }, { "lightness": -49 }, { "visibility": "on" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "hue": "#D55E00" }, { "saturation": 100 }, { "lightness": -46 }, { "visibility": "on" }] }, { "featureType": "road.local", "elementType": "all", "stylers": [{ "hue": "#CC79A7" }, { "saturation": -55 }, { "lightness": -36 }, { "visibility": "on" }] }, { "featureType": "road.arterial", "elementType": "all", "stylers": [{ "hue": "#F0E442" }, { "saturation": -15 }, { "lightness": -22 }, { "visibility": "on" }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "hue": "#56B4E9" }, { "saturation": -23 }, { "lightness": -2 }, { "visibility": "on" }] }, { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "hue": "#000000" }, { "saturation": 0 }, { "lightness": -100 }, { "visibility": "on" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "hue": "#009E73" }, { "saturation": 100 }, { "lightness": -59 }, { "visibility": "on" }] }]
     };
 
     axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
@@ -13237,25 +13245,32 @@ var Doctors = function (_React$Component) {
   _createClass(Doctors, [{
     key: 'render',
     value: function render() {
+      var resourcesStyle = {
+        padding: 50,
+        marginTop: 65,
+        height: 300,
+        backgroundColor: '#1B998B',
+        color: "#333",
+        fontFamily: "helvetica",
+        fontSize: 55,
+        textAlign: "center",
+        marginBottom: 0
+      };
+
       return _react2.default.createElement(
         'div',
-        { className: 'healthPage doctor' },
+        null,
+        _react2.default.createElement(
+          'h1',
+          { style: resourcesStyle },
+          'Find Local Doctors and Clinics Near You'
+        ),
         _react2.default.createElement(
           _flexboxReact2.default,
-          { flexDirection: 'row' },
-          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_hospital.png'
+          { className: 'healthPage doctor', flexDirection: 'row' },
+          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_hospital.png', styles: this.state.styles
           }),
-          _react2.default.createElement(
-            'ul',
-            null,
-            this.state.array.map(function (doctor, i) {
-              return _react2.default.createElement(
-                'li',
-                { key: i },
-                doctor.name
-              );
-            })
-          )
+          _react2.default.createElement(_table2.default, { array: this.state.array })
         )
       );
     }
@@ -13296,7 +13311,7 @@ var _reactDynamicUi = __webpack_require__(64);
 
 var _reactRouterDom = __webpack_require__(65);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -13384,7 +13399,7 @@ var Homepage = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 null,
-                'Domenstic Violence',
+                'Domestic Violence',
                 _react2.default.createElement('br', null),
                 '1(800)799-7233'
               )
@@ -13559,7 +13574,7 @@ var _gmap = __webpack_require__(110);
 
 var _gmap2 = _interopRequireDefault(_gmap);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -13585,7 +13600,8 @@ var Pharmacy = function (_React$Component) {
 
     _this.state = {
       type: 'pharmacy',
-      array: []
+      array: [],
+      styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#FF3333" }] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#8B008B" }] }, { "featureType": "landscape.man_made", "elementType": "geometry", "stylers": [{ "color": "#FF0099" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#468847" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#00617d" }] }, { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#30a4E7" }] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "elementType": "labels.text.stroke", "stylers": [{ "color": "#000000" }] }, { "elementType": "labels.text.fill", "stylers": [{ "color": "#FFFFFF" }] }]
     };
 
     axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
@@ -13609,7 +13625,8 @@ var Pharmacy = function (_React$Component) {
         color: "#333",
         fontFamily: "helvetica",
         fontSize: 55,
-        textAlign: "center"
+        textAlign: "center",
+        marginBottom: 0
       };
 
       return _react2.default.createElement(
@@ -13618,13 +13635,13 @@ var Pharmacy = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           { style: resourcesStyle },
-          'Local Pharmacies'
+          'Find a Local Pharmacy Near You'
         ),
         _react2.default.createElement(
           _flexboxReact2.default,
           { className: 'healthPage pharmacy', flexDirection: 'row' },
-          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_pharmacy.png' }),
-          _react2.default.createElement(_table2.default, { heading: 'Pharmacies near you', array: this.state.array })
+          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_pharmacy.png', styles: this.state.styles }),
+          _react2.default.createElement(_table2.default, { array: this.state.array })
         )
       );
     }
@@ -13653,7 +13670,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
@@ -17501,7 +17518,7 @@ module.exports = EnterLeaveEventPlugin;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 
 var getTextContentAccessor = __webpack_require__(91);
 
@@ -22220,7 +22237,7 @@ var _assign = __webpack_require__(5);
 
 var EventListener = __webpack_require__(69);
 var ExecutionEnvironment = __webpack_require__(7);
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(13);
 
@@ -23137,7 +23154,7 @@ module.exports = ReactPropTypeLocationNames;
 var _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(76);
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 var ReactBrowserEventEmitter = __webpack_require__(34);
 var ReactInputSelection = __webpack_require__(83);
 var ReactInstrumentation = __webpack_require__(12);
@@ -23416,7 +23433,7 @@ module.exports = ReactRef;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(18);
+var PooledClass = __webpack_require__(19);
 var Transaction = __webpack_require__(36);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactServerUpdateQueue = __webpack_require__(193);
@@ -29566,7 +29583,7 @@ module.exports = PooledClass;
 
 
 var PooledClass = __webpack_require__(268);
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(20);
 
 var emptyFunction = __webpack_require__(11);
 var traverseAllChildren = __webpack_require__(279);
@@ -29760,7 +29777,7 @@ module.exports = ReactChildren;
 
 
 
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(20);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -29966,7 +29983,7 @@ module.exports = ReactPropTypeLocationNames;
 
 
 
-var _require = __webpack_require__(19),
+var _require = __webpack_require__(20),
     isValidElement = _require.isValidElement;
 
 var factory = __webpack_require__(73);
@@ -30129,7 +30146,7 @@ module.exports = checkReactTypeSpec;
 var _require = __webpack_require__(105),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(19),
+var _require2 = __webpack_require__(20),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(108);
@@ -30181,7 +30198,7 @@ module.exports = getNextDebugID;
 
 var _prodInvariant = __webpack_require__(24);
 
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(20);
 
 var invariant = __webpack_require__(1);
 
@@ -34851,19 +34868,6 @@ var Table = function (_React$Component) {
           "table",
           null,
           _react2.default.createElement(
-            "thead",
-            null,
-            _react2.default.createElement(
-              "tr",
-              null,
-              _react2.default.createElement(
-                "th",
-                null,
-                this.props.heading
-              )
-            )
-          ),
-          _react2.default.createElement(
             "tbody",
             null,
             this.props.array.map(function (place, i) {
@@ -34936,7 +34940,7 @@ var _resources = __webpack_require__(116);
 
 var _resources2 = _interopRequireDefault(_resources);
 
-var _flexboxReact = __webpack_require__(20);
+var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 

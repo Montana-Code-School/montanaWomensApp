@@ -56,7 +56,8 @@ class Gmap extends React.Component {
     return(
       <Gmaps
         width={'600px'}
-        height= {'600px'}
+        height= {'890px'}
+        styles={this.props.styles}
         lat={coords.lat}
         lng={coords.lng}
         zoom={13}
