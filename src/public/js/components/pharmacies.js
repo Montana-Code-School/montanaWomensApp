@@ -3,6 +3,7 @@ import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import Gmap from 'public/js/gmap';
 import Flexbox from 'flexbox-react';
 import Table from './table';
+import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
 
 export default class Pharmacy extends React.Component {
 
@@ -39,6 +40,24 @@ export default class Pharmacy extends React.Component {
 
       return (
         <div>
+        <Jumbotron style={{backgroundColor: '#cbe8ed'}}>
+          <JumbotronCol style={{width:'40%'}}>
+            <div style={{height: '400px'}}>
+              <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
+            </div>
+          </JumbotronCol>
+
+           <JumbotronCol  style={{width: '60%'}}>
+            <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
+             <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Pharmacies</h1>
+             <h3>Find a pharmacy near you!</h3>
+             </div>
+          </JumbotronCol>
+        </Jumbotron>
+
+            <Flexbox className="healthPage pharmacy" flexDirection="row">
+              <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'}/>
+              <Table heading="Pharmacies near you" array={this.state.array} />
         <h1 style = {resourcesStyle}>Find a Local Pharmacy Near You</h1>
         <Flexbox className="healthPage pharmacy" flexDirection="row">
               <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'} styles={this.state.styles}/>

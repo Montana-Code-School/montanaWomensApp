@@ -7064,98 +7064,7 @@ navbarStyle.itemHover = Object.assign({}, navbarStyle.item, { cursor: 'pointer',
 exports.default = navbarStyle;
 
 /***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
-  } else {
-    obj[key] = value;
-  }return obj;
-}
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _createReactClass = __webpack_require__(67);
-
-var _createReactClass2 = _interopRequireDefault(_createReactClass);
-
-var _mixinsListener = __webpack_require__(100);
-
-var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
-
-var _utilsCompareProps = __webpack_require__(101);
-
-var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
-
-exports['default'] = function (name, latLngProp, events) {
-  return (0, _createReactClass2['default'])({
-
-    mixins: [_mixinsListener2['default']],
-
-    entity: null,
-
-    componentDidMount: function componentDidMount() {
-      var options = this.getOptions(this.props);
-      this.entity = new google.maps[name](options);
-      this.addListeners(this.entity, events);
-    },
-
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-      if (!(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
-        var options = this.getOptions(nextProps);
-        this.entity.setOptions(options);
-      }
-    },
-
-    componentWillUnmount: function componentWillUnmount() {
-      this.entity.setMap(null);
-      this.removeListeners();
-      this.entity = null;
-    },
-
-    getEntity: function getEntity() {
-      return this.entity;
-    },
-
-    getOptions: function getOptions(props) {
-      return _extends({}, props, _defineProperty({}, latLngProp, new google.maps.LatLng(props.lat, props.lng)));
-    },
-
-    render: function render() {
-      return null;
-    }
-
-  });
-};
-
-module.exports = exports['default'];
-
-/***/ }),
+/* 60 */,
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8342,35 +8251,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var React = __webpack_require__(2);
-var factory = __webpack_require__(66);
-
-if (typeof React === 'undefined') {
-  throw Error('create-react-class could not find the React object. If you are using script tags, ' + 'make sure that React is being loaded before create-react-class.');
-}
-
-// Hack to grab NoopUpdateQueue from isomorphic React
-var ReactNoopUpdateQueue = new React.Component().updater;
-
-module.exports = factory(React.Component, React.isValidElement, ReactNoopUpdateQueue);
-
-/***/ }),
+/* 67 */,
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11634,112 +11515,9 @@ jumbotronStyle.fadeInRight = Object.assign({}, jumbotronStyle.fadeInLeft, { anim
 exports.default = jumbotronStyle;
 
 /***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-var _componentsGmaps = __webpack_require__(236);
-
-var _componentsGmaps2 = _interopRequireDefault(_componentsGmaps);
-
-var _componentsMarker = __webpack_require__(238);
-
-var _componentsMarker2 = _interopRequireDefault(_componentsMarker);
-
-var _componentsInfoWindow = __webpack_require__(237);
-
-var _componentsInfoWindow2 = _interopRequireDefault(_componentsInfoWindow);
-
-var _componentsCircle = __webpack_require__(235);
-
-var _componentsCircle2 = _interopRequireDefault(_componentsCircle);
-
-exports.Gmaps = _componentsGmaps2['default'];
-exports.Marker = _componentsMarker2['default'];
-exports.InfoWindow = _componentsInfoWindow2['default'];
-exports.Circle = _componentsCircle2['default'];
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var Listener = {
-
-  addListeners: function addListeners(entity, events) {
-    for (var prop in this.props) {
-      if (this.props.hasOwnProperty(prop) && events[prop]) {
-        var addListener = google.maps.event.addListener;
-        var listener = addListener(entity, events[prop], this.props[prop]);
-        if (!this.listeners) {
-          this.listeners = [];
-        }
-        this.listeners.push(listener);
-      }
-    }
-  },
-
-  removeListeners: function removeListeners() {
-    if (window.google && this.listeners) {
-      this.listeners.forEach(function (listener) {
-        google.maps.event.removeListener(listener);
-      });
-    }
-  }
-
-};
-
-exports["default"] = Listener;
-module.exports = exports["default"];
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-exports['default'] = function (props, nextProps) {
-
-  var propsKeys = Object.keys(props);
-  var nextPropsKeys = Object.keys(nextProps);
-  if (propsKeys.length !== nextPropsKeys.length) {
-    return false;
-  }
-
-  for (var i = 0; i < propsKeys.length; i++) {
-    var key = propsKeys[i];
-    if (key !== 'children' && key.indexOf('on') !== 0 && (!nextProps.hasOwnProperty(key) || props[key] !== nextProps[key])) {
-      return false;
-    }
-  }
-
-  return true;
-};
-
-module.exports = exports['default'];
-
-/***/ }),
+/* 99 */,
+/* 100 */,
+/* 101 */,
 /* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12695,122 +12473,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(25);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _reactGmaps = __webpack_require__(99);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var coords = {
-  lat: 46.878178,
-  lng: -114.001003
-};
-
-var params = { v: '3.exp', key: 'AIzaSyDiIK5Y8YpXKY5_aVv5noyqmPRspT160JE' };
-
-var Gmap = function (_React$Component) {
-  _inherits(Gmap, _React$Component);
-
-  function Gmap() {
-    _classCallCheck(this, Gmap);
-
-    return _possibleConstructorReturn(this, (Gmap.__proto__ || Object.getPrototypeOf(Gmap)).apply(this, arguments));
-  }
-
-  _createClass(Gmap, [{
-    key: 'onMapCreated',
-    value: function onMapCreated(map) {
-      map.setOptions({
-        disableDefaultUI: true
-      });
-    }
-  }, {
-    key: 'onDragEnd',
-    value: function onDragEnd(e) {
-      console.log('onDragEnd', e);
-    }
-  }, {
-    key: 'onCloseClick',
-    value: function onCloseClick() {
-      console.log('onCloseClick');
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick(e) {
-      console.log('onClick', e);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var self = this;
-      var pinLoop = this.props.array.map(function (place) {
-        return _react2.default.createElement(_reactGmaps.Marker, {
-          lat: place.geometry.location.lat,
-          lng: place.geometry.location.lng,
-          clickable: true,
-          draggable: false,
-          icon: _this2.props.icon,
-          title: place.name,
-          onClick: function onClick(e) {
-            var infowindow = new google.maps.InfoWindow({
-              content: "<div className='infowindow'><h5>" + place.name + "</h5>" + place.vicinity + "</div>",
-              position: e.latLng
-
-            });
-            infowindow.open(this.get('map'), this);
-          } });
-      });
-
-      return _react2.default.createElement(
-        _reactGmaps.Gmaps,
-        {
-          width: '600px',
-          height: '890px',
-          styles: this.props.styles,
-          lat: coords.lat,
-          lng: coords.lng,
-          zoom: 13,
-          scrollwheel: false,
-          loadingMessage: 'Be happy',
-          params: params,
-          onMapCreated: this.onMapCreated },
-        pinLoop
-      );
-    }
-  }]);
-
-  return Gmap;
-}(_react2.default.Component);
-
-exports.default = Gmap;
-
-/***/ }),
+/* 110 */,
 /* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12831,6 +12494,8 @@ var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
+var _reactDynamicUi = __webpack_require__(64);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12838,6 +12503,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var borderTop = {
+  borderTopStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+};
+
+var borderBottom = {
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+
+};
+
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+};
 
 var headerStyle = {
   textAlign: "center"
@@ -12869,7 +12554,7 @@ var List = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'col-lg-3' },
+        { className: 'col-lg-3 col-border' },
         _react2.default.createElement(
           'h1',
           { style: headerStyle },
@@ -12909,7 +12594,7 @@ var Rows = function (_React$Component2) {
         null,
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row col-border', style: topBottom },
           _react2.default.createElement(List, { title: 'IUD', link: 'css/img/iud.png', description: 'The IUD is a little, t-shaped piece of plastic that gets put in your uterus to mess with the way sperm can move and prevent them from fertilizing an egg. Sounds odd, but it works like a charm. IUDs offer years of protection\u2014between three and twelve, depending on the type you get. And if you want to get pregnant, you can have the IUD removed at any time. There aretwo types: Hormonal and non-hormonal. In the U.S., there five IUDs: Mirena, ParaGard, Skyla, Liletta, and Kyleena.' }),
           _react2.default.createElement(List, { title: 'Implant', link: 'css/img/implant.jpeg', description: 'The implant is a teeny-tiny rod that\'s inserted under the skin of your upper arm. It\'s so small, in fact, most people can\'t see it once it\'s inserted\u2014which means it can be your little secret, if you\'re so inclined. The implant releases progestin, a hormone that keeps your ovaries from releasing eggs and thickens your cervical mucus\u2014which helps block sperm from getting to the egg in the first place. It prevents pregnancy for up to four years. Not too shabby.' }),
           _react2.default.createElement(List, { title: 'The Shot', link: 'css/img/the_shot.jpg', description: 'The shot is just what it sounds like\u2014a shot that keeps you from getting pregnant. Once you get it, your birth control is covered for three full months\u2014there\u2019s nothing else you have to do. Some people call the shot \u201CDepo,\u201D short for Depo-Provera. (Pronounced like Johnny Depp-oh.) The shot contains progestin, a hormone that prevents your ovaries from releasing eggs. It also thickens your cervical mucus, which helps block sperm from getting to the egg in the first place. Worth considering even if you\'re afraid of needles... Because what\'s a little prick compared to a pregnancy?' }),
@@ -12917,7 +12602,7 @@ var Rows = function (_React$Component2) {
         ),
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row col-border', style: borderBottom },
           _react2.default.createElement(List, { title: 'The Pill', link: 'css/img/pills.jpg', description: '\'The Pill\' is a pill. Some people call it \'oral contraception.\' You take it once a day, at the same time every day. There are lots of different kinds of pills on the market, and new ones come out all the time. Most work by releasing hormones that keep your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place.' }),
           _react2.default.createElement(List, { title: 'Internal Condom', link: 'css/img/Female_Condom.png', description: 'An internal (a.k.a. female) condom is a pouch you insert into your vagina. It\'s not the prettiest thing in the world (it looks a bit like a floppy, clear elephant trunk) but it is a method that gives you lots of control. Internal condoms work the same way that condoms do, except that you wear one on the inside instead of sticking it on a penis. They keep the guy\'s sperm inside the condom and out of your vagina.' }),
           _react2.default.createElement(List, { title: 'Sponge', link: 'css/img/sponge.png', description: 'The sponge is a round piece of white plastic foam with a little dimple on one side and a nylon loop across the top that looks like shoelace material. It\'s pretty small\u2014just two inches across\u2014and you insert it way up in your vagina before you have sex. The sponge works in two ways: It blocks your cervix to keep sperm from getting into your uterus, and it continuously releases spermicide. Think of it like a bouncer at the nightclub door to your uterus.' }),
@@ -12925,7 +12610,7 @@ var Rows = function (_React$Component2) {
         ),
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row', style: borderBottom },
           _react2.default.createElement(List, { title: 'The Ring', link: 'css/img/ring.jpg', description: 'The ring (brand name: NuvaRing) is a small, bendable ring that you insert into your vagina. (It kind of looks like one of those jelly bracelets from the 80s, but it feels a tiny bit stiffer.) You leave it in place for three weeks at a time, then take it out for the fourth week. The ring works by giving off hormones that prevent your ovaries from releasing eggs. The hormones also thicken your cervical mucus, which helps to block sperm from getting to the egg in the first place.' }),
           _react2.default.createElement(List, { title: 'Condom', link: 'css/img/condoms.jpg', description: 'Condoms are one of the most popular forms of birth control out there. They slip over the penis to prevent pregnancy and lower the risk of STIs by keeping sperm inside the condom and out of the vagina. (There are also internal condoms that go inside the vagina.) Condoms come in hundreds of shapes and sizes, with lube and without.' }),
           _react2.default.createElement(List, { title: '\'Not Right Now\'', link: 'css/img/no.png', description: '\'Not right now\' is our way of saying \'no vaginal sex.\' It\u2019s a great method as far as effectiveness is concerned\u2014if you use it 100% of the time, you\u2019re guaranteed to not get pregnant. And if you\u2019re avoiding sexual activity altogether, you\u2019ll be safe from STIs too. But it does involve a whole lot of self-control.' }),
@@ -12933,7 +12618,7 @@ var Rows = function (_React$Component2) {
         ),
         _react2.default.createElement(
           'ul',
-          { className: 'row' },
+          { className: 'row', style: borderBottom },
           _react2.default.createElement(List, { title: 'Cervical Cap', link: 'css/img/cervical_cap.png', description: 'A cervical cap is a silicone cup you insert in your vagina to cover your cervix and keep sperm out of your uterus. The \'cap\' part of the name is pretty dead on\u2014the thing looks like a little rubber sailor\'s hat, maybe an inch and a half wide and one inch high. There\'s only one brand of cervical cap available in the U.S. today, and it\'s jauntily named the FemCap. One super important thing to remember: You need to use a cervical cap with spermicide for it to be most effective.' }),
           _react2.default.createElement(List, { title: 'Emergency Contraception', link: 'css/img/EC.png', description: 'Emergency Contraception (EC) can stop a pregnancy before it starts. (That means the EC pills are not the same as the abortion pill.) There are four types of EC to choose from and they all work up to 5 days (or 120 hours) after unprotected sex. But use it sooner rather than later to reduce the possibility of getting pregnant.' }),
           _react2.default.createElement(List, { title: 'Withdrawal', link: 'css/img/exit.jpg', description: 'Withdrawal is the oldest form of birth control on the planet. There\'s not much to explain, really. The guy pulls out before he ejaculates. End of story. Some people call withdrawal the \'pull out method.\' The key thing to remember is this: You\'ve got to do it right\u2014every single time\u2014for withdrawal to be effective.' }),
@@ -12960,28 +12645,51 @@ var Birthcontrol = function (_React$Component3) {
     value: function render() {
 
       var birthcontrolStyle = {
-
         paddingTop: '5rem',
         paddingRight: '12rem',
         paddingLeft: '7rem',
         marginTop: 65,
         height: 300,
-        backgroundColor: '#e65c00',
+        width: '100%',
+        backgroundColor: 'rgba(164, 66, 0, .9)',
         color: "#333",
         fontFamily: "sans-serif",
         fontSize: 55,
-        textAlign: "center"
+        textAlign: "center",
+        zIndex: 100
       };
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          _flexboxReact2.default,
-          { flexDirection: 'row' },
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
           _react2.default.createElement(
-            'h1',
-            { style: birthcontrolStyle },
-            'Discover The Many Different Options For Birth Control '
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Birth Control Options'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Discover and compare the many options available to you. '
+              )
+            )
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -13014,6 +12722,8 @@ var _react2 = _interopRequireDefault(_react);
 var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _reactDynamicUi = __webpack_require__(64);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13161,12 +12871,34 @@ var Counselors = function (_React$Component3) {
         'div',
         null,
         _react2.default.createElement(
-          _flexboxReact2.default,
-          { className: 'healthPage', flexDirection: 'row' },
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
           _react2.default.createElement(
-            'h1',
-            { style: counselorsStyle },
-            ' Find a Local Counselor Near You'
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Counseling'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Mainting mental and emotional health is just as important as physical well-being.'
+              )
+            )
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -13181,106 +12913,9 @@ exports.default = Counselors;
 
 /***/ }),
 /* 113 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactGmaps = __webpack_require__(99);
-
-var _gmap = __webpack_require__(110);
-
-var _gmap2 = _interopRequireDefault(_gmap);
-
-var _flexboxReact = __webpack_require__(18);
-
-var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
-
-var _table = __webpack_require__(284);
-
-var _table2 = _interopRequireDefault(_table);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Doctors = function (_React$Component) {
-  _inherits(Doctors, _React$Component);
-
-  function Doctors(props) {
-    _classCallCheck(this, Doctors);
-
-    var _this = _possibleConstructorReturn(this, (Doctors.__proto__ || Object.getPrototypeOf(Doctors)).call(this, props));
-
-    _this.state = {
-      type: 'doctor',
-      array: [],
-      styles: [{ "featureType": "water", "elementType": "all", "stylers": [{ "hue": "#0072B2" }, { "saturation": 100 }, { "lightness": -54 }, { "visibility": "on" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "hue": "#E69F00" }, { "saturation": 100 }, { "lightness": -49 }, { "visibility": "on" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "hue": "#D55E00" }, { "saturation": 100 }, { "lightness": -46 }, { "visibility": "on" }] }, { "featureType": "road.local", "elementType": "all", "stylers": [{ "hue": "#CC79A7" }, { "saturation": -55 }, { "lightness": -36 }, { "visibility": "on" }] }, { "featureType": "road.arterial", "elementType": "all", "stylers": [{ "hue": "#F0E442" }, { "saturation": -15 }, { "lightness": -22 }, { "visibility": "on" }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "hue": "#56B4E9" }, { "saturation": -23 }, { "lightness": -2 }, { "visibility": "on" }] }, { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "hue": "#000000" }, { "saturation": 0 }, { "lightness": -100 }, { "visibility": "on" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "hue": "#009E73" }, { "saturation": 100 }, { "lightness": -59 }, { "visibility": "on" }] }]
-    };
-
-    axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
-      var array = res.data.results;
-
-      _this.setState({
-        array: array
-      });
-    });
-    return _this;
-  }
-
-  _createClass(Doctors, [{
-    key: 'render',
-    value: function render() {
-      var resourcesStyle = {
-        padding: 50,
-        marginTop: 65,
-        height: 300,
-        backgroundColor: '#1B998B',
-        color: "#333",
-        fontFamily: "helvetica",
-        fontSize: 55,
-        textAlign: "center",
-        marginBottom: 0
-      };
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { style: resourcesStyle },
-          'Find Local Doctors and Clinics Near You'
-        ),
-        _react2.default.createElement(
-          _flexboxReact2.default,
-          { className: 'healthPage doctor', flexDirection: 'row' },
-          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_hospital.png', styles: this.state.styles
-          }),
-          _react2.default.createElement(_table2.default, { array: this.state.array })
-        )
-      );
-    }
-  }]);
-
-  return Doctors;
-}(_react2.default.Component);
-
-exports.default = Doctors;
-;
+throw new Error("Module build failed: SyntaxError: Unexpected token (35:7)\n\n\u001b[0m \u001b[90m 33 | \u001b[39m        )\u001b[33m;\u001b[39m\n \u001b[90m 34 | \u001b[39m       }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 35 | \u001b[39m\u001b[36mimport\u001b[39m {\u001b[33mGmaps\u001b[39m\u001b[33m,\u001b[39m \u001b[33mMarker\u001b[39m\u001b[33m,\u001b[39m \u001b[33mInfoWindow\u001b[39m} from \u001b[32m'react-gmaps'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 36 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mGmap\u001b[39m from \u001b[32m'public/js/gmap'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 37 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mFlexbox\u001b[39m from \u001b[32m'flexbox-react'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 38 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mTable\u001b[39m from \u001b[32m'./table'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 114 */
@@ -13344,7 +12979,7 @@ var Homepage = function (_React$Component) {
           _react2.default.createElement(
             _flexboxReact2.default,
             { justifyContent: 'center' },
-            _react2.default.createElement('img', { src: './css/img/banner_larger.jpg', className: 'photo' }),
+            _react2.default.createElement('img', { src: './css/img/banner_larger.jpg', className: '' }),
             _react2.default.createElement(
               'h1',
               { className: 'banner' },
@@ -13553,105 +13188,9 @@ exports.default = Home;
 
 /***/ }),
 /* 115 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactGmaps = __webpack_require__(99);
-
-var _gmap = __webpack_require__(110);
-
-var _gmap2 = _interopRequireDefault(_gmap);
-
-var _flexboxReact = __webpack_require__(18);
-
-var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
-
-var _table = __webpack_require__(284);
-
-var _table2 = _interopRequireDefault(_table);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Pharmacy = function (_React$Component) {
-  _inherits(Pharmacy, _React$Component);
-
-  function Pharmacy(props) {
-    _classCallCheck(this, Pharmacy);
-
-    var _this = _possibleConstructorReturn(this, (Pharmacy.__proto__ || Object.getPrototypeOf(Pharmacy)).call(this, props));
-
-    _this.state = {
-      type: 'pharmacy',
-      array: [],
-      styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#FF3333" }] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#8B008B" }] }, { "featureType": "landscape.man_made", "elementType": "geometry", "stylers": [{ "color": "#FF0099" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#468847" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#00617d" }] }, { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#30a4E7" }] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "elementType": "labels.text.stroke", "stylers": [{ "color": "#000000" }] }, { "elementType": "labels.text.fill", "stylers": [{ "color": "#FFFFFF" }] }]
-    };
-
-    axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
-      var array = res.data.results;
-
-      _this.setState({
-        array: array
-      });
-    });
-    return _this;
-  }
-
-  _createClass(Pharmacy, [{
-    key: 'render',
-    value: function render() {
-      var resourcesStyle = {
-        padding: 50,
-        marginTop: 65,
-        height: 300,
-        backgroundColor: '#ff80df',
-        color: "#333",
-        fontFamily: "helvetica",
-        fontSize: 55,
-        textAlign: "center",
-        marginBottom: 0
-      };
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          { style: resourcesStyle },
-          'Find a Local Pharmacy Near You'
-        ),
-        _react2.default.createElement(
-          _flexboxReact2.default,
-          { className: 'healthPage pharmacy', flexDirection: 'row' },
-          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_pharmacy.png', styles: this.state.styles }),
-          _react2.default.createElement(_table2.default, { array: this.state.array })
-        )
-      );
-    }
-  }]);
-
-  return Pharmacy;
-}(_react2.default.Component);
-
-exports.default = Pharmacy;
-;
+throw new Error("Module build failed: SyntaxError: Unterminated JSX contents (66:14)\n\n\u001b[0m \u001b[90m 64 | \u001b[39m              \u001b[33m<\u001b[39m\u001b[33mTable\u001b[39m array\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39marray} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 65 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mFlexbox\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 66 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    | \u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 67 | \u001b[39m      )}\n \u001b[90m 68 | \u001b[39m    }\u001b[33m;\u001b[39m\n \u001b[90m 69 | \u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 116 */
@@ -13674,6 +13213,8 @@ var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
+var _reactDynamicUi = __webpack_require__(64);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13687,17 +13228,44 @@ var headerStyle = {
 };
 
 var pStyle = {
-  paddingRight: "10px",
-  marginRight: "10px",
-  fontSize: "18px"
+  fontSize: "20px",
+  padding: "5px",
+  textAlign: "center"
+};
+
+var fontStyle = {
+  fontSize: "18px",
+  padding: "5px",
+  textAlign: "center"
 };
 
 var webStyle = {
-  textAlign: "center"
+  textAlign: "center",
+  fontSize: '1.5em'
 };
 
 var phStyle = {
   textAlign: "center"
+};
+
+var borderTop = {
+  borderTopStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+};
+
+var borderBottom = {
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
+
+};
+
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px'
 };
 
 var List = function (_React$Component) {
@@ -13714,7 +13282,7 @@ var List = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'col' },
+        { className: 'col counsel' },
         _react2.default.createElement(
           'h1',
           { style: headerStyle },
@@ -13733,7 +13301,7 @@ var List = function (_React$Component) {
           'a',
           { href: '#' },
           _react2.default.createElement(
-            'h3',
+            'h5',
             { style: webStyle },
             ' ',
             this.props.website,
@@ -13741,8 +13309,8 @@ var List = function (_React$Component) {
           )
         ),
         _react2.default.createElement(
-          'h4',
-          { style: phStyle },
+          'h6',
+          { style: fontStyle },
           ' ',
           this.props.number,
           ' '
@@ -13772,15 +13340,15 @@ var Rows = function (_React$Component2) {
         _react2.default.createElement(
           'ul',
           null,
-          _react2.default.createElement(List, { title: 'The Women\'s Club', description: 'A community fitness center for women. More than a gym. A community of women who inspire one another and walk out the door confident and rejuvenated.', website: 'http://www.thewomensclub.com/' }),
-          _react2.default.createElement(List, { title: 'The Women\'s Center at U of M', description: 'We are a student-run, consensus based organization dedicated to raising awareness of women\'s, gender, and sexuality issues. We provide a current list of organizations and professionals that serve and assist women in Western Montana, as well as a safe place to meet people interested in discussing and actively responding to pertinent issues in our community. Our mission is to actively represent 21st century feminism as a dynamic discipline concerned with all issues of gender and inequality.  We are serious about advancing our agenda of tolerance, education and equality, but we love to have fun while we do it.', website: 'https://www.facebook.com/umwomensresourcecenter' }),
-          _react2.default.createElement(List, { title: 'WORD - Women\'s Opportunity & Resource Development, Inc.', description: 'WORD creates opportunities, programs and policies that inspire and support women\u2019s development, leadership and choice, for the benefit of our entire community.', website: 'https://womensopportunityandresourcedevelopment.wordpress.com/about' }),
-          _react2.default.createElement(List, { title: 'Montana Women Vote', description: 'Montana Women Vote is a coalition of non-profit organizations dedicated to educating and mobilizing low-income women and their allies to participate in the democratic process as informed voters, policy advocates, and community leaders.', website: 'http://www.montanawomenvote.org/about-mwv/history-and-mission/', number: '406-543-3747' }),
-          _react2.default.createElement(List, { title: 'Women\'s Voices for the Earth', description: 'Women\u2019s Voices for the Earth amplifies women\u2019s voices to\\neliminate the toxic chemicals that harm our health and communities.', website: 'http://www.womensvoices.org' }),
-          _react2.default.createElement(List, { title: 'YWCA Missoula', description: 'YWCA Missoula is dedicated to eliminating racism, empowering women and promoting peace, justice, freedom and dignity for all. The YWCA opens doors to opportunity and self-suf\uFB01ciency for women and families facing poverty, violence and discrimination.', website: 'http://ywcaofmissoula.org', number: '24 crisis: 1-800-483-7858' }),
-          _react2.default.createElement(List, { title: 'Montana Coalition Against Domestic & Sexual Violence', description: '(MCADSV) is a statewide coalition of individuals and organizations working together to end domestic and sexual violence through advocacy, public education, public policy, and program development. Our mission is to support and facilitate networking among our member organizations while advocating for social change in Montana.', website: 'http://mcadsv.com', number: 'National Domestic Violence Hotline:       1-800-799-7233\\nNational Sexual Assault Hotline: 1-800-656-4673' }),
-          _react2.default.createElement(List, { title: 'Powerhouse Montana', description: 'PowerHouse Montana is a new initiative of the Women\u2019s Foundation of Montana with two goals in mind: (1) connecting Montana women with the resources, mentors and opportunities they need to create thriving businesses and thriving lives, (2) increasing the number of Montana women in leadership by providing a go-to source for organizations and companies looking for their next CEO or board chair.', website: 'http://www.powerhousemt.org', number: '406-461-7695' }),
-          _react2.default.createElement(List, { title: 'League of Women Voters', description: 'The League of Women Voters is a nonpartisan political organization encouraging informed and active participation in government. It influences public policy through education and advocacy.', website: 'http://lwvmt.org' })
+          _react2.default.createElement(List, { title: 'The Women\'s Club', description: 'A community fitness center for women. More than a gym. A community of women who inspire one another and walk out the door confident and rejuvenated.', website: 'www.thewomensclub.com' }),
+          _react2.default.createElement(List, { title: 'The Women\'s Center at U of M', description: 'We are a student-run, consensus based organization dedicated to raising awareness of women\'s, gender, and sexuality issues. We provide a current list of organizations and professionals that serve and assist women in Western Montana, as well as a safe place to meet people interested in discussing and actively responding to pertinent issues in our community. Our mission is to actively represent 21st century feminism as a dynamic discipline concerned with all issues of gender and inequality.  We are serious about advancing our agenda of tolerance, education and equality, but we love to have fun while we do it.', website: 'www.facebook.com/umwomensresourcecenter' }),
+          _react2.default.createElement(List, { title: 'WORD - Women\'s Opportunity & Resource Development, Inc.', description: 'WORD creates opportunities, programs and policies that inspire and support women\u2019s development, leadership and choice, for the benefit of our entire community.', website: 'womensopportunityandresourcedevelopment.wordpress.com/about' }),
+          _react2.default.createElement(List, { title: 'Montana Women Vote', description: 'Montana Women Vote is a coalition of non-profit organizations dedicated to educating and mobilizing low-income women and their allies to participate in the democratic process as informed voters, policy advocates, and community leaders.', website: 'www.montanawomenvote.org/about-mwv/history-and-mission/', number: '406-543-3747' }),
+          _react2.default.createElement(List, { title: 'Women\'s Voices for the Earth', description: 'Women\u2019s Voices for the Earth amplifies women\u2019s voices to\\neliminate the toxic chemicals that harm our health and communities.', website: 'www.womensvoices.org' }),
+          _react2.default.createElement(List, { title: 'YWCA Missoula', description: 'YWCA Missoula is dedicated to eliminating racism, empowering women and promoting peace, justice, freedom and dignity for all. The YWCA opens doors to opportunity and self-suf\uFB01ciency for women and families facing poverty, violence and discrimination.', website: 'ywcaofmissoula.org', number: '24 crisis: 1-800-483-7858' }),
+          _react2.default.createElement(List, { title: 'Montana Coalition Against Domestic & Sexual Violence', description: '(MCADSV) is a statewide coalition of individuals and organizations working together to end domestic and sexual violence through advocacy, public education, public policy, and program development. Our mission is to support and facilitate networking among our member organizations while advocating for social change in Montana.', website: 'mcadsv.com', number: 'National Domestic Violence Hotline:1-800-799-7233\\nNational Sexual Assault Hotline: 1-800-656-4673' }),
+          _react2.default.createElement(List, { title: 'Powerhouse Montana', description: 'PowerHouse Montana is a new initiative of the Women\u2019s Foundation of Montana with two goals in mind: (1) connecting Montana women with the resources, mentors and opportunities they need to create thriving businesses and thriving lives, (2) increasing the number of Montana women in leadership by providing a go-to source for organizations and companies looking for their next CEO or board chair.', website: 'www.powerhousemt.org', number: '406-461-7695' }),
+          _react2.default.createElement(List, { title: 'League of Women Voters', description: 'The League of Women Voters is a nonpartisan political organization encouraging informed and active participation in government. It influences public policy through education and advocacy.', website: 'lwvmt.org' })
         )
       );
     }
@@ -13809,7 +13377,8 @@ var Birthcontrol = function (_React$Component3) {
         paddingLeft: '7rem',
         marginTop: 65,
         height: 300,
-        backgroundColor: '#e65c00',
+        width: '100%',
+        backgroundColor: 'rgba(27, 153, 139, .9)',
         color: "#333",
         fontFamily: "sans-serif",
         fontSize: 55,
@@ -13819,12 +13388,34 @@ var Birthcontrol = function (_React$Component3) {
         'div',
         null,
         _react2.default.createElement(
-          _flexboxReact2.default,
-          { flexDirection: 'row' },
+          _reactDynamicUi.Jumbotron,
+          { style: { backgroundColor: '#cbe8ed' } },
           _react2.default.createElement(
-            'h1',
-            { style: birthcontrolStyle },
-            ' Connect with Local Women! '
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '40%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px' } },
+              _react2.default.createElement('img', { style: { paddingTop: '100px', paddingLeft: '100px', paddingBottom: '80px' }, src: 'css/img/health-symbol-sm.png' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactDynamicUi.JumbotronCol,
+            { style: { width: '60%' } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: '400px', paddingTop: '125px', paddingBottom: '20px' } },
+              _react2.default.createElement(
+                'h1',
+                { style: { fontSize: '5em', paddingRight: '165px' } },
+                'Resources'
+              ),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Connect with local women in your area! '
+              )
+            )
           )
         ),
         _react2.default.createElement(Rows, null)
@@ -16064,201 +15655,9 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 145 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-// If obj.hasOwnProperty has been overridden, then calling
-// obj.hasOwnProperty(prop) will break.
-// See: https://github.com/joyent/node/issues/1707
-
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-module.exports = function (qs, sep, eq, options) {
-  sep = sep || '&';
-  eq = eq || '=';
-  var obj = {};
-
-  if (typeof qs !== 'string' || qs.length === 0) {
-    return obj;
-  }
-
-  var regexp = /\+/g;
-  qs = qs.split(sep);
-
-  var maxKeys = 1000;
-  if (options && typeof options.maxKeys === 'number') {
-    maxKeys = options.maxKeys;
-  }
-
-  var len = qs.length;
-  // maxKeys <= 0 means that we should not limit keys count
-  if (maxKeys > 0 && len > maxKeys) {
-    len = maxKeys;
-  }
-
-  for (var i = 0; i < len; ++i) {
-    var x = qs[i].replace(regexp, '%20'),
-        idx = x.indexOf(eq),
-        kstr,
-        vstr,
-        k,
-        v;
-
-    if (idx >= 0) {
-      kstr = x.substr(0, idx);
-      vstr = x.substr(idx + 1);
-    } else {
-      kstr = x;
-      vstr = '';
-    }
-
-    k = decodeURIComponent(kstr);
-    v = decodeURIComponent(vstr);
-
-    if (!hasOwnProperty(obj, k)) {
-      obj[k] = v;
-    } else if (isArray(obj[k])) {
-      obj[k].push(v);
-    } else {
-      obj[k] = [obj[k], v];
-    }
-  }
-
-  return obj;
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-/***/ }),
-/* 146 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var stringifyPrimitive = function stringifyPrimitive(v) {
-  switch (typeof v === 'undefined' ? 'undefined' : _typeof(v)) {
-    case 'string':
-      return v;
-
-    case 'boolean':
-      return v ? 'true' : 'false';
-
-    case 'number':
-      return isFinite(v) ? v : '';
-
-    default:
-      return '';
-  }
-};
-
-module.exports = function (obj, sep, eq, name) {
-  sep = sep || '&';
-  eq = eq || '=';
-  if (obj === null) {
-    obj = undefined;
-  }
-
-  if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object') {
-    return map(objectKeys(obj), function (k) {
-      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-      if (isArray(obj[k])) {
-        return map(obj[k], function (v) {
-          return ks + encodeURIComponent(stringifyPrimitive(v));
-        }).join(sep);
-      } else {
-        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
-      }
-    }).join(sep);
-  }
-
-  if (!name) return '';
-  return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-function map(xs, f) {
-  if (xs.map) return xs.map(f);
-  var res = [];
-  for (var i = 0; i < xs.length; i++) {
-    res.push(f(xs[i], i));
-  }
-  return res;
-}
-
-var objectKeys = Object.keys || function (obj) {
-  var res = [];
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
-  }
-  return res;
-};
-
-/***/ }),
-/* 147 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.decode = exports.parse = __webpack_require__(145);
-exports.encode = exports.stringify = __webpack_require__(146);
-
-/***/ }),
+/* 145 */,
+/* 146 */,
+/* 147 */,
 /* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26621,413 +26020,15 @@ var hoverRowStyle = {
 exports.default = hoverRowStyle;
 
 /***/ }),
-/* 235 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-var _entity = __webpack_require__(60);
-
-var _entity2 = _interopRequireDefault(_entity);
-
-var _eventsCircle = __webpack_require__(239);
-
-var _eventsCircle2 = _interopRequireDefault(_eventsCircle);
-
-exports['default'] = (0, _entity2['default'])('Circle', 'center', _eventsCircle2['default']);
-module.exports = exports['default'];
-
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(25);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _createReactClass = __webpack_require__(67);
-
-var _createReactClass2 = _interopRequireDefault(_createReactClass);
-
-var _objectAssign = __webpack_require__(5);
-
-var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-var _eventsMap = __webpack_require__(241);
-
-var _eventsMap2 = _interopRequireDefault(_eventsMap);
-
-var _mixinsListener = __webpack_require__(100);
-
-var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
-
-var _utilsGoogleMaps = __webpack_require__(243);
-
-var _utilsGoogleMaps2 = _interopRequireDefault(_utilsGoogleMaps);
-
-var _utilsCompareProps = __webpack_require__(101);
-
-var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
-
-var Gmaps = (0, _createReactClass2['default'])({
-
-  mixins: [_mixinsListener2['default']],
-
-  map: null,
-
-  getInitialState: function getInitialState() {
-    return {
-      isMapCreated: false
-    };
-  },
-
-  componentDidMount: function componentDidMount() {
-    this.setState({
-      callbackIndex: _utilsGoogleMaps2['default'].load(this.props.params, this.mapsCallback)
-    });
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    _utilsGoogleMaps2['default'].removeCallback(this.state.callbackIndex);
-    this.removeListeners();
-  },
-
-  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-    if (this.map && !(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
-      this.map.setOptions(_extends({}, nextProps, {
-        center: new google.maps.LatLng(nextProps.lat, nextProps.lng)
-      }));
-    }
-  },
-
-  getMap: function getMap() {
-    return this.map;
-  },
-
-  mapsCallback: function mapsCallback() {
-    this.createMap();
-    this.addListeners(this.map, _eventsMap2['default']);
-  },
-
-  createMap: function createMap() {
-    var node = _reactDom2['default'].findDOMNode(this);
-    this.map = new google.maps.Map(node, _extends({}, this.props, {
-      center: new google.maps.LatLng(this.props.lat, this.props.lng)
-    }));
-    this.setState({
-      isMapCreated: true
-    });
-    if (this.props.onMapCreated) {
-      this.props.onMapCreated(this.map);
-    }
-  },
-
-  getChildren: function getChildren() {
-    var _this = this;
-
-    return _react2['default'].Children.map(this.props.children, function (child) {
-      if (!_react2['default'].isValidElement(child)) {
-        return child;
-      }
-      return _react2['default'].cloneElement(child, {
-        ref: child.ref,
-        map: _this.map
-      });
-    });
-  },
-
-  render: function render() {
-    var style = (0, _objectAssign2['default'])({
-      width: this.props.width,
-      height: this.props.height
-    }, this.props.style);
-    return _react2['default'].createElement('div', { style: style, className: this.props.className }, this.props.loadingMessage || 'Loading...', this.state.isMapCreated ? this.getChildren() : null);
-  }
-
-});
-
-exports['default'] = Gmaps;
-module.exports = exports['default'];
-
-/***/ }),
-/* 237 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-var _entity = __webpack_require__(60);
-
-var _entity2 = _interopRequireDefault(_entity);
-
-var _eventsInfoWindow = __webpack_require__(240);
-
-var _eventsInfoWindow2 = _interopRequireDefault(_eventsInfoWindow);
-
-exports['default'] = (0, _entity2['default'])('InfoWindow', 'position', _eventsInfoWindow2['default']);
-module.exports = exports['default'];
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-var _entity = __webpack_require__(60);
-
-var _entity2 = _interopRequireDefault(_entity);
-
-var _eventsMarker = __webpack_require__(242);
-
-var _eventsMarker2 = _interopRequireDefault(_eventsMarker);
-
-exports['default'] = (0, _entity2['default'])('Marker', 'position', _eventsMarker2['default']);
-module.exports = exports['default'];
-
-/***/ }),
-/* 239 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports['default'] = {
-  onCenterChanged: 'center_changed',
-  onClick: 'click',
-  onDblClick: 'dblclick',
-  onDrag: 'drag',
-  onDragEnd: 'dragend',
-  onDragStart: 'dragstart',
-  onMouseDown: 'mousedown',
-  onMouseMove: 'mousemove',
-  onMouseOut: 'mouseout',
-  onMouseOver: 'mouseover',
-  onMouseUp: 'mouseup',
-  onRadiusChanged: 'radius_changed',
-  onRightClick: 'rightclick'
-};
-module.exports = exports['default'];
-
-/***/ }),
-/* 240 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports['default'] = {
-  onCloseClick: 'closeclick',
-  onContentChanged: 'content_changed',
-  onDOMReady: 'domready',
-  onPositionChanged: 'position_changed',
-  onZindexChanged: 'zindex_changed'
-};
-module.exports = exports['default'];
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports['default'] = {
-  onBoundsChanged: 'bounds_changed',
-  onCenterChanged: 'center_changed',
-  onClick: 'click',
-  onDblClick: 'dblclick',
-  onDrag: 'drag',
-  onDragEnd: 'dragend',
-  onDragStart: 'dragstart',
-  onHeadingChanged: 'heading_changed',
-  onIdle: 'idle',
-  onMapTypeIdChanged: 'maptypeid_changed',
-  onMouseMove: 'mousemove',
-  onMouseOut: 'mouseout',
-  onMouseOver: 'mouseover',
-  onProjectionChanged: 'projection_changed',
-  onResize: 'resize',
-  onRightClick: 'rightclick',
-  onTilesLoaded: 'tilesloaded',
-  onTiltChanged: 'tilt_changed',
-  onZoomChanged: 'zoom_changed'
-};
-module.exports = exports['default'];
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-exports['default'] = {
-  onAnimationChanged: 'animation_changed',
-  onClick: 'click',
-  onClickableChanged: 'clickable_changed',
-  onCursorChanged: 'cursor_changed',
-  onDblClick: 'dblclick',
-  onDrag: 'drag',
-  onDragEnd: 'dragend',
-  onDraggableChanged: 'draggable_changed',
-  onDragStart: 'dragstart',
-  onFlatChanged: 'flat_changed',
-  onIconChanged: 'icon_changed',
-  onMouseDown: 'mousedown',
-  onMouseOut: 'mouseout',
-  onMouseOver: 'mouseover',
-  onMouseUp: 'mouseup',
-  onPositionChanged: 'position_changed',
-  onRightClick: 'rightclick',
-  onShapeChanged: 'shape_changed',
-  onTitleChanged: 'title_changed',
-  onVisibleChanged: 'visible_changed',
-  onZindexChanged: 'zindex_changed'
-};
-module.exports = exports['default'];
-
-/***/ }),
-/* 243 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { 'default': obj };
-}
-
-var _querystring = __webpack_require__(147);
-
-var _querystring2 = _interopRequireDefault(_querystring);
-
-exports['default'] = {
-
-  callbacks: [],
-
-  appended: false,
-
-  load: function load(params, callback) {
-    var index = this.callbacks.push(callback);
-    if (googleMapsExists()) {
-      setTimeout(this.fireCallbacks.bind(this));
-    } else {
-      if (!this.appended) {
-        window.mapsCallback = this.mapsCallback.bind(this);
-        this.appendScript(params);
-      }
-    }
-    return index;
-  },
-
-  getSrc: function getSrc(params) {
-    var src = 'https://maps.googleapis.com/maps/api/js';
-    src += '?callback=mapsCallback&';
-    src += _querystring2['default'].stringify(params);
-    return src;
-  },
-
-  appendScript: function appendScript(params) {
-    var src = this.getSrc(params);
-    var script = document.createElement('script');
-    script.setAttribute('src', src);
-    document.head.appendChild(script);
-    this.appended = true;
-  },
-
-  mapsCallback: function mapsCallback() {
-    window.mapsCallback = undefined;
-    this.fireCallbacks();
-  },
-
-  fireCallbacks: function fireCallbacks() {
-    this.callbacks.forEach(function (callback) {
-      return callback();
-    });
-    this.callbacks = [];
-  },
-
-  removeCallback: function removeCallback(index) {
-    this.callbacks.splice(index - 1, 1);
-  }
-
-};
-
-var googleMapsExists = function googleMapsExists() {
-  return _typeof(window.google) === 'object' && _typeof(window.google.maps) === 'object';
-};
-module.exports = exports['default'];
-
-/***/ }),
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
 /* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34825,79 +33826,7 @@ var valueEqual = function valueEqual(a, b) {
 exports.default = valueEqual;
 
 /***/ }),
-/* 284 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Table = function (_React$Component) {
-  _inherits(Table, _React$Component);
-
-  function Table() {
-    _classCallCheck(this, Table);
-
-    return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
-  }
-
-  _createClass(Table, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "table-responsive" },
-        _react2.default.createElement(
-          "table",
-          null,
-          _react2.default.createElement(
-            "tbody",
-            null,
-            this.props.array.map(function (place, i) {
-              return _react2.default.createElement(
-                "tr",
-                null,
-                _react2.default.createElement(
-                  "td",
-                  { key: i },
-                  place.name
-                ),
-                _react2.default.createElement(
-                  "td",
-                  null,
-                  place.vicinity
-                )
-              );
-            })
-          )
-        )
-      );
-    }
-  }]);
-
-  return Table;
-}(_react2.default.Component);
-
-exports.default = Table;
-
-/***/ }),
+/* 284 */,
 /* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
