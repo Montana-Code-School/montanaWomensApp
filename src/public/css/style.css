@@ -84,8 +84,12 @@ a {
   padding-top :'0em';
   padding-bottom:'1em';
   position:relative;
+}
 
-
+.photo {
+  float:left;
+  z-index: 200;
+  padding-left: 5em;
 }
 
 body {
@@ -285,8 +289,9 @@ p {
 }
 
 .doctor {
-  background-color: #009a8b;
+  background-color: #22c3b0;
 }
+
 .infowindow h5 {
     font-weight: bold;
   }
@@ -294,6 +299,7 @@ p {
 .map {
   align-self: baseline;
 }
+
 table {
   border-collapse: collapse;
     padding: 0;
@@ -315,8 +321,9 @@ table td {
     vertical-align: top;
     padding: 10px;
     text-align: right;
-    font-size: 1em;
+    font-size: 1.2em;
   }
+
 .tableName {
   font-size: 1.3em;
 }
@@ -326,3 +333,9 @@ table td:nth-child(1) {
     padding-left: 0;
     font-weight: bold;
   }
+
+  .col-border: before {
+    position: static;
+    border-left: 1px solid #black;
+  }
+}

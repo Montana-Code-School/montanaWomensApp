@@ -5,9 +5,11 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 import Home from './components/home';
 import Counselors from './components/counselors';
 import Pharmacy from './components/pharmacies';
+import Doctors from './components/doctors';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
 import Flexbox from 'flexbox-react';
+
 
 
 
@@ -30,13 +32,14 @@ const Navigation = ()=> (
 
 const Main = ()=> (
   <main>
-    <Switch>
-       <Route exact path = '/' component = {Home}/>
-       <Route path = '/counselors' component = {Counselors}/>
-       <Route path = '/pharmacies' component = {Pharmacy}/>
-       <Route path = '/birthcontrol' component = {Birthcontrol}/>
-       <Route path = '/resources' component = {Resources}/>
-    </Switch>
+  <Switch>
+   <Route exact path = '/' component = {Home}/>
+   <Route path = '/doctors' component = {Doctors} />
+   <Route path = '/counselors' component = {Counselors}/>
+   <Route path = '/pharmacies' component = {Pharmacy}/>
+   <Route path = '/birthcontrol' component = {Birthcontrol}/>
+   <Route path = '/resources' component = {Resources}/>
+  </Switch>
   </main>
 )
 

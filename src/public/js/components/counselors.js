@@ -1,5 +1,6 @@
 import React from 'react';
 import Flexbox from 'flexbox-react';
+import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
 
      var pStyle = {
      fontSize: "20px",
@@ -72,9 +73,21 @@ import Flexbox from 'flexbox-react';
 
         return (
           <div>
-          <Flexbox className='healthPage' flexDirection='row'>
-              <h1 style = {counselorsStyle}> Find a Local Counselor Near You</h1>
-          </Flexbox>
+          <Jumbotron style={{backgroundColor: '#cbe8ed'}}>
+            <JumbotronCol style={{width:'40%'}}>
+              <div style={{height: '400px'}}>
+                <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
+              </div>
+            </JumbotronCol>
+
+            <JumbotronCol  style={{width: '60%'}}>
+              <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
+               <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Counseling</h1>
+               <h3>Mainting mental and emotional health is just as important as physical well-being.</h3>
+
+              </div>
+           </JumbotronCol>
+         </Jumbotron>
 
           <Rows/>
           </div>

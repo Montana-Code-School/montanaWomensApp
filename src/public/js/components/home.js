@@ -15,7 +15,7 @@ class Homepage extends React.Component {
     <div className ='design-photo'>
     <Flexbox justifyContent='center'>
 
-      <img src="./css/img/banner_larger.jpg" className="photo"/>
+      <img src="./css/img/banner_larger.jpg" className=""/>
       <h1 className="banner" >Montana Women&rsquo;s Wellness Resource</h1>
     </Flexbox>
     </div>
@@ -27,7 +27,7 @@ class Homepage extends React.Component {
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><b>Emergency Help Lines</b></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Emergency<br/><b> Dial 911</b></a></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Substance Abuse (Drug and Alcohol)<br/> 1(855)603-2445</a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Domenstic Violence<br/>1(800)799-7233</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Domestic Violence<br/>1(800)799-7233</a></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>YWCA Crisis Hotline<br/> 1(800)483-7858</a></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Rape and Abuse National Hotline<br/> 1(800)656-HOPE</a></MenuItem>
 
@@ -71,8 +71,6 @@ class Homepage extends React.Component {
        </Flexbox>
        </Jumbotron>
      </div>
-
-
 
  </div>
   )};

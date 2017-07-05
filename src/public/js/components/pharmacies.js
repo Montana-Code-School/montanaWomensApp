@@ -3,14 +3,16 @@ import {Gmaps, Marker, InfoWindow} from 'react-gmaps';
 import Gmap from 'public/js/gmap';
 import Flexbox from 'flexbox-react';
 import Table from './table';
+import {Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
 
-  export default class Pharmacy extends React.Component {
+export default class Pharmacy extends React.Component {
 
     constructor(props) {
       super(props);
       this.state = {
         type: 'pharmacy',
         array: [],
+        styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
       }
 
       axios .get("http://localhost:3003/api/places/"+this.state.type)
@@ -32,17 +34,45 @@ import Table from './table';
         color: "#333",
         fontFamily: "helvetica",
         fontSize: 55,
-        textAlign: "center"
-      };
+        textAlign: "center",
+        marginBottom: 0,
+      }
 
+      var topBottom= {
+        borderTopStyle: 'solid',
+        borderBottomStyle: 'solid',
+        borderColor: '#a44200',
+        borderWidth: '1px',
+        paddingTop: '30px',
+      }
 
-
+      var mapStyle= {
+        borderStyle: 'solid',
+        borderColor: '#a44200',
+        borderWidth: '1px',
+        marginBottom: '20px',
+        boxShadow: '5px 5px 2px #a44200',
+      }
       return (
         <div>
-        <h1 style = {resourcesStyle}>Local Pharmacies</h1>
-            <Flexbox className="healthPage pharmacy" flexDirection="row">
-              <Gmap array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'}/>
-              <Table heading="Pharmacies near you" array={this.state.array} />
+        <Jumbotron style={{backgroundColor: '#cbe8ed'}}>
+          <JumbotronCol style={{width:'40%'}}>
+            <div style={{height: '400px'}}>
+              <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
+            </div>
+          </JumbotronCol>
+
+           <JumbotronCol  style={{width: '60%'}}>
+            <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
+             <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Pharmacies</h1>
+             <h3>Find a pharmacy near you!</h3>
+             </div>
+          </JumbotronCol>
+        </Jumbotron>
+
+            <Flexbox style={topBottom} className="healthPage pharmacy" flexDirection="row">
+              <Gmap style={mapStyle} array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'} styles={this.state.styles}/>
+              <Table array={this.state.array} />
             </Flexbox>
         </div>
       )}
