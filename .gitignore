@@ -1,10 +1,15 @@
 node_modules
-dist
+dist/*
 src/public/vendor.bundle.js
   src/public/app.bundle.js.map
   src/public/vendor.bundle.js.map
  src/public/vendor.bundle.map.js
  src/public/app.bundle.map.js
  src/public/libs/typeahead.bundle.js
+<<<<<<< HEAD
  src/public/app.bundle.js
  src/public/app.bundle.js.map
+=======
+
+ app.bundle.js
+>>>>>>> 0680639642fb448f774dd8199f78d8b358915beb

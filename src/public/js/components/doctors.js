@@ -1,25 +1,39 @@
 
 import React from 'react';
+import Gmap from 'public/js/gmap';
+import Flexbox from 'flexbox-react';
 
+  export default class Doctors extends React.Component {
 
-export default class Doctors extends React.Component{
-  render (){
-    var doctorsStyle = {
-      //image:'css/img/health-symbol.jpg',
-      padding:50,
-      marginTop:65,
-      height: 300,
-      backgroundColor:'#00b38f',
-      color: "#333",
-      fontFamily: "monospace",
-      fontSize: 55,
-      textAlign: "center"
+    constructor(props) {
+      super(props);
+      this.state = {
+        type: 'doctor',
+        array: [],
+      }
+
+      axios .get("http://localhost:3003/api/places/"+this.state.type)
+            .then(res => {
+              const array = res.data.results;
+
+              this.setState({
+                array: array,
+            });
+          })
+        }
+
+    render() {
+      return (
+          <div className="healthPage doctor">
+            <Flexbox flexDirection="row">
+              <Gmap array={this.state.array} icon={'../../css/img/icon_local_hospital.png'}
+              />
+              <ul>
+                {this.state.array.map((doctor, i) =>
+                  <li key={i}>{doctor.name}</li>
+                )}
+              </ul>
+            </Flexbox>
+          </div>
+      )}
     };
-    return (
-      <div style = {doctorsStyle}>
-           <h1>Take the Time to Choose From the Many Doctors and Clinics in Your Area</h1>
-      </div>
-
-      );
-     }
-   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Flexbox from 'flexbox-react';
 
 
     function Navbar(prop){
@@ -26,6 +27,7 @@ import React from 'react';
       );
    }
 
+
       var headerStyle = {
        textAlign: "center"
      }
@@ -40,8 +42,6 @@ import React from 'react';
       fontSize: "18px"
      }
       class List extends React.Component {
-
-
 
       render (){
        return (
@@ -59,6 +59,7 @@ import React from 'react';
         render (){
         return (
           <div>
+
           <ul className="row">
           <List  title="IUD" link="css/img/iud.png"description="The IUD is a little, t-shaped piece of plastic that gets put in your uterus to mess with the way sperm can move and prevent them from fertilizing an egg. Sounds odd, but it works like a charm. IUDs offer years of protection—between three and twelve, depending on the type you get. And if you want to get pregnant, you can have the IUD removed at any time. There aretwo types: Hormonal and non-hormonal. In the U.S., there five IUDs: Mirena, ParaGard, Skyla, Liletta, and Kyleena."/>
           <List  title="Implant" link="css/img/implant.jpeg" description="The implant is a teeny-tiny rod that's inserted under the skin of your upper arm. It's so small, in fact, most people can't see it once it's inserted—which means it can be your little secret, if you're so inclined. The implant releases progestin, a hormone that keeps your ovaries from releasing eggs and thickens your cervical mucus—which helps block sperm from getting to the egg in the first place. It prevents pregnancy for up to four years. Not too shabby." />
@@ -83,6 +84,7 @@ import React from 'react';
           <List title="Withdrawal" link="css/img/exit.jpg"description="Withdrawal is the oldest form of birth control on the planet. There's not much to explain, really. The guy pulls out before he ejaculates. End of story. Some people call withdrawal the 'pull out method.' The key thing to remember is this: You've got to do it right—every single time—for withdrawal to be effective." />
           <List title="Fertility Awareness" link="css/img/awareness.jpg"description="Fertility awareness-based methods—or natural family planning—are all about tracking your menstrual cycle to determine the days that you can get pregnant. The tricky part is actually knowing when those days are. To do that, you'll need to pay very close attention to your body and its patterns. Here we list all the different ways you can monitor your day-to-day fertility." />
           </ul>
+
           </div>
         );
       }
@@ -93,6 +95,7 @@ import React from 'react';
     render () {
 
       var birthcontrolStyle = {
+
         padding:50,
         marginTop:65,
         height: 300,
@@ -104,8 +107,9 @@ import React from 'react';
       };
       return (
         <div>
-             <h1 style = {birthcontrolStyle}>Discover The Many Different Options For Birthcontrol </h1>
-
+         <Flexbox flexDirection='row'>
+           <h1 style = {birthcontrolStyle}>Discover The Many Different Options For Birthcontrol </h1>
+         </Flexbox>
 
           <Rows/>
        </div>
