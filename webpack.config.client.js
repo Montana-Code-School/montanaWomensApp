@@ -1,5 +1,3 @@
-
-//const webpack = require('webpack');
 const path = require('path');
 const srcPath = path.resolve(__dirname, 'src/public');
 const distPath = path.resolve(__dirname, 'dist');
