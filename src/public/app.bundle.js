@@ -13197,6 +13197,14 @@ var websiteStyle = {
   fontSize: "1.5em"
 };
 
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px',
+  paddingTop: '30px'
+};
+
 var List = function (_React$Component) {
   _inherits(List, _React$Component);
 
@@ -13265,7 +13273,7 @@ var Rows = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: topBottom },
         _react2.default.createElement(
           'ul',
           null,
@@ -14057,7 +14065,7 @@ var Rows = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: topBottom },
         _react2.default.createElement(
           'ul',
           null,

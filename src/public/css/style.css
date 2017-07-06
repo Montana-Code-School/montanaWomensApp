@@ -33,19 +33,49 @@ a {
   font-weight: 500;
 }
 
+.symptom-head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.symptom-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+.sympText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.sympImg {
+  width:auto;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 60px;
+}
+
 .jumbotron {
   padding-top: 1em;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: #a44200;
+  border-width: 1px;
+  padding-top: 30px;
 }
 
 .symptom {
-  text-align: center;
   margin-top: 5px;
 }
 
 #nav {
     width: 100%;
     position: fixed;
-    height: 15%;
+    height: 75px;
     margin: 0 0 3em 0;
     margin-top: 0;
     padding: 0;
@@ -120,8 +150,6 @@ body {
   padding-top: 10rem;
   padding-bottom: 10rem;
 }
-
-
 
 .jumbo-fadeUp {
 
@@ -268,7 +296,6 @@ p {
   display: block;
   margin: 50px auto 0;
   background-color: #f77c77;
-
 }
 
 .btn.nav-btn:hover {
@@ -345,10 +372,4 @@ table td:nth-child(1) {
     position: static;
     border-left: 1px solid #black;
   }
-}
-
-.symptom-head {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
 }
