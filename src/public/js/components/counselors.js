@@ -23,6 +23,14 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
      fontSize: "1.5em"
    }
 
+   var topBottom = {
+     borderTopStyle: 'solid',
+     borderBottomStyle: 'solid',
+     borderColor: '#a44200',
+     borderWidth: '1px',
+     paddingTop: '30px',
+   }
+
    class List extends React.Component {
      render (){
      return (
@@ -39,7 +47,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
    class Rows extends React.Component {
       render () {
         return(
-          <div>
+          <div style={topBottom}>
             <ul>
               <List title="Aletheia Marriage Counseling" description="James W. Ramsey,  MA, MFT, LCPC  You'll be surprised how fast couples experience incredible results after putting into practice just a few simple principles.  It starts with a desire to have a better relationship and the.willingness to have something different.  All our coaching and counseling programs are designed to meet you....where you're at now....no matter how bad it may feel. Located at 2870 St. Michael Drive  Missoula Mt 59803"  website="www.aletheiamarriagecounseling.net" number='(406)251-7073'/>
              <List title="Marriage and Couple Counseling" description="David Meurer, LCSW  In my marriage and couples counseling Missoula practice, I help people foster more caring and support in their relationship. This includes helping people build a strong connection to each other and bring more joy into their life together. I help couples learn the skills they need to move through conflict well. This means learning to value each other’s unique input when facing challenges and stress. In my marriage and couples counseling Missoula practice, I rely on models that have been tested through years of research. These models can bring people to new understandings and insights, which can help them make sense of the difficulties they are having. Then they can learn new ways to solve problems and take care of each other.Located at 415 N Higgins #132 Missoul Mt 59802 "  website="www.counselingmissoula.com" number='(406)531-6250'/>
@@ -89,7 +97,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
            </JumbotronCol>
          </Jumbotron>
 
-          <Rows/>
+          <Rows />
           </div>
 
 

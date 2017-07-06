@@ -13045,8 +13045,36 @@ var Rows = function (_React$Component2) {
   return Rows;
 }(_react2.default.Component);
 
-var Birthcontrol = function (_React$Component3) {
-  _inherits(Birthcontrol, _React$Component3);
+var Source = function (_React$Component3) {
+  _inherits(Source, _React$Component3);
+
+  function Source() {
+    _classCallCheck(this, Source);
+
+    return _possibleConstructorReturn(this, (Source.__proto__ || Object.getPrototypeOf(Source)).apply(this, arguments));
+  }
+
+  _createClass(Source, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'h5',
+        { style: { marginLeft: '40px' } },
+        'Source: ',
+        _react2.default.createElement(
+          'a',
+          { href: this.props.href, id: 'source' },
+          this.props.source
+        )
+      );
+    }
+  }]);
+
+  return Source;
+}(_react2.default.Component);
+
+var Birthcontrol = function (_React$Component4) {
+  _inherits(Birthcontrol, _React$Component4);
 
   function Birthcontrol() {
     _classCallCheck(this, Birthcontrol);
@@ -13106,7 +13134,8 @@ var Birthcontrol = function (_React$Component3) {
             )
           )
         ),
-        _react2.default.createElement(Rows, null)
+        _react2.default.createElement(Rows, null),
+        _react2.default.createElement(Source, { href: 'https://www.bedsider.org/methods', source: 'https://www.bedsider.org/methods' })
       );
     }
   }]);
@@ -13166,6 +13195,14 @@ var titleStyle = {
 var websiteStyle = {
   textAlign: "center",
   fontSize: "1.5em"
+};
+
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px',
+  paddingTop: '30px'
 };
 
 var List = function (_React$Component) {
@@ -13236,7 +13273,7 @@ var Rows = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: topBottom },
         _react2.default.createElement(
           'ul',
           null,
@@ -14028,7 +14065,7 @@ var Rows = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: topBottom },
         _react2.default.createElement(
           'ul',
           null,

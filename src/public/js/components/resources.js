@@ -65,7 +65,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
       class Rows extends React.Component {
         render (){
         return (
-          <div>
+          <div style = {topBottom}>
            <ul>
               <List title="The Women's Club" description="A community fitness center for women. More than a gym. A community of women who inspire one another and walk out the door confident and rejuvenated." website="www.thewomensclub.com"/>
               <List title="The Women's Center at U of M" description="We are a student-run, consensus based organization dedicated to raising awareness of women's, gender, and sexuality issues. We provide a current list of organizations and professionals that serve and assist women in Western Montana, as well as a safe place to meet people interested in discussing and actively responding to pertinent issues in our community. Our mission is to actively represent 21st century feminism as a dynamic discipline concerned with all issues of gender and inequality.  We are serious about advancing our agenda of tolerance, education and equality, but we love to have fun while we do it." website="www.facebook.com/umwomensresourcecenter"/>
