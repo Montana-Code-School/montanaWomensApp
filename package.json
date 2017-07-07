@@ -1,6 +1,10 @@
 {
   "name": "women-wellness-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "7.7.4"
+  }
+
   "description": "",
   "main": "dist/server.js",
   "scripts": {
