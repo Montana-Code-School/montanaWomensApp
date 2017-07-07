@@ -18,7 +18,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
      textAlign:"center"
    }
 
-   var websiteStyle = {
+   var websiteStyle = { 
      textAlign:"center",
      fontSize: "1.5em"
    }
