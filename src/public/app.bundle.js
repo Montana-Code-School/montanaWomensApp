@@ -12738,19 +12738,6 @@ var Table = function (_React$Component) {
           "table",
           null,
           _react2.default.createElement(
-            "thead",
-            null,
-            _react2.default.createElement(
-              "tr",
-              null,
-              _react2.default.createElement(
-                "th",
-                null,
-                this.props.heading
-              )
-            )
-          ),
-          _react2.default.createElement(
             "tbody",
             null,
             this.props.array.map(function (place, i) {
@@ -12865,27 +12852,32 @@ var Gmap = function (_React$Component) {
           title: place.name,
           onClick: function onClick(e) {
             var infowindow = new google.maps.InfoWindow({
-              content: "<div className='infowindow'><h5>" + place.name + "</h5>" + place.vicinity + "</div>",
+              content: "<div className='infowindow' style='color:#A44200'><h5>" + place.name + "</h5>" + place.vicinity + "</div>",
               position: e.latLng
-
             });
+
             infowindow.open(this.get('map'), this);
           } });
       });
 
       return _react2.default.createElement(
-        _reactGmaps.Gmaps,
-        {
-          width: '600px',
-          height: '600px',
-          lat: coords.lat,
-          lng: coords.lng,
-          zoom: 13,
-          scrollwheel: false,
-          loadingMessage: 'Be happy',
-          params: params,
-          onMapCreated: this.onMapCreated },
-        pinLoop
+        'div',
+        { style: this.props.style },
+        _react2.default.createElement(
+          _reactGmaps.Gmaps,
+          {
+            width: '600px',
+            height: '890px',
+            styles: this.props.styles,
+            lat: coords.lat,
+            lng: coords.lng,
+            zoom: 13,
+            scrollwheel: false,
+            loadingMessage: 'Be happy',
+            params: params,
+            onMapCreated: this.onMapCreated },
+          pinLoop
+        )
       );
     }
   }]);
@@ -13052,8 +13044,36 @@ var Rows = function (_React$Component2) {
   return Rows;
 }(_react2.default.Component);
 
-var Birthcontrol = function (_React$Component3) {
-  _inherits(Birthcontrol, _React$Component3);
+var Source = function (_React$Component3) {
+  _inherits(Source, _React$Component3);
+
+  function Source() {
+    _classCallCheck(this, Source);
+
+    return _possibleConstructorReturn(this, (Source.__proto__ || Object.getPrototypeOf(Source)).apply(this, arguments));
+  }
+
+  _createClass(Source, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'h5',
+        { style: { marginLeft: '40px' } },
+        'Source: ',
+        _react2.default.createElement(
+          'a',
+          { href: this.props.href, id: 'source' },
+          this.props.source
+        )
+      );
+    }
+  }]);
+
+  return Source;
+}(_react2.default.Component);
+
+var Birthcontrol = function (_React$Component4) {
+  _inherits(Birthcontrol, _React$Component4);
 
   function Birthcontrol() {
     _classCallCheck(this, Birthcontrol);
@@ -13099,7 +13119,8 @@ var Birthcontrol = function (_React$Component3) {
             )
           )
         ),
-        _react2.default.createElement(Rows, null)
+        _react2.default.createElement(Rows, null),
+        _react2.default.createElement(Source, { href: 'https://www.bedsider.org/methods', source: 'https://www.bedsider.org/methods' })
       );
     }
   }]);
@@ -13159,6 +13180,14 @@ var titleStyle = {
 var websiteStyle = {
   textAlign: "center",
   fontSize: "1.5em"
+};
+
+var topBottom = {
+  borderTopStyle: 'solid',
+  borderBottomStyle: 'solid',
+  borderColor: '#a44200',
+  borderWidth: '1px',
+  paddingTop: '30px'
 };
 
 var List = function (_React$Component) {
@@ -13229,7 +13258,7 @@ var Rows = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: topBottom },
         _react2.default.createElement(
           'ul',
           null,
@@ -13370,8 +13399,7 @@ var Doctors = function (_React$Component) {
     _this.state = {
       type: 'doctor',
       array: [],
-
-      styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#FF3333" }] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#8B008B" }] }, { "featureType": "landscape.man_made", "elementType": "geometry", "stylers": [{ "color": "#FF0099" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#468847" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#00617d" }] }, { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#30a4E7" }] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "elementType": "labels.text.stroke", "stylers": [{ "color": "#000000" }] }, { "elementType": "labels.text.fill", "stylers": [{ "color": "#FFFFFF" }] }]
+      styles: [{ "featureType": "landscape.man_made", "elementType": "geometry", "stylers": [{ "color": "#f7f1df" }] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#d0e3b4" }] }, { "featureType": "landscape.natural.terrain", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.business", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.medical", "elementType": "geometry", "stylers": [{ "color": "#fbd3da" }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#bde6ab" }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffe15f" }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#efd151" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "black" }] }, { "featureType": "transit.station.airport", "elementType": "geometry.fill", "stylers": [{ "color": "#cfb2db" }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#a2daf2" }] }]
     };
 
     axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
@@ -13387,7 +13415,33 @@ var Doctors = function (_React$Component) {
   _createClass(Doctors, [{
     key: 'render',
     value: function render() {
+      var resourcesStyle = {
+        padding: 50,
+        marginTop: 65,
+        height: 300,
+        backgroundColor: '#1B998B',
+        color: "#333",
+        fontFamily: "helvetica",
+        fontSize: 55,
+        textAlign: "center",
+        marginBottom: 0
+      };
 
+      var topBottom = {
+        borderTopStyle: 'solid',
+        borderBottomStyle: 'solid',
+        borderColor: '#a44200',
+        borderWidth: '1px',
+        paddingTop: '30px'
+      };
+
+      var mapStyle = {
+        borderStyle: 'solid',
+        borderColor: '#a44200',
+        borderWidth: '1px',
+        marginBottom: '98px',
+        boxShadow: '5px 5px 2px #a44200'
+      };
       return _react2.default.createElement(
         'div',
         null,
@@ -13417,16 +13471,17 @@ var Doctors = function (_React$Component) {
               _react2.default.createElement(
                 'h3',
                 null,
-                'Find a Doctor or Clinic near you!'
+                'Find a nearby doctor or clinic.'
               )
             )
           )
         ),
         _react2.default.createElement(
           _flexboxReact2.default,
-          { className: 'healthPage pharmacy', flexDirection: 'row' },
-          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_hospital.png', styles: this.state.styles }),
-          _react2.default.createElement(_table2.default, { heading: 'Name', array: this.state.array })
+          { style: topBottom, className: 'healthPage doctor', flexDirection: 'row' },
+          _react2.default.createElement(_gmap2.default, { style: mapStyle, array: this.state.array, icon: '../../css/img/icon_local_hospital.png', styles: this.state.styles
+          }),
+          _react2.default.createElement(_table2.default, { array: this.state.array })
         )
       );
     }
@@ -13436,7 +13491,6 @@ var Doctors = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Doctors;
-;
 
 /***/ }),
 /* 115 */
@@ -13555,7 +13609,7 @@ var Homepage = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 null,
-                'Domenstic Violence',
+                'Domestic Violence',
                 _react2.default.createElement('br', null),
                 '1(800)799-7233'
               )
@@ -13759,7 +13813,7 @@ var Pharmacy = function (_React$Component) {
     _this.state = {
       type: 'pharmacy',
       array: [],
-      styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#FF3333" }] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#8B008B" }] }, { "featureType": "landscape.man_made", "elementType": "geometry", "stylers": [{ "color": "#FF0099" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#468847" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#00617d" }] }, { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#30a4E7" }] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "elementType": "labels.text.stroke", "stylers": [{ "color": "#000000" }] }, { "elementType": "labels.text.fill", "stylers": [{ "color": "#FFFFFF" }] }]
+      styles: [{ "featureType": "landscape.man_made", "elementType": "geometry", "stylers": [{ "color": "#f7f1df" }] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [{ "color": "#d0e3b4" }] }, { "featureType": "landscape.natural.terrain", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.business", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.medical", "elementType": "geometry", "stylers": [{ "color": "#fbd3da" }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#bde6ab" }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffe15f" }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#efd151" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "black" }] }, { "featureType": "transit.station.airport", "elementType": "geometry.fill", "stylers": [{ "color": "#cfb2db" }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#a2daf2" }] }]
     };
 
     axios.get("http://localhost:3003/api/places/" + _this.state.type).then(function (res) {
@@ -13775,7 +13829,33 @@ var Pharmacy = function (_React$Component) {
   _createClass(Pharmacy, [{
     key: 'render',
     value: function render() {
+      var resourcesStyle = {
+        padding: 50,
+        marginTop: 65,
+        height: 300,
+        backgroundColor: '#ff80df',
+        color: "#333",
+        fontFamily: "helvetica",
+        fontSize: 55,
+        textAlign: "center",
+        marginBottom: 0
+      };
 
+      var topBottom = {
+        borderTopStyle: 'solid',
+        borderBottomStyle: 'solid',
+        borderColor: '#a44200',
+        borderWidth: '1px',
+        paddingTop: '30px'
+      };
+
+      var mapStyle = {
+        borderStyle: 'solid',
+        borderColor: '#a44200',
+        borderWidth: '1px',
+        marginBottom: '20px',
+        boxShadow: '5px 5px 2px #a44200'
+      };
       return _react2.default.createElement(
         'div',
         null,
@@ -13812,9 +13892,9 @@ var Pharmacy = function (_React$Component) {
         ),
         _react2.default.createElement(
           _flexboxReact2.default,
-          { className: 'healthPage pharmacy', flexDirection: 'row' },
-          _react2.default.createElement(_gmap2.default, { array: this.state.array, icon: '../../css/img/icon_local_pharmacy.png', styles: this.state.styles }),
-          _react2.default.createElement(_table2.default, { heading: 'NAME', headingTwo: 'ADDRESS', array: this.state.array })
+          { style: topBottom, className: 'healthPage pharmacy', flexDirection: 'row' },
+          _react2.default.createElement(_gmap2.default, { style: mapStyle, array: this.state.array, icon: '../../css/img/icon_local_pharmacy.png', styles: this.state.styles }),
+          _react2.default.createElement(_table2.default, { array: this.state.array })
         )
       );
     }
@@ -13970,7 +14050,7 @@ var Rows = function (_React$Component2) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: topBottom },
         _react2.default.createElement(
           'ul',
           null,
@@ -35175,11 +35255,11 @@ var Main = function Main() {
       _reactRouterDom.Switch,
       null,
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/doctors', component: _doctors2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/counselors', component: _counselors2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/pharmacies', component: _pharmacies2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/birthcontrol', component: _birthcontrol2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/resources', component: _resources2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/doctors', component: _doctors2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/resources', component: _resources2.default })
     )
   );
 };

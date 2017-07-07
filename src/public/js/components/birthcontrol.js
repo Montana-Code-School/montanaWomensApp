@@ -86,6 +86,14 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
       }
    }
 
+   class Source extends React.Component {
+     render() {
+       return (
+         <h5 style={{marginLeft: '40px'}}>Source: <a href={this.props.href} id="source">{this.props.source}</a></h5>
+       )
+     }
+   }
+
  export default class Birthcontrol extends React.Component {
 
     render () {
@@ -111,7 +119,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
          </Jumbotron>
 
         <Rows/>
-
+        <Source href="https://www.bedsider.org/methods" source="https://www.bedsider.org/methods"/>
       </div>
 
 

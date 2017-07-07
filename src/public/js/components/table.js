@@ -5,11 +5,6 @@ export default class Table extends React.Component {
     return (
       <div className="table-responsive">
         <table>
-          <thead>
-            <tr>
-              <th>{this.props.heading}</th>
-            </tr>
-          </thead>
           <tbody>
           {this.props.array.map((place, i) =>
             <tr>
