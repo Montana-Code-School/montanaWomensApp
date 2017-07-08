@@ -5,7 +5,6 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Flexbox from 'flexbox-react';
 
-
 class Homepage extends React.Component {
   render() {
   return (
@@ -72,8 +71,30 @@ class Homepage extends React.Component {
        </Jumbotron>
      </div>
 
- </div>
-  )};
+     </div>
+   )}
+  };
+
+class Chatbot extends React.Component {
+  render() {
+    return (
+
+      <div className='chatbot'>
+
+        <Jumbotron className="jumbo-fadeIn fade-stagger">
+          <Flexbox flexDirection="row" justifyContent="center" minHeight="20vh" >
+
+          <JumbotronCol fadeEffect="fadeInRight" style={{width: '50%'}}>
+          <Flexbox flexDirection='column' element='section'>
+            <h1 className='symptomheader'style={{paddingTop: '3em'}}>Have a question about local resources?</h1>
+            <h3 className='symptomdescript'>Try our chatbot to get information fast. </h3>
+            <iframe src='https://webchat.botframework.com/embed/MTWomenHealthChatbot?s=nnbH4NOVK5A.cwA.HgM.jqCGYu52E3_dQCVqHQW9QASVNG8oAFWTEvZCOdz-2TM'></iframe>
+          </Flexbox>
+          </JumbotronCol>
+          </Flexbox>
+        </Jumbotron>
+      </div>
+  )}
 }
 
 export default class Home extends React.Component {
@@ -81,6 +102,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <Homepage />
+        <Chatbot />
       </div>
     );
   }

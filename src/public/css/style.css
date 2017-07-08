@@ -105,6 +105,19 @@ a {
   text-decoration: underline;
 }
 
+.chatbot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+iframe {
+  max-width: 300px;
+  height: 300px;
+  display: inline-block;
+  align-self: center;
+}
+
 .banner {
   z-index: 900;
   text-align: center;

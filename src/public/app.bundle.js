@@ -13750,8 +13750,59 @@ var Homepage = function (_React$Component) {
   return Homepage;
 }(_react2.default.Component);
 
-var Home = function (_React$Component2) {
-  _inherits(Home, _React$Component2);
+;
+
+var Chatbot = function (_React$Component2) {
+  _inherits(Chatbot, _React$Component2);
+
+  function Chatbot() {
+    _classCallCheck(this, Chatbot);
+
+    return _possibleConstructorReturn(this, (Chatbot.__proto__ || Object.getPrototypeOf(Chatbot)).apply(this, arguments));
+  }
+
+  _createClass(Chatbot, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'chatbot' },
+        _react2.default.createElement(
+          _reactDynamicUi.Jumbotron,
+          { className: 'jumbo-fadeIn fade-stagger' },
+          _react2.default.createElement(
+            _flexboxReact2.default,
+            { flexDirection: 'row', justifyContent: 'center', minHeight: '20vh' },
+            _react2.default.createElement(
+              _reactDynamicUi.JumbotronCol,
+              { fadeEffect: 'fadeInRight', style: { width: '50%' } },
+              _react2.default.createElement(
+                _flexboxReact2.default,
+                { flexDirection: 'column', element: 'section' },
+                _react2.default.createElement(
+                  'h1',
+                  { className: 'symptomheader', style: { paddingTop: '3em' } },
+                  'Have a question about local resources?'
+                ),
+                _react2.default.createElement(
+                  'h3',
+                  { className: 'symptomdescript' },
+                  'Try our chatbot to get information fast. '
+                ),
+                _react2.default.createElement('iframe', { src: 'https://webchat.botframework.com/embed/MTWomenHealthChatbot?s=nnbH4NOVK5A.cwA.HgM.jqCGYu52E3_dQCVqHQW9QASVNG8oAFWTEvZCOdz-2TM' })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Chatbot;
+}(_react2.default.Component);
+
+var Home = function (_React$Component3) {
+  _inherits(Home, _React$Component3);
 
   function Home() {
     _classCallCheck(this, Home);
@@ -13765,7 +13816,8 @@ var Home = function (_React$Component2) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(Homepage, null)
+        _react2.default.createElement(Homepage, null),
+        _react2.default.createElement(Chatbot, null)
       );
     }
   }]);
