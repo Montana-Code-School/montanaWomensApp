@@ -25,11 +25,11 @@ class Homepage extends React.Component {
      <DrawerContainer className="Drawer">
 
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><b>Emergency Help Lines</b></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Emergency<br/><b> Dial 911</b></a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Substance Abuse (Drug and Alcohol)<br/> 1(855)603-2445</a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Domestic Violence<br/>1(800)799-7233</a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>YWCA Crisis Hotline<br/> 1(800)483-7858</a></MenuItem>
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a>Rape and Abuse National Hotline<br/> 1(800)656-HOPE</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:911">Emergency<br/>Dial 911</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:1-855-603-2445">Substance Abuse (Drug and Alcohol)<br/> 1(855)603-2445</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:1-800-799-7233">Domestic Violence<br/>1(800)799-7233</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:1-800-483-7858">YWCA Crisis Hotline<br/> 1(800)483-7858</a></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:1-800-656-4673">Rape and Abuse National Hotline<br/> 1(800)656-HOPE</a></MenuItem>
 
      </DrawerContainer>
    </div>

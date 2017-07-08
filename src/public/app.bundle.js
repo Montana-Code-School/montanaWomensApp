@@ -13597,14 +13597,10 @@ var Homepage = function (_React$Component) {
               { hoverStyle: { backgroundColor: '#cbe8ed' } },
               _react2.default.createElement(
                 'a',
-                null,
+                { href: 'tel:911' },
                 'Emergency',
                 _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                  'b',
-                  null,
-                  ' Dial 911'
-                )
+                'Dial 911'
               )
             ),
             _react2.default.createElement(
@@ -13612,7 +13608,7 @@ var Homepage = function (_React$Component) {
               { hoverStyle: { backgroundColor: '#cbe8ed' } },
               _react2.default.createElement(
                 'a',
-                null,
+                { href: 'tel:1-855-603-2445' },
                 'Substance Abuse (Drug and Alcohol)',
                 _react2.default.createElement('br', null),
                 ' 1(855)603-2445'
@@ -13623,7 +13619,7 @@ var Homepage = function (_React$Component) {
               { hoverStyle: { backgroundColor: '#cbe8ed' } },
               _react2.default.createElement(
                 'a',
-                null,
+                { href: 'tel:1-800-799-7233' },
                 'Domestic Violence',
                 _react2.default.createElement('br', null),
                 '1(800)799-7233'
@@ -13634,7 +13630,7 @@ var Homepage = function (_React$Component) {
               { hoverStyle: { backgroundColor: '#cbe8ed' } },
               _react2.default.createElement(
                 'a',
-                null,
+                { href: 'tel:1-800-483-7858' },
                 'YWCA Crisis Hotline',
                 _react2.default.createElement('br', null),
                 ' 1(800)483-7858'
@@ -13645,7 +13641,7 @@ var Homepage = function (_React$Component) {
               { hoverStyle: { backgroundColor: '#cbe8ed' } },
               _react2.default.createElement(
                 'a',
-                null,
+                { href: 'tel:1-800-656-4673' },
                 'Rape and Abuse National Hotline',
                 _react2.default.createElement('br', null),
                 ' 1(800)656-HOPE'
