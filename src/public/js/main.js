@@ -5,9 +5,9 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 import Home from './components/home';
 import Counselors from './components/counselors';
 import Pharmacy from './components/pharmacies';
-import Doctors from './components/doctors';
 import Birthcontrol from './components/birthcontrol';
 import Resources from './components/resources';
+import Doctors from './components/doctors';
 import Flexbox from 'flexbox-react';
 
 
@@ -32,6 +32,7 @@ const Navigation = ()=> (
 
 const Main = ()=> (
   <main>
+
   <Switch>
    <Route exact path = '/' component = {Home}/>
    <Route path = '/doctors' component = {Doctors} />
@@ -40,6 +41,7 @@ const Main = ()=> (
    <Route path = '/birthcontrol' component = {Birthcontrol}/>
    <Route path = '/resources' component = {Resources}/>
   </Switch>
+
   </main>
 )
 
