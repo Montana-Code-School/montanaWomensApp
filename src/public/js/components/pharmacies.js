@@ -31,7 +31,7 @@ export default class Pharmacy extends React.Component {
         padding:50,
         marginTop:65,
         height: 300,
-        backgroundColor:'#ff80df',
+        backgroundColor:'#f1deef',
         color: "#333",
         fontFamily: "helvetica",
         fontSize: 55,
@@ -55,26 +55,27 @@ export default class Pharmacy extends React.Component {
         boxShadow: '5px 5px 2px #a44200',
       }
       return (
-        <div>
-        <Jumbotron style={{backgroundColor: '#cbe8ed'}}>
+        <div >
+        <Jumbotron style={{backgroundImage:"url('../../css/img/pharmacy-2.png')", backgroundPosition: "center"}}>
           <JumbotronCol style={{width:'40%'}}>
             <div style={{height: '400px'}}>
               <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
             </div>
           </JumbotronCol>
 
-           <JumbotronCol  style={{width: '60%'}}>
+           <JumbotronCol  style={{width: '60%'}} >
             <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
              <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Pharmacies</h1>
              <h3>Find a pharmacy near you!</h3>
              </div>
           </JumbotronCol>
         </Jumbotron>
-
+          <div>
             <Flexbox style={topBottom} className="healthPage pharmacy" flexDirection="row">
               <Gmap style={mapStyle} array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'} styles={this.state.styles}/>
               <Table array={this.state.array} />
             </Flexbox>
+          </div>  
         </div>
       )}
     };

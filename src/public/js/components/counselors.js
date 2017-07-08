@@ -19,7 +19,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
      textAlign:"center"
    }
 
-   var websiteStyle = { 
+   var websiteStyle = {
      textAlign:"center",
      fontSize: "1.5em"
    }
@@ -49,6 +49,8 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
       render () {
         return(
           <div style={topBottom}>
+          <Flexbox justifyContent="center">
+          <div className="col-md-6">
             <ul>
               <List title="Aletheia Marriage Counseling" description="James W. Ramsey,  MA, MFT, LCPC  You'll be surprised how fast couples experience incredible results after putting into practice just a few simple principles.  It starts with a desire to have a better relationship and the.willingness to have something different.  All our coaching and counseling programs are designed to meet you....where you're at now....no matter how bad it may feel. Located at 2870 St. Michael Drive  Missoula Mt 59803"  website="www.aletheiamarriagecounseling.net" number='(406)251-7073'/>
              <List title="Marriage and Couple Counseling" description="David Meurer, LCSW  In my marriage and couples counseling Missoula practice, I help people foster more caring and support in their relationship. This includes helping people build a strong connection to each other and bring more joy into their life together. I help couples learn the skills they need to move through conflict well. This means learning to value each other’s unique input when facing challenges and stress. In my marriage and couples counseling Missoula practice, I rely on models that have been tested through years of research. These models can bring people to new understandings and insights, which can help them make sense of the difficulties they are having. Then they can learn new ways to solve problems and take care of each other.Located at 415 N Higgins #132 Missoul Mt 59802 "  website="www.counselingmissoula.com" number='(406)531-6250'/>
@@ -59,6 +61,8 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
               <List title="Dr Q Counnseling" description="If you'd like to discuss your concerns with a counselor, visit Dr. Q Counseling in Missoula, MT. If necessary, we can also come to you. We work hard to help individuals and families who are struggling with particular mental health issues or general anxieties and fears. We accept most insurance plans and take Medicaid. If you'd like to receive counseling for a gambling problem, we offer funding to help cover the costs. If you're nervous about receiving care, we'll do our best to put your mind at ease. Our counselor graduated from the University of Montana and is a member of the American Mental Health Counselors Association. At our clinic, we want our patients to move beyond their struggles, and we offer a variety of treatments in an effort to help them do so. This includes: Gambling addiction therapy, Parent-child interaction therapy, Addiction counseling, Trauma counseling.  Located at 725 W Central Ave  Ste 209 Missoula, Mt 59801"  website="www.missoulacounselingservices.com" number='(406)203-0814'/>
               <List title="Bluebird Psychotherapy" description="My name is Ivy Irvine, LCSW, and I am a licensed clinical social worker and therapist at Bluebird Psychotherapy, located in downtown Missoula, Montana.  I provide counseling and consultation services for children, families, and adults.   I accept many forms of insurance and am happy to work with individuals and families on a sliding scale fee system. Therapy and support should be accessible to everyone regardless of cost. I specialize in working with children, families and adults who have experienced trauma, grief and loss and who need a place to experience safe, kind, and healing relationships. I work with children and adults who have needs around the following: Adoption, Attachment Issues (RAD), Anxiety, Behavioral Problems, Child Abuse and Neglect, Depression, Divorce, Domestic Violence, Emotional Disturbance, Family Conflict, Grief, Impulsivity, Oppositional Defiance, Parenting Peer Relationships, School Issues, Self-Esteem, Self-Harming Behaviors, Sexual Abuse, Stress, Suicideation, Trauma and PTSD.  Located at 725 W. Alder   Ste 28, Missoula, Mt 59802"  website="www.bluebirdpsychotherapy.com" number='(406)546-0082'/>
              </ul>
+          </div>
+          </Flexbox>
           </div>
         );
       }
@@ -82,24 +86,24 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
         return (
           <div>
-          <Jumbotron style={{backgroundColor: '#cbe8ed'}}>
+          <Jumbotron style={{backgroundImage:"url('../../css/img/hands.png')", backgroundPosition: "center"}}>
             <JumbotronCol style={{width:'40%'}}>
               <div style={{height: '400px'}}>
                 <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
               </div>
             </JumbotronCol>
 
-            <JumbotronCol  style={{width: '60%'}}>
+            <JumbotronCol style={{width: '60%'}}>
               <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
-               <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Counseling</h1>
-               <h3>Mainting mental and emotional health is just as important as physical well-being.</h3>
-
+                <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Counseling</h1>
+                <h3>Mainting mental and emotional health is just as important as physical well-being.</h3>
               </div>
            </JumbotronCol>
          </Jumbotron>
 
           <Rows />
-          </div>
+        </div>
+
 
 
         );
