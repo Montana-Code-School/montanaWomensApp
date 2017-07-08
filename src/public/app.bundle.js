@@ -13772,7 +13772,7 @@ var Chatbot = function (_React$Component2) {
           { className: 'jumbo-fadeIn fade-stagger' },
           _react2.default.createElement(
             _flexboxReact2.default,
-            { flexDirection: 'row', justifyContent: 'center', minHeight: '20vh' },
+            { flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap', minHeight: '20vh' },
             _react2.default.createElement(
               _reactDynamicUi.JumbotronCol,
               { fadeEffect: 'fadeInRight', style: { width: '50%' } },
@@ -13788,8 +13788,16 @@ var Chatbot = function (_React$Component2) {
                   'h3',
                   { className: 'symptomdescript' },
                   'Try our chatbot to get information fast. '
-                ),
-                _react2.default.createElement('iframe', { src: 'https://webchat.botframework.com/embed/MTWomenHealthChatbot?s=nnbH4NOVK5A.cwA.HgM.jqCGYu52E3_dQCVqHQW9QASVNG8oAFWTEvZCOdz-2TM' })
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _reactDynamicUi.JumbotronCol,
+              { className: 'jumbo-fadeUp' },
+              _react2.default.createElement(
+                _flexboxReact2.default,
+                { flexDirection: 'column', element: 'section' },
+                _react2.default.createElement('iframe', { src: 'https://webchat.botframework.com/embed/MTWomensResourceChatbot?s=x6RUQOKGgBg.cwA.HRY.UEt6QhX_zF_DXKeFOZ5Dn5LHEFzJMa5q8RYesbAvJCc' })
               )
             )
           )

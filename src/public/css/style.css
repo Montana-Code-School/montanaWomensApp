@@ -110,6 +110,9 @@ a {
   flex-direction: column;
   justify-content: center;
 }
+.wc-header {
+    background-color: #bc3f00 !important;
+  }
 
 iframe {
   max-width: 300px;
