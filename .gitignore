@@ -8,3 +8,6 @@ src/public/vendor.bundle.js
  src/public/libs/typeahead.bundle.js
 
  app.bundle.js
+
+ dist/server.js
+ 	dist/server.js.map
