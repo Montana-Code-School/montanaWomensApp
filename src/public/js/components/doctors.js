@@ -55,7 +55,7 @@ export default class Doctors extends React.Component {
       }
       return (
           <div>
-          <Jumbotron style={{backgroundImage:"url('../../css/img/doc.png')", backgroundPosition: "center"}}>
+          <Jumbotron style={{backgroundImage:"url('./css/img/doctors.png')"}}>
             <JumbotronCol style={{width:'40%'}}>
               <div style={{height: '400px'}}>
                 <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />

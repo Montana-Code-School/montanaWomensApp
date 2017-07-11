@@ -32,16 +32,14 @@ const Navigation = ()=> (
 
 const Main = ()=> (
   <main>
-
-  <Switch>
-   <Route exact path = '/' component = {Home}/>
-   <Route path = '/doctors' component = {Doctors} />
-   <Route path = '/counselors' component = {Counselors}/>
-   <Route path = '/pharmacies' component = {Pharmacy}/>
-   <Route path = '/birthcontrol' component = {Birthcontrol}/>
-   <Route path = '/resources' component = {Resources}/>
-  </Switch>
-
+    <Switch>
+       <Route exact path = '/' component = {Home}/>
+       <Route path = '/counselors' component = {Counselors}/>
+       <Route path = '/pharmacies' component = {Pharmacy}/>
+       <Route path = '/birthcontrol' component = {Birthcontrol}/>
+       <Route path = '/resources' component = {Resources}/>
+       <Route path = '/doctors' component = {Doctors} />
+    </Switch>
   </main>
 )
 

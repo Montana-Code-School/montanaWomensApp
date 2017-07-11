@@ -69,15 +69,14 @@ a {
 }
 
 .symptom {
-
+  margin-top: 5px;
   text-align: right;
-  background-color: #cbe8ed !important;
+  background-image: url('./css/img/symptom.png');
   height: 400px;
   font-size: 5em;
   padding-right: 8.8em;
   padding-top: 3em !important;
   z-index: 195;
-  margin-top: 5px;
 }
 
 
@@ -310,13 +309,12 @@ p {
   flex-wrap: wrap;
 }
 
-
-.pharmacy {
-  background-color: #edd3ea;
-}
+/*.pharmacy {
+  background-image: url('./css/img/pharmacy.png');
+}*/
 
 .doctor {
-  background-color: #d4f7f3;
+  background-color: rgba(147,236,225, .3);
 }
 
 .infowindow h5 {
