@@ -2128,7 +2128,7 @@ var mode = "diagnosis";
                 var spec = jQuery("<a/>", {
                     "text": this.Name,
                     //TODO
-                    //"href": specUrl + "/" + this.Name + "/" + this.ID
+                    // "href": specUrl + "/" + this.Name + "/" + this.ID
                     "href": specUrl + "?specId=" + this.SpecialistID
                 });
 

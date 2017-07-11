@@ -175,7 +175,7 @@ input.symptom-search
 }
 
 .location_list li:hover {
-  color: #4193d0;
+  color: #A30015;
 }
 .location_list li:before {
   content: '\f054'; /* fa-chevron-right */
@@ -235,7 +235,7 @@ input.symptom-search
   margin-left: 1.5em;
 }
 .proposed_list li:hover {
-  color:#4193d0;
+  color:#A30015;
 }
 
 .proposed_list li:before {
