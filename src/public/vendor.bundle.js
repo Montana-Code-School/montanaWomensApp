@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 285);
+/******/ 	return __webpack_require__(__webpack_require__.s = 286);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 285:
+/***/ 286:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -726,7 +726,7 @@ var mode = "diagnosis";
         var skinLink = jQuery("<a/>", {
             "class": "skin-link",
             href: "javascript:void(0)",
-            text: skinText,
+            // text: skinText,
             click: function click() {
                 _selectBodyPart(SymptomsLocations.Skin);
             }
