@@ -13540,7 +13540,7 @@ var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
-var _chatbot = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"/chatbot.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _chatbot = __webpack_require__(287);
 
 var _chatbot2 = _interopRequireDefault(_chatbot);
 
@@ -35300,6 +35300,26015 @@ _reactDom2.default.render(_react2.default.createElement(
   null,
   _react2.default.createElement(App, null)
 ), document.getElementById('container'));
+
+/***/ }),
+/* 286 */,
+/* 287 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(26);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRouter = __webpack_require__(9);
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var _reactDynamicUi = __webpack_require__(19);
+
+var _reactRouterDom = __webpack_require__(66);
+
+var _flexboxReact = __webpack_require__(18);
+
+var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
+
+var _botframeworkWebchat = __webpack_require__(381);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Chatbot = function (_React$Component) {
+  _inherits(Chatbot, _React$Component);
+
+  function Chatbot() {
+    _classCallCheck(this, Chatbot);
+
+    return _possibleConstructorReturn(this, (Chatbot.__proto__ || Object.getPrototypeOf(Chatbot)).apply(this, arguments));
+  }
+
+  _createClass(Chatbot, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'chatbot' },
+        _react2.default.createElement(
+          _reactDynamicUi.Jumbotron,
+          { className: 'jumbo-fadeIn fade-stagger' },
+          _react2.default.createElement(
+            _flexboxReact2.default,
+            { flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap', minHeight: '20vh' },
+            _react2.default.createElement(
+              _reactDynamicUi.JumbotronCol,
+              { fadeEffect: 'fadeInRight', style: { width: '50%' } },
+              _react2.default.createElement(
+                _flexboxReact2.default,
+                { flexDirection: 'column', element: 'section' },
+                _react2.default.createElement(
+                  'h1',
+                  { className: 'symptomheader', style: { paddingTop: '3em' } },
+                  'Have a question about local resources?'
+                ),
+                _react2.default.createElement(
+                  'h3',
+                  { className: 'symptomdescript' },
+                  'Try our chatbot to get information fast. '
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _reactDynamicUi.JumbotronCol,
+              { className: 'jumbo-fadeUp', style: { width: '50%' } },
+              _react2.default.createElement(
+                _flexboxReact2.default,
+                { flexDirection: 'column', element: 'section' },
+                _react2.default.createElement('iframe', { src: 'https://webchat.botframework.com/embed/MTWomensResourceChatbot?s=5CLvAQ6ZWs0.cwA.G2E.0K7g79ZrlWCYlKqQpgs32C_N7TJdvr1hMb12FKh8ay4' })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Chatbot;
+}(_react2.default.Component);
+
+exports.default = Chatbot;
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root_1 = __webpack_require__(292);
+var toSubscriber_1 = __webpack_require__(543);
+var observable_1 = __webpack_require__(322);
+/**
+ * A representation of any set of values over any amount of time. This the most basic building block
+ * of RxJS.
+ *
+ * @class Observable<T>
+ */
+var Observable = function () {
+    /**
+     * @constructor
+     * @param {Function} subscribe the function that is  called when the Observable is
+     * initially subscribed to. This function is given a Subscriber, to which new values
+     * can be `next`ed, or an `error` method can be called to raise an error, or
+     * `complete` can be called to notify of a successful completion.
+     */
+    function Observable(subscribe) {
+        this._isScalar = false;
+        if (subscribe) {
+            this._subscribe = subscribe;
+        }
+    }
+    /**
+     * Creates a new Observable, with this Observable as the source, and the passed
+     * operator defined as the new observable's operator.
+     * @method lift
+     * @param {Operator} operator the operator defining the operation to take on the observable
+     * @return {Observable} a new observable with the Operator applied
+     */
+    Observable.prototype.lift = function (operator) {
+        var observable = new Observable();
+        observable.source = this;
+        observable.operator = operator;
+        return observable;
+    };
+    /**
+     * Invokes an execution of an Observable and registers Observer handlers for notifications it will emit.
+     *
+     * <span class="informal">Use it when you have all these Observables, but still nothing is happening.</span>
+     *
+     * `subscribe` is not a regular operator, but a method that calls Observables internal `subscribe` function. It
+     * might be for example a function that you passed to a {@link create} static factory, but most of the time it is
+     * a library implementation, which defines what and when will be emitted by an Observable. This means that calling
+     * `subscribe` is actually the moment when Observable starts its work, not when it is created, as it is often
+     * thought.
+     *
+     * Apart from starting the execution of an Observable, this method allows you to listen for values
+     * that an Observable emits, as well as for when it completes or errors. You can achieve this in two
+     * following ways.
+     *
+     * The first way is creating an object that implements {@link Observer} interface. It should have methods
+     * defined by that interface, but note that it should be just a regular JavaScript object, which you can create
+     * yourself in any way you want (ES6 class, classic function constructor, object literal etc.). In particular do
+     * not attempt to use any RxJS implementation details to create Observers - you don't need them. Remember also
+     * that your object does not have to implement all methods. If you find yourself creating a method that doesn't
+     * do anything, you can simply omit it. Note however, that if `error` method is not provided, all errors will
+     * be left uncaught.
+     *
+     * The second way is to give up on Observer object altogether and simply provide callback functions in place of its methods.
+     * This means you can provide three functions as arguments to `subscribe`, where first function is equivalent
+     * of a `next` method, second of an `error` method and third of a `complete` method. Just as in case of Observer,
+     * if you do not need to listen for something, you can omit a function, preferably by passing `undefined` or `null`,
+     * since `subscribe` recognizes these functions by where they were placed in function call. When it comes
+     * to `error` function, just as before, if not provided, errors emitted by an Observable will be thrown.
+     *
+     * Whatever style of calling `subscribe` you use, in both cases it returns a Subscription object.
+     * This object allows you to call `unsubscribe` on it, which in turn will stop work that an Observable does and will clean
+     * up all resources that an Observable used. Note that cancelling a subscription will not call `complete` callback
+     * provided to `subscribe` function, which is reserved for a regular completion signal that comes from an Observable.
+     *
+     * Remember that callbacks provided to `subscribe` are not guaranteed to be called asynchronously.
+     * It is an Observable itself that decides when these functions will be called. For example {@link of}
+     * by default emits all its values synchronously. Always check documentation for how given Observable
+     * will behave when subscribed and if its default behavior can be modified with a {@link Scheduler}.
+     *
+     * @example <caption>Subscribe with an Observer</caption>
+     * const sumObserver = {
+     *   sum: 0,
+     *   next(value) {
+     *     console.log('Adding: ' + value);
+     *     this.sum = this.sum + value;
+     *   },
+     *   error() { // We actually could just remote this method,
+     *   },        // since we do not really care about errors right now.
+     *   complete() {
+     *     console.log('Sum equals: ' + this.sum);
+     *   }
+     * };
+     *
+     * Rx.Observable.of(1, 2, 3) // Synchronously emits 1, 2, 3 and then completes.
+     * .subscribe(sumObserver);
+     *
+     * // Logs:
+     * // "Adding: 1"
+     * // "Adding: 2"
+     * // "Adding: 3"
+     * // "Sum equals: 6"
+     *
+     *
+     * @example <caption>Subscribe with functions</caption>
+     * let sum = 0;
+     *
+     * Rx.Observable.of(1, 2, 3)
+     * .subscribe(
+     *   function(value) {
+     *     console.log('Adding: ' + value);
+     *     sum = sum + value;
+     *   },
+     *   undefined,
+     *   function() {
+     *     console.log('Sum equals: ' + sum);
+     *   }
+     * );
+     *
+     * // Logs:
+     * // "Adding: 1"
+     * // "Adding: 2"
+     * // "Adding: 3"
+     * // "Sum equals: 6"
+     *
+     *
+     * @example <caption>Cancel a subscription</caption>
+     * const subscription = Rx.Observable.interval(1000).subscribe(
+     *   num => console.log(num),
+     *   undefined,
+     *   () => console.log('completed!') // Will not be called, even
+     * );                                // when cancelling subscription
+     *
+     *
+     * setTimeout(() => {
+     *   subscription.unsubscribe();
+     *   console.log('unsubscribed!');
+     * }, 2500);
+     *
+     * // Logs:
+     * // 0 after 1s
+     * // 1 after 2s
+     * // "unsubscribed!" after 2,5s
+     *
+     *
+     * @param {Observer|Function} observerOrNext (optional) Either an observer with methods to be called,
+     *  or the first of three possible handlers, which is the handler for each value emitted from the subscribed
+     *  Observable.
+     * @param {Function} error (optional) A handler for a terminal event resulting from an error. If no error handler is provided,
+     *  the error will be thrown as unhandled.
+     * @param {Function} complete (optional) A handler for a terminal event resulting from successful completion.
+     * @return {ISubscription} a subscription reference to the registered handlers
+     * @method subscribe
+     */
+    Observable.prototype.subscribe = function (observerOrNext, error, complete) {
+        var operator = this.operator;
+        var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
+        if (operator) {
+            operator.call(sink, this.source);
+        } else {
+            sink.add(this.source ? this._subscribe(sink) : this._trySubscribe(sink));
+        }
+        if (sink.syncErrorThrowable) {
+            sink.syncErrorThrowable = false;
+            if (sink.syncErrorThrown) {
+                throw sink.syncErrorValue;
+            }
+        }
+        return sink;
+    };
+    Observable.prototype._trySubscribe = function (sink) {
+        try {
+            return this._subscribe(sink);
+        } catch (err) {
+            sink.syncErrorThrown = true;
+            sink.syncErrorValue = err;
+            sink.error(err);
+        }
+    };
+    /**
+     * @method forEach
+     * @param {Function} next a handler for each value emitted by the observable
+     * @param {PromiseConstructor} [PromiseCtor] a constructor function used to instantiate the Promise
+     * @return {Promise} a promise that either resolves on observable completion or
+     *  rejects with the handled error
+     */
+    Observable.prototype.forEach = function (next, PromiseCtor) {
+        var _this = this;
+        if (!PromiseCtor) {
+            if (root_1.root.Rx && root_1.root.Rx.config && root_1.root.Rx.config.Promise) {
+                PromiseCtor = root_1.root.Rx.config.Promise;
+            } else if (root_1.root.Promise) {
+                PromiseCtor = root_1.root.Promise;
+            }
+        }
+        if (!PromiseCtor) {
+            throw new Error('no Promise impl found');
+        }
+        return new PromiseCtor(function (resolve, reject) {
+            // Must be declared in a separate statement to avoid a RefernceError when
+            // accessing subscription below in the closure due to Temporal Dead Zone.
+            var subscription;
+            subscription = _this.subscribe(function (value) {
+                if (subscription) {
+                    // if there is a subscription, then we can surmise
+                    // the next handling is asynchronous. Any errors thrown
+                    // need to be rejected explicitly and unsubscribe must be
+                    // called manually
+                    try {
+                        next(value);
+                    } catch (err) {
+                        reject(err);
+                        subscription.unsubscribe();
+                    }
+                } else {
+                    // if there is NO subscription, then we're getting a nexted
+                    // value synchronously during subscription. We can just call it.
+                    // If it errors, Observable's `subscribe` will ensure the
+                    // unsubscription logic is called, then synchronously rethrow the error.
+                    // After that, Promise will trap the error and send it
+                    // down the rejection path.
+                    next(value);
+                }
+            }, reject, resolve);
+        });
+    };
+    Observable.prototype._subscribe = function (subscriber) {
+        return this.source.subscribe(subscriber);
+    };
+    /**
+     * An interop point defined by the es7-observable spec https://github.com/zenparsing/es-observable
+     * @method Symbol.observable
+     * @return {Observable} this instance of the observable
+     */
+    Observable.prototype[observable_1.observable] = function () {
+        return this;
+    };
+    // HACK: Since TypeScript inherits static properties too, we have to
+    // fight against TypeScript here so Subject can have a different static create signature
+    /**
+     * Creates a new cold Observable by calling the Observable constructor
+     * @static true
+     * @owner Observable
+     * @method create
+     * @param {Function} subscribe? the subscriber function to be passed to the Observable constructor
+     * @return {Observable} a new cold observable
+     */
+    Observable.create = function (subscribe) {
+        return new Observable(subscribe);
+    };
+    return Observable;
+}();
+exports.Observable = Observable;
+//# sourceMappingURL=Observable.js.map
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Utilities
+//
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _class(obj) {
+  return Object.prototype.toString.call(obj);
+}
+
+function isString(obj) {
+  return _class(obj) === '[object String]';
+}
+
+var _hasOwnProperty = Object.prototype.hasOwnProperty;
+
+function has(object, key) {
+  return _hasOwnProperty.call(object, key);
+}
+
+// Merge objects
+//
+function assign(obj /*from1, from2, from3, ...*/) {
+  var sources = Array.prototype.slice.call(arguments, 1);
+
+  sources.forEach(function (source) {
+    if (!source) {
+      return;
+    }
+
+    if ((typeof source === 'undefined' ? 'undefined' : _typeof(source)) !== 'object') {
+      throw new TypeError(source + 'must be object');
+    }
+
+    Object.keys(source).forEach(function (key) {
+      obj[key] = source[key];
+    });
+  });
+
+  return obj;
+}
+
+// Remove element from array and put another array at those position.
+// Useful for some operations with tokens
+function arrayReplaceAt(src, pos, newElements) {
+  return [].concat(src.slice(0, pos), newElements, src.slice(pos + 1));
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+function isValidEntityCode(c) {
+  /*eslint no-bitwise:0*/
+  // broken sequence
+  if (c >= 0xD800 && c <= 0xDFFF) {
+    return false;
+  }
+  // never used
+  if (c >= 0xFDD0 && c <= 0xFDEF) {
+    return false;
+  }
+  if ((c & 0xFFFF) === 0xFFFF || (c & 0xFFFF) === 0xFFFE) {
+    return false;
+  }
+  // control codes
+  if (c >= 0x00 && c <= 0x08) {
+    return false;
+  }
+  if (c === 0x0B) {
+    return false;
+  }
+  if (c >= 0x0E && c <= 0x1F) {
+    return false;
+  }
+  if (c >= 0x7F && c <= 0x9F) {
+    return false;
+  }
+  // out of range
+  if (c > 0x10FFFF) {
+    return false;
+  }
+  return true;
+}
+
+function fromCodePoint(c) {
+  /*eslint no-bitwise:0*/
+  if (c > 0xffff) {
+    c -= 0x10000;
+    var surrogate1 = 0xd800 + (c >> 10),
+        surrogate2 = 0xdc00 + (c & 0x3ff);
+
+    return String.fromCharCode(surrogate1, surrogate2);
+  }
+  return String.fromCharCode(c);
+}
+
+var UNESCAPE_MD_RE = /\\([!"#$%&'()*+,\-.\/:;<=>?@[\\\]^_`{|}~])/g;
+var ENTITY_RE = /&([a-z#][a-z0-9]{1,31});/gi;
+var UNESCAPE_ALL_RE = new RegExp(UNESCAPE_MD_RE.source + '|' + ENTITY_RE.source, 'gi');
+
+var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
+
+var entities = __webpack_require__(337);
+
+function replaceEntityPattern(match, name) {
+  var code = 0;
+
+  if (has(entities, name)) {
+    return entities[name];
+  }
+
+  if (name.charCodeAt(0) === 0x23 /* # */ && DIGITAL_ENTITY_TEST_RE.test(name)) {
+    code = name[1].toLowerCase() === 'x' ? parseInt(name.slice(2), 16) : parseInt(name.slice(1), 10);
+    if (isValidEntityCode(code)) {
+      return fromCodePoint(code);
+    }
+  }
+
+  return match;
+}
+
+/*function replaceEntities(str) {
+  if (str.indexOf('&') < 0) { return str; }
+
+  return str.replace(ENTITY_RE, replaceEntityPattern);
+}*/
+
+function unescapeMd(str) {
+  if (str.indexOf('\\') < 0) {
+    return str;
+  }
+  return str.replace(UNESCAPE_MD_RE, '$1');
+}
+
+function unescapeAll(str) {
+  if (str.indexOf('\\') < 0 && str.indexOf('&') < 0) {
+    return str;
+  }
+
+  return str.replace(UNESCAPE_ALL_RE, function (match, escaped, entity) {
+    if (escaped) {
+      return escaped;
+    }
+    return replaceEntityPattern(match, entity);
+  });
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+var HTML_ESCAPE_TEST_RE = /[&<>"]/;
+var HTML_ESCAPE_REPLACE_RE = /[&<>"]/g;
+var HTML_REPLACEMENTS = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;'
+};
+
+function replaceUnsafeChar(ch) {
+  return HTML_REPLACEMENTS[ch];
+}
+
+function escapeHtml(str) {
+  if (HTML_ESCAPE_TEST_RE.test(str)) {
+    return str.replace(HTML_ESCAPE_REPLACE_RE, replaceUnsafeChar);
+  }
+  return str;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+var REGEXP_ESCAPE_RE = /[.?*+^$[\]\\(){}|-]/g;
+
+function escapeRE(str) {
+  return str.replace(REGEXP_ESCAPE_RE, '\\$&');
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+function isSpace(code) {
+  switch (code) {
+    case 0x09:
+    case 0x20:
+      return true;
+  }
+  return false;
+}
+
+// Zs (unicode class) || [\t\f\v\r\n]
+function isWhiteSpace(code) {
+  if (code >= 0x2000 && code <= 0x200A) {
+    return true;
+  }
+  switch (code) {
+    case 0x09: // \t
+    case 0x0A: // \n
+    case 0x0B: // \v
+    case 0x0C: // \f
+    case 0x0D: // \r
+    case 0x20:
+    case 0xA0:
+    case 0x1680:
+    case 0x202F:
+    case 0x205F:
+    case 0x3000:
+      return true;
+  }
+  return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+/*eslint-disable max-len*/
+var UNICODE_PUNCT_RE = __webpack_require__(325);
+
+// Currently without astral characters support.
+function isPunctChar(ch) {
+  return UNICODE_PUNCT_RE.test(ch);
+}
+
+// Markdown ASCII punctuation characters.
+//
+// !, ", #, $, %, &, ', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, or ~
+// http://spec.commonmark.org/0.15/#ascii-punctuation-character
+//
+// Don't confuse with unicode punctuation !!! It lacks some chars in ascii range.
+//
+function isMdAsciiPunct(ch) {
+  switch (ch) {
+    case 0x21 /* ! */:
+    case 0x22 /* " */:
+    case 0x23 /* # */:
+    case 0x24 /* $ */:
+    case 0x25 /* % */:
+    case 0x26 /* & */:
+    case 0x27 /* ' */:
+    case 0x28 /* ( */:
+    case 0x29 /* ) */:
+    case 0x2A /* * */:
+    case 0x2B /* + */:
+    case 0x2C /* , */:
+    case 0x2D /* - */:
+    case 0x2E /* . */:
+    case 0x2F /* / */:
+    case 0x3A /* : */:
+    case 0x3B /* ; */:
+    case 0x3C /* < */:
+    case 0x3D /* = */:
+    case 0x3E /* > */:
+    case 0x3F /* ? */:
+    case 0x40 /* @ */:
+    case 0x5B /* [ */:
+    case 0x5C /* \ */:
+    case 0x5D /* ] */:
+    case 0x5E /* ^ */:
+    case 0x5F /* _ */:
+    case 0x60 /* ` */:
+    case 0x7B /* { */:
+    case 0x7C /* | */:
+    case 0x7D /* } */:
+    case 0x7E /* ~ */:
+      return true;
+    default:
+      return false;
+  }
+}
+
+// Hepler to unify [reference labels].
+//
+function normalizeReference(str) {
+  // use .toUpperCase() instead of .toLowerCase()
+  // here to avoid a conflict with Object.prototype
+  // members (most notably, `__proto__`)
+  return str.trim().replace(/\s+/g, ' ').toUpperCase();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Re-export libraries commonly used in both markdown-it and its plugins,
+// so plugins won't have to depend on them explicitly, which reduces their
+// bundled size (e.g. a browser build).
+//
+exports.lib = {};
+exports.lib.mdurl = __webpack_require__(341);
+exports.lib.ucmicro = __webpack_require__(548);
+
+exports.assign = assign;
+exports.isString = isString;
+exports.has = has;
+exports.unescapeMd = unescapeMd;
+exports.unescapeAll = unescapeAll;
+exports.isValidEntityCode = isValidEntityCode;
+exports.fromCodePoint = fromCodePoint;
+// exports.replaceEntities     = replaceEntities;
+exports.escapeHtml = escapeHtml;
+exports.arrayReplaceAt = arrayReplaceAt;
+exports.isSpace = isSpace;
+exports.isWhiteSpace = isWhiteSpace;
+exports.isMdAsciiPunct = isMdAsciiPunct;
+exports.isPunctChar = isPunctChar;
+exports.escapeRE = escapeRE;
+exports.normalizeReference = normalizeReference;
+
+/***/ }),
+/* 290 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var isFunction_1 = __webpack_require__(324);
+var Subscription_1 = __webpack_require__(296);
+var Observer_1 = __webpack_require__(354);
+var rxSubscriber_1 = __webpack_require__(323);
+/**
+ * Implements the {@link Observer} interface and extends the
+ * {@link Subscription} class. While the {@link Observer} is the public API for
+ * consuming the values of an {@link Observable}, all Observers get converted to
+ * a Subscriber, in order to provide Subscription-like capabilities such as
+ * `unsubscribe`. Subscriber is a common type in RxJS, and crucial for
+ * implementing operators, but it is rarely used as a public API.
+ *
+ * @class Subscriber<T>
+ */
+var Subscriber = function (_super) {
+    __extends(Subscriber, _super);
+    /**
+     * @param {Observer|function(value: T): void} [destinationOrNext] A partially
+     * defined Observer or a `next` callback function.
+     * @param {function(e: ?any): void} [error] The `error` callback of an
+     * Observer.
+     * @param {function(): void} [complete] The `complete` callback of an
+     * Observer.
+     */
+    function Subscriber(destinationOrNext, error, complete) {
+        _super.call(this);
+        this.syncErrorValue = null;
+        this.syncErrorThrown = false;
+        this.syncErrorThrowable = false;
+        this.isStopped = false;
+        switch (arguments.length) {
+            case 0:
+                this.destination = Observer_1.empty;
+                break;
+            case 1:
+                if (!destinationOrNext) {
+                    this.destination = Observer_1.empty;
+                    break;
+                }
+                if ((typeof destinationOrNext === 'undefined' ? 'undefined' : _typeof(destinationOrNext)) === 'object') {
+                    if (destinationOrNext instanceof Subscriber) {
+                        this.destination = destinationOrNext;
+                        this.destination.add(this);
+                    } else {
+                        this.syncErrorThrowable = true;
+                        this.destination = new SafeSubscriber(this, destinationOrNext);
+                    }
+                    break;
+                }
+            default:
+                this.syncErrorThrowable = true;
+                this.destination = new SafeSubscriber(this, destinationOrNext, error, complete);
+                break;
+        }
+    }
+    Subscriber.prototype[rxSubscriber_1.rxSubscriber] = function () {
+        return this;
+    };
+    /**
+     * A static factory for a Subscriber, given a (potentially partial) definition
+     * of an Observer.
+     * @param {function(x: ?T): void} [next] The `next` callback of an Observer.
+     * @param {function(e: ?any): void} [error] The `error` callback of an
+     * Observer.
+     * @param {function(): void} [complete] The `complete` callback of an
+     * Observer.
+     * @return {Subscriber<T>} A Subscriber wrapping the (partially defined)
+     * Observer represented by the given arguments.
+     */
+    Subscriber.create = function (next, error, complete) {
+        var subscriber = new Subscriber(next, error, complete);
+        subscriber.syncErrorThrowable = false;
+        return subscriber;
+    };
+    /**
+     * The {@link Observer} callback to receive notifications of type `next` from
+     * the Observable, with a value. The Observable may call this method 0 or more
+     * times.
+     * @param {T} [value] The `next` value.
+     * @return {void}
+     */
+    Subscriber.prototype.next = function (value) {
+        if (!this.isStopped) {
+            this._next(value);
+        }
+    };
+    /**
+     * The {@link Observer} callback to receive notifications of type `error` from
+     * the Observable, with an attached {@link Error}. Notifies the Observer that
+     * the Observable has experienced an error condition.
+     * @param {any} [err] The `error` exception.
+     * @return {void}
+     */
+    Subscriber.prototype.error = function (err) {
+        if (!this.isStopped) {
+            this.isStopped = true;
+            this._error(err);
+        }
+    };
+    /**
+     * The {@link Observer} callback to receive a valueless notification of type
+     * `complete` from the Observable. Notifies the Observer that the Observable
+     * has finished sending push-based notifications.
+     * @return {void}
+     */
+    Subscriber.prototype.complete = function () {
+        if (!this.isStopped) {
+            this.isStopped = true;
+            this._complete();
+        }
+    };
+    Subscriber.prototype.unsubscribe = function () {
+        if (this.closed) {
+            return;
+        }
+        this.isStopped = true;
+        _super.prototype.unsubscribe.call(this);
+    };
+    Subscriber.prototype._next = function (value) {
+        this.destination.next(value);
+    };
+    Subscriber.prototype._error = function (err) {
+        this.destination.error(err);
+        this.unsubscribe();
+    };
+    Subscriber.prototype._complete = function () {
+        this.destination.complete();
+        this.unsubscribe();
+    };
+    Subscriber.prototype._unsubscribeAndRecycle = function () {
+        var _a = this,
+            _parent = _a._parent,
+            _parents = _a._parents;
+        this._parent = null;
+        this._parents = null;
+        this.unsubscribe();
+        this.closed = false;
+        this.isStopped = false;
+        this._parent = _parent;
+        this._parents = _parents;
+        return this;
+    };
+    return Subscriber;
+}(Subscription_1.Subscription);
+exports.Subscriber = Subscriber;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var SafeSubscriber = function (_super) {
+    __extends(SafeSubscriber, _super);
+    function SafeSubscriber(_parentSubscriber, observerOrNext, error, complete) {
+        _super.call(this);
+        this._parentSubscriber = _parentSubscriber;
+        var next;
+        var context = this;
+        if (isFunction_1.isFunction(observerOrNext)) {
+            next = observerOrNext;
+        } else if (observerOrNext) {
+            next = observerOrNext.next;
+            error = observerOrNext.error;
+            complete = observerOrNext.complete;
+            if (observerOrNext !== Observer_1.empty) {
+                context = Object.create(observerOrNext);
+                if (isFunction_1.isFunction(context.unsubscribe)) {
+                    this.add(context.unsubscribe.bind(context));
+                }
+                context.unsubscribe = this.unsubscribe.bind(this);
+            }
+        }
+        this._context = context;
+        this._next = next;
+        this._error = error;
+        this._complete = complete;
+    }
+    SafeSubscriber.prototype.next = function (value) {
+        if (!this.isStopped && this._next) {
+            var _parentSubscriber = this._parentSubscriber;
+            if (!_parentSubscriber.syncErrorThrowable) {
+                this.__tryOrUnsub(this._next, value);
+            } else if (this.__tryOrSetError(_parentSubscriber, this._next, value)) {
+                this.unsubscribe();
+            }
+        }
+    };
+    SafeSubscriber.prototype.error = function (err) {
+        if (!this.isStopped) {
+            var _parentSubscriber = this._parentSubscriber;
+            if (this._error) {
+                if (!_parentSubscriber.syncErrorThrowable) {
+                    this.__tryOrUnsub(this._error, err);
+                    this.unsubscribe();
+                } else {
+                    this.__tryOrSetError(_parentSubscriber, this._error, err);
+                    this.unsubscribe();
+                }
+            } else if (!_parentSubscriber.syncErrorThrowable) {
+                this.unsubscribe();
+                throw err;
+            } else {
+                _parentSubscriber.syncErrorValue = err;
+                _parentSubscriber.syncErrorThrown = true;
+                this.unsubscribe();
+            }
+        }
+    };
+    SafeSubscriber.prototype.complete = function () {
+        var _this = this;
+        if (!this.isStopped) {
+            var _parentSubscriber = this._parentSubscriber;
+            if (this._complete) {
+                var wrappedComplete = function wrappedComplete() {
+                    return _this._complete.call(_this._context);
+                };
+                if (!_parentSubscriber.syncErrorThrowable) {
+                    this.__tryOrUnsub(wrappedComplete);
+                    this.unsubscribe();
+                } else {
+                    this.__tryOrSetError(_parentSubscriber, wrappedComplete);
+                    this.unsubscribe();
+                }
+            } else {
+                this.unsubscribe();
+            }
+        }
+    };
+    SafeSubscriber.prototype.__tryOrUnsub = function (fn, value) {
+        try {
+            fn.call(this._context, value);
+        } catch (err) {
+            this.unsubscribe();
+            throw err;
+        }
+    };
+    SafeSubscriber.prototype.__tryOrSetError = function (parent, fn, value) {
+        try {
+            fn.call(this._context, value);
+        } catch (err) {
+            parent.syncErrorValue = err;
+            parent.syncErrorThrown = true;
+            return true;
+        }
+        return false;
+    };
+    SafeSubscriber.prototype._unsubscribe = function () {
+        var _parentSubscriber = this._parentSubscriber;
+        this._context = null;
+        this._parentSubscriber = null;
+        _parentSubscriber.unsubscribe();
+    };
+    return SafeSubscriber;
+}(Subscriber);
+//# sourceMappingURL=Subscriber.js.map
+
+/***/ }),
+/* 291 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.__extends = __extends;
+exports.__rest = __rest;
+exports.__decorate = __decorate;
+exports.__param = __param;
+exports.__metadata = __metadata;
+exports.__awaiter = __awaiter;
+exports.__generator = __generator;
+exports.__exportStar = __exportStar;
+exports.__values = __values;
+exports.__read = __read;
+exports.__spread = __spread;
+exports.__await = __await;
+exports.__asyncGenerator = __asyncGenerator;
+exports.__asyncDelegator = __asyncDelegator;
+exports.__asyncValues = __asyncValues;
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+    d.__proto__ = b;
+} || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = exports.__assign = Object.assign || function __assign(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) {
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+    }
+    return t;
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    }return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) {
+        decorator(target, key, paramIndex);
+    };
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) {
+            try {
+                step(generator.next(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function rejected(value) {
+            try {
+                step(generator.throw(value));
+            } catch (e) {
+                reject(e);
+            }
+        }
+        function step(result) {
+            result.done ? resolve(result.value) : new P(function (resolve) {
+                resolve(result.value);
+            }).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function sent() {
+            if (t[0] & 1) throw t[1];return t[1];
+        }, trys: [], ops: [] },
+        f,
+        y,
+        t,
+        g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+        return this;
+    }), g;
+    function verb(n) {
+        return function (v) {
+            return step([n, v]);
+        };
+    }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) {
+            try {
+                if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+                if (y = 0, t) op = [0, t.value];
+                switch (op[0]) {
+                    case 0:case 1:
+                        t = op;break;
+                    case 4:
+                        _.label++;return { value: op[1], done: false };
+                    case 5:
+                        _.label++;y = op[1];op = [0];continue;
+                    case 7:
+                        op = _.ops.pop();_.trys.pop();continue;
+                    default:
+                        if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                            _ = 0;continue;
+                        }
+                        if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+                            _.label = op[1];break;
+                        }
+                        if (op[0] === 6 && _.label < t[1]) {
+                            _.label = t[1];t = op;break;
+                        }
+                        if (t && _.label < t[2]) {
+                            _.label = t[2];_.ops.push(op);break;
+                        }
+                        if (t[2]) _.ops.pop();
+                        _.trys.pop();continue;
+                }
+                op = body.call(thisArg, _);
+            } catch (e) {
+                op = [6, e];y = 0;
+            } finally {
+                f = t = 0;
+            }
+        }if (op[0] & 5) throw op[1];return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) {
+        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+}
+
+function __values(o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator],
+        i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function next() {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o),
+        r,
+        ar = [],
+        e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+            ar.push(r.value);
+        }
+    } catch (error) {
+        e = { error: error };
+    } finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        } finally {
+            if (e) throw e.error;
+        }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++) {
+        ar = ar.concat(__read(arguments[i]));
+    }return ar;
+}
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []),
+        i,
+        q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+        return this;
+    }, i;
+    function verb(n) {
+        if (g[n]) i[n] = function (v) {
+            return new Promise(function (a, b) {
+                q.push([n, v, a, b]) > 1 || resume(n, v);
+            });
+        };
+    }
+    function resume(n, v) {
+        try {
+            step(g[n](v));
+        } catch (e) {
+            settle(q[0][3], e);
+        }
+    }
+    function step(r) {
+        r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+    }
+    function fulfill(value) {
+        resume("next", value);
+    }
+    function reject(value) {
+        resume("throw", value);
+    }
+    function settle(f, v) {
+        if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
+    }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) {
+        throw e;
+    }), verb("return"), i[Symbol.iterator] = function () {
+        return this;
+    }, i;
+    function verb(n, f) {
+        if (o[n]) i[n] = function (v) {
+            return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v;
+        };
+    }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator];
+    return m ? m.call(o) : typeof __values === "function" ? __values(o) : o[Symbol.iterator]();
+}
+
+/***/ }),
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+// CommonJS / Node have global context exposed as "global" variable.
+// We don't want to include the whole node.d.ts this this compilation unit so we'll just fake
+// the global "global" var for now.
+
+var __window = typeof window !== 'undefined' && window;
+var __self = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope && self;
+var __global = typeof global !== 'undefined' && global;
+var _root = __window || __global || __self;
+exports.root = _root;
+// Workaround Closure Compiler restriction: The body of a goog.module cannot use throw.
+// This is needed when used with angular/tsickle which inserts a goog.module statement.
+// Wrap in IIFE
+(function () {
+    if (!_root) {
+        throw new Error('RxJS could not find any global context (window, self, global)');
+    }
+})();
+//# sourceMappingURL=root.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(307)))
+
+/***/ }),
+/* 293 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var botframework_directlinejs_1 = __webpack_require__(308);
+var Store_1 = __webpack_require__(388);
+var react_redux_1 = __webpack_require__(302);
+exports.sendMessage = function (text, from, locale) {
+    return {
+        type: 'Send_Message',
+        activity: {
+            type: "message",
+            text: text,
+            from: from,
+            locale: locale,
+            textFormat: 'plain',
+            timestamp: new Date().toISOString()
+        }
+    };
+};
+exports.sendFiles = function (files, from, locale) {
+    return {
+        type: 'Send_Message',
+        activity: {
+            type: "message",
+            attachments: attachmentsFromFiles(files),
+            from: from,
+            locale: locale
+        }
+    };
+};
+var History_1 = __webpack_require__(385);
+var MessagePane_1 = __webpack_require__(386);
+var Shell_1 = __webpack_require__(387);
+var Chat = function (_super) {
+    tslib_1.__extends(Chat, _super);
+    function Chat(props) {
+        var _this = _super.call(this, props) || this;
+        _this.store = Store_1.createStore();
+        _this.resizeListener = function () {
+            return _this.setSize();
+        };
+        exports.konsole.log("BotChat.Chat props", props);
+        _this.store.dispatch({
+            type: 'Set_Locale',
+            locale: props.locale || window.navigator["userLanguage"] || window.navigator.language || 'en'
+        });
+        if (props.formatOptions) _this.store.dispatch({ type: 'Set_Format_Options', options: props.formatOptions });
+        if (props.sendTyping) _this.store.dispatch({ type: 'Set_Send_Typing', sendTyping: props.sendTyping });
+        return _this;
+    }
+    Chat.prototype.handleIncomingActivity = function (activity) {
+        var state = this.store.getState();
+        switch (activity.type) {
+            case "message":
+                this.store.dispatch({ type: activity.from.id === state.connection.user.id ? 'Receive_Sent_Message' : 'Receive_Message', activity: activity });
+                break;
+            case "typing":
+                if (activity.from.id !== state.connection.user.id) this.store.dispatch({ type: 'Show_Typing', activity: activity });
+                break;
+        }
+    };
+    Chat.prototype.setSize = function () {
+        this.store.dispatch({
+            type: 'Set_Size',
+            width: this.chatviewPanel.offsetWidth,
+            height: this.chatviewPanel.offsetHeight
+        });
+    };
+    Chat.prototype.componentDidMount = function () {
+        var _this = this;
+        // Now that we're mounted, we know our dimensions. Put them in the store (this will force a re-render)
+        this.setSize();
+        var botConnection = this.props.directLine ? this.botConnection = new botframework_directlinejs_1.DirectLine(this.props.directLine) : this.props.botConnection;
+        if (this.props.resize === 'window') window.addEventListener('resize', this.resizeListener);
+        this.store.dispatch({ type: 'Start_Connection', user: this.props.user, bot: this.props.bot, botConnection: botConnection, selectedActivity: this.props.selectedActivity });
+        this.connectionStatusSubscription = botConnection.connectionStatus$.subscribe(function (connectionStatus) {
+            return _this.store.dispatch({ type: 'Connection_Change', connectionStatus: connectionStatus });
+        });
+        this.activitySubscription = botConnection.activity$.subscribe(function (activity) {
+            return _this.handleIncomingActivity(activity);
+        }, function (error) {
+            return exports.konsole.log("activity$ error", error);
+        });
+        if (this.props.selectedActivity) {
+            this.selectedActivitySubscription = this.props.selectedActivity.subscribe(function (activityOrID) {
+                _this.store.dispatch({
+                    type: 'Select_Activity',
+                    selectedActivity: activityOrID.activity || _this.store.getState().history.activities.find(function (activity) {
+                        return activity.id === activityOrID.id;
+                    })
+                });
+            });
+        }
+    };
+    Chat.prototype.componentWillUnmount = function () {
+        this.connectionStatusSubscription.unsubscribe();
+        this.activitySubscription.unsubscribe();
+        if (this.selectedActivitySubscription) this.selectedActivitySubscription.unsubscribe();
+        if (this.botConnection) this.botConnection.end();
+        window.removeEventListener('resize', this.resizeListener);
+    };
+    // At startup we do three render passes:
+    // 1. To determine the dimensions of the chat panel (nothing needs to actually render here, so we don't)
+    // 2. To determine the margins of any given carousel (we just render one mock activity so that we can measure it)
+    // 3. (this is also the normal re-render case) To render without the mock activity
+    Chat.prototype.setFocus = function () {
+        // HUGE HACK - set focus back to input after clicking on an action
+        // React makes this hard to do well, so we just do an end run around them
+        this.chatviewPanel.querySelector(".wc-shellinput").focus();
+    };
+    Chat.prototype.render = function () {
+        var _this = this;
+        var state = this.store.getState();
+        exports.konsole.log("BotChat.Chat state", state);
+        // only render real stuff after we know our dimensions
+        var header;
+        if (state.format.options.showHeader) header = React.createElement("div", { className: "wc-header" }, React.createElement("span", null, state.format.strings.title));
+        var resize;
+        if (this.props.resize === 'detect') resize = React.createElement(ResizeDetector, { onresize: this.resizeListener });
+        return React.createElement(react_redux_1.Provider, { store: this.store }, React.createElement("div", { className: "wc-chatview-panel", ref: function ref(div) {
+                return _this.chatviewPanel = div;
+            } }, header, React.createElement(MessagePane_1.MessagePane, { setFocus: function setFocus() {
+                return _this.setFocus();
+            } }, React.createElement(History_1.History, { setFocus: function setFocus() {
+                return _this.setFocus();
+            } })), React.createElement(Shell_1.Shell, null), resize));
+    };
+    return Chat;
+}(React.Component);
+exports.Chat = Chat;
+exports.doCardAction = function (botConnection, from, locale, sendMessage) {
+    return function (type, actionValue) {
+        var text = typeof actionValue === 'string' ? actionValue : undefined;
+        var value = (typeof actionValue === "undefined" ? "undefined" : _typeof(actionValue)) === 'object' ? actionValue : undefined;
+        switch (type) {
+            case "imBack":
+                if (typeof text === 'string') sendMessage(text, from, locale);
+                break;
+            case "postBack":
+                exports.sendPostBack(botConnection, text, value, from, locale);
+                break;
+            case "call":
+            case "openUrl":
+            case "playAudio":
+            case "playVideo":
+            case "showImage":
+            case "downloadFile":
+            case "signin":
+                window.open(text);
+                break;
+            default:
+                exports.konsole.log("unknown button type", type);
+        }
+    };
+};
+exports.sendPostBack = function (botConnection, text, value, from, locale) {
+    botConnection.postActivity({
+        type: "message",
+        text: text,
+        value: value,
+        from: from,
+        locale: locale
+    }).subscribe(function (id) {
+        exports.konsole.log("success sending postBack", id);
+    }, function (error) {
+        exports.konsole.log("failed to send postBack", error);
+    });
+};
+var attachmentsFromFiles = function attachmentsFromFiles(files) {
+    var attachments = [];
+    for (var i = 0, numFiles = files.length; i < numFiles; i++) {
+        var file = files[i];
+        attachments.push({
+            contentType: file.type,
+            contentUrl: window.URL.createObjectURL(file),
+            name: file.name
+        });
+    }
+    return attachments;
+};
+exports.renderIfNonempty = function (value, renderer) {
+    if (value !== undefined && value !== null && (typeof value !== 'string' || value.length > 0)) return renderer(value);
+};
+exports.classList = function () {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    return args.filter(Boolean).join(' ');
+};
+exports.konsole = {
+    log: function log(message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        if (typeof window !== 'undefined' && window["botchatDebug"] && message) console.log.apply(console, [message].concat(optionalParams));
+    }
+};
+// note: container of this element must have CSS position of either absolute or relative
+var ResizeDetector = function ResizeDetector(props) {
+    // adapted to React from https://github.com/developit/simple-element-resize-detector
+    return React.createElement("iframe", { style: { position: 'absolute', left: '0', top: '-100%', width: '100%', height: '100%', margin: '1px 0 0', border: 'none', opacity: 0, visibility: 'hidden', pointerEvents: 'none' }, ref: function ref(frame) {
+            if (frame) frame.contentWindow.onresize = props.onresize;
+        } });
+};
+//# sourceMappingURL=Chat.js.map
+
+/***/ }),
+/* 294 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var OuterSubscriber = function (_super) {
+    __extends(OuterSubscriber, _super);
+    function OuterSubscriber() {
+        _super.apply(this, arguments);
+    }
+    OuterSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
+        this.destination.next(innerValue);
+    };
+    OuterSubscriber.prototype.notifyError = function (error, innerSub) {
+        this.destination.error(error);
+    };
+    OuterSubscriber.prototype.notifyComplete = function (innerSub) {
+        this.destination.complete();
+    };
+    return OuterSubscriber;
+}(Subscriber_1.Subscriber);
+exports.OuterSubscriber = OuterSubscriber;
+//# sourceMappingURL=OuterSubscriber.js.map
+
+/***/ }),
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root_1 = __webpack_require__(292);
+var isArrayLike_1 = __webpack_require__(369);
+var isPromise_1 = __webpack_require__(371);
+var isObject_1 = __webpack_require__(370);
+var Observable_1 = __webpack_require__(288);
+var iterator_1 = __webpack_require__(321);
+var InnerSubscriber_1 = __webpack_require__(491);
+var observable_1 = __webpack_require__(322);
+function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
+    var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
+    if (destination.closed) {
+        return null;
+    }
+    if (result instanceof Observable_1.Observable) {
+        if (result._isScalar) {
+            destination.next(result.value);
+            destination.complete();
+            return null;
+        } else {
+            return result.subscribe(destination);
+        }
+    } else if (isArrayLike_1.isArrayLike(result)) {
+        for (var i = 0, len = result.length; i < len && !destination.closed; i++) {
+            destination.next(result[i]);
+        }
+        if (!destination.closed) {
+            destination.complete();
+        }
+    } else if (isPromise_1.isPromise(result)) {
+        result.then(function (value) {
+            if (!destination.closed) {
+                destination.next(value);
+                destination.complete();
+            }
+        }, function (err) {
+            return destination.error(err);
+        }).then(null, function (err) {
+            // Escaping the Promise trap: globally throw unhandled errors
+            root_1.root.setTimeout(function () {
+                throw err;
+            });
+        });
+        return destination;
+    } else if (result && typeof result[iterator_1.iterator] === 'function') {
+        var iterator = result[iterator_1.iterator]();
+        do {
+            var item = iterator.next();
+            if (item.done) {
+                destination.complete();
+                break;
+            }
+            destination.next(item.value);
+            if (destination.closed) {
+                break;
+            }
+        } while (true);
+    } else if (result && typeof result[observable_1.observable] === 'function') {
+        var obs = result[observable_1.observable]();
+        if (typeof obs.subscribe !== 'function') {
+            destination.error(new TypeError('Provided object does not correctly implement Symbol.observable'));
+        } else {
+            return obs.subscribe(new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex));
+        }
+    } else {
+        var value = isObject_1.isObject(result) ? 'an invalid object' : "'" + result + "'";
+        var msg = "You provided " + value + " where a stream was expected." + ' You can provide an Observable, Promise, Array, or Iterable.';
+        destination.error(new TypeError(msg));
+    }
+    return null;
+}
+exports.subscribeToResult = subscribeToResult;
+//# sourceMappingURL=subscribeToResult.js.map
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var isArray_1 = __webpack_require__(305);
+var isObject_1 = __webpack_require__(370);
+var isFunction_1 = __webpack_require__(324);
+var tryCatch_1 = __webpack_require__(306);
+var errorObject_1 = __webpack_require__(300);
+var UnsubscriptionError_1 = __webpack_require__(540);
+/**
+ * Represents a disposable resource, such as the execution of an Observable. A
+ * Subscription has one important method, `unsubscribe`, that takes no argument
+ * and just disposes the resource held by the subscription.
+ *
+ * Additionally, subscriptions may be grouped together through the `add()`
+ * method, which will attach a child Subscription to the current Subscription.
+ * When a Subscription is unsubscribed, all its children (and its grandchildren)
+ * will be unsubscribed as well.
+ *
+ * @class Subscription
+ */
+var Subscription = function () {
+    /**
+     * @param {function(): void} [unsubscribe] A function describing how to
+     * perform the disposal of resources when the `unsubscribe` method is called.
+     */
+    function Subscription(unsubscribe) {
+        /**
+         * A flag to indicate whether this Subscription has already been unsubscribed.
+         * @type {boolean}
+         */
+        this.closed = false;
+        this._parent = null;
+        this._parents = null;
+        this._subscriptions = null;
+        if (unsubscribe) {
+            this._unsubscribe = unsubscribe;
+        }
+    }
+    /**
+     * Disposes the resources held by the subscription. May, for instance, cancel
+     * an ongoing Observable execution or cancel any other type of work that
+     * started when the Subscription was created.
+     * @return {void}
+     */
+    Subscription.prototype.unsubscribe = function () {
+        var hasErrors = false;
+        var errors;
+        if (this.closed) {
+            return;
+        }
+        var _a = this,
+            _parent = _a._parent,
+            _parents = _a._parents,
+            _unsubscribe = _a._unsubscribe,
+            _subscriptions = _a._subscriptions;
+        this.closed = true;
+        this._parent = null;
+        this._parents = null;
+        // null out _subscriptions first so any child subscriptions that attempt
+        // to remove themselves from this subscription will noop
+        this._subscriptions = null;
+        var index = -1;
+        var len = _parents ? _parents.length : 0;
+        // if this._parent is null, then so is this._parents, and we
+        // don't have to remove ourselves from any parent subscriptions.
+        while (_parent) {
+            _parent.remove(this);
+            // if this._parents is null or index >= len,
+            // then _parent is set to null, and the loop exits
+            _parent = ++index < len && _parents[index] || null;
+        }
+        if (isFunction_1.isFunction(_unsubscribe)) {
+            var trial = tryCatch_1.tryCatch(_unsubscribe).call(this);
+            if (trial === errorObject_1.errorObject) {
+                hasErrors = true;
+                errors = errors || (errorObject_1.errorObject.e instanceof UnsubscriptionError_1.UnsubscriptionError ? flattenUnsubscriptionErrors(errorObject_1.errorObject.e.errors) : [errorObject_1.errorObject.e]);
+            }
+        }
+        if (isArray_1.isArray(_subscriptions)) {
+            index = -1;
+            len = _subscriptions.length;
+            while (++index < len) {
+                var sub = _subscriptions[index];
+                if (isObject_1.isObject(sub)) {
+                    var trial = tryCatch_1.tryCatch(sub.unsubscribe).call(sub);
+                    if (trial === errorObject_1.errorObject) {
+                        hasErrors = true;
+                        errors = errors || [];
+                        var err = errorObject_1.errorObject.e;
+                        if (err instanceof UnsubscriptionError_1.UnsubscriptionError) {
+                            errors = errors.concat(flattenUnsubscriptionErrors(err.errors));
+                        } else {
+                            errors.push(err);
+                        }
+                    }
+                }
+            }
+        }
+        if (hasErrors) {
+            throw new UnsubscriptionError_1.UnsubscriptionError(errors);
+        }
+    };
+    /**
+     * Adds a tear down to be called during the unsubscribe() of this
+     * Subscription.
+     *
+     * If the tear down being added is a subscription that is already
+     * unsubscribed, is the same reference `add` is being called on, or is
+     * `Subscription.EMPTY`, it will not be added.
+     *
+     * If this subscription is already in an `closed` state, the passed
+     * tear down logic will be executed immediately.
+     *
+     * @param {TeardownLogic} teardown The additional logic to execute on
+     * teardown.
+     * @return {Subscription} Returns the Subscription used or created to be
+     * added to the inner subscriptions list. This Subscription can be used with
+     * `remove()` to remove the passed teardown logic from the inner subscriptions
+     * list.
+     */
+    Subscription.prototype.add = function (teardown) {
+        if (!teardown || teardown === Subscription.EMPTY) {
+            return Subscription.EMPTY;
+        }
+        if (teardown === this) {
+            return this;
+        }
+        var subscription = teardown;
+        switch (typeof teardown === 'undefined' ? 'undefined' : _typeof(teardown)) {
+            case 'function':
+                subscription = new Subscription(teardown);
+            case 'object':
+                if (subscription.closed || typeof subscription.unsubscribe !== 'function') {
+                    return subscription;
+                } else if (this.closed) {
+                    subscription.unsubscribe();
+                    return subscription;
+                } else if (typeof subscription._addParent !== 'function' /* quack quack */) {
+                        var tmp = subscription;
+                        subscription = new Subscription();
+                        subscription._subscriptions = [tmp];
+                    }
+                break;
+            default:
+                throw new Error('unrecognized teardown ' + teardown + ' added to Subscription.');
+        }
+        var subscriptions = this._subscriptions || (this._subscriptions = []);
+        subscriptions.push(subscription);
+        subscription._addParent(this);
+        return subscription;
+    };
+    /**
+     * Removes a Subscription from the internal list of subscriptions that will
+     * unsubscribe during the unsubscribe process of this Subscription.
+     * @param {Subscription} subscription The subscription to remove.
+     * @return {void}
+     */
+    Subscription.prototype.remove = function (subscription) {
+        var subscriptions = this._subscriptions;
+        if (subscriptions) {
+            var subscriptionIndex = subscriptions.indexOf(subscription);
+            if (subscriptionIndex !== -1) {
+                subscriptions.splice(subscriptionIndex, 1);
+            }
+        }
+    };
+    Subscription.prototype._addParent = function (parent) {
+        var _a = this,
+            _parent = _a._parent,
+            _parents = _a._parents;
+        if (!_parent || _parent === parent) {
+            // If we don't have a parent, or the new parent is the same as the
+            // current parent, then set this._parent to the new parent.
+            this._parent = parent;
+        } else if (!_parents) {
+            // If there's already one parent, but not multiple, allocate an Array to
+            // store the rest of the parent Subscriptions.
+            this._parents = [parent];
+        } else if (_parents.indexOf(parent) === -1) {
+            // Only add the new parent to the _parents list if it's not already there.
+            _parents.push(parent);
+        }
+    };
+    Subscription.EMPTY = function (empty) {
+        empty.closed = true;
+        return empty;
+    }(new Subscription());
+    return Subscription;
+}();
+exports.Subscription = Subscription;
+function flattenUnsubscriptionErrors(errors) {
+    return errors.reduce(function (errs, err) {
+        return errs.concat(err instanceof UnsubscriptionError_1.UnsubscriptionError ? err.errors : err);
+    }, []);
+}
+//# sourceMappingURL=Subscription.js.map
+
+/***/ }),
+/* 297 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+module.exports = function (it) {
+  return (typeof it === 'undefined' ? 'undefined' : _typeof(it)) === 'object' ? it !== null : typeof it === 'function';
+};
+
+/***/ }),
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+var Subscriber_1 = __webpack_require__(290);
+var Subscription_1 = __webpack_require__(296);
+var ObjectUnsubscribedError_1 = __webpack_require__(368);
+var SubjectSubscription_1 = __webpack_require__(493);
+var rxSubscriber_1 = __webpack_require__(323);
+/**
+ * @class SubjectSubscriber<T>
+ */
+var SubjectSubscriber = function (_super) {
+    __extends(SubjectSubscriber, _super);
+    function SubjectSubscriber(destination) {
+        _super.call(this, destination);
+        this.destination = destination;
+    }
+    return SubjectSubscriber;
+}(Subscriber_1.Subscriber);
+exports.SubjectSubscriber = SubjectSubscriber;
+/**
+ * @class Subject<T>
+ */
+var Subject = function (_super) {
+    __extends(Subject, _super);
+    function Subject() {
+        _super.call(this);
+        this.observers = [];
+        this.closed = false;
+        this.isStopped = false;
+        this.hasError = false;
+        this.thrownError = null;
+    }
+    Subject.prototype[rxSubscriber_1.rxSubscriber] = function () {
+        return new SubjectSubscriber(this);
+    };
+    Subject.prototype.lift = function (operator) {
+        var subject = new AnonymousSubject(this, this);
+        subject.operator = operator;
+        return subject;
+    };
+    Subject.prototype.next = function (value) {
+        if (this.closed) {
+            throw new ObjectUnsubscribedError_1.ObjectUnsubscribedError();
+        }
+        if (!this.isStopped) {
+            var observers = this.observers;
+            var len = observers.length;
+            var copy = observers.slice();
+            for (var i = 0; i < len; i++) {
+                copy[i].next(value);
+            }
+        }
+    };
+    Subject.prototype.error = function (err) {
+        if (this.closed) {
+            throw new ObjectUnsubscribedError_1.ObjectUnsubscribedError();
+        }
+        this.hasError = true;
+        this.thrownError = err;
+        this.isStopped = true;
+        var observers = this.observers;
+        var len = observers.length;
+        var copy = observers.slice();
+        for (var i = 0; i < len; i++) {
+            copy[i].error(err);
+        }
+        this.observers.length = 0;
+    };
+    Subject.prototype.complete = function () {
+        if (this.closed) {
+            throw new ObjectUnsubscribedError_1.ObjectUnsubscribedError();
+        }
+        this.isStopped = true;
+        var observers = this.observers;
+        var len = observers.length;
+        var copy = observers.slice();
+        for (var i = 0; i < len; i++) {
+            copy[i].complete();
+        }
+        this.observers.length = 0;
+    };
+    Subject.prototype.unsubscribe = function () {
+        this.isStopped = true;
+        this.closed = true;
+        this.observers = null;
+    };
+    Subject.prototype._trySubscribe = function (subscriber) {
+        if (this.closed) {
+            throw new ObjectUnsubscribedError_1.ObjectUnsubscribedError();
+        } else {
+            return _super.prototype._trySubscribe.call(this, subscriber);
+        }
+    };
+    Subject.prototype._subscribe = function (subscriber) {
+        if (this.closed) {
+            throw new ObjectUnsubscribedError_1.ObjectUnsubscribedError();
+        } else if (this.hasError) {
+            subscriber.error(this.thrownError);
+            return Subscription_1.Subscription.EMPTY;
+        } else if (this.isStopped) {
+            subscriber.complete();
+            return Subscription_1.Subscription.EMPTY;
+        } else {
+            this.observers.push(subscriber);
+            return new SubjectSubscription_1.SubjectSubscription(this, subscriber);
+        }
+    };
+    Subject.prototype.asObservable = function () {
+        var observable = new Observable_1.Observable();
+        observable.source = this;
+        return observable;
+    };
+    Subject.create = function (destination, source) {
+        return new AnonymousSubject(destination, source);
+    };
+    return Subject;
+}(Observable_1.Observable);
+exports.Subject = Subject;
+/**
+ * @class AnonymousSubject<T>
+ */
+var AnonymousSubject = function (_super) {
+    __extends(AnonymousSubject, _super);
+    function AnonymousSubject(destination, source) {
+        _super.call(this);
+        this.destination = destination;
+        this.source = source;
+    }
+    AnonymousSubject.prototype.next = function (value) {
+        var destination = this.destination;
+        if (destination && destination.next) {
+            destination.next(value);
+        }
+    };
+    AnonymousSubject.prototype.error = function (err) {
+        var destination = this.destination;
+        if (destination && destination.error) {
+            this.destination.error(err);
+        }
+    };
+    AnonymousSubject.prototype.complete = function () {
+        var destination = this.destination;
+        if (destination && destination.complete) {
+            this.destination.complete();
+        }
+    };
+    AnonymousSubject.prototype._subscribe = function (subscriber) {
+        var source = this.source;
+        if (source) {
+            return this.source.subscribe(subscriber);
+        } else {
+            return Subscription_1.Subscription.EMPTY;
+        }
+    };
+    return AnonymousSubject;
+}(Subject);
+exports.AnonymousSubject = AnonymousSubject;
+//# sourceMappingURL=Subject.js.map
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// typeof any so that it we don't have to cast when comparing a result to the error object
+
+exports.errorObject = { e: {} };
+//# sourceMappingURL=errorObject.js.map
+
+/***/ }),
+/* 301 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var store = __webpack_require__(404)('wks'),
+    uid = __webpack_require__(334),
+    _Symbol = __webpack_require__(297).Symbol,
+    USE_SYMBOL = typeof _Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] = USE_SYMBOL && _Symbol[name] || (USE_SYMBOL ? _Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+/***/ }),
+/* 302 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.connect = exports.connectAdvanced = exports.createProvider = exports.Provider = undefined;
+
+var _Provider = __webpack_require__(475);
+
+var _Provider2 = _interopRequireDefault(_Provider);
+
+var _connectAdvanced = __webpack_require__(344);
+
+var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
+
+var _connect = __webpack_require__(476);
+
+var _connect2 = _interopRequireDefault(_connect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Provider = _Provider2.default;
+exports.createProvider = _Provider.createProvider;
+exports.connectAdvanced = _connectAdvanced2.default;
+exports.connect = _connect2.default;
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+var ScalarObservable_1 = __webpack_require__(363);
+var EmptyObservable_1 = __webpack_require__(304);
+var isScheduler_1 = __webpack_require__(372);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var ArrayObservable = function (_super) {
+    __extends(ArrayObservable, _super);
+    function ArrayObservable(array, scheduler) {
+        _super.call(this);
+        this.array = array;
+        this.scheduler = scheduler;
+        if (!scheduler && array.length === 1) {
+            this._isScalar = true;
+            this.value = array[0];
+        }
+    }
+    ArrayObservable.create = function (array, scheduler) {
+        return new ArrayObservable(array, scheduler);
+    };
+    /**
+     * Creates an Observable that emits some values you specify as arguments,
+     * immediately one after the other, and then emits a complete notification.
+     *
+     * <span class="informal">Emits the arguments you provide, then completes.
+     * </span>
+     *
+     * <img src="./img/of.png" width="100%">
+     *
+     * This static operator is useful for creating a simple Observable that only
+     * emits the arguments given, and the complete notification thereafter. It can
+     * be used for composing with other Observables, such as with {@link concat}.
+     * By default, it uses a `null` IScheduler, which means the `next`
+     * notifications are sent synchronously, although with a different IScheduler
+     * it is possible to determine when those notifications will be delivered.
+     *
+     * @example <caption>Emit 10, 20, 30, then 'a', 'b', 'c', then start ticking every second.</caption>
+     * var numbers = Rx.Observable.of(10, 20, 30);
+     * var letters = Rx.Observable.of('a', 'b', 'c');
+     * var interval = Rx.Observable.interval(1000);
+     * var result = numbers.concat(letters).concat(interval);
+     * result.subscribe(x => console.log(x));
+     *
+     * @see {@link create}
+     * @see {@link empty}
+     * @see {@link never}
+     * @see {@link throw}
+     *
+     * @param {...T} values Arguments that represent `next` values to be emitted.
+     * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
+     * the emissions of the `next` notifications.
+     * @return {Observable<T>} An Observable that emits each given input value.
+     * @static true
+     * @name of
+     * @owner Observable
+     */
+    ArrayObservable.of = function () {
+        var array = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            array[_i - 0] = arguments[_i];
+        }
+        var scheduler = array[array.length - 1];
+        if (isScheduler_1.isScheduler(scheduler)) {
+            array.pop();
+        } else {
+            scheduler = null;
+        }
+        var len = array.length;
+        if (len > 1) {
+            return new ArrayObservable(array, scheduler);
+        } else if (len === 1) {
+            return new ScalarObservable_1.ScalarObservable(array[0], scheduler);
+        } else {
+            return new EmptyObservable_1.EmptyObservable(scheduler);
+        }
+    };
+    ArrayObservable.dispatch = function (state) {
+        var array = state.array,
+            index = state.index,
+            count = state.count,
+            subscriber = state.subscriber;
+        if (index >= count) {
+            subscriber.complete();
+            return;
+        }
+        subscriber.next(array[index]);
+        if (subscriber.closed) {
+            return;
+        }
+        state.index = index + 1;
+        this.schedule(state);
+    };
+    ArrayObservable.prototype._subscribe = function (subscriber) {
+        var index = 0;
+        var array = this.array;
+        var count = array.length;
+        var scheduler = this.scheduler;
+        if (scheduler) {
+            return scheduler.schedule(ArrayObservable.dispatch, 0, {
+                array: array, index: index, count: count, subscriber: subscriber
+            });
+        } else {
+            for (var i = 0; i < count && !subscriber.closed; i++) {
+                subscriber.next(array[i]);
+            }
+            subscriber.complete();
+        }
+    };
+    return ArrayObservable;
+}(Observable_1.Observable);
+exports.ArrayObservable = ArrayObservable;
+//# sourceMappingURL=ArrayObservable.js.map
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var EmptyObservable = function (_super) {
+    __extends(EmptyObservable, _super);
+    function EmptyObservable(scheduler) {
+        _super.call(this);
+        this.scheduler = scheduler;
+    }
+    /**
+     * Creates an Observable that emits no items to the Observer and immediately
+     * emits a complete notification.
+     *
+     * <span class="informal">Just emits 'complete', and nothing else.
+     * </span>
+     *
+     * <img src="./img/empty.png" width="100%">
+     *
+     * This static operator is useful for creating a simple Observable that only
+     * emits the complete notification. It can be used for composing with other
+     * Observables, such as in a {@link mergeMap}.
+     *
+     * @example <caption>Emit the number 7, then complete.</caption>
+     * var result = Rx.Observable.empty().startWith(7);
+     * result.subscribe(x => console.log(x));
+     *
+     * @example <caption>Map and flatten only odd numbers to the sequence 'a', 'b', 'c'</caption>
+     * var interval = Rx.Observable.interval(1000);
+     * var result = interval.mergeMap(x =>
+     *   x % 2 === 1 ? Rx.Observable.of('a', 'b', 'c') : Rx.Observable.empty()
+     * );
+     * result.subscribe(x => console.log(x));
+     *
+     * // Results in the following to the console:
+     * // x is equal to the count on the interval eg(0,1,2,3,...)
+     * // x will occur every 1000ms
+     * // if x % 2 is equal to 1 print abc
+     * // if x % 2 is not equal to 1 nothing will be output
+     *
+     * @see {@link create}
+     * @see {@link never}
+     * @see {@link of}
+     * @see {@link throw}
+     *
+     * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
+     * the emission of the complete notification.
+     * @return {Observable} An "empty" Observable: emits only the complete
+     * notification.
+     * @static true
+     * @name empty
+     * @owner Observable
+     */
+    EmptyObservable.create = function (scheduler) {
+        return new EmptyObservable(scheduler);
+    };
+    EmptyObservable.dispatch = function (arg) {
+        var subscriber = arg.subscriber;
+        subscriber.complete();
+    };
+    EmptyObservable.prototype._subscribe = function (subscriber) {
+        var scheduler = this.scheduler;
+        if (scheduler) {
+            return scheduler.schedule(EmptyObservable.dispatch, 0, { subscriber: subscriber });
+        } else {
+            subscriber.complete();
+        }
+    };
+    return EmptyObservable;
+}(Observable_1.Observable);
+exports.EmptyObservable = EmptyObservable;
+//# sourceMappingURL=EmptyObservable.js.map
+
+/***/ }),
+/* 305 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.isArray = Array.isArray || function (x) {
+  return x && typeof x.length === 'number';
+};
+//# sourceMappingURL=isArray.js.map
+
+/***/ }),
+/* 306 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var errorObject_1 = __webpack_require__(300);
+var tryCatchTarget;
+function tryCatcher() {
+    try {
+        return tryCatchTarget.apply(this, arguments);
+    } catch (e) {
+        errorObject_1.errorObject.e = e;
+        return errorObject_1.errorObject;
+    }
+}
+function tryCatch(fn) {
+    tryCatchTarget = fn;
+    return tryCatcher;
+}
+exports.tryCatch = tryCatch;
+;
+//# sourceMappingURL=tryCatch.js.map
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var g;
+
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+/***/ }),
+/* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// In order to keep file size down, only import the parts of rxjs that we use
+
+var __rest = undefined && undefined.__rest || function (s, e) {
+    var t = {};
+    for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
+    }return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var BehaviorSubject_1 = __webpack_require__(490);
+var Observable_1 = __webpack_require__(288);
+__webpack_require__(357);
+__webpack_require__(500);
+__webpack_require__(501);
+__webpack_require__(358);
+__webpack_require__(359);
+__webpack_require__(360);
+__webpack_require__(361);
+__webpack_require__(362);
+__webpack_require__(502);
+__webpack_require__(503);
+__webpack_require__(504);
+__webpack_require__(494);
+__webpack_require__(355);
+__webpack_require__(495);
+__webpack_require__(497);
+__webpack_require__(356);
+__webpack_require__(499);
+// These types are specific to this client library, not to Direct Line 3.0
+var ConnectionStatus;
+(function (ConnectionStatus) {
+    ConnectionStatus[ConnectionStatus["Uninitialized"] = 0] = "Uninitialized";
+    ConnectionStatus[ConnectionStatus["Connecting"] = 1] = "Connecting";
+    ConnectionStatus[ConnectionStatus["Online"] = 2] = "Online";
+    ConnectionStatus[ConnectionStatus["ExpiredToken"] = 3] = "ExpiredToken";
+    ConnectionStatus[ConnectionStatus["FailedToConnect"] = 4] = "FailedToConnect";
+    ConnectionStatus[ConnectionStatus["Ended"] = 5] = "Ended"; // the bot ended the conversation
+})(ConnectionStatus = exports.ConnectionStatus || (exports.ConnectionStatus = {}));
+var lifetimeRefreshToken = 30 * 60 * 1000;
+var intervalRefreshToken = lifetimeRefreshToken / 2;
+var timeout = 20 * 1000;
+var retries = (lifetimeRefreshToken - intervalRefreshToken) / timeout;
+var errorExpiredToken = new Error("expired token");
+var errorConversationEnded = new Error("conversation ended");
+var errorFailedToConnect = new Error("failed to connect");
+var konsole = {
+    log: function log(message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            optionalParams[_i - 1] = arguments[_i];
+        }
+        if (typeof window !== 'undefined' && window["botchatDebug"] && message) console.log.apply(console, [message].concat(optionalParams));
+    }
+};
+var DirectLine = function () {
+    function DirectLine(options) {
+        this.connectionStatus$ = new BehaviorSubject_1.BehaviorSubject(ConnectionStatus.Uninitialized);
+        this.domain = "https://directline.botframework.com/v3/directline";
+        this.watermark = '';
+        this.pollingInterval = 1000;
+        this.secret = options.secret;
+        this.token = options.secret || options.token;
+        this.webSocket = (options.webSocket === undefined ? true : options.webSocket) && typeof WebSocket !== 'undefined' && WebSocket !== undefined;
+        if (options.domain) this.domain = options.domain;
+        if (options.conversationId) {
+            this.conversationId = options.conversationId;
+        }
+        if (options.watermark) {
+            if (this.webSocket) console.warn("Watermark was ignored: it is not supported using websockets at the moment");else this.watermark = options.watermark;
+        }
+        if (options.streamUrl) {
+            if (options.token && options.conversationId) this.streamUrl = options.streamUrl;else console.warn("streamUrl was ignored: you need to provide a token and a conversationid");
+        }
+        if (options.pollingInterval !== undefined) this.pollingInterval = options.pollingInterval;
+        this.activity$ = (this.webSocket ? this.webSocketActivity$() : this.pollingGetActivity$()).share();
+    }
+    // Every time we're about to make a Direct Line REST call, we call this first to see check the current connection status.
+    // Either throws an error (indicating an error state) or emits a null, indicating a (presumably) healthy connection
+    DirectLine.prototype.checkConnection = function (once) {
+        var _this = this;
+        if (once === void 0) {
+            once = false;
+        }
+        var obs = this.connectionStatus$.flatMap(function (connectionStatus) {
+            if (connectionStatus === ConnectionStatus.Uninitialized) {
+                _this.connectionStatus$.next(ConnectionStatus.Connecting);
+                //if token and streamUrl are defined it means reconnect has already been done. Skipping it.
+                if (_this.token && _this.streamUrl) {
+                    _this.connectionStatus$.next(ConnectionStatus.Online);
+                    return Observable_1.Observable.of(connectionStatus);
+                } else {
+                    return _this.startConversation().do(function (conversation) {
+                        _this.conversationId = conversation.conversationId;
+                        _this.token = _this.secret || conversation.token;
+                        _this.streamUrl = conversation.streamUrl;
+                        _this.referenceGrammarId = conversation.referenceGrammarId;
+                        if (!_this.secret) _this.refreshTokenLoop();
+                        _this.connectionStatus$.next(ConnectionStatus.Online);
+                    }, function (error) {
+                        _this.connectionStatus$.next(ConnectionStatus.FailedToConnect);
+                    }).map(function (_) {
+                        return connectionStatus;
+                    });
+                }
+            } else {
+                return Observable_1.Observable.of(connectionStatus);
+            }
+        }).filter(function (connectionStatus) {
+            return connectionStatus != ConnectionStatus.Uninitialized && connectionStatus != ConnectionStatus.Connecting;
+        }).flatMap(function (connectionStatus) {
+            switch (connectionStatus) {
+                case ConnectionStatus.Ended:
+                    return Observable_1.Observable.throw(errorConversationEnded);
+                case ConnectionStatus.FailedToConnect:
+                    return Observable_1.Observable.throw(errorFailedToConnect);
+                case ConnectionStatus.ExpiredToken:
+                    return Observable_1.Observable.throw(errorExpiredToken);
+                default:
+                    return Observable_1.Observable.of(null);
+            }
+        });
+        return once ? obs.take(1) : obs;
+    };
+    DirectLine.prototype.expiredToken = function () {
+        var connectionStatus = this.connectionStatus$.getValue();
+        if (connectionStatus != ConnectionStatus.Ended && connectionStatus != ConnectionStatus.FailedToConnect) this.connectionStatus$.next(ConnectionStatus.ExpiredToken);
+    };
+    DirectLine.prototype.startConversation = function () {
+        //if conversationid is set here, it means we need to call the reconnect api, else it is a new conversation
+        var url = this.conversationId ? this.domain + "/conversations/" + this.conversationId + "?watermark=" + this.watermark : this.domain + "/conversations";
+        var method = this.conversationId ? "GET" : "POST";
+        return Observable_1.Observable.ajax({
+            method: method,
+            url: url,
+            timeout: timeout,
+            headers: {
+                "Accept": "application/json",
+                "Authorization": "Bearer " + this.token
+            }
+        }).map(function (ajaxResponse) {
+            return ajaxResponse.response;
+        }).retryWhen(function (error$) {
+            // for now we deem 4xx and 5xx errors as unrecoverable
+            // for everything else (timeouts), retry for a while
+            return error$.mergeMap(function (error) {
+                return error.status >= 400 && error.status < 600 ? Observable_1.Observable.throw(error) : Observable_1.Observable.of(error);
+            }).delay(timeout).take(retries);
+        });
+    };
+    DirectLine.prototype.refreshTokenLoop = function () {
+        var _this = this;
+        this.tokenRefreshSubscription = Observable_1.Observable.interval(intervalRefreshToken).flatMap(function (_) {
+            return _this.refreshToken();
+        }).subscribe(function (token) {
+            konsole.log("refreshing token", token, "at", new Date());
+            _this.token = token;
+        });
+    };
+    DirectLine.prototype.refreshToken = function () {
+        var _this = this;
+        return this.checkConnection(true).flatMap(function (_) {
+            return Observable_1.Observable.ajax({
+                method: "POST",
+                url: _this.domain + "/tokens/refresh",
+                timeout: timeout,
+                headers: {
+                    "Authorization": "Bearer " + _this.token
+                }
+            }).map(function (ajaxResponse) {
+                return ajaxResponse.response.token;
+            }).retryWhen(function (error$) {
+                return error$.mergeMap(function (error) {
+                    if (error.status === 403) {
+                        // if the token is expired there's no reason to keep trying
+                        _this.expiredToken();
+                        return Observable_1.Observable.throw(error);
+                    }
+                    return Observable_1.Observable.of(error);
+                }).delay(timeout).take(retries);
+            });
+        });
+    };
+    DirectLine.prototype.reconnect = function (conversation) {
+        this.token = conversation.token;
+        this.streamUrl = conversation.streamUrl;
+        if (this.connectionStatus$.getValue() === ConnectionStatus.ExpiredToken) this.connectionStatus$.next(ConnectionStatus.Online);
+    };
+    DirectLine.prototype.end = function () {
+        if (this.tokenRefreshSubscription) this.tokenRefreshSubscription.unsubscribe();
+        this.connectionStatus$.next(ConnectionStatus.Ended);
+    };
+    DirectLine.prototype.postActivity = function (activity) {
+        var _this = this;
+        // Use postMessageWithAttachments for messages with attachments that are local files (e.g. an image to upload)
+        // Technically we could use it for *all* activities, but postActivity is much lighter weight
+        // So, since WebChat is partially a reference implementation of Direct Line, we implement both.
+        if (activity.type === "message" && activity.attachments && activity.attachments.length > 0) return this.postMessageWithAttachments(activity);
+        // If we're not connected to the bot, get connected
+        // Will throw an error if we are not connected
+        konsole.log("postActivity", activity);
+        return this.checkConnection(true).flatMap(function (_) {
+            return Observable_1.Observable.ajax({
+                method: "POST",
+                url: _this.domain + "/conversations/" + _this.conversationId + "/activities",
+                body: activity,
+                timeout: timeout,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + _this.token
+                }
+            }).map(function (ajaxResponse) {
+                return ajaxResponse.response.id;
+            }).catch(function (error) {
+                return _this.catchPostError(error);
+            });
+        }).catch(function (error) {
+            return _this.catchExpiredToken(error);
+        });
+    };
+    DirectLine.prototype.postMessageWithAttachments = function (_a) {
+        var _this = this;
+        var attachments = _a.attachments,
+            messageWithoutAttachments = __rest(_a, ["attachments"]);
+        var formData;
+        // If we're not connected to the bot, get connected
+        // Will throw an error if we are not connected
+        return this.checkConnection(true).flatMap(function (_) {
+            // To send this message to DirectLine we need to deconstruct it into a "template" activity
+            // and one blob for each attachment.
+            formData = new FormData();
+            formData.append('activity', new Blob([JSON.stringify(messageWithoutAttachments)], { type: 'application/vnd.microsoft.activity' }));
+            return Observable_1.Observable.from(attachments || []).flatMap(function (media) {
+                return Observable_1.Observable.ajax({
+                    method: "GET",
+                    url: media.contentUrl,
+                    responseType: 'arraybuffer'
+                }).do(function (ajaxResponse) {
+                    return formData.append('file', new Blob([ajaxResponse.response], { type: media.contentType }), media.name);
+                });
+            }).count();
+        }).flatMap(function (_) {
+            return Observable_1.Observable.ajax({
+                method: "POST",
+                url: _this.domain + "/conversations/" + _this.conversationId + "/upload?userId=" + messageWithoutAttachments.from.id,
+                body: formData,
+                timeout: timeout,
+                headers: {
+                    "Authorization": "Bearer " + _this.token
+                }
+            }).map(function (ajaxResponse) {
+                return ajaxResponse.response.id;
+            }).catch(function (error) {
+                return _this.catchPostError(error);
+            });
+        }).catch(function (error) {
+            return _this.catchPostError(error);
+        });
+    };
+    DirectLine.prototype.catchPostError = function (error) {
+        if (error.status === 403)
+            // token has expired (will fall through to return "retry")
+            this.expiredToken();else if (error.status >= 400 && error.status < 500)
+            // more unrecoverable errors
+            return Observable_1.Observable.throw(error);
+        return Observable_1.Observable.of("retry");
+    };
+    DirectLine.prototype.catchExpiredToken = function (error) {
+        return error === errorExpiredToken ? Observable_1.Observable.of("retry") : Observable_1.Observable.throw(error);
+    };
+    DirectLine.prototype.pollingGetActivity$ = function () {
+        var _this = this;
+        return Observable_1.Observable.interval(this.pollingInterval).combineLatest(this.checkConnection()).flatMap(function (_) {
+            return Observable_1.Observable.ajax({
+                method: "GET",
+                url: _this.domain + "/conversations/" + _this.conversationId + "/activities?watermark=" + _this.watermark,
+                timeout: timeout,
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + _this.token
+                }
+            }).catch(function (error) {
+                if (error.status === 403) {
+                    // This is slightly ugly. We want to update this.connectionStatus$ to ExpiredToken so that subsequent
+                    // calls to checkConnection will throw an error. But when we do so, it causes this.checkConnection()
+                    // to immediately throw an error, which is caught by the catch() below and transformed into an empty
+                    // object. Then next() returns, and we emit an empty object. Which means one 403 is causing
+                    // two empty objects to be emitted. Which is harmless but, again, slightly ugly.
+                    _this.expiredToken();
+                }
+                return Observable_1.Observable.empty();
+            }).map(function (ajaxResponse) {
+                return ajaxResponse.response;
+            }).flatMap(function (activityGroup) {
+                return _this.observableFromActivityGroup(activityGroup);
+            });
+        }).catch(function (error) {
+            return Observable_1.Observable.empty();
+        });
+    };
+    DirectLine.prototype.observableFromActivityGroup = function (activityGroup) {
+        if (activityGroup.watermark) this.watermark = activityGroup.watermark;
+        return Observable_1.Observable.from(activityGroup.activities);
+    };
+    DirectLine.prototype.webSocketActivity$ = function () {
+        var _this = this;
+        return this.checkConnection().flatMap(function (_) {
+            return _this.observableWebSocket().retryWhen(function (error$) {
+                return error$.mergeMap(function (error) {
+                    return _this.reconnectToConversation();
+                });
+            });
+        }).flatMap(function (activityGroup) {
+            return _this.observableFromActivityGroup(activityGroup);
+        });
+    };
+    // Originally we used Observable.webSocket, but it's fairly opionated  and I ended up writing
+    // a lot of code to work around their implemention details. Since WebChat is meant to be a reference
+    // implementation, I decided roll the below, where the logic is more purposeful. - @billba
+    DirectLine.prototype.observableWebSocket = function () {
+        var _this = this;
+        return Observable_1.Observable.create(function (subscriber) {
+            konsole.log("creating WebSocket", _this.streamUrl);
+            var ws = new WebSocket(_this.streamUrl);
+            var sub;
+            ws.onopen = function (open) {
+                konsole.log("WebSocket open", open);
+                // Chrome is pretty bad at noticing when a WebSocket connection is broken.
+                // If we periodically ping the server with empty messages, it helps Chrome
+                // realize when connection breaks, and close the socket. We then throw an
+                // error, and that give us the opportunity to attempt to reconnect.
+                sub = Observable_1.Observable.interval(timeout).subscribe(function (_) {
+                    return ws.send(null);
+                });
+            };
+            ws.onclose = function (close) {
+                konsole.log("WebSocket close", close);
+                if (sub) sub.unsubscribe();
+                subscriber.error(close);
+            };
+            ws.onmessage = function (message) {
+                return message.data && subscriber.next(JSON.parse(message.data));
+            };
+            // This is the 'unsubscribe' method, which is called when this observable is disposed.
+            // When the WebSocket closes itself, we throw an error, and this function is eventually called.
+            // When the observable is closed first (e.g. when tearing down a WebChat instance) then
+            // we need to manually close the WebSocket.
+            return function () {
+                if (ws.readyState === 0 || ws.readyState === 1) ws.close();
+            };
+        });
+    };
+    DirectLine.prototype.reconnectToConversation = function () {
+        var _this = this;
+        return this.checkConnection(true).flatMap(function (_) {
+            return Observable_1.Observable.ajax({
+                method: "GET",
+                url: _this.domain + "/conversations/" + _this.conversationId + "?watermark=" + _this.watermark,
+                timeout: timeout,
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + _this.token
+                }
+            }).do(function (result) {
+                if (!_this.secret) _this.token = result.response.token;
+                _this.streamUrl = result.response.streamUrl;
+            }).map(function (_) {
+                return null;
+            }).retryWhen(function (error$) {
+                return error$.mergeMap(function (error) {
+                    if (error.status === 403) {
+                        // token has expired. We can't recover from this here, but the embedding
+                        // website might eventually call reconnect() with a new token and streamUrl.
+                        _this.expiredToken();
+                    }
+                    return Observable_1.Observable.of(error);
+                }).delay(timeout).take(retries);
+            });
+        });
+    };
+    return DirectLine;
+}();
+exports.DirectLine = DirectLine;
+//# sourceMappingURL=directLine.js.map
+
+/***/ }),
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var CardBuilder = __webpack_require__(382);
+var AdaptiveCardContainer_1 = __webpack_require__(379);
+var regExpCard = /\^application\/vnd\.microsoft\.card\./i;
+var YOUTUBE_DOMAIN = "youtube.com";
+var YOUTUBE_WWW_DOMAIN = "www.youtube.com";
+var YOUTUBE_SHORT_DOMAIN = "youtu.be";
+var YOUTUBE_WWW_SHORT_DOMAIN = "www.youtu.be";
+var VIMEO_DOMAIN = "vimeo.com";
+var VIMEO_WWW_DOMAIN = "www.vimeo.com";
+exports.queryParams = function (src) {
+    return src.substr(1).split('&').reduce(function (previous, current) {
+        var keyValue = current.split('=');
+        previous[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+        return previous;
+    }, {});
+};
+var queryString = function queryString(query) {
+    return Object.keys(query).map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(query[key].toString());
+    }).join('&');
+};
+var Youtube = function Youtube(props) {
+    return React.createElement("iframe", { type: "text/html", src: "https://" + YOUTUBE_DOMAIN + "/embed/" + props.embedId + "?" + queryString({
+            modestbranding: '1',
+            loop: props.loop ? '1' : '0',
+            autoplay: props.autoPlay ? '1' : '0'
+        }) });
+};
+var Vimeo = function Vimeo(props) {
+    return React.createElement("iframe", { type: "text/html", src: "https://player." + VIMEO_DOMAIN + "/video/" + props.embedId + "?" + queryString({
+            title: '0',
+            byline: '0',
+            portrait: '0',
+            badge: '0',
+            autoplay: props.autoPlay ? '1' : '0',
+            loop: props.loop ? '1' : '0'
+        }) });
+};
+var Video = function Video(props) {
+    var url = document.createElement('a');
+    url.href = props.src;
+    var urlQueryParams = exports.queryParams(url.search);
+    var pathSegments = url.pathname.substr(1).split('/');
+    switch (url.hostname) {
+        case YOUTUBE_DOMAIN:
+        case YOUTUBE_SHORT_DOMAIN:
+        case YOUTUBE_WWW_DOMAIN:
+        case YOUTUBE_WWW_SHORT_DOMAIN:
+            return React.createElement(Youtube, { embedId: url.hostname === YOUTUBE_DOMAIN || url.hostname === YOUTUBE_WWW_DOMAIN ? urlQueryParams['v'] : pathSegments[pathSegments.length - 1], autoPlay: props.autoPlay, loop: props.loop });
+        case VIMEO_WWW_DOMAIN:
+        case VIMEO_DOMAIN:
+            return React.createElement(Vimeo, { embedId: pathSegments[pathSegments.length - 1], autoPlay: props.autoPlay, loop: props.loop });
+        default:
+            return React.createElement("video", tslib_1.__assign({ controls: true }, props));
+    }
+};
+var Media = function Media(props) {
+    switch (props.type) {
+        case 'video':
+            return React.createElement(Video, tslib_1.__assign({}, props));
+        case 'audio':
+            return React.createElement("audio", tslib_1.__assign({ controls: true }, props));
+        default:
+            return React.createElement("img", tslib_1.__assign({}, props));
+    }
+};
+var Unknown = function Unknown(props) {
+    if (regExpCard.test(props.contentType)) {
+        return React.createElement("span", null, props.format.strings.unknownCard.replace('%1', props.contentType));
+    } else if (props.contentUrl) {
+        return React.createElement("span", null, React.createElement("a", { href: props.contentUrl, title: props.contentUrl, target: '_blank' }, props.name || props.format.strings.unknownFile.replace('%1', props.contentType)));
+    } else {
+        return React.createElement("span", null, props.format.strings.unknownFile.replace('%1', props.contentType));
+    }
+};
+var mediaType = function mediaType(url) {
+    return url.slice((url.lastIndexOf(".") - 1 >>> 0) + 2).toLowerCase() == 'gif' ? 'image' : 'video';
+};
+exports.AttachmentView = function (props) {
+    if (!props.attachment) return;
+    var attachment = props.attachment;
+    var onCardAction = function onCardAction(cardAction) {
+        return cardAction && function (e) {
+            props.onCardAction(cardAction.type, cardAction.value);
+            e.stopPropagation();
+        };
+    };
+    var attachedImage = function attachedImage(images) {
+        return images && images.length > 0 && React.createElement(Media, { src: images[0].url, onLoad: props.onImageLoad, onClick: onCardAction(images[0].tap) });
+    };
+    switch (attachment.contentType) {
+        case "application/vnd.microsoft.card.hero":
+            if (!attachment.content) return null;
+            var heroCardBuilder_1 = new CardBuilder.AdaptiveCardBuilder();
+            if (attachment.content.images) {
+                attachment.content.images.forEach(function (img) {
+                    return heroCardBuilder_1.addImage(img.url);
+                });
+            }
+            heroCardBuilder_1.addCommon(attachment.content);
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "hero", card: heroCardBuilder_1.card, onImageLoad: props.onImageLoad, onCardAction: props.onCardAction, onClick: onCardAction(attachment.content.tap) });
+        case "application/vnd.microsoft.card.thumbnail":
+            if (!attachment.content) return null;
+            var thumbnailCardBuilder = new CardBuilder.AdaptiveCardBuilder();
+            if (attachment.content.images && attachment.content.images.length > 0) {
+                var columns_1 = thumbnailCardBuilder.addColumnSet([75, 25]);
+                thumbnailCardBuilder.addTextBlock(attachment.content.title, { size: "medium", weight: "bolder" }, columns_1[0]);
+                thumbnailCardBuilder.addTextBlock(attachment.content.subtitle, { isSubtle: true, wrap: true }, columns_1[0]);
+                thumbnailCardBuilder.addImage(attachment.content.images[0].url, columns_1[1]);
+                thumbnailCardBuilder.addTextBlock(attachment.content.text, { wrap: true });
+                thumbnailCardBuilder.addButtons(attachment.content.buttons);
+            } else {
+                thumbnailCardBuilder.addCommon(attachment.content);
+            }
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "thumbnail", card: thumbnailCardBuilder.card, onImageLoad: props.onImageLoad, onCardAction: props.onCardAction, onClick: onCardAction(attachment.content.tap) });
+        case "application/vnd.microsoft.card.video":
+            if (!attachment.content || !attachment.content.media || attachment.content.media.length === 0) return null;
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "video", card: CardBuilder.buildCommonCard(attachment.content), onCardAction: props.onCardAction }, React.createElement(Media, { type: 'video', src: attachment.content.media[0].url, onLoad: props.onImageLoad, poster: attachment.content.image && attachment.content.image.url, autoPlay: attachment.content.autostart, loop: attachment.content.autoloop }));
+        case "application/vnd.microsoft.card.animation":
+            if (!attachment.content || !attachment.content.media || attachment.content.media.length === 0) return null;
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "animation", card: CardBuilder.buildCommonCard(attachment.content), onCardAction: props.onCardAction }, React.createElement(Media, { type: mediaType(attachment.content.media[0].url), src: attachment.content.media[0].url, onLoad: props.onImageLoad, poster: attachment.content.image && attachment.content.image.url, autoPlay: attachment.content.autostart, loop: attachment.content.autoloop }));
+        case "application/vnd.microsoft.card.audio":
+            if (!attachment.content || !attachment.content.media || attachment.content.media.length === 0) return null;
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "audio", card: CardBuilder.buildCommonCard(attachment.content), onCardAction: props.onCardAction }, React.createElement(Media, { type: 'audio', src: attachment.content.media[0].url, autoPlay: attachment.content.autostart, loop: attachment.content.autoloop }));
+        case "application/vnd.microsoft.card.signin":
+            if (!attachment.content) return null;
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "signin", card: CardBuilder.buildCommonCard(attachment.content), onCardAction: props.onCardAction });
+        case "application/vnd.microsoft.card.receipt":
+            if (!attachment.content) return null;
+            var receiptCardBuilder_1 = new CardBuilder.AdaptiveCardBuilder();
+            receiptCardBuilder_1.addTextBlock(attachment.content.title, { size: "medium", weight: "bolder" });
+            var columns_2 = receiptCardBuilder_1.addColumnSet([75, 25]);
+            attachment.content.facts && attachment.content.facts.map(function (fact, i) {
+                receiptCardBuilder_1.addTextBlock(fact.key, { color: 'default', size: 'medium' }, columns_2[0]);
+                receiptCardBuilder_1.addTextBlock(fact.value, { color: 'default', size: 'medium', horizontalAlignment: 'right' }, columns_2[1]);
+            });
+            attachment.content.items && attachment.content.items.map(function (item, i) {
+                if (item.image) {
+                    var columns2 = receiptCardBuilder_1.addColumnSet([15, 75, 10]);
+                    receiptCardBuilder_1.addImage(item.image.url, columns2[0]);
+                    receiptCardBuilder_1.addTextBlock(item.title, { size: "medium", weight: "bolder" }, columns2[1]);
+                    receiptCardBuilder_1.addTextBlock(item.subtitle, { color: 'default', size: 'medium' }, columns2[1]);
+                    receiptCardBuilder_1.addTextBlock(item.price, { horizontalAlignment: 'right' }, columns2[2]);
+                } else {
+                    var columns3 = receiptCardBuilder_1.addColumnSet([75, 25]);
+                    receiptCardBuilder_1.addTextBlock(item.title, { size: "medium", weight: "bolder" }, columns3[0]);
+                    receiptCardBuilder_1.addTextBlock(item.subtitle, { color: 'default', size: 'medium' }, columns3[0]);
+                    receiptCardBuilder_1.addTextBlock(item.price, { horizontalAlignment: 'right' }, columns3[1]);
+                }
+            });
+            var taxCol = receiptCardBuilder_1.addColumnSet([75, 25]);
+            receiptCardBuilder_1.addTextBlock('Tax', { size: "medium", weight: "bolder" }, taxCol[0]);
+            receiptCardBuilder_1.addTextBlock(attachment.content.tax, { horizontalAlignment: 'right' }, taxCol[1]);
+            var totalCol = receiptCardBuilder_1.addColumnSet([75, 25]);
+            receiptCardBuilder_1.addTextBlock('Total', { size: "medium", weight: "bolder" }, totalCol[0]);
+            receiptCardBuilder_1.addTextBlock(attachment.content.total, { horizontalAlignment: 'right', size: "medium", weight: "bolder" }, totalCol[1]);
+            receiptCardBuilder_1.addButtons(attachment.content.buttons);
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: 'receipt', card: receiptCardBuilder_1.card, onCardAction: props.onCardAction, onClick: onCardAction(attachment.content.tap) });
+        case "application/vnd.microsoft.card.adaptive":
+            if (!attachment.content) return null;
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { card: attachment.content, onImageLoad: props.onImageLoad, onCardAction: props.onCardAction });
+        // Deprecated format for Skype channels. For testing legacy bots in Emulator only.
+        case "application/vnd.microsoft.card.flex":
+            if (!attachment.content) return null;
+            return React.createElement(AdaptiveCardContainer_1.AdaptiveCardContainer, { className: "flex", card: CardBuilder.buildCommonCard(attachment.content), onCardAction: props.onCardAction }, attachedImage(attachment.content.images));
+        case "image/png":
+        case "image/jpg":
+        case "image/jpeg":
+        case "image/gif":
+            return React.createElement(Media, { src: attachment.contentUrl, onLoad: props.onImageLoad });
+        case "audio/mpeg":
+        case "audio/mp4":
+            return React.createElement(Media, { type: 'audio', src: attachment.contentUrl });
+        case "video/mp4":
+            return React.createElement(Media, { type: 'video', src: attachment.contentUrl, onLoad: props.onImageLoad });
+        default:
+            return React.createElement(Unknown, { format: props.format, contentType: attachment.contentType, contentUrl: attachment.contentUrl, name: attachment.name });
+    }
+};
+//# sourceMappingURL=Attachment.js.map
+
+/***/ }),
+/* 310 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var toString = {}.toString;
+
+module.exports = function (it) {
+  return toString.call(it).slice(8, -1);
+};
+
+/***/ }),
+/* 311 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(332)(function () {
+  return Object.defineProperty({}, 'a', { get: function get() {
+      return 7;
+    } }).a != 7;
+});
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var global = __webpack_require__(297),
+    core = __webpack_require__(329),
+    hide = __webpack_require__(313),
+    redefine = __webpack_require__(403),
+    ctx = __webpack_require__(330),
+    PROTOTYPE = 'prototype';
+
+var $export = function $export(type, name, source) {
+  var IS_FORCED = type & $export.F,
+      IS_GLOBAL = type & $export.G,
+      IS_STATIC = type & $export.S,
+      IS_PROTO = type & $export.P,
+      IS_BIND = type & $export.B,
+      target = IS_GLOBAL ? global : IS_STATIC ? global[name] || (global[name] = {}) : (global[name] || {})[PROTOTYPE],
+      exports = IS_GLOBAL ? core : core[name] || (core[name] = {}),
+      expProto = exports[PROTOTYPE] || (exports[PROTOTYPE] = {}),
+      key,
+      own,
+      out,
+      exp;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    // export native or passed
+    out = (own ? target : source)[key];
+    // bind timers to global for call from export context
+    exp = IS_BIND && own ? ctx(out, global) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // extend global
+    if (target) redefine(target, key, out, type & $export.U);
+    // export
+    if (exports[key] != out) hide(exports, key, exp);
+    if (IS_PROTO && expProto[key] != out) expProto[key] = out;
+  }
+};
+global.core = core;
+// type bitmap
+$export.F = 1; // forced
+$export.G = 2; // global
+$export.S = 4; // static
+$export.P = 8; // proto
+$export.B = 16; // bind
+$export.W = 32; // wrap
+$export.U = 64; // safe
+$export.R = 128; // real proto method for `library` 
+module.exports = $export;
+
+/***/ }),
+/* 313 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var dP = __webpack_require__(401),
+    createDesc = __webpack_require__(402);
+module.exports = __webpack_require__(311) ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+/***/ }),
+/* 314 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _baseGetTag = __webpack_require__(414);
+
+var _baseGetTag2 = _interopRequireDefault(_baseGetTag);
+
+var _getPrototype = __webpack_require__(416);
+
+var _getPrototype2 = _interopRequireDefault(_getPrototype);
+
+var _isObjectLike = __webpack_require__(421);
+
+var _isObjectLike2 = _interopRequireDefault(_isObjectLike);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** `Object#toString` result references. */
+var objectTag = '[object Object]';
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Used to infer the `Object` constructor. */
+var objectCtorString = funcToString.call(Object);
+
+/**
+ * Checks if `value` is a plain object, that is, an object created by the
+ * `Object` constructor or one with a `[[Prototype]]` of `null`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.8.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * _.isPlainObject(new Foo);
+ * // => false
+ *
+ * _.isPlainObject([1, 2, 3]);
+ * // => false
+ *
+ * _.isPlainObject({ 'x': 0, 'y': 0 });
+ * // => true
+ *
+ * _.isPlainObject(Object.create(null));
+ * // => true
+ */
+function isPlainObject(value) {
+  if (!(0, _isObjectLike2.default)(value) || (0, _baseGetTag2.default)(value) != objectTag) {
+    return false;
+  }
+  var proto = (0, _getPrototype2.default)(value);
+  if (proto === null) {
+    return true;
+  }
+  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+}
+
+exports.default = isPlainObject;
+
+/***/ }),
+/* 315 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * class Ruler
+ *
+ * Helper class, used by [[MarkdownIt#core]], [[MarkdownIt#block]] and
+ * [[MarkdownIt#inline]] to manage sequences of functions (rules):
+ *
+ * - keep rules in defined order
+ * - assign the name to each rule
+ * - enable/disable rules
+ * - add/replace rules
+ * - allow assign rules to additional named chains (in the same)
+ * - cacheing lists of active rules
+ *
+ * You will not need use this class directly until write plugins. For simple
+ * rules control use [[MarkdownIt.disable]], [[MarkdownIt.enable]] and
+ * [[MarkdownIt.use]].
+ **/
+
+
+/**
+ * new Ruler()
+ **/
+
+function Ruler() {
+  // List of added rules. Each element is:
+  //
+  // {
+  //   name: XXX,
+  //   enabled: Boolean,
+  //   fn: Function(),
+  //   alt: [ name2, name3 ]
+  // }
+  //
+  this.__rules__ = [];
+
+  // Cached rule chains.
+  //
+  // First level - chain name, '' for default.
+  // Second level - diginal anchor for fast filtering by charcodes.
+  //
+  this.__cache__ = null;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Helper methods, should not be used directly
+
+
+// Find rule index by name
+//
+Ruler.prototype.__find__ = function (name) {
+  for (var i = 0; i < this.__rules__.length; i++) {
+    if (this.__rules__[i].name === name) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+// Build rules lookup cache
+//
+Ruler.prototype.__compile__ = function () {
+  var self = this;
+  var chains = [''];
+
+  // collect unique names
+  self.__rules__.forEach(function (rule) {
+    if (!rule.enabled) {
+      return;
+    }
+
+    rule.alt.forEach(function (altName) {
+      if (chains.indexOf(altName) < 0) {
+        chains.push(altName);
+      }
+    });
+  });
+
+  self.__cache__ = {};
+
+  chains.forEach(function (chain) {
+    self.__cache__[chain] = [];
+    self.__rules__.forEach(function (rule) {
+      if (!rule.enabled) {
+        return;
+      }
+
+      if (chain && rule.alt.indexOf(chain) < 0) {
+        return;
+      }
+
+      self.__cache__[chain].push(rule.fn);
+    });
+  });
+};
+
+/**
+ * Ruler.at(name, fn [, options])
+ * - name (String): rule name to replace.
+ * - fn (Function): new rule function.
+ * - options (Object): new rule options (not mandatory).
+ *
+ * Replace rule by name with new function & options. Throws error if name not
+ * found.
+ *
+ * ##### Options:
+ *
+ * - __alt__ - array with names of "alternate" chains.
+ *
+ * ##### Example
+ *
+ * Replace existing typorgapher replacement rule with new one:
+ *
+ * ```javascript
+ * var md = require('markdown-it')();
+ *
+ * md.core.ruler.at('replacements', function replace(state) {
+ *   //...
+ * });
+ * ```
+ **/
+Ruler.prototype.at = function (name, fn, options) {
+  var index = this.__find__(name);
+  var opt = options || {};
+
+  if (index === -1) {
+    throw new Error('Parser rule not found: ' + name);
+  }
+
+  this.__rules__[index].fn = fn;
+  this.__rules__[index].alt = opt.alt || [];
+  this.__cache__ = null;
+};
+
+/**
+ * Ruler.before(beforeName, ruleName, fn [, options])
+ * - beforeName (String): new rule will be added before this one.
+ * - ruleName (String): name of added rule.
+ * - fn (Function): rule function.
+ * - options (Object): rule options (not mandatory).
+ *
+ * Add new rule to chain before one with given name. See also
+ * [[Ruler.after]], [[Ruler.push]].
+ *
+ * ##### Options:
+ *
+ * - __alt__ - array with names of "alternate" chains.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * var md = require('markdown-it')();
+ *
+ * md.block.ruler.before('paragraph', 'my_rule', function replace(state) {
+ *   //...
+ * });
+ * ```
+ **/
+Ruler.prototype.before = function (beforeName, ruleName, fn, options) {
+  var index = this.__find__(beforeName);
+  var opt = options || {};
+
+  if (index === -1) {
+    throw new Error('Parser rule not found: ' + beforeName);
+  }
+
+  this.__rules__.splice(index, 0, {
+    name: ruleName,
+    enabled: true,
+    fn: fn,
+    alt: opt.alt || []
+  });
+
+  this.__cache__ = null;
+};
+
+/**
+ * Ruler.after(afterName, ruleName, fn [, options])
+ * - afterName (String): new rule will be added after this one.
+ * - ruleName (String): name of added rule.
+ * - fn (Function): rule function.
+ * - options (Object): rule options (not mandatory).
+ *
+ * Add new rule to chain after one with given name. See also
+ * [[Ruler.before]], [[Ruler.push]].
+ *
+ * ##### Options:
+ *
+ * - __alt__ - array with names of "alternate" chains.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * var md = require('markdown-it')();
+ *
+ * md.inline.ruler.after('text', 'my_rule', function replace(state) {
+ *   //...
+ * });
+ * ```
+ **/
+Ruler.prototype.after = function (afterName, ruleName, fn, options) {
+  var index = this.__find__(afterName);
+  var opt = options || {};
+
+  if (index === -1) {
+    throw new Error('Parser rule not found: ' + afterName);
+  }
+
+  this.__rules__.splice(index + 1, 0, {
+    name: ruleName,
+    enabled: true,
+    fn: fn,
+    alt: opt.alt || []
+  });
+
+  this.__cache__ = null;
+};
+
+/**
+ * Ruler.push(ruleName, fn [, options])
+ * - ruleName (String): name of added rule.
+ * - fn (Function): rule function.
+ * - options (Object): rule options (not mandatory).
+ *
+ * Push new rule to the end of chain. See also
+ * [[Ruler.before]], [[Ruler.after]].
+ *
+ * ##### Options:
+ *
+ * - __alt__ - array with names of "alternate" chains.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * var md = require('markdown-it')();
+ *
+ * md.core.ruler.push('my_rule', function replace(state) {
+ *   //...
+ * });
+ * ```
+ **/
+Ruler.prototype.push = function (ruleName, fn, options) {
+  var opt = options || {};
+
+  this.__rules__.push({
+    name: ruleName,
+    enabled: true,
+    fn: fn,
+    alt: opt.alt || []
+  });
+
+  this.__cache__ = null;
+};
+
+/**
+ * Ruler.enable(list [, ignoreInvalid]) -> Array
+ * - list (String|Array): list of rule names to enable.
+ * - ignoreInvalid (Boolean): set `true` to ignore errors when rule not found.
+ *
+ * Enable rules with given names. If any rule name not found - throw Error.
+ * Errors can be disabled by second param.
+ *
+ * Returns list of found rule names (if no exception happened).
+ *
+ * See also [[Ruler.disable]], [[Ruler.enableOnly]].
+ **/
+Ruler.prototype.enable = function (list, ignoreInvalid) {
+  if (!Array.isArray(list)) {
+    list = [list];
+  }
+
+  var result = [];
+
+  // Search by name and enable
+  list.forEach(function (name) {
+    var idx = this.__find__(name);
+
+    if (idx < 0) {
+      if (ignoreInvalid) {
+        return;
+      }
+      throw new Error('Rules manager: invalid rule name ' + name);
+    }
+    this.__rules__[idx].enabled = true;
+    result.push(name);
+  }, this);
+
+  this.__cache__ = null;
+  return result;
+};
+
+/**
+ * Ruler.enableOnly(list [, ignoreInvalid])
+ * - list (String|Array): list of rule names to enable (whitelist).
+ * - ignoreInvalid (Boolean): set `true` to ignore errors when rule not found.
+ *
+ * Enable rules with given names, and disable everything else. If any rule name
+ * not found - throw Error. Errors can be disabled by second param.
+ *
+ * See also [[Ruler.disable]], [[Ruler.enable]].
+ **/
+Ruler.prototype.enableOnly = function (list, ignoreInvalid) {
+  if (!Array.isArray(list)) {
+    list = [list];
+  }
+
+  this.__rules__.forEach(function (rule) {
+    rule.enabled = false;
+  });
+
+  this.enable(list, ignoreInvalid);
+};
+
+/**
+ * Ruler.disable(list [, ignoreInvalid]) -> Array
+ * - list (String|Array): list of rule names to disable.
+ * - ignoreInvalid (Boolean): set `true` to ignore errors when rule not found.
+ *
+ * Disable rules with given names. If any rule name not found - throw Error.
+ * Errors can be disabled by second param.
+ *
+ * Returns list of found rule names (if no exception happened).
+ *
+ * See also [[Ruler.enable]], [[Ruler.enableOnly]].
+ **/
+Ruler.prototype.disable = function (list, ignoreInvalid) {
+  if (!Array.isArray(list)) {
+    list = [list];
+  }
+
+  var result = [];
+
+  // Search by name and disable
+  list.forEach(function (name) {
+    var idx = this.__find__(name);
+
+    if (idx < 0) {
+      if (ignoreInvalid) {
+        return;
+      }
+      throw new Error('Rules manager: invalid rule name ' + name);
+    }
+    this.__rules__[idx].enabled = false;
+    result.push(name);
+  }, this);
+
+  this.__cache__ = null;
+  return result;
+};
+
+/**
+ * Ruler.getRules(chainName) -> Array
+ *
+ * Return array of active functions (rules) for given chain name. It analyzes
+ * rules configuration, compiles caches if not exists and returns result.
+ *
+ * Default chain name is `''` (empty string). It can't be skipped. That's
+ * done intentionally, to keep signature monomorphic for high speed.
+ **/
+Ruler.prototype.getRules = function (chainName) {
+  if (this.__cache__ === null) {
+    this.__compile__();
+  }
+
+  // Chain can be empty, if rules disabled. But we still have to return Array.
+  return this.__cache__[chainName] || [];
+};
+
+module.exports = Ruler;
+
+/***/ }),
+/* 316 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Token class
+
+
+
+/**
+ * class Token
+ **/
+
+/**
+ * new Token(type, tag, nesting)
+ *
+ * Create new token and fill passed properties.
+ **/
+
+function Token(type, tag, nesting) {
+  /**
+   * Token#type -> String
+   *
+   * Type of the token (string, e.g. "paragraph_open")
+   **/
+  this.type = type;
+
+  /**
+   * Token#tag -> String
+   *
+   * html tag name, e.g. "p"
+   **/
+  this.tag = tag;
+
+  /**
+   * Token#attrs -> Array
+   *
+   * Html attributes. Format: `[ [ name1, value1 ], [ name2, value2 ] ]`
+   **/
+  this.attrs = null;
+
+  /**
+   * Token#map -> Array
+   *
+   * Source map info. Format: `[ line_begin, line_end ]`
+   **/
+  this.map = null;
+
+  /**
+   * Token#nesting -> Number
+   *
+   * Level change (number in {-1, 0, 1} set), where:
+   *
+   * -  `1` means the tag is opening
+   * -  `0` means the tag is self-closing
+   * - `-1` means the tag is closing
+   **/
+  this.nesting = nesting;
+
+  /**
+   * Token#level -> Number
+   *
+   * nesting level, the same as `state.level`
+   **/
+  this.level = 0;
+
+  /**
+   * Token#children -> Array
+   *
+   * An array of child nodes (inline and img tokens)
+   **/
+  this.children = null;
+
+  /**
+   * Token#content -> String
+   *
+   * In a case of self-closing tag (code, html, fence, etc.),
+   * it has contents of this tag.
+   **/
+  this.content = '';
+
+  /**
+   * Token#markup -> String
+   *
+   * '*' or '_' for emphasis, fence string for fence, etc.
+   **/
+  this.markup = '';
+
+  /**
+   * Token#info -> String
+   *
+   * fence infostring
+   **/
+  this.info = '';
+
+  /**
+   * Token#meta -> Object
+   *
+   * A place for plugins to store an arbitrary data
+   **/
+  this.meta = null;
+
+  /**
+   * Token#block -> Boolean
+   *
+   * True for block-level tokens, false for inline tokens.
+   * Used in renderer to calculate line breaks
+   **/
+  this.block = false;
+
+  /**
+   * Token#hidden -> Boolean
+   *
+   * If it's true, ignore this element when rendering. Used for tight lists
+   * to hide paragraphs.
+   **/
+  this.hidden = false;
+}
+
+/**
+ * Token.attrIndex(name) -> Number
+ *
+ * Search attribute index by name.
+ **/
+Token.prototype.attrIndex = function attrIndex(name) {
+  var attrs, i, len;
+
+  if (!this.attrs) {
+    return -1;
+  }
+
+  attrs = this.attrs;
+
+  for (i = 0, len = attrs.length; i < len; i++) {
+    if (attrs[i][0] === name) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+/**
+ * Token.attrPush(attrData)
+ *
+ * Add `[ name, value ]` attribute to list. Init attrs if necessary
+ **/
+Token.prototype.attrPush = function attrPush(attrData) {
+  if (this.attrs) {
+    this.attrs.push(attrData);
+  } else {
+    this.attrs = [attrData];
+  }
+};
+
+/**
+ * Token.attrSet(name, value)
+ *
+ * Set `name` attribute to `value`. Override old value if exists.
+ **/
+Token.prototype.attrSet = function attrSet(name, value) {
+  var idx = this.attrIndex(name),
+      attrData = [name, value];
+
+  if (idx < 0) {
+    this.attrPush(attrData);
+  } else {
+    this.attrs[idx] = attrData;
+  }
+};
+
+/**
+ * Token.attrGet(name)
+ *
+ * Get the value of attribute `name`, or null if it does not exist.
+ **/
+Token.prototype.attrGet = function attrGet(name) {
+  var idx = this.attrIndex(name),
+      value = null;
+  if (idx >= 0) {
+    value = this.attrs[idx][1];
+  }
+  return value;
+};
+
+/**
+ * Token.attrJoin(name, value)
+ *
+ * Join value to existing attribute via space. Or create new attribute if not
+ * exists. Useful to operate with token classes.
+ **/
+Token.prototype.attrJoin = function attrJoin(name, value) {
+  var idx = this.attrIndex(name);
+
+  if (idx < 0) {
+    this.attrPush([name, value]);
+  } else {
+    this.attrs[idx][1] = this.attrs[idx][1] + ' ' + value;
+  }
+};
+
+module.exports = Token;
+
+/***/ }),
+/* 317 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = warning;
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+function warning(message) {
+  /* eslint-disable no-console */
+  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+    console.error(message);
+  }
+  /* eslint-enable no-console */
+  try {
+    // This error was thrown as a convenience so that if you enable
+    // "break on all exceptions" in your console,
+    // it would pause the execution at this line.
+    throw new Error(message);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable no-empty */
+}
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
+
+var _createStore = __webpack_require__(351);
+
+var _createStore2 = _interopRequireDefault(_createStore);
+
+var _combineReducers = __webpack_require__(489);
+
+var _combineReducers2 = _interopRequireDefault(_combineReducers);
+
+var _bindActionCreators = __webpack_require__(488);
+
+var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
+
+var _applyMiddleware = __webpack_require__(487);
+
+var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
+
+var _compose = __webpack_require__(350);
+
+var _compose2 = _interopRequireDefault(_compose);
+
+var _warning = __webpack_require__(352);
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
+*/
+function isCrushed() {}
+
+if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  (0, _warning2.default)('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+}
+
+exports.createStore = _createStore2.default;
+exports.combineReducers = _combineReducers2.default;
+exports.bindActionCreators = _bindActionCreators2.default;
+exports.applyMiddleware = _applyMiddleware2.default;
+exports.compose = _compose2.default;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+/**
+ * Applies a given `project` function to each value emitted by the source
+ * Observable, and emits the resulting values as an Observable.
+ *
+ * <span class="informal">Like [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map),
+ * it passes each source value through a transformation function to get
+ * corresponding output values.</span>
+ *
+ * <img src="./img/map.png" width="100%">
+ *
+ * Similar to the well known `Array.prototype.map` function, this operator
+ * applies a projection to each value and emits that projection in the output
+ * Observable.
+ *
+ * @example <caption>Map every click to the clientX position of that click</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var positions = clicks.map(ev => ev.clientX);
+ * positions.subscribe(x => console.log(x));
+ *
+ * @see {@link mapTo}
+ * @see {@link pluck}
+ *
+ * @param {function(value: T, index: number): R} project The function to apply
+ * to each `value` emitted by the source Observable. The `index` parameter is
+ * the number `i` for the i-th emission that has happened since the
+ * subscription, starting from the number `0`.
+ * @param {any} [thisArg] An optional argument to define what `this` is in the
+ * `project` function.
+ * @return {Observable<R>} An Observable that emits the values from the source
+ * Observable transformed by the given `project` function.
+ * @method map
+ * @owner Observable
+ */
+function map(project, thisArg) {
+    if (typeof project !== 'function') {
+        throw new TypeError('argument is not a function. Are you looking for `mapTo()`?');
+    }
+    return this.lift(new MapOperator(project, thisArg));
+}
+exports.map = map;
+var MapOperator = function () {
+    function MapOperator(project, thisArg) {
+        this.project = project;
+        this.thisArg = thisArg;
+    }
+    MapOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new MapSubscriber(subscriber, this.project, this.thisArg));
+    };
+    return MapOperator;
+}();
+exports.MapOperator = MapOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var MapSubscriber = function (_super) {
+    __extends(MapSubscriber, _super);
+    function MapSubscriber(destination, project, thisArg) {
+        _super.call(this, destination);
+        this.project = project;
+        this.count = 0;
+        this.thisArg = thisArg || this;
+    }
+    // NOTE: This looks unoptimized, but it's actually purposefully NOT
+    // using try/catch optimizations.
+    MapSubscriber.prototype._next = function (value) {
+        var result;
+        try {
+            result = this.project.call(this.thisArg, value, this.count++);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        this.destination.next(result);
+    };
+    return MapSubscriber;
+}(Subscriber_1.Subscriber);
+//# sourceMappingURL=map.js.map
+
+/***/ }),
+/* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var AsyncAction_1 = __webpack_require__(537);
+var AsyncScheduler_1 = __webpack_require__(538);
+/**
+ *
+ * Async Scheduler
+ *
+ * <span class="informal">Schedule task as if you used setTimeout(task, duration)</span>
+ *
+ * `async` scheduler schedules tasks asynchronously, by putting them on the JavaScript
+ * event loop queue. It is best used to delay tasks in time or to schedule tasks repeating
+ * in intervals.
+ *
+ * If you just want to "defer" task, that is to perform it right after currently
+ * executing synchronous code ends (commonly achieved by `setTimeout(deferredTask, 0)`),
+ * better choice will be the {@link asap} scheduler.
+ *
+ * @example <caption>Use async scheduler to delay task</caption>
+ * const task = () => console.log('it works!');
+ *
+ * Rx.Scheduler.async.schedule(task, 2000);
+ *
+ * // After 2 seconds logs:
+ * // "it works!"
+ *
+ *
+ * @example <caption>Use async scheduler to repeat task in intervals</caption>
+ * function task(state) {
+ *   console.log(state);
+ *   this.schedule(state + 1, 1000); // `this` references currently executing Action,
+ *                                   // which we reschedule with new state and delay
+ * }
+ *
+ * Rx.Scheduler.async.schedule(task, 3000, 0);
+ *
+ * // Logs:
+ * // 0 after 3s
+ * // 1 after 4s
+ * // 2 after 5s
+ * // 3 after 6s
+ *
+ * @static true
+ * @name async
+ * @owner Scheduler
+ */
+exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
+//# sourceMappingURL=async.js.map
+
+/***/ }),
+/* 321 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root_1 = __webpack_require__(292);
+function symbolIteratorPonyfill(root) {
+    var _Symbol = root.Symbol;
+    if (typeof _Symbol === 'function') {
+        if (!_Symbol.iterator) {
+            _Symbol.iterator = _Symbol('iterator polyfill');
+        }
+        return _Symbol.iterator;
+    } else {
+        // [for Mozilla Gecko 27-35:](https://mzl.la/2ewE1zC)
+        var Set_1 = root.Set;
+        if (Set_1 && typeof new Set_1()['@@iterator'] === 'function') {
+            return '@@iterator';
+        }
+        var Map_1 = root.Map;
+        // required for compatability with es6-shim
+        if (Map_1) {
+            var keys = Object.getOwnPropertyNames(Map_1.prototype);
+            for (var i = 0; i < keys.length; ++i) {
+                var key = keys[i];
+                // according to spec, Map.prototype[@@iterator] and Map.orototype.entries must be equal.
+                if (key !== 'entries' && key !== 'size' && Map_1.prototype[key] === Map_1.prototype['entries']) {
+                    return key;
+                }
+            }
+        }
+        return '@@iterator';
+    }
+}
+exports.symbolIteratorPonyfill = symbolIteratorPonyfill;
+exports.iterator = symbolIteratorPonyfill(root_1.root);
+/**
+ * @deprecated use iterator instead
+ */
+exports.$$iterator = exports.iterator;
+//# sourceMappingURL=iterator.js.map
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root_1 = __webpack_require__(292);
+function getSymbolObservable(context) {
+    var $$observable;
+    var _Symbol = context.Symbol;
+    if (typeof _Symbol === 'function') {
+        if (_Symbol.observable) {
+            $$observable = _Symbol.observable;
+        } else {
+            $$observable = _Symbol('observable');
+            _Symbol.observable = $$observable;
+        }
+    } else {
+        $$observable = '@@observable';
+    }
+    return $$observable;
+}
+exports.getSymbolObservable = getSymbolObservable;
+exports.observable = getSymbolObservable(root_1.root);
+/**
+ * @deprecated use observable instead
+ */
+exports.$$observable = exports.observable;
+//# sourceMappingURL=observable.js.map
+
+/***/ }),
+/* 323 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root_1 = __webpack_require__(292);
+var _Symbol = root_1.root.Symbol;
+exports.rxSubscriber = typeof _Symbol === 'function' && typeof _Symbol.for === 'function' ? _Symbol.for('rxSubscriber') : '@@rxSubscriber';
+/**
+ * @deprecated use rxSubscriber instead
+ */
+exports.$$rxSubscriber = exports.rxSubscriber;
+//# sourceMappingURL=rxSubscriber.js.map
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function isFunction(x) {
+    return typeof x === 'function';
+}
+exports.isFunction = isFunction;
+//# sourceMappingURL=isFunction.js.map
+
+/***/ }),
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = /[!-#%-\*,-/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u0AF0\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E44\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC9\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDF3C-\uDF3E]|\uD807[\uDC41-\uDC45\uDC70\uDC71]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/;
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var Observable_1 = __webpack_require__(288);
+__webpack_require__(496);
+__webpack_require__(498);
+var HScroll = function (_super) {
+    tslib_1.__extends(HScroll, _super);
+    function HScroll(props) {
+        return _super.call(this, props) || this;
+    }
+    HScroll.prototype.clearScrollTimers = function () {
+        clearInterval(this.scrollStartTimer);
+        clearInterval(this.scrollSyncTimer);
+        clearTimeout(this.scrollDurationTimer);
+        document.body.removeChild(this.animateDiv);
+        this.animateDiv = null;
+        this.scrollStartTimer = null;
+        this.scrollSyncTimer = null;
+        this.scrollDurationTimer = null;
+    };
+    HScroll.prototype.updateScrollButtons = function () {
+        this.prevButton.disabled = !this.scrollDiv || Math.round(this.scrollDiv.scrollLeft) <= 0;
+        this.nextButton.disabled = !this.scrollDiv || Math.round(this.scrollDiv.scrollLeft) >= Math.round(this.scrollDiv.scrollWidth - this.scrollDiv.offsetWidth);
+    };
+    HScroll.prototype.componentDidMount = function () {
+        var _this = this;
+        this.scrollDiv.style.marginBottom = -(this.scrollDiv.offsetHeight - this.scrollDiv.clientHeight) + 'px';
+        this.scrollSubscription = Observable_1.Observable.fromEvent(this.scrollDiv, 'scroll').subscribe(function (_) {
+            _this.updateScrollButtons();
+        });
+        this.clickSubscription = Observable_1.Observable.merge(Observable_1.Observable.fromEvent(this.prevButton, 'click').map(function (_) {
+            return -1;
+        }), Observable_1.Observable.fromEvent(this.nextButton, 'click').map(function (_) {
+            return 1;
+        })).subscribe(function (delta) {
+            _this.scrollBy(delta);
+        });
+        this.updateScrollButtons();
+    };
+    HScroll.prototype.componentDidUpdate = function () {
+        this.scrollDiv.scrollLeft = 0;
+        this.updateScrollButtons();
+    };
+    HScroll.prototype.componentWillUnmount = function () {
+        this.scrollSubscription.unsubscribe();
+        this.clickSubscription.unsubscribe();
+    };
+    HScroll.prototype.scrollAmount = function (direction) {
+        if (this.props.scrollUnit == 'item') {
+            // TODO: this can be improved by finding the actual item in the viewport,
+            // instead of the first item, because they may not have the same width.
+            // the width of the li is measured on demand in case CSS has resized it
+            var firstItem = this.scrollDiv.querySelector('ul > li');
+            return firstItem ? direction * firstItem.offsetWidth : 0;
+        } else {
+            // TODO: use a good page size. This can be improved by finding the next clipped item.
+            return direction * (this.scrollDiv.offsetWidth - 70);
+        }
+    };
+    HScroll.prototype.scrollBy = function (direction) {
+        var _this = this;
+        var easingClassName = 'wc-animate-scroll';
+        //cancel existing animation when clicking fast
+        if (this.animateDiv) {
+            easingClassName = 'wc-animate-scroll-rapid';
+            this.clearScrollTimers();
+        }
+        var unit = this.scrollAmount(direction);
+        var scrollLeft = this.scrollDiv.scrollLeft;
+        var dest = scrollLeft + unit;
+        //don't exceed boundaries
+        dest = Math.max(dest, 0);
+        dest = Math.min(dest, this.scrollDiv.scrollWidth - this.scrollDiv.offsetWidth);
+        if (scrollLeft == dest) return;
+        //use proper easing curve when distance is small
+        if (Math.abs(dest - scrollLeft) < 60) {
+            easingClassName = 'wc-animate-scroll-near';
+        }
+        this.animateDiv = document.createElement('div');
+        this.animateDiv.className = easingClassName;
+        this.animateDiv.style.left = scrollLeft + 'px';
+        document.body.appendChild(this.animateDiv);
+        //capture ComputedStyle every millisecond
+        this.scrollSyncTimer = window.setInterval(function () {
+            var num = parseFloat(getComputedStyle(_this.animateDiv).left);
+            _this.scrollDiv.scrollLeft = num;
+        }, 1);
+        //don't let the browser optimize the setting of 'this.animateDiv.style.left' - we need this to change values to trigger the CSS animation
+        //we accomplish this by calling 'this.animateDiv.style.left' off this thread, using setTimeout
+        this.scrollStartTimer = window.setTimeout(function () {
+            _this.animateDiv.style.left = dest + 'px';
+            var duration = 1000 * parseFloat(getComputedStyle(_this.animateDiv).transitionDuration);
+            if (duration) {
+                //slightly longer that the CSS time so we don't cut it off prematurely
+                duration += 50;
+                //stop capturing
+                _this.scrollDurationTimer = window.setTimeout(function () {
+                    return _this.clearScrollTimers();
+                }, duration);
+            } else {
+                _this.clearScrollTimers();
+            }
+        }, 1);
+    };
+    HScroll.prototype.render = function () {
+        var _this = this;
+        return React.createElement("div", null, React.createElement("button", { ref: function ref(button) {
+                return _this.prevButton = button;
+            }, className: "scroll previous", disabled: true }, React.createElement("svg", null, React.createElement("path", { d: this.props.prevSvgPathData }))), React.createElement("div", { className: "wc-hscroll-outer" }, React.createElement("div", { className: "wc-hscroll", ref: function ref(div) {
+                return _this.scrollDiv = div;
+            } }, this.props.children)), React.createElement("button", { ref: function ref(button) {
+                return _this.nextButton = button;
+            }, className: "scroll next", disabled: true }, React.createElement("svg", null, React.createElement("path", { d: this.props.nextSvgPathData }))));
+    };
+    return HScroll;
+}(React.Component);
+exports.HScroll = HScroll;
+//# sourceMappingURL=HScroll.js.map
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 22.1.3.31 Array.prototype[@@unscopables]
+var UNSCOPABLES = __webpack_require__(301)('unscopables'),
+    ArrayProto = Array.prototype;
+if (ArrayProto[UNSCOPABLES] == undefined) __webpack_require__(313)(ArrayProto, UNSCOPABLES, {});
+module.exports = function (key) {
+  ArrayProto[UNSCOPABLES][key] = true;
+};
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 0 -> Array#forEach
+// 1 -> Array#map
+// 2 -> Array#filter
+// 3 -> Array#some
+// 4 -> Array#every
+// 5 -> Array#find
+// 6 -> Array#findIndex
+var ctx = __webpack_require__(330),
+    IObject = __webpack_require__(398),
+    toObject = __webpack_require__(407),
+    toLength = __webpack_require__(333),
+    asc = __webpack_require__(393);
+module.exports = function (TYPE, $create) {
+  var IS_MAP = TYPE == 1,
+      IS_FILTER = TYPE == 2,
+      IS_SOME = TYPE == 3,
+      IS_EVERY = TYPE == 4,
+      IS_FIND_INDEX = TYPE == 6,
+      NO_HOLES = TYPE == 5 || IS_FIND_INDEX,
+      create = $create || asc;
+  return function ($this, callbackfn, that) {
+    var O = toObject($this),
+        self = IObject(O),
+        f = ctx(callbackfn, that, 3),
+        length = toLength(self.length),
+        index = 0,
+        result = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined,
+        val,
+        res;
+    for (; length > index; index++) {
+      if (NO_HOLES || index in self) {
+        val = self[index];
+        res = f(val, index, O);
+        if (TYPE) {
+          if (IS_MAP) result[index] = res; // map
+          else if (res) switch (TYPE) {
+              case 3:
+                return true; // some
+              case 5:
+                return val; // find
+              case 6:
+                return index; // findIndex
+              case 2:
+                result.push(val); // filter
+            } else if (IS_EVERY) return false; // every
+        }
+      }
+    }return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
+  };
+};
+
+/***/ }),
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var core = module.exports = { version: '2.4.0' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+/***/ }),
+/* 330 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// optional / simple context binding
+var aFunction = __webpack_require__(390);
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1:
+      return function (a) {
+        return fn.call(that, a);
+      };
+    case 2:
+      return function (a, b) {
+        return fn.call(that, a, b);
+      };
+    case 3:
+      return function (a, b, c) {
+        return fn.call(that, a, b, c);
+      };
+  }
+  return function () /* ...args */{
+    return fn.apply(that, arguments);
+  };
+};
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+/***/ }),
+/* 333 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(406),
+    min = Math.min;
+module.exports = function (it) {
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var id = 0,
+    px = Math.random();
+module.exports = function (key) {
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+/***/ }),
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _root = __webpack_require__(420);
+
+var _root2 = _interopRequireDefault(_root);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** Built-in value references. */
+var _Symbol = _root2.default.Symbol;
+
+exports.default = _Symbol;
+
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(427);
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// HTML5 entities map: { name -> utf16string }
+//
+
+
+/*eslint quotes:0*/
+
+module.exports = __webpack_require__(550);
+
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Regexps to match html elements
+
+
+
+var attr_name = '[a-zA-Z_:][a-zA-Z0-9:._-]*';
+
+var unquoted = '[^"\'=<>`\\x00-\\x20]+';
+var single_quoted = "'[^']*'";
+var double_quoted = '"[^"]*"';
+
+var attr_value = '(?:' + unquoted + '|' + single_quoted + '|' + double_quoted + ')';
+
+var attribute = '(?:\\s+' + attr_name + '(?:\\s*=\\s*' + attr_value + ')?)';
+
+var open_tag = '<[A-Za-z][A-Za-z0-9\\-]*' + attribute + '*\\s*\\/?>';
+
+var close_tag = '<\\/[A-Za-z][A-Za-z0-9\\-]*\\s*>';
+var comment = '<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->';
+var processing = '<[?].*?[?]>';
+var declaration = '<![A-Z]+\\s+[^>]*>';
+var cdata = '<!\\[CDATA\\[[\\s\\S]*?\\]\\]>';
+
+var HTML_TAG_RE = new RegExp('^(?:' + open_tag + '|' + close_tag + '|' + comment + '|' + processing + '|' + declaration + '|' + cdata + ')');
+var HTML_OPEN_CLOSE_TAG_RE = new RegExp('^(?:' + open_tag + '|' + close_tag + ')');
+
+module.exports.HTML_TAG_RE = HTML_TAG_RE;
+module.exports.HTML_OPEN_CLOSE_TAG_RE = HTML_OPEN_CLOSE_TAG_RE;
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Process *this* and _that_
+//
+
+
+// Insert each marker as a separate text token, and add it to delimiter list
+//
+
+module.exports.tokenize = function emphasis(state, silent) {
+  var i,
+      scanned,
+      token,
+      start = state.pos,
+      marker = state.src.charCodeAt(start);
+
+  if (silent) {
+    return false;
+  }
+
+  if (marker !== 0x5F /* _ */ && marker !== 0x2A /* * */) {
+      return false;
+    }
+
+  scanned = state.scanDelims(state.pos, marker === 0x2A);
+
+  for (i = 0; i < scanned.length; i++) {
+    token = state.push('text', '', 0);
+    token.content = String.fromCharCode(marker);
+
+    state.delimiters.push({
+      // Char code of the starting marker (number).
+      //
+      marker: marker,
+
+      // Total length of these series of delimiters.
+      //
+      length: scanned.length,
+
+      // An amount of characters before this one that's equivalent to
+      // current one. In plain English: if this delimiter does not open
+      // an emphasis, neither do previous `jump` characters.
+      //
+      // Used to skip sequences like "*****" in one step, for 1st asterisk
+      // value will be 0, for 2nd it's 1 and so on.
+      //
+      jump: i,
+
+      // A position of the token this delimiter corresponds to.
+      //
+      token: state.tokens.length - 1,
+
+      // Token level.
+      //
+      level: state.level,
+
+      // If this delimiter is matched as a valid opener, `end` will be
+      // equal to its position, otherwise it's `-1`.
+      //
+      end: -1,
+
+      // Boolean flags that determine if this delimiter could open or close
+      // an emphasis.
+      //
+      open: scanned.can_open,
+      close: scanned.can_close
+    });
+  }
+
+  state.pos += scanned.length;
+
+  return true;
+};
+
+// Walk through delimiter list and replace text tokens with tags
+//
+module.exports.postProcess = function emphasis(state) {
+  var i,
+      startDelim,
+      endDelim,
+      token,
+      ch,
+      isStrong,
+      delimiters = state.delimiters,
+      max = state.delimiters.length;
+
+  for (i = 0; i < max; i++) {
+    startDelim = delimiters[i];
+
+    if (startDelim.marker !== 0x5F /* _ */ && startDelim.marker !== 0x2A /* * */) {
+        continue;
+      }
+
+    // Process only opening markers
+    if (startDelim.end === -1) {
+      continue;
+    }
+
+    endDelim = delimiters[startDelim.end];
+
+    // If the next delimiter has the same marker and is adjacent to this one,
+    // merge those into one strong delimiter.
+    //
+    // `<em><em>whatever</em></em>` -> `<strong>whatever</strong>`
+    //
+    isStrong = i + 1 < max && delimiters[i + 1].end === startDelim.end - 1 && delimiters[i + 1].token === startDelim.token + 1 && delimiters[startDelim.end - 1].token === endDelim.token - 1 && delimiters[i + 1].marker === startDelim.marker;
+
+    ch = String.fromCharCode(startDelim.marker);
+
+    token = state.tokens[startDelim.token];
+    token.type = isStrong ? 'strong_open' : 'em_open';
+    token.tag = isStrong ? 'strong' : 'em';
+    token.nesting = 1;
+    token.markup = isStrong ? ch + ch : ch;
+    token.content = '';
+
+    token = state.tokens[endDelim.token];
+    token.type = isStrong ? 'strong_close' : 'em_close';
+    token.tag = isStrong ? 'strong' : 'em';
+    token.nesting = -1;
+    token.markup = isStrong ? ch + ch : ch;
+    token.content = '';
+
+    if (isStrong) {
+      state.tokens[delimiters[i + 1].token].content = '';
+      state.tokens[delimiters[startDelim.end - 1].token].content = '';
+      i++;
+    }
+  }
+};
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// ~~strike through~~
+//
+
+
+// Insert each marker as a separate text token, and add it to delimiter list
+//
+
+module.exports.tokenize = function strikethrough(state, silent) {
+  var i,
+      scanned,
+      token,
+      len,
+      ch,
+      start = state.pos,
+      marker = state.src.charCodeAt(start);
+
+  if (silent) {
+    return false;
+  }
+
+  if (marker !== 0x7E /* ~ */) {
+      return false;
+    }
+
+  scanned = state.scanDelims(state.pos, true);
+  len = scanned.length;
+  ch = String.fromCharCode(marker);
+
+  if (len < 2) {
+    return false;
+  }
+
+  if (len % 2) {
+    token = state.push('text', '', 0);
+    token.content = ch;
+    len--;
+  }
+
+  for (i = 0; i < len; i += 2) {
+    token = state.push('text', '', 0);
+    token.content = ch + ch;
+
+    state.delimiters.push({
+      marker: marker,
+      jump: i,
+      token: state.tokens.length - 1,
+      level: state.level,
+      end: -1,
+      open: scanned.can_open,
+      close: scanned.can_close
+    });
+  }
+
+  state.pos += scanned.length;
+
+  return true;
+};
+
+// Walk through delimiter list and replace text tokens with tags
+//
+module.exports.postProcess = function strikethrough(state) {
+  var i,
+      j,
+      startDelim,
+      endDelim,
+      token,
+      loneMarkers = [],
+      delimiters = state.delimiters,
+      max = state.delimiters.length;
+
+  for (i = 0; i < max; i++) {
+    startDelim = delimiters[i];
+
+    if (startDelim.marker !== 0x7E /* ~ */) {
+        continue;
+      }
+
+    if (startDelim.end === -1) {
+      continue;
+    }
+
+    endDelim = delimiters[startDelim.end];
+
+    token = state.tokens[startDelim.token];
+    token.type = 's_open';
+    token.tag = 's';
+    token.nesting = 1;
+    token.markup = '~~';
+    token.content = '';
+
+    token = state.tokens[endDelim.token];
+    token.type = 's_close';
+    token.tag = 's';
+    token.nesting = -1;
+    token.markup = '~~';
+    token.content = '';
+
+    if (state.tokens[endDelim.token - 1].type === 'text' && state.tokens[endDelim.token - 1].content === '~') {
+
+      loneMarkers.push(endDelim.token - 1);
+    }
+  }
+
+  // If a marker sequence has an odd number of characters, it's splitted
+  // like this: `~~~~~` -> `~` + `~~` + `~~`, leaving one marker at the
+  // start of the sequence.
+  //
+  // So, we have to move all those markers after subsequent s_close tags.
+  //
+  while (loneMarkers.length) {
+    i = loneMarkers.pop();
+    j = i + 1;
+
+    while (j < state.tokens.length && state.tokens[j].type === 's_close') {
+      j++;
+    }
+
+    j--;
+
+    if (i !== j) {
+      token = state.tokens[j];
+      state.tokens[j] = state.tokens[i];
+      state.tokens[i] = token;
+    }
+  }
+};
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports.encode = __webpack_require__(467);
+module.exports.decode = __webpack_require__(466);
+module.exports.format = __webpack_require__(468);
+module.exports.parse = __webpack_require__(469);
+
+/***/ }),
+/* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ValidationError;
+(function (ValidationError) {
+    ValidationError[ValidationError["ActionTypeNotAllowed"] = 0] = "ActionTypeNotAllowed";
+    ValidationError[ValidationError["CollectionCantBeEmpty"] = 1] = "CollectionCantBeEmpty";
+    ValidationError[ValidationError["ElementTypeNotAllowed"] = 2] = "ElementTypeNotAllowed";
+    ValidationError[ValidationError["InteractivityNotAllowed"] = 3] = "InteractivityNotAllowed";
+    ValidationError[ValidationError["InvalidPropertyValue"] = 4] = "InvalidPropertyValue";
+    ValidationError[ValidationError["MissingCardType"] = 5] = "MissingCardType";
+    ValidationError[ValidationError["PropertyCantBeNull"] = 6] = "PropertyCantBeNull";
+    ValidationError[ValidationError["TooManyActions"] = 7] = "TooManyActions";
+    ValidationError[ValidationError["UnknownActionType"] = 8] = "UnknownActionType";
+    ValidationError[ValidationError["UnknownElementType"] = 9] = "UnknownElementType";
+    ValidationError[ValidationError["UnsupportedCardVersion"] = 10] = "UnsupportedCardVersion";
+})(ValidationError = exports.ValidationError || (exports.ValidationError = {}));
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var markdownIt = __webpack_require__(336);
+var markdownProcessor = new markdownIt();
+function processMarkdown(text) {
+    return markdownProcessor.render(text);
+}
+exports.processMarkdown = processMarkdown;
+function getValueOrDefault(obj, defaultValue) {
+    return obj ? obj : defaultValue;
+}
+exports.getValueOrDefault = getValueOrDefault;
+function isNullOrEmpty(value) {
+    return value === undefined || value === null || value === "";
+}
+exports.isNullOrEmpty = isNullOrEmpty;
+function appendChild(node, child) {
+    if (child != null && child != undefined) {
+        node.appendChild(child);
+    }
+}
+exports.appendChild = appendChild;
+function renderSeparation(separationDefinition, orientation) {
+    var separator = document.createElement("div");
+    if (orientation == "vertical") {
+        if (separationDefinition.lineThickness) {
+            separator.style.marginTop = separationDefinition.spacing / 2 + "px";
+            separator.style.paddingTop = separationDefinition.spacing / 2 + "px";
+            separator.style.borderTop = separationDefinition.lineThickness + "px solid " + stringToCssColor(separationDefinition.lineColor);
+        } else {
+            separator.style.height = separationDefinition.spacing + "px";
+        }
+    } else {
+        if (separationDefinition.lineThickness) {
+            separator.style.marginLeft = separationDefinition.spacing / 2 + "px";
+            separator.style.paddingLeft = separationDefinition.spacing / 2 + "px";
+            separator.style.borderLeft = separationDefinition.lineThickness + "px solid " + stringToCssColor(separationDefinition.lineColor);
+        } else {
+            separator.style.width = separationDefinition.spacing + "px";
+        }
+    }
+    return separator;
+}
+exports.renderSeparation = renderSeparation;
+function stringToCssColor(color) {
+    var regEx = /#([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})([0-9A-F]{2})?/gi;
+    var matches = regEx.exec(color);
+    if (matches && matches[4]) {
+        var a = parseInt(matches[1], 16) / 255;
+        var r = parseInt(matches[2], 16);
+        var g = parseInt(matches[3], 16);
+        var b = parseInt(matches[4], 16);
+        return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    } else {
+        return color;
+    }
+}
+exports.stringToCssColor = stringToCssColor;
+var StringWithSubstitutions = function () {
+    function StringWithSubstitutions() {
+        this._isProcessed = false;
+        this._original = null;
+        this._processed = null;
+    }
+    StringWithSubstitutions.prototype.substituteInputValues = function (inputs) {
+        this._processed = this._original;
+        var regEx = /\{{2}([a-z0-9_$@]+).value\}{2}/gi;
+        var matches;
+        while ((matches = regEx.exec(this._original)) != null) {
+            var matchedInput = null;
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].id.toLowerCase() == matches[1].toLowerCase()) {
+                    matchedInput = inputs[i];
+                    break;
+                }
+            }
+            if (matchedInput) {
+                this._processed = this._processed.replace(matches[0], matchedInput.value ? matchedInput.value : "");
+            }
+        }
+        ;
+        this._isProcessed = true;
+    };
+    StringWithSubstitutions.prototype.get = function () {
+        if (!this._isProcessed) {
+            return this._original;
+        } else {
+            return this._processed;
+        }
+    };
+    StringWithSubstitutions.prototype.set = function (value) {
+        this._original = value;
+        this._isProcessed = false;
+    };
+    return StringWithSubstitutions;
+}();
+exports.StringWithSubstitutions = StringWithSubstitutions;
+//# sourceMappingURL=utils.js.map
+
+/***/ }),
+/* 344 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = connectAdvanced;
+
+var _hoistNonReactStatics = __webpack_require__(142);
+
+var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
+
+var _invariant = __webpack_require__(33);
+
+var _invariant2 = _interopRequireDefault(_invariant);
+
+var _react = __webpack_require__(2);
+
+var _Subscription = __webpack_require__(482);
+
+var _Subscription2 = _interopRequireDefault(_Subscription);
+
+var _PropTypes = __webpack_require__(346);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+var hotReloadingVersion = 0;
+var dummyState = {};
+function noop() {}
+function makeSelectorStateful(sourceSelector, store) {
+  // wrap the selector in an object that tracks its results between runs.
+  var selector = {
+    run: function runComponentSelector(props) {
+      try {
+        var nextProps = sourceSelector(store.getState(), props);
+        if (nextProps !== selector.props || selector.error) {
+          selector.shouldComponentUpdate = true;
+          selector.props = nextProps;
+          selector.error = null;
+        }
+      } catch (error) {
+        selector.shouldComponentUpdate = true;
+        selector.error = error;
+      }
+    }
+  };
+
+  return selector;
+}
+
+function connectAdvanced(
+/*
+  selectorFactory is a func that is responsible for returning the selector function used to
+  compute new props from state, props, and dispatch. For example:
+     export default connectAdvanced((dispatch, options) => (state, props) => ({
+      thing: state.things[props.thingId],
+      saveThing: fields => dispatch(actionCreators.saveThing(props.thingId, fields)),
+    }))(YourComponent)
+   Access to dispatch is provided to the factory so selectorFactories can bind actionCreators
+  outside of their selector as an optimization. Options passed to connectAdvanced are passed to
+  the selectorFactory, along with displayName and WrappedComponent, as the second argument.
+   Note that selectorFactory is responsible for all caching/memoization of inbound and outbound
+  props. Do not use connectAdvanced directly without memoizing results between calls to your
+  selector, otherwise the Connect component will re-render on every state or props change.
+*/
+selectorFactory) {
+  var _contextTypes, _childContextTypes;
+
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$getDisplayName = _ref.getDisplayName,
+      getDisplayName = _ref$getDisplayName === undefined ? function (name) {
+    return 'ConnectAdvanced(' + name + ')';
+  } : _ref$getDisplayName,
+      _ref$methodName = _ref.methodName,
+      methodName = _ref$methodName === undefined ? 'connectAdvanced' : _ref$methodName,
+      _ref$renderCountProp = _ref.renderCountProp,
+      renderCountProp = _ref$renderCountProp === undefined ? undefined : _ref$renderCountProp,
+      _ref$shouldHandleStat = _ref.shouldHandleStateChanges,
+      shouldHandleStateChanges = _ref$shouldHandleStat === undefined ? true : _ref$shouldHandleStat,
+      _ref$storeKey = _ref.storeKey,
+      storeKey = _ref$storeKey === undefined ? 'store' : _ref$storeKey,
+      _ref$withRef = _ref.withRef,
+      withRef = _ref$withRef === undefined ? false : _ref$withRef,
+      connectOptions = _objectWithoutProperties(_ref, ['getDisplayName', 'methodName', 'renderCountProp', 'shouldHandleStateChanges', 'storeKey', 'withRef']);
+
+  var subscriptionKey = storeKey + 'Subscription';
+  var version = hotReloadingVersion++;
+
+  var contextTypes = (_contextTypes = {}, _contextTypes[storeKey] = _PropTypes.storeShape, _contextTypes[subscriptionKey] = _PropTypes.subscriptionShape, _contextTypes);
+  var childContextTypes = (_childContextTypes = {}, _childContextTypes[subscriptionKey] = _PropTypes.subscriptionShape, _childContextTypes);
+
+  return function wrapWithConnect(WrappedComponent) {
+    (0, _invariant2.default)(typeof WrappedComponent == 'function', 'You must pass a component to the function returned by ' + ('connect. Instead received ' + JSON.stringify(WrappedComponent)));
+
+    var wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
+
+    var displayName = getDisplayName(wrappedComponentName);
+
+    var selectorFactoryOptions = _extends({}, connectOptions, {
+      getDisplayName: getDisplayName,
+      methodName: methodName,
+      renderCountProp: renderCountProp,
+      shouldHandleStateChanges: shouldHandleStateChanges,
+      storeKey: storeKey,
+      withRef: withRef,
+      displayName: displayName,
+      wrappedComponentName: wrappedComponentName,
+      WrappedComponent: WrappedComponent
+    });
+
+    var Connect = function (_Component) {
+      _inherits(Connect, _Component);
+
+      function Connect(props, context) {
+        _classCallCheck(this, Connect);
+
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+        _this.version = version;
+        _this.state = {};
+        _this.renderCount = 0;
+        _this.store = props[storeKey] || context[storeKey];
+        _this.propsMode = Boolean(props[storeKey]);
+        _this.setWrappedInstance = _this.setWrappedInstance.bind(_this);
+
+        (0, _invariant2.default)(_this.store, 'Could not find "' + storeKey + '" in either the context or props of ' + ('"' + displayName + '". Either wrap the root component in a <Provider>, ') + ('or explicitly pass "' + storeKey + '" as a prop to "' + displayName + '".'));
+
+        _this.initSelector();
+        _this.initSubscription();
+        return _this;
+      }
+
+      Connect.prototype.getChildContext = function getChildContext() {
+        var _ref2;
+
+        // If this component received store from props, its subscription should be transparent
+        // to any descendants receiving store+subscription from context; it passes along
+        // subscription passed to it. Otherwise, it shadows the parent subscription, which allows
+        // Connect to control ordering of notifications to flow top-down.
+        var subscription = this.propsMode ? null : this.subscription;
+        return _ref2 = {}, _ref2[subscriptionKey] = subscription || this.context[subscriptionKey], _ref2;
+      };
+
+      Connect.prototype.componentDidMount = function componentDidMount() {
+        if (!shouldHandleStateChanges) return;
+
+        // componentWillMount fires during server side rendering, but componentDidMount and
+        // componentWillUnmount do not. Because of this, trySubscribe happens during ...didMount.
+        // Otherwise, unsubscription would never take place during SSR, causing a memory leak.
+        // To handle the case where a child component may have triggered a state change by
+        // dispatching an action in its componentWillMount, we have to re-run the select and maybe
+        // re-render.
+        this.subscription.trySubscribe();
+        this.selector.run(this.props);
+        if (this.selector.shouldComponentUpdate) this.forceUpdate();
+      };
+
+      Connect.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+        this.selector.run(nextProps);
+      };
+
+      Connect.prototype.shouldComponentUpdate = function shouldComponentUpdate() {
+        return this.selector.shouldComponentUpdate;
+      };
+
+      Connect.prototype.componentWillUnmount = function componentWillUnmount() {
+        if (this.subscription) this.subscription.tryUnsubscribe();
+        this.subscription = null;
+        this.notifyNestedSubs = noop;
+        this.store = null;
+        this.selector.run = noop;
+        this.selector.shouldComponentUpdate = false;
+      };
+
+      Connect.prototype.getWrappedInstance = function getWrappedInstance() {
+        (0, _invariant2.default)(withRef, 'To access the wrapped instance, you need to specify ' + ('{ withRef: true } in the options argument of the ' + methodName + '() call.'));
+        return this.wrappedInstance;
+      };
+
+      Connect.prototype.setWrappedInstance = function setWrappedInstance(ref) {
+        this.wrappedInstance = ref;
+      };
+
+      Connect.prototype.initSelector = function initSelector() {
+        var sourceSelector = selectorFactory(this.store.dispatch, selectorFactoryOptions);
+        this.selector = makeSelectorStateful(sourceSelector, this.store);
+        this.selector.run(this.props);
+      };
+
+      Connect.prototype.initSubscription = function initSubscription() {
+        if (!shouldHandleStateChanges) return;
+
+        // parentSub's source should match where store came from: props vs. context. A component
+        // connected to the store via props shouldn't use subscription from context, or vice versa.
+        var parentSub = (this.propsMode ? this.props : this.context)[subscriptionKey];
+        this.subscription = new _Subscription2.default(this.store, parentSub, this.onStateChange.bind(this));
+
+        // `notifyNestedSubs` is duplicated to handle the case where the component is  unmounted in
+        // the middle of the notification loop, where `this.subscription` will then be null. An
+        // extra null check every change can be avoided by copying the method onto `this` and then
+        // replacing it with a no-op on unmount. This can probably be avoided if Subscription's
+        // listeners logic is changed to not call listeners that have been unsubscribed in the
+        // middle of the notification loop.
+        this.notifyNestedSubs = this.subscription.notifyNestedSubs.bind(this.subscription);
+      };
+
+      Connect.prototype.onStateChange = function onStateChange() {
+        this.selector.run(this.props);
+
+        if (!this.selector.shouldComponentUpdate) {
+          this.notifyNestedSubs();
+        } else {
+          this.componentDidUpdate = this.notifyNestedSubsOnComponentDidUpdate;
+          this.setState(dummyState);
+        }
+      };
+
+      Connect.prototype.notifyNestedSubsOnComponentDidUpdate = function notifyNestedSubsOnComponentDidUpdate() {
+        // `componentDidUpdate` is conditionally implemented when `onStateChange` determines it
+        // needs to notify nested subs. Once called, it unimplements itself until further state
+        // changes occur. Doing it this way vs having a permanent `componentDidMount` that does
+        // a boolean check every time avoids an extra method call most of the time, resulting
+        // in some perf boost.
+        this.componentDidUpdate = undefined;
+        this.notifyNestedSubs();
+      };
+
+      Connect.prototype.isSubscribed = function isSubscribed() {
+        return Boolean(this.subscription) && this.subscription.isSubscribed();
+      };
+
+      Connect.prototype.addExtraProps = function addExtraProps(props) {
+        if (!withRef && !renderCountProp && !(this.propsMode && this.subscription)) return props;
+        // make a shallow copy so that fields added don't leak to the original selector.
+        // this is especially important for 'ref' since that's a reference back to the component
+        // instance. a singleton memoized selector would then be holding a reference to the
+        // instance, preventing the instance from being garbage collected, and that would be bad
+        var withExtras = _extends({}, props);
+        if (withRef) withExtras.ref = this.setWrappedInstance;
+        if (renderCountProp) withExtras[renderCountProp] = this.renderCount++;
+        if (this.propsMode && this.subscription) withExtras[subscriptionKey] = this.subscription;
+        return withExtras;
+      };
+
+      Connect.prototype.render = function render() {
+        var selector = this.selector;
+        selector.shouldComponentUpdate = false;
+
+        if (selector.error) {
+          throw selector.error;
+        } else {
+          return (0, _react.createElement)(WrappedComponent, this.addExtraProps(selector.props));
+        }
+      };
+
+      return Connect;
+    }(_react.Component);
+
+    Connect.WrappedComponent = WrappedComponent;
+    Connect.displayName = displayName;
+    Connect.childContextTypes = childContextTypes;
+    Connect.contextTypes = contextTypes;
+    Connect.propTypes = contextTypes;
+
+    if (process.env.NODE_ENV !== 'production') {
+      Connect.prototype.componentWillUpdate = function componentWillUpdate() {
+        // We are hot reloading!
+        if (this.version !== version) {
+          this.version = version;
+          this.initSelector();
+
+          if (this.subscription) this.subscription.tryUnsubscribe();
+          this.initSubscription();
+          if (shouldHandleStateChanges) this.subscription.trySubscribe();
+        }
+      };
+    }
+
+    return (0, _hoistNonReactStatics2.default)(Connect, WrappedComponent);
+  };
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 345 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wrapMapToPropsConstant = wrapMapToPropsConstant;
+exports.getDependsOnOwnProps = getDependsOnOwnProps;
+exports.wrapMapToPropsFunc = wrapMapToPropsFunc;
+
+var _verifyPlainObject = __webpack_require__(347);
+
+var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function wrapMapToPropsConstant(getConstant) {
+  return function initConstantSelector(dispatch, options) {
+    var constant = getConstant(dispatch, options);
+
+    function constantSelector() {
+      return constant;
+    }
+    constantSelector.dependsOnOwnProps = false;
+    return constantSelector;
+  };
+}
+
+// dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
+// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
+// whether mapToProps needs to be invoked when props have changed.
+// 
+// A length of one signals that mapToProps does not depend on props from the parent component.
+// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
+// therefore not reporting its length accurately..
+function getDependsOnOwnProps(mapToProps) {
+  return mapToProps.dependsOnOwnProps !== null && mapToProps.dependsOnOwnProps !== undefined ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
+}
+
+// Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
+// this function wraps mapToProps in a proxy function which does several things:
+// 
+//  * Detects whether the mapToProps function being called depends on props, which
+//    is used by selectorFactory to decide if it should reinvoke on props changes.
+//    
+//  * On first call, handles mapToProps if returns another function, and treats that
+//    new function as the true mapToProps for subsequent calls.
+//    
+//  * On first call, verifies the first result is a plain object, in order to warn
+//    the developer that their mapToProps function is not returning a valid result.
+//    
+function wrapMapToPropsFunc(mapToProps, methodName) {
+  return function initProxySelector(dispatch, _ref) {
+    var displayName = _ref.displayName;
+
+    var proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+      return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch);
+    };
+
+    // allow detectFactoryAndVerify to get ownProps
+    proxy.dependsOnOwnProps = true;
+
+    proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+      proxy.mapToProps = mapToProps;
+      proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps);
+      var props = proxy(stateOrDispatch, ownProps);
+
+      if (typeof props === 'function') {
+        proxy.mapToProps = props;
+        proxy.dependsOnOwnProps = getDependsOnOwnProps(props);
+        props = proxy(stateOrDispatch, ownProps);
+      }
+
+      if (process.env.NODE_ENV !== 'production') (0, _verifyPlainObject2.default)(props, displayName, methodName);
+
+      return props;
+    };
+
+    return proxy;
+  };
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.storeShape = exports.subscriptionShape = undefined;
+
+var _propTypes = __webpack_require__(8);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var subscriptionShape = exports.subscriptionShape = _propTypes2.default.shape({
+  trySubscribe: _propTypes2.default.func.isRequired,
+  tryUnsubscribe: _propTypes2.default.func.isRequired,
+  notifyNestedSubs: _propTypes2.default.func.isRequired,
+  isSubscribed: _propTypes2.default.func.isRequired
+});
+
+var storeShape = exports.storeShape = _propTypes2.default.shape({
+  subscribe: _propTypes2.default.func.isRequired,
+  dispatch: _propTypes2.default.func.isRequired,
+  getState: _propTypes2.default.func.isRequired
+});
+
+/***/ }),
+/* 347 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = verifyPlainObject;
+
+var _isPlainObject = __webpack_require__(314);
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+var _warning = __webpack_require__(317);
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function verifyPlainObject(value, displayName, methodName) {
+  if (!(0, _isPlainObject2.default)(value)) {
+    (0, _warning2.default)(methodName + '() in ' + displayName + ' must return a plain object. Instead received ' + value + '.');
+  }
+}
+
+/***/ }),
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ActionsObservable = undefined;
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _Observable2 = __webpack_require__(288);
+
+var _of2 = __webpack_require__(366);
+
+var _from2 = __webpack_require__(364);
+
+var _filter = __webpack_require__(367);
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var ActionsObservable = exports.ActionsObservable = function (_Observable) {
+  _inherits(ActionsObservable, _Observable);
+
+  _createClass(ActionsObservable, null, [{
+    key: 'of',
+    value: function of() {
+      return new this(_of2.of.apply(undefined, arguments));
+    }
+  }, {
+    key: 'from',
+    value: function from(actions, scheduler) {
+      return new this((0, _from2.from)(actions, scheduler));
+    }
+  }]);
+
+  function ActionsObservable(actionsSubject) {
+    _classCallCheck(this, ActionsObservable);
+
+    var _this = _possibleConstructorReturn(this, (ActionsObservable.__proto__ || Object.getPrototypeOf(ActionsObservable)).call(this));
+
+    _this.source = actionsSubject;
+    return _this;
+  }
+
+  _createClass(ActionsObservable, [{
+    key: 'lift',
+    value: function lift(operator) {
+      var observable = new ActionsObservable(this);
+      observable.operator = operator;
+      return observable;
+    }
+  }, {
+    key: 'ofType',
+    value: function ofType() {
+      for (var _len = arguments.length, keys = Array(_len), _key = 0; _key < _len; _key++) {
+        keys[_key] = arguments[_key];
+      }
+
+      return _filter.filter.call(this, function (_ref) {
+        var type = _ref.type;
+
+        var len = keys.length;
+        if (len === 1) {
+          return type === keys[0];
+        } else {
+          for (var i = 0; i < len; i++) {
+            if (keys[i] === type) {
+              return true;
+            }
+          }
+        }
+        return false;
+      });
+    }
+  }]);
+
+  return ActionsObservable;
+}(_Observable2.Observable);
+
+/***/ }),
+/* 349 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var EPIC_END = exports.EPIC_END = '@@redux-observable/EPIC_END';
+
+/***/ }),
+/* 350 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = compose;
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
+ */
+
+function compose() {
+  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+    funcs[_key] = arguments[_key];
+  }
+
+  if (funcs.length === 0) {
+    return function (arg) {
+      return arg;
+    };
+  }
+
+  if (funcs.length === 1) {
+    return funcs[0];
+  }
+
+  return funcs.reduce(function (a, b) {
+    return function () {
+      return a(b.apply(undefined, arguments));
+    };
+  });
+}
+
+/***/ }),
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ActionTypes = undefined;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = createStore;
+
+var _isPlainObject = __webpack_require__(314);
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+var _symbolObservable = __webpack_require__(544);
+
+var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */
+var ActionTypes = exports.ActionTypes = {
+  INIT: '@@redux/INIT'
+
+  /**
+   * Creates a Redux store that holds the state tree.
+   * The only way to change the data in the store is to call `dispatch()` on it.
+   *
+   * There should only be a single store in your app. To specify how different
+   * parts of the state tree respond to actions, you may combine several reducers
+   * into a single reducer function by using `combineReducers`.
+   *
+   * @param {Function} reducer A function that returns the next state tree, given
+   * the current state tree and the action to handle.
+   *
+   * @param {any} [preloadedState] The initial state. You may optionally specify it
+   * to hydrate the state from the server in universal apps, or to restore a
+   * previously serialized user session.
+   * If you use `combineReducers` to produce the root reducer function, this must be
+   * an object with the same shape as `combineReducers` keys.
+   *
+   * @param {Function} [enhancer] The store enhancer. You may optionally specify it
+   * to enhance the store with third-party capabilities such as middleware,
+   * time travel, persistence, etc. The only store enhancer that ships with Redux
+   * is `applyMiddleware()`.
+   *
+   * @returns {Store} A Redux store that lets you read the state, dispatch actions
+   * and subscribe to changes.
+   */
+};function createStore(reducer, preloadedState, enhancer) {
+  var _ref2;
+
+  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+    enhancer = preloadedState;
+    preloadedState = undefined;
+  }
+
+  if (typeof enhancer !== 'undefined') {
+    if (typeof enhancer !== 'function') {
+      throw new Error('Expected the enhancer to be a function.');
+    }
+
+    return enhancer(createStore)(reducer, preloadedState);
+  }
+
+  if (typeof reducer !== 'function') {
+    throw new Error('Expected the reducer to be a function.');
+  }
+
+  var currentReducer = reducer;
+  var currentState = preloadedState;
+  var currentListeners = [];
+  var nextListeners = currentListeners;
+  var isDispatching = false;
+
+  function ensureCanMutateNextListeners() {
+    if (nextListeners === currentListeners) {
+      nextListeners = currentListeners.slice();
+    }
+  }
+
+  /**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */
+  function getState() {
+    return currentState;
+  }
+
+  /**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * You may call `dispatch()` from a change listener, with the following
+   * caveats:
+   *
+   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * If you subscribe or unsubscribe while the listeners are being invoked, this
+   * will not have any effect on the `dispatch()` that is currently in progress.
+   * However, the next `dispatch()` call, whether nested or not, will use a more
+   * recent snapshot of the subscription list.
+   *
+   * 2. The listener should not expect to see all state changes, as the state
+   * might have been updated multiple times during a nested `dispatch()` before
+   * the listener is called. It is, however, guaranteed that all subscribers
+   * registered before the `dispatch()` started will be called with the latest
+   * state by the time it exits.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */
+  function subscribe(listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('Expected listener to be a function.');
+    }
+
+    var isSubscribed = true;
+
+    ensureCanMutateNextListeners();
+    nextListeners.push(listener);
+
+    return function unsubscribe() {
+      if (!isSubscribed) {
+        return;
+      }
+
+      isSubscribed = false;
+
+      ensureCanMutateNextListeners();
+      var index = nextListeners.indexOf(listener);
+      nextListeners.splice(index, 1);
+    };
+  }
+
+  /**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */
+  function dispatch(action) {
+    if (!(0, _isPlainObject2.default)(action)) {
+      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
+    }
+
+    if (typeof action.type === 'undefined') {
+      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
+    }
+
+    if (isDispatching) {
+      throw new Error('Reducers may not dispatch actions.');
+    }
+
+    try {
+      isDispatching = true;
+      currentState = currentReducer(currentState, action);
+    } finally {
+      isDispatching = false;
+    }
+
+    var listeners = currentListeners = nextListeners;
+    for (var i = 0; i < listeners.length; i++) {
+      var listener = listeners[i];
+      listener();
+    }
+
+    return action;
+  }
+
+  /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
+  function replaceReducer(nextReducer) {
+    if (typeof nextReducer !== 'function') {
+      throw new Error('Expected the nextReducer to be a function.');
+    }
+
+    currentReducer = nextReducer;
+    dispatch({ type: ActionTypes.INIT });
+  }
+
+  /**
+   * Interoperability point for observable/reactive libraries.
+   * @returns {observable} A minimal observable of state changes.
+   * For more information, see the observable proposal:
+   * https://github.com/tc39/proposal-observable
+   */
+  function observable() {
+    var _ref;
+
+    var outerSubscribe = subscribe;
+    return _ref = {
+      /**
+       * The minimal observable subscription method.
+       * @param {Object} observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns {subscription} An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */
+      subscribe: function subscribe(observer) {
+        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object') {
+          throw new TypeError('Expected the observer to be an object.');
+        }
+
+        function observeState() {
+          if (observer.next) {
+            observer.next(getState());
+          }
+        }
+
+        observeState();
+        var unsubscribe = outerSubscribe(observeState);
+        return { unsubscribe: unsubscribe };
+      }
+    }, _ref[_symbolObservable2.default] = function () {
+      return this;
+    }, _ref;
+  }
+
+  // When a store is created, an "INIT" action is dispatched so that every
+  // reducer returns their initial state. This effectively populates
+  // the initial state tree.
+  dispatch({ type: ActionTypes.INIT });
+
+  return _ref2 = {
+    dispatch: dispatch,
+    subscribe: subscribe,
+    getState: getState,
+    replaceReducer: replaceReducer
+  }, _ref2[_symbolObservable2.default] = observable, _ref2;
+}
+
+/***/ }),
+/* 352 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = warning;
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+function warning(message) {
+  /* eslint-disable no-console */
+  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+    console.error(message);
+  }
+  /* eslint-enable no-console */
+  try {
+    // This error was thrown as a convenience so that if you enable
+    // "break on all exceptions" in your console,
+    // it would pause the execution at this line.
+    throw new Error(message);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable no-empty */
+}
+
+/***/ }),
+/* 353 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+/**
+ * Represents a push-based event or value that an {@link Observable} can emit.
+ * This class is particularly useful for operators that manage notifications,
+ * like {@link materialize}, {@link dematerialize}, {@link observeOn}, and
+ * others. Besides wrapping the actual delivered value, it also annotates it
+ * with metadata of, for instance, what type of push message it is (`next`,
+ * `error`, or `complete`).
+ *
+ * @see {@link materialize}
+ * @see {@link dematerialize}
+ * @see {@link observeOn}
+ *
+ * @class Notification<T>
+ */
+var Notification = function () {
+    function Notification(kind, value, error) {
+        this.kind = kind;
+        this.value = value;
+        this.error = error;
+        this.hasValue = kind === 'N';
+    }
+    /**
+     * Delivers to the given `observer` the value wrapped by this Notification.
+     * @param {Observer} observer
+     * @return
+     */
+    Notification.prototype.observe = function (observer) {
+        switch (this.kind) {
+            case 'N':
+                return observer.next && observer.next(this.value);
+            case 'E':
+                return observer.error && observer.error(this.error);
+            case 'C':
+                return observer.complete && observer.complete();
+        }
+    };
+    /**
+     * Given some {@link Observer} callbacks, deliver the value represented by the
+     * current Notification to the correctly corresponding callback.
+     * @param {function(value: T): void} next An Observer `next` callback.
+     * @param {function(err: any): void} [error] An Observer `error` callback.
+     * @param {function(): void} [complete] An Observer `complete` callback.
+     * @return {any}
+     */
+    Notification.prototype.do = function (next, error, complete) {
+        var kind = this.kind;
+        switch (kind) {
+            case 'N':
+                return next && next(this.value);
+            case 'E':
+                return error && error(this.error);
+            case 'C':
+                return complete && complete();
+        }
+    };
+    /**
+     * Takes an Observer or its individual callback functions, and calls `observe`
+     * or `do` methods accordingly.
+     * @param {Observer|function(value: T): void} nextOrObserver An Observer or
+     * the `next` callback.
+     * @param {function(err: any): void} [error] An Observer `error` callback.
+     * @param {function(): void} [complete] An Observer `complete` callback.
+     * @return {any}
+     */
+    Notification.prototype.accept = function (nextOrObserver, error, complete) {
+        if (nextOrObserver && typeof nextOrObserver.next === 'function') {
+            return this.observe(nextOrObserver);
+        } else {
+            return this.do(nextOrObserver, error, complete);
+        }
+    };
+    /**
+     * Returns a simple Observable that just delivers the notification represented
+     * by this Notification instance.
+     * @return {any}
+     */
+    Notification.prototype.toObservable = function () {
+        var kind = this.kind;
+        switch (kind) {
+            case 'N':
+                return Observable_1.Observable.of(this.value);
+            case 'E':
+                return Observable_1.Observable.throw(this.error);
+            case 'C':
+                return Observable_1.Observable.empty();
+        }
+        throw new Error('unexpected notification kind value');
+    };
+    /**
+     * A shortcut to create a Notification instance of the type `next` from a
+     * given value.
+     * @param {T} value The `next` value.
+     * @return {Notification<T>} The "next" Notification representing the
+     * argument.
+     */
+    Notification.createNext = function (value) {
+        if (typeof value !== 'undefined') {
+            return new Notification('N', value);
+        }
+        return Notification.undefinedValueNotification;
+    };
+    /**
+     * A shortcut to create a Notification instance of the type `error` from a
+     * given error.
+     * @param {any} [err] The `error` error.
+     * @return {Notification<T>} The "error" Notification representing the
+     * argument.
+     */
+    Notification.createError = function (err) {
+        return new Notification('E', undefined, err);
+    };
+    /**
+     * A shortcut to create a Notification instance of the type `complete`.
+     * @return {Notification<any>} The valueless "complete" Notification.
+     */
+    Notification.createComplete = function () {
+        return Notification.completeNotification;
+    };
+    Notification.completeNotification = new Notification('C');
+    Notification.undefinedValueNotification = new Notification('N', undefined);
+    return Notification;
+}();
+exports.Notification = Notification;
+//# sourceMappingURL=Notification.js.map
+
+/***/ }),
+/* 354 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.empty = {
+    closed: true,
+    next: function next(value) {},
+    error: function error(err) {
+        throw err;
+    },
+    complete: function complete() {}
+};
+//# sourceMappingURL=Observer.js.map
+
+/***/ }),
+/* 355 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var empty_1 = __webpack_require__(516);
+Observable_1.Observable.empty = empty_1.empty;
+//# sourceMappingURL=empty.js.map
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var of_1 = __webpack_require__(366);
+Observable_1.Observable.of = of_1.of;
+//# sourceMappingURL=of.js.map
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var catch_1 = __webpack_require__(520);
+Observable_1.Observable.prototype.catch = catch_1._catch;
+Observable_1.Observable.prototype._catch = catch_1._catch;
+//# sourceMappingURL=catch.js.map
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var delay_1 = __webpack_require__(523);
+Observable_1.Observable.prototype.delay = delay_1.delay;
+//# sourceMappingURL=delay.js.map
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var do_1 = __webpack_require__(524);
+Observable_1.Observable.prototype.do = do_1._do;
+Observable_1.Observable.prototype._do = do_1._do;
+//# sourceMappingURL=do.js.map
+
+/***/ }),
+/* 360 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var filter_1 = __webpack_require__(367);
+Observable_1.Observable.prototype.filter = filter_1.filter;
+//# sourceMappingURL=filter.js.map
+
+/***/ }),
+/* 361 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var map_1 = __webpack_require__(319);
+Observable_1.Observable.prototype.map = map_1.map;
+//# sourceMappingURL=map.js.map
+
+/***/ }),
+/* 362 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var mergeMap_1 = __webpack_require__(527);
+Observable_1.Observable.prototype.mergeMap = mergeMap_1.mergeMap;
+Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
+//# sourceMappingURL=mergeMap.js.map
+
+/***/ }),
+/* 363 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var ScalarObservable = function (_super) {
+    __extends(ScalarObservable, _super);
+    function ScalarObservable(value, scheduler) {
+        _super.call(this);
+        this.value = value;
+        this.scheduler = scheduler;
+        this._isScalar = true;
+        if (scheduler) {
+            this._isScalar = false;
+        }
+    }
+    ScalarObservable.create = function (value, scheduler) {
+        return new ScalarObservable(value, scheduler);
+    };
+    ScalarObservable.dispatch = function (state) {
+        var done = state.done,
+            value = state.value,
+            subscriber = state.subscriber;
+        if (done) {
+            subscriber.complete();
+            return;
+        }
+        subscriber.next(value);
+        if (subscriber.closed) {
+            return;
+        }
+        state.done = true;
+        this.schedule(state);
+    };
+    ScalarObservable.prototype._subscribe = function (subscriber) {
+        var value = this.value;
+        var scheduler = this.scheduler;
+        if (scheduler) {
+            return scheduler.schedule(ScalarObservable.dispatch, 0, {
+                done: false, value: value, subscriber: subscriber
+            });
+        } else {
+            subscriber.next(value);
+            if (!subscriber.closed) {
+                subscriber.complete();
+            }
+        }
+    };
+    return ScalarObservable;
+}(Observable_1.Observable);
+exports.ScalarObservable = ScalarObservable;
+//# sourceMappingURL=ScalarObservable.js.map
+
+/***/ }),
+/* 364 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var FromObservable_1 = __webpack_require__(510);
+exports.from = FromObservable_1.FromObservable.create;
+//# sourceMappingURL=from.js.map
+
+/***/ }),
+/* 365 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var merge_1 = __webpack_require__(525);
+exports.merge = merge_1.mergeStatic;
+//# sourceMappingURL=merge.js.map
+
+/***/ }),
+/* 366 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ArrayObservable_1 = __webpack_require__(303);
+exports.of = ArrayObservable_1.ArrayObservable.of;
+//# sourceMappingURL=of.js.map
+
+/***/ }),
+/* 367 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+/* tslint:enable:max-line-length */
+/**
+ * Filter items emitted by the source Observable by only emitting those that
+ * satisfy a specified predicate.
+ *
+ * <span class="informal">Like
+ * [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter),
+ * it only emits a value from the source if it passes a criterion function.</span>
+ *
+ * <img src="./img/filter.png" width="100%">
+ *
+ * Similar to the well-known `Array.prototype.filter` method, this operator
+ * takes values from the source Observable, passes them through a `predicate`
+ * function and only emits those values that yielded `true`.
+ *
+ * @example <caption>Emit only click events whose target was a DIV element</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var clicksOnDivs = clicks.filter(ev => ev.target.tagName === 'DIV');
+ * clicksOnDivs.subscribe(x => console.log(x));
+ *
+ * @see {@link distinct}
+ * @see {@link distinctUntilChanged}
+ * @see {@link distinctUntilKeyChanged}
+ * @see {@link ignoreElements}
+ * @see {@link partition}
+ * @see {@link skip}
+ *
+ * @param {function(value: T, index: number): boolean} predicate A function that
+ * evaluates each value emitted by the source Observable. If it returns `true`,
+ * the value is emitted, if `false` the value is not passed to the output
+ * Observable. The `index` parameter is the number `i` for the i-th source
+ * emission that has happened since the subscription, starting from the number
+ * `0`.
+ * @param {any} [thisArg] An optional argument to determine the value of `this`
+ * in the `predicate` function.
+ * @return {Observable} An Observable of values from the source that were
+ * allowed by the `predicate` function.
+ * @method filter
+ * @owner Observable
+ */
+function filter(predicate, thisArg) {
+    return this.lift(new FilterOperator(predicate, thisArg));
+}
+exports.filter = filter;
+var FilterOperator = function () {
+    function FilterOperator(predicate, thisArg) {
+        this.predicate = predicate;
+        this.thisArg = thisArg;
+    }
+    FilterOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new FilterSubscriber(subscriber, this.predicate, this.thisArg));
+    };
+    return FilterOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var FilterSubscriber = function (_super) {
+    __extends(FilterSubscriber, _super);
+    function FilterSubscriber(destination, predicate, thisArg) {
+        _super.call(this, destination);
+        this.predicate = predicate;
+        this.thisArg = thisArg;
+        this.count = 0;
+        this.predicate = predicate;
+    }
+    // the try catch block below is left specifically for
+    // optimization and perf reasons. a tryCatcher is not necessary here.
+    FilterSubscriber.prototype._next = function (value) {
+        var result;
+        try {
+            result = this.predicate.call(this.thisArg, value, this.count++);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        if (result) {
+            this.destination.next(value);
+        }
+    };
+    return FilterSubscriber;
+}(Subscriber_1.Subscriber);
+//# sourceMappingURL=filter.js.map
+
+/***/ }),
+/* 368 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+/**
+ * An error thrown when an action is invalid because the object has been
+ * unsubscribed.
+ *
+ * @see {@link Subject}
+ * @see {@link BehaviorSubject}
+ *
+ * @class ObjectUnsubscribedError
+ */
+var ObjectUnsubscribedError = function (_super) {
+    __extends(ObjectUnsubscribedError, _super);
+    function ObjectUnsubscribedError() {
+        var err = _super.call(this, 'object unsubscribed');
+        this.name = err.name = 'ObjectUnsubscribedError';
+        this.stack = err.stack;
+        this.message = err.message;
+    }
+    return ObjectUnsubscribedError;
+}(Error);
+exports.ObjectUnsubscribedError = ObjectUnsubscribedError;
+//# sourceMappingURL=ObjectUnsubscribedError.js.map
+
+/***/ }),
+/* 369 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.isArrayLike = function (x) {
+  return x && typeof x.length === 'number';
+};
+//# sourceMappingURL=isArrayLike.js.map
+
+/***/ }),
+/* 370 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function isObject(x) {
+    return x != null && (typeof x === "undefined" ? "undefined" : _typeof(x)) === 'object';
+}
+exports.isObject = isObject;
+//# sourceMappingURL=isObject.js.map
+
+/***/ }),
+/* 371 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function isPromise(value) {
+    return value && typeof value.subscribe !== 'function' && typeof value.then === 'function';
+}
+exports.isPromise = isPromise;
+//# sourceMappingURL=isPromise.js.map
+
+/***/ }),
+/* 372 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function isScheduler(value) {
+    return value && typeof value.schedule === 'function';
+}
+exports.isScheduler = isScheduler;
+//# sourceMappingURL=isScheduler.js.map
+
+/***/ }),
+/* 373 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = /[\0-\x1F\x7F-\x9F]/;
+
+/***/ }),
+/* 374 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = /[ \xA0\u1680\u2000-\u200A\u202F\u205F\u3000]/;
+
+/***/ }),
+/* 375 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = /[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function () {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function get() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function get() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+/***/ }),
+/* 377 */
+/***/ (function(module, exports) {
+
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
+module.exports = __webpack_amd_options__;
+
+/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ }),
+/* 378 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var Attachment_1 = __webpack_require__(309);
+var Carousel_1 = __webpack_require__(383);
+var FormattedText_1 = __webpack_require__(384);
+var Attachments = function Attachments(props) {
+    var attachments = props.attachments,
+        attachmentLayout = props.attachmentLayout,
+        otherProps = tslib_1.__rest(props, ["attachments", "attachmentLayout"]);
+    if (!attachments || attachments.length === 0) return null;
+    return attachmentLayout === 'carousel' ? React.createElement(Carousel_1.Carousel, tslib_1.__assign({ attachments: attachments }, otherProps)) : React.createElement("div", { className: "wc-list" }, attachments.map(function (attachment, index) {
+        return React.createElement(Attachment_1.AttachmentView, { key: index, attachment: attachment, format: props.format, onCardAction: props.onCardAction, onImageLoad: props.onImageLoad });
+    }));
+};
+var ActivityView = function (_super) {
+    tslib_1.__extends(ActivityView, _super);
+    function ActivityView(props) {
+        return _super.call(this, props) || this;
+    }
+    ActivityView.prototype.shouldComponentUpdate = function (nextProps) {
+        // if the activity changed, re-render
+        return this.props.activity !== nextProps.activity || this.props.format !== nextProps.format || this.props.activity.type === 'message' && this.props.activity.attachmentLayout === 'carousel' && this.props.size !== nextProps.size;
+    };
+    ActivityView.prototype.render = function () {
+        var _a = this.props,
+            activity = _a.activity,
+            props = tslib_1.__rest(_a, ["activity"]);
+        switch (activity.type) {
+            case 'message':
+                return React.createElement("div", null, React.createElement(FormattedText_1.FormattedText, { text: activity.text, format: activity.textFormat, onImageLoad: props.onImageLoad }), React.createElement(Attachments, { attachments: activity.attachments, attachmentLayout: activity.attachmentLayout, format: props.format, onCardAction: props.onCardAction, onImageLoad: props.onImageLoad, size: props.size }));
+            case 'typing':
+                return React.createElement("div", { className: "wc-typing" });
+        }
+    };
+    return ActivityView;
+}(React.Component);
+exports.ActivityView = ActivityView;
+//# sourceMappingURL=ActivityView.js.map
+
+/***/ }),
+/* 379 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var AdaptiveCards = __webpack_require__(470);
+var Chat_1 = __webpack_require__(293);
+var adaptivecardsHostConfig = __webpack_require__(549);
+var LinkedAdaptiveCard = function (_super) {
+    tslib_1.__extends(LinkedAdaptiveCard, _super);
+    function LinkedAdaptiveCard(adaptiveCardContainer) {
+        var _this = _super.call(this) || this;
+        _this.adaptiveCardContainer = adaptiveCardContainer;
+        return _this;
+    }
+    return LinkedAdaptiveCard;
+}(AdaptiveCards.AdaptiveCard);
+function getLinkedAdaptiveCard(action) {
+    var element = action.parent;
+    while (element && !(element instanceof LinkedAdaptiveCard)) {
+        element = element.parent;
+    }
+    return element;
+}
+function cardWithoutHttpActions(card) {
+    if (!card.actions) return card;
+    var actions = [];
+    card.actions.forEach(function (action) {
+        //filter out http action buttons
+        if (action.type === 'Action.Http') return;
+        if (action.type === 'Action.ShowCard') {
+            var showCardAction = action;
+            showCardAction.card = cardWithoutHttpActions(showCardAction.card);
+        }
+        actions.push(action);
+    });
+    return tslib_1.__assign({}, card, { actions: actions });
+}
+AdaptiveCards.AdaptiveCard.onExecuteAction = function (action) {
+    if (action instanceof AdaptiveCards.OpenUrlAction) {
+        window.open(action.url);
+    } else if (action instanceof AdaptiveCards.SubmitAction) {
+        var linkedAdaptiveCard = getLinkedAdaptiveCard(action);
+        if (linkedAdaptiveCard && action.data !== undefined) {
+            if (_typeof(action.data) === 'object' && action.data.__isBotFrameworkCardAction) {
+                var cardAction = action.data;
+                linkedAdaptiveCard.adaptiveCardContainer.onCardAction(cardAction.type, cardAction.value);
+            } else {
+                linkedAdaptiveCard.adaptiveCardContainer.onCardAction(typeof action.data === 'string' ? 'imBack' : 'postBack', action.data);
+            }
+        }
+    }
+};
+var AdaptiveCardContainer = function (_super) {
+    tslib_1.__extends(AdaptiveCardContainer, _super);
+    function AdaptiveCardContainer(props) {
+        var _this = _super.call(this, props) || this;
+        _this.onCardAction = function (type, value) {
+            _this.props.onCardAction(type, value);
+        };
+        return _this;
+    }
+    AdaptiveCardContainer.prototype.onClick = function (e) {
+        if (!this.props.onClick) return;
+        //do not allow form elements to trigger a parent click event
+        switch (e.target.tagName) {
+            case 'A':
+            case 'AUDIO':
+            case 'VIDEO':
+            case 'BUTTON':
+            case 'INPUT':
+            case 'LABEL':
+            case 'TEXTAREA':
+            case 'SELECT':
+                break;
+            default:
+                this.props.onClick(e);
+        }
+    };
+    AdaptiveCardContainer.prototype.componentDidMount = function () {
+        var _this = this;
+        var adaptiveCard = new LinkedAdaptiveCard(this);
+        adaptiveCard.parse(cardWithoutHttpActions(this.props.card));
+        var errors = adaptiveCard.validate();
+        if (errors.length === 0) {
+            var renderedCard = void 0;
+            try {
+                renderedCard = adaptiveCard.render();
+            } catch (e) {
+                var ve = {
+                    error: -1,
+                    message: e
+                };
+                errors.push(ve);
+                if (e.stack) {
+                    ve.message += '\n' + e.stack;
+                }
+            }
+            if (renderedCard) {
+                if (this.props.onImageLoad) {
+                    var imgs = renderedCard.querySelectorAll('img');
+                    if (imgs && imgs.length > 0) {
+                        Array.prototype.forEach.call(imgs, function (img) {
+                            img.addEventListener('load', _this.props.onImageLoad);
+                        });
+                    }
+                }
+                this.div.appendChild(renderedCard);
+                return;
+            }
+        }
+        if (errors.length > 0) {
+            console.log('Error(s) rendering AdaptiveCard:');
+            errors.forEach(function (e) {
+                return console.log(e.message);
+            });
+            this.setState({ errors: errors.map(function (e) {
+                    return e.message;
+                }) });
+        }
+    };
+    AdaptiveCardContainer.prototype.render = function () {
+        var _this = this;
+        var wrappedChildren;
+        var hasErrors = this.state && this.state.errors && this.state.errors.length > 0;
+        if (hasErrors) {
+            wrappedChildren = React.createElement("div", null, React.createElement("svg", { className: "error-icon", viewBox: "0 0 15 12.01" }, React.createElement("path", { d: "M7.62 8.63v-.38H.94a.18.18 0 0 1-.19-.19V.94A.18.18 0 0 1 .94.75h10.12a.18.18 0 0 1 .19.19v3.73H12V.94a.91.91 0 0 0-.07-.36 1 1 0 0 0-.5-.5.91.91 0 0 0-.37-.08H.94a.91.91 0 0 0-.37.07 1 1 0 0 0-.5.5.91.91 0 0 0-.07.37v7.12a.91.91 0 0 0 .07.36 1 1 0 0 0 .5.5.91.91 0 0 0 .37.08h6.72c-.01-.12-.04-.24-.04-.37z M11.62 5.26a3.27 3.27 0 0 1 1.31.27 3.39 3.39 0 0 1 1.8 1.8 3.36 3.36 0 0 1 0 2.63 3.39 3.39 0 0 1-1.8 1.8 3.36 3.36 0 0 1-2.62 0 3.39 3.39 0 0 1-1.8-1.8 3.36 3.36 0 0 1 0-2.63 3.39 3.39 0 0 1 1.8-1.8 3.27 3.27 0 0 1 1.31-.27zm0 6a2.53 2.53 0 0 0 1-.21A2.65 2.65 0 0 0 14 9.65a2.62 2.62 0 0 0 0-2 2.65 2.65 0 0 0-1.39-1.39 2.62 2.62 0 0 0-2 0A2.65 2.65 0 0 0 9.2 7.61a2.62 2.62 0 0 0 0 2A2.65 2.65 0 0 0 10.6 11a2.53 2.53 0 0 0 1.02.26zM13 7.77l-.86.86.86.86-.53.53-.86-.86-.86.86-.53-.53.86-.86-.86-.86.53-.53.86.86.86-.86zM1.88 7.13h2.25V4.88H1.88zm.75-1.5h.75v.75h-.75zM5.63 2.63h4.5v.75h-4.5zM1.88 4.13h2.25V1.88H1.88zm.75-1.5h.75v.75h-.75zM9 5.63H5.63v.75h2.64A4 4 0 0 1 9 5.63z" })), React.createElement("div", { className: "error-text" }, "Can't render card"));
+        } else if (this.props.children) {
+            wrappedChildren = React.createElement("div", { className: "non-adaptive-content" }, this.props.children);
+        } else {
+            wrappedChildren = null;
+        }
+        return React.createElement("div", { className: Chat_1.classList('wc-card', 'wc-adaptive-card', this.props.className, hasErrors && 'error'), ref: function ref(div) {
+                return _this.div = div;
+            }, onClick: function onClick(e) {
+                return _this.onClick(e);
+            } }, wrappedChildren);
+    };
+    AdaptiveCardContainer.prototype.componentDidUpdate = function () {
+        if (this.props.onImageLoad) this.props.onImageLoad();
+    };
+    return AdaptiveCardContainer;
+}(React.Component);
+exports.AdaptiveCardContainer = AdaptiveCardContainer;
+AdaptiveCards.setHostConfig(adaptivecardsHostConfig);
+//# sourceMappingURL=AdaptiveCardContainer.js.map
+
+/***/ }),
+/* 380 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var ReactDOM = __webpack_require__(26);
+var Chat_1 = __webpack_require__(293);
+exports.App = function (props, container) {
+    Chat_1.konsole.log("BotChat.App props", props);
+    ReactDOM.render(React.createElement(AppContainer, props), container);
+};
+var AppContainer = function AppContainer(props) {
+    return React.createElement("div", { className: "wc-app" }, React.createElement(Chat_1.Chat, tslib_1.__assign({}, props)));
+};
+//# sourceMappingURL=App.js.map
+
+/***/ }),
+/* 381 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function __export(m) {
+    for (var p in m) {
+        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+var App_1 = __webpack_require__(380);
+exports.App = App_1.App;
+var Chat_1 = __webpack_require__(293);
+exports.Chat = Chat_1.Chat;
+__export(__webpack_require__(308));
+var Attachment_1 = __webpack_require__(309);
+exports.queryParams = Attachment_1.queryParams;
+// below are shims for compatibility with old browsers (IE 10 being the main culprit)
+__webpack_require__(411);
+__webpack_require__(410);
+__webpack_require__(409);
+//# sourceMappingURL=BotChat.js.map
+
+/***/ }),
+/* 382 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var AdaptiveCardBuilder = function () {
+    function AdaptiveCardBuilder() {
+        this.container = {
+            type: "Container",
+            items: []
+        };
+        this.card = {
+            type: "AdaptiveCard",
+            version: "0.5",
+            body: [this.container]
+        };
+    }
+    AdaptiveCardBuilder.prototype.addColumnSet = function (sizes, container) {
+        if (container === void 0) {
+            container = this.container;
+        }
+        var columnSet = {
+            type: 'ColumnSet',
+            columns: sizes.map(function (size) {
+                return {
+                    type: 'Column',
+                    size: size.toString(),
+                    items: []
+                };
+            })
+        };
+        container.items.push(columnSet);
+        return columnSet.columns;
+    };
+    AdaptiveCardBuilder.prototype.addItems = function (elements, container) {
+        if (container === void 0) {
+            container = this.container;
+        }
+        container.items.push.apply(container.items, elements);
+    };
+    AdaptiveCardBuilder.prototype.addTextBlock = function (text, template, container) {
+        if (container === void 0) {
+            container = this.container;
+        }
+        if (typeof text !== 'undefined') {
+            var textblock = tslib_1.__assign({ type: "TextBlock", text: text }, template);
+            container.items.push(textblock);
+        }
+    };
+    AdaptiveCardBuilder.prototype.addButtons = function (buttons) {
+        if (buttons) {
+            this.card.actions = buttons.map(function (button) {
+                var cardAction = tslib_1.__assign({ __isBotFrameworkCardAction: true }, button);
+                return {
+                    title: button.title,
+                    type: "Action.Submit",
+                    data: cardAction
+                };
+            });
+        }
+    };
+    AdaptiveCardBuilder.prototype.addCommon = function (content) {
+        this.addTextBlock(content.title, { size: "medium", weight: "bolder" });
+        this.addTextBlock(content.subtitle, { isSubtle: true, wrap: true, separation: "none" }); //TODO remove "as any" because separation is not defined
+        this.addTextBlock(content.text, { wrap: true });
+        this.addButtons(content.buttons);
+    };
+    AdaptiveCardBuilder.prototype.addImage = function (url, container) {
+        if (container === void 0) {
+            container = this.container;
+        }
+        var image = {
+            type: "Image",
+            url: url,
+            size: "stretch"
+        };
+        container.items.push(image);
+    };
+    return AdaptiveCardBuilder;
+}();
+exports.AdaptiveCardBuilder = AdaptiveCardBuilder;
+exports.buildCommonCard = function (content) {
+    if (!content) return null;
+    var cardBuilder = new AdaptiveCardBuilder();
+    cardBuilder.addCommon(content);
+    return cardBuilder.card;
+};
+//# sourceMappingURL=CardBuilder.js.map
+
+/***/ }),
+/* 383 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var Attachment_1 = __webpack_require__(309);
+var HScroll_1 = __webpack_require__(326);
+var Chat_1 = __webpack_require__(293);
+var Carousel = function (_super) {
+    tslib_1.__extends(Carousel, _super);
+    function Carousel(props) {
+        return _super.call(this, props) || this;
+    }
+    Carousel.prototype.updateContentWidth = function () {
+        //after the attachments have been rendered, we can now measure their actual width
+        var width = this.props.size.width - this.props.format.carouselMargin;
+        //important: remove any hard styling so that we can measure the natural width
+        this.root.style.width = '';
+        //now measure the natural offsetWidth
+        if (this.root.offsetWidth > width) {
+            // the content width is bigger than the space allotted, so we'll clip it to force scrolling
+            this.root.style.width = width.toString() + "px";
+            // since we're scrolling, we need to show scroll buttons
+            this.hscroll.updateScrollButtons();
+        }
+    };
+    Carousel.prototype.componentDidMount = function () {
+        this.updateContentWidth();
+    };
+    Carousel.prototype.componentDidUpdate = function () {
+        this.updateContentWidth();
+    };
+    Carousel.prototype.render = function () {
+        var _this = this;
+        return React.createElement("div", { className: "wc-carousel", ref: function ref(div) {
+                return _this.root = div;
+            } }, React.createElement(HScroll_1.HScroll, { ref: function ref(hscroll) {
+                return _this.hscroll = hscroll;
+            }, prevSvgPathData: "M 16.5 22 L 19 19.5 L 13.5 14 L 19 8.5 L 16.5 6 L 8.5 14 L 16.5 22 Z", nextSvgPathData: "M 12.5 22 L 10 19.5 L 15.5 14 L 10 8.5 L 12.5 6 L 20.5 14 L 12.5 22 Z", scrollUnit: "item" }, React.createElement(CarouselAttachments, tslib_1.__assign({}, this.props))));
+    };
+    return Carousel;
+}(React.PureComponent);
+exports.Carousel = Carousel;
+var CarouselAttachments = function (_super) {
+    tslib_1.__extends(CarouselAttachments, _super);
+    function CarouselAttachments() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    CarouselAttachments.prototype.render = function () {
+        Chat_1.konsole.log("rendering CarouselAttachments");
+        var _a = this.props,
+            attachments = _a.attachments,
+            props = tslib_1.__rest(_a, ["attachments"]);
+        return React.createElement("ul", null, this.props.attachments.map(function (attachment, index) {
+            return React.createElement("li", { key: index, className: "wc-carousel-item" }, React.createElement(Attachment_1.AttachmentView, { attachment: attachment, format: props.format, onCardAction: props.onCardAction, onImageLoad: props.onImageLoad }));
+        }));
+    };
+    return CarouselAttachments;
+}(React.PureComponent);
+//# sourceMappingURL=Carousel.js.map
+
+/***/ }),
+/* 384 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var MarkdownIt = __webpack_require__(336);
+var React = __webpack_require__(2);
+exports.FormattedText = function (props) {
+    if (!props.text || props.text === '') return null;
+    switch (props.format) {
+        case "plain":
+            return renderPlainText(props.text);
+        default:
+            return renderMarkdown(props.text, props.onImageLoad);
+    }
+};
+var renderPlainText = function renderPlainText(text) {
+    var lines = text.replace('\r', '').split('\n');
+    var elements = lines.map(function (line, i) {
+        return React.createElement("span", { key: i }, line, React.createElement("br", null));
+    });
+    return React.createElement("span", { className: "format-plain" }, elements);
+};
+var markdownIt = new MarkdownIt({ html: true, linkify: true, typographer: true });
+//configure MarkdownIt to open links in new tab
+//from https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md#renderer
+// Remember old renderer, if overriden, or proxy to default renderer
+var defaultRender = markdownIt.renderer.rules.link_open || function (tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+};
+markdownIt.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+    // If you are sure other plugins can't add `target` - drop check below
+    var targetIndex = tokens[idx].attrIndex('target');
+    if (targetIndex < 0) {
+        tokens[idx].attrPush(['target', '_blank']); // add new attribute
+    } else {
+        tokens[idx].attrs[targetIndex][1] = '_blank'; // replace value of existing attr
+    }
+    // pass token to default renderer.
+    return defaultRender(tokens, idx, options, env, self);
+};
+var renderMarkdown = function renderMarkdown(text, onImageLoad) {
+    var src = text.replace(/<br\s*\/?>/ig, '\r\n\r\n');
+    var __html = markdownIt.render(src);
+    return React.createElement("div", { className: "format-markdown", dangerouslySetInnerHTML: { __html: __html } });
+};
+//# sourceMappingURL=FormattedText.js.map
+
+/***/ }),
+/* 385 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var react_redux_1 = __webpack_require__(302);
+var ActivityView_1 = __webpack_require__(378);
+var Chat_1 = __webpack_require__(293);
+var HistoryView = function (_super) {
+    tslib_1.__extends(HistoryView, _super);
+    function HistoryView(props) {
+        var _this = _super.call(this, props) || this;
+        _this.scrollToBottom = true;
+        // In order to do their cool horizontal scrolling thing, Carousels need to know how wide they can be.
+        // So, at startup, we create this mock Carousel activity and measure it. 
+        _this.measurableCarousel = function () {
+            // find the largest possible message size by forcing a width larger than the chat itself
+            return React.createElement(WrappedActivity, { ref: function ref(x) {
+                    return _this.carouselActivity = x;
+                }, activity: {
+                    type: 'message',
+                    id: '',
+                    from: { id: '' },
+                    attachmentLayout: 'carousel'
+                }, format: null, fromMe: false, onClickActivity: null, onClickRetry: null, selected: false, showTimestamp: false }, React.createElement("div", { style: { width: _this.largeWidth } }, "\xA0"));
+        };
+        return _this;
+    }
+    HistoryView.prototype.componentWillUpdate = function () {
+        this.scrollToBottom = Math.abs(this.scrollMe.scrollHeight - this.scrollMe.scrollTop - this.scrollMe.offsetHeight) <= 1;
+    };
+    HistoryView.prototype.componentDidUpdate = function () {
+        if (this.props.format.carouselMargin == undefined) {
+            // After our initial render we need to measure the carousel width
+            // Measure the message padding by subtracting the known large width
+            var paddedWidth = measurePaddedWidth(this.carouselActivity.messageDiv) - this.largeWidth;
+            // Subtract the padding from the offsetParent's width to get the width of the content
+            var maxContentWidth = this.carouselActivity.messageDiv.offsetParent.offsetWidth - paddedWidth;
+            // Subtract the content width from the chat width to get the margin.
+            // Next time we need to get the content width (on a resize) we can use this margin to get the maximum content width
+            var carouselMargin = this.props.size.width - maxContentWidth;
+            Chat_1.konsole.log('history measureMessage ' + carouselMargin);
+            // Finally, save it away in the Store, which will force another re-render
+            this.props.setMeasurements(carouselMargin);
+            this.carouselActivity = null; // After the re-render this activity doesn't exist
+        }
+        this.autoscroll();
+    };
+    HistoryView.prototype.autoscroll = function () {
+        var vAlignBottomPadding = Math.max(0, measurePaddedHeight(this.scrollMe) - this.scrollContent.offsetHeight);
+        this.scrollContent.style.marginTop = vAlignBottomPadding + 'px';
+        if (this.scrollToBottom) this.scrollMe.scrollTop = this.scrollMe.scrollHeight - this.scrollMe.offsetHeight;
+    };
+    // At startup we do three render passes:
+    // 1. To determine the dimensions of the chat panel (not much needs to actually render here)
+    // 2. To determine the margins of any given carousel (we just render one mock activity so that we can measure it)
+    // 3. (this is also the normal re-render case) To render without the mock activity
+    HistoryView.prototype.doCardAction = function (type, value) {
+        this.props.setFocus();
+        return this.props.doCardAction(type, value);
+    };
+    HistoryView.prototype.render = function () {
+        var _this = this;
+        Chat_1.konsole.log("History props", this);
+        var content;
+        if (this.props.size.width !== undefined) {
+            if (this.props.format.carouselMargin === undefined) {
+                // For measuring carousels we need a width known to be larger than the chat itself
+                this.largeWidth = this.props.size.width * 2;
+                content = React.createElement(this.measurableCarousel, null);
+            } else {
+                content = this.props.activities.map(function (activity, index) {
+                    return React.createElement(WrappedActivity, { format: _this.props.format, key: 'message' + index, activity: activity, showTimestamp: index === _this.props.activities.length - 1 || index + 1 < _this.props.activities.length && suitableInterval(activity, _this.props.activities[index + 1]), selected: _this.props.isSelected(activity), fromMe: _this.props.isFromMe(activity), onClickActivity: _this.props.onClickActivity(activity), onClickRetry: function onClickRetry(e) {
+                            // Since this is a click on an anchor, we need to stop it
+                            // from trying to actually follow a (nonexistant) link
+                            e.preventDefault();
+                            e.stopPropagation();
+                            _this.props.onClickRetry(activity);
+                        } }, React.createElement(ActivityView_1.ActivityView, { format: _this.props.format, size: _this.props.size, activity: activity, onCardAction: function onCardAction(type, value) {
+                            return _this.doCardAction(type, value);
+                        }, onImageLoad: function onImageLoad() {
+                            return _this.autoscroll();
+                        } }));
+                });
+            }
+        }
+        return React.createElement("div", { className: "wc-message-groups", ref: function ref(div) {
+                return _this.scrollMe = div || _this.scrollMe;
+            } }, React.createElement("div", { className: "wc-message-group-content", ref: function ref(div) {
+                if (div) _this.scrollContent = div;
+            } }, content));
+    };
+    return HistoryView;
+}(React.Component);
+exports.HistoryView = HistoryView;
+exports.History = react_redux_1.connect(function (state) {
+    return {
+        // passed down to HistoryView
+        format: state.format,
+        size: state.size,
+        activities: state.history.activities,
+        // only used to create helper functions below 
+        connectionSelectedActivity: state.connection.selectedActivity,
+        selectedActivity: state.history.selectedActivity,
+        botConnection: state.connection.botConnection,
+        user: state.connection.user
+    };
+}, {
+    setMeasurements: function setMeasurements(carouselMargin) {
+        return { type: 'Set_Measurements', carouselMargin: carouselMargin };
+    },
+    onClickRetry: function onClickRetry(activity) {
+        return { type: 'Send_Message_Retry', clientActivityId: activity.channelData.clientActivityId };
+    },
+    // only used to create helper functions below 
+    sendMessage: Chat_1.sendMessage
+}, function (stateProps, dispatchProps, ownProps) {
+    return {
+        // from stateProps
+        format: stateProps.format,
+        size: stateProps.size,
+        activities: stateProps.activities,
+        // from dispatchProps
+        setMeasurements: dispatchProps.setMeasurements,
+        onClickRetry: dispatchProps.onClickRetry,
+        // from ownProps
+        setFocus: ownProps.setFocus,
+        // helper functions
+        doCardAction: Chat_1.doCardAction(stateProps.botConnection, stateProps.user, stateProps.format.locale, dispatchProps.sendMessage),
+        isFromMe: function isFromMe(activity) {
+            return activity.from.id === stateProps.user.id;
+        },
+        isSelected: function isSelected(activity) {
+            return activity === stateProps.selectedActivity;
+        },
+        onClickActivity: function onClickActivity(activity) {
+            return stateProps.connectionSelectedActivity && function () {
+                return stateProps.connectionSelectedActivity.next({ activity: activity });
+            };
+        }
+    };
+})(HistoryView);
+var getComputedStyleValues = function getComputedStyleValues(el, stylePropertyNames) {
+    var s = window.getComputedStyle(el);
+    var result = {};
+    stylePropertyNames.forEach(function (name) {
+        return result[name] = parseInt(s.getPropertyValue(name));
+    });
+    return result;
+};
+var measurePaddedHeight = function measurePaddedHeight(el) {
+    var paddingTop = 'padding-top',
+        paddingBottom = 'padding-bottom';
+    var values = getComputedStyleValues(el, [paddingTop, paddingBottom]);
+    return el.offsetHeight - values[paddingTop] - values[paddingBottom];
+};
+var measurePaddedWidth = function measurePaddedWidth(el) {
+    var paddingLeft = 'padding-left',
+        paddingRight = 'padding-right';
+    var values = getComputedStyleValues(el, [paddingLeft, paddingRight]);
+    return el.offsetWidth + values[paddingLeft] + values[paddingRight];
+};
+var suitableInterval = function suitableInterval(current, next) {
+    return Date.parse(next.timestamp) - Date.parse(current.timestamp) > 5 * 60 * 1000;
+};
+var WrappedActivity = function (_super) {
+    tslib_1.__extends(WrappedActivity, _super);
+    function WrappedActivity(props) {
+        return _super.call(this, props) || this;
+    }
+    WrappedActivity.prototype.render = function () {
+        var _this = this;
+        var timeLine;
+        switch (this.props.activity.id) {
+            case undefined:
+                timeLine = React.createElement("span", null, this.props.format.strings.messageSending);
+                break;
+            case null:
+                timeLine = React.createElement("span", null, this.props.format.strings.messageFailed);
+                break;
+            case "retry":
+                timeLine = React.createElement("span", null, this.props.format.strings.messageFailed, ' ', React.createElement("a", { href: ".", onClick: this.props.onClickRetry }, this.props.format.strings.messageRetry));
+                break;
+            default:
+                var sent = void 0;
+                if (this.props.showTimestamp) sent = this.props.format.strings.timeSent.replace('%1', new Date(this.props.activity.timestamp).toLocaleTimeString());
+                timeLine = React.createElement("span", null, this.props.activity.from.name || this.props.activity.from.id, sent);
+                break;
+        }
+        var who = this.props.fromMe ? 'me' : 'bot';
+        var wrapperClassName = Chat_1.classList('wc-message-wrapper', this.props.activity.attachmentLayout || 'list', this.props.onClickActivity && 'clickable');
+        var contentClassName = Chat_1.classList('wc-message-content', this.props.selected && 'selected');
+        return React.createElement("div", { "data-activity-id": this.props.activity.id, className: wrapperClassName, onClick: this.props.onClickActivity }, React.createElement("div", { className: 'wc-message wc-message-from-' + who, ref: function ref(div) {
+                return _this.messageDiv = div;
+            } }, React.createElement("div", { className: contentClassName }, React.createElement("svg", { className: "wc-message-callout" }, React.createElement("path", { className: "point-left", d: "m0,6 l6 6 v-12 z" }), React.createElement("path", { className: "point-right", d: "m6,6 l-6 6 v-12 z" })), this.props.children)), React.createElement("div", { className: 'wc-message-from wc-message-from-' + who }, timeLine));
+    };
+    return WrappedActivity;
+}(React.Component);
+exports.WrappedActivity = WrappedActivity;
+//# sourceMappingURL=History.js.map
+
+/***/ }),
+/* 386 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var react_redux_1 = __webpack_require__(302);
+var HScroll_1 = __webpack_require__(326);
+var Chat_1 = __webpack_require__(293);
+var MessagePaneView = function MessagePaneView(props) {
+    return React.createElement("div", { className: Chat_1.classList('wc-message-pane', props.activityWithSuggestedActions && 'show-actions') }, props.children, React.createElement("div", { className: "wc-suggested-actions" }, React.createElement(SuggestedActions, tslib_1.__assign({}, props))));
+};
+var SuggestedActions = function (_super) {
+    tslib_1.__extends(SuggestedActions, _super);
+    function SuggestedActions(props) {
+        return _super.call(this, props) || this;
+    }
+    SuggestedActions.prototype.actionClick = function (e, cardAction) {
+        //"stale" actions may be displayed (see shouldComponentUpdate), do not respond to click events if there aren't actual actions
+        if (!this.props.activityWithSuggestedActions) return;
+        this.props.takeSuggestedAction(this.props.activityWithSuggestedActions);
+        this.props.doCardAction(cardAction.type, cardAction.value);
+        this.props.setFocus();
+        e.stopPropagation();
+    };
+    SuggestedActions.prototype.shouldComponentUpdate = function (nextProps) {
+        //update only when there are actions. We want the old actions to remain displayed as it animates down.
+        return !!nextProps.activityWithSuggestedActions;
+    };
+    SuggestedActions.prototype.render = function () {
+        var _this = this;
+        if (!this.props.activityWithSuggestedActions) return null;
+        return React.createElement(HScroll_1.HScroll, { prevSvgPathData: "M 16.5 22 L 19 19.5 L 13.5 14 L 19 8.5 L 16.5 6 L 8.5 14 L 16.5 22 Z", nextSvgPathData: "M 12.5 22 L 10 19.5 L 15.5 14 L 10 8.5 L 12.5 6 L 20.5 14 L 12.5 22 Z", scrollUnit: "page" }, React.createElement("ul", null, this.props.activityWithSuggestedActions.suggestedActions.actions.map(function (action, index) {
+            return React.createElement("li", { key: index }, React.createElement("button", { onClick: function onClick(e) {
+                    return _this.actionClick(e, action);
+                }, title: action.title }, action.title));
+        })));
+    };
+    return SuggestedActions;
+}(React.Component);
+function activityWithSuggestedActions(activities) {
+    if (!activities || activities.length === 0) return;
+    var lastActivity = activities[activities.length - 1];
+    if (lastActivity.type === 'message' && lastActivity.suggestedActions && lastActivity.suggestedActions.actions.length > 0) return lastActivity;
+}
+exports.MessagePane = react_redux_1.connect(function (state) {
+    return {
+        // passed down to MessagePaneView
+        activityWithSuggestedActions: activityWithSuggestedActions(state.history.activities),
+        // only used to create helper functions below 
+        botConnection: state.connection.botConnection,
+        user: state.connection.user,
+        locale: state.format.locale
+    };
+}, {
+    takeSuggestedAction: function takeSuggestedAction(message) {
+        return { type: 'Take_SuggestedAction', message: message };
+    },
+    // only used to create helper functions below 
+    sendMessage: Chat_1.sendMessage
+}, function (stateProps, dispatchProps, ownProps) {
+    return {
+        // from stateProps
+        activityWithSuggestedActions: stateProps.activityWithSuggestedActions,
+        // from dispatchProps
+        takeSuggestedAction: dispatchProps.takeSuggestedAction,
+        // from ownProps
+        children: ownProps.children,
+        setFocus: ownProps.setFocus,
+        // helper functions
+        doCardAction: Chat_1.doCardAction(stateProps.botConnection, stateProps.user, stateProps.locale, dispatchProps.sendMessage)
+    };
+})(MessagePaneView);
+//# sourceMappingURL=MessagePane.js.map
+
+/***/ }),
+/* 387 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var React = __webpack_require__(2);
+var Chat_1 = __webpack_require__(293);
+var react_redux_1 = __webpack_require__(302);
+var ShellContainer = function (_super) {
+    tslib_1.__extends(ShellContainer, _super);
+    function ShellContainer(props) {
+        return _super.call(this, props) || this;
+    }
+    ShellContainer.prototype.sendMessage = function () {
+        if (this.props.inputText.trim().length > 0) this.props.sendMessage(this.props.inputText);
+    };
+    ShellContainer.prototype.onKeyPress = function (e) {
+        if (e.key === 'Enter') this.sendMessage();
+    };
+    ShellContainer.prototype.onClickSend = function () {
+        this.textInput.focus();
+        this.sendMessage();
+    };
+    ShellContainer.prototype.onChangeFile = function () {
+        this.textInput.focus();
+        this.props.sendFiles(this.fileInput.files);
+        this.fileInput.value = null;
+    };
+    ShellContainer.prototype.render = function () {
+        var _this = this;
+        var className = 'wc-console';
+        if (this.props.inputText.length > 0) className += ' has-text';
+        return React.createElement("div", { className: className }, React.createElement("input", { id: "wc-upload-input", type: "file", ref: function ref(input) {
+                return _this.fileInput = input;
+            }, multiple: true, onChange: function onChange() {
+                return _this.onChangeFile();
+            } }), React.createElement("label", { className: "wc-upload", htmlFor: "wc-upload-input" }, React.createElement("svg", null, React.createElement("path", { d: "M19.96 4.79m-2 0a2 2 0 0 1 4 0 2 2 0 0 1-4 0zM8.32 4.19L2.5 15.53 22.45 15.53 17.46 8.56 14.42 11.18 8.32 4.19ZM1.04 1L1.04 17 24.96 17 24.96 1 1.04 1ZM1.03 0L24.96 0C25.54 0 26 0.45 26 0.99L26 17.01C26 17.55 25.53 18 24.96 18L1.03 18C0.46 18 0 17.55 0 17.01L0 0.99C0 0.45 0.47 0 1.03 0Z" }))), React.createElement("div", { className: "wc-textbox" }, React.createElement("input", { type: "text", className: "wc-shellinput", ref: function ref(input) {
+                return _this.textInput = input;
+            }, autoFocus: true, value: this.props.inputText, onChange: function onChange(_) {
+                return _this.props.onChangeText(_this.textInput.value);
+            }, onKeyPress: function onKeyPress(e) {
+                return _this.onKeyPress(e);
+            }, placeholder: this.props.strings.consolePlaceholder })), React.createElement("label", { className: "wc-send", onClick: function onClick() {
+                return _this.onClickSend();
+            } }, React.createElement("svg", null, React.createElement("path", { d: "M26.79 9.38A0.31 0.31 0 0 0 26.79 8.79L0.41 0.02C0.36 0 0.34 0 0.32 0 0.14 0 0 0.13 0 0.29 0 0.33 0.01 0.37 0.03 0.41L3.44 9.08 0.03 17.76A0.29 0.29 0 0 0 0.01 17.8 0.28 0.28 0 0 0 0.01 17.86C0.01 18.02 0.14 18.16 0.3 18.16A0.3 0.3 0 0 0 0.41 18.14L26.79 9.38ZM0.81 0.79L24.84 8.79 3.98 8.79 0.81 0.79ZM3.98 9.37L24.84 9.37 0.81 17.37 3.98 9.37Z" }))));
+    };
+    return ShellContainer;
+}(React.Component);
+exports.Shell = react_redux_1.connect(function (state) {
+    return {
+        // passed down to ShellContainer
+        inputText: state.shell.input,
+        strings: state.format.strings,
+        // only used to create helper functions below 
+        locale: state.format.locale,
+        user: state.connection.user
+    };
+}, {
+    // passed down to ShellContainer
+    onChangeText: function onChangeText(input) {
+        return { type: 'Update_Input', input: input };
+    },
+    // only used to create helper functions below 
+    sendMessage: Chat_1.sendMessage,
+    sendFiles: Chat_1.sendFiles
+}, function (stateProps, dispatchProps, ownProps) {
+    return {
+        // from stateProps
+        inputText: stateProps.inputText,
+        strings: stateProps.strings,
+        // from dispatchProps
+        onChangeText: dispatchProps.onChangeText,
+        // helper functions
+        sendMessage: function sendMessage(text) {
+            return dispatchProps.sendMessage(text, stateProps.user, stateProps.locale);
+        },
+        sendFiles: function sendFiles(files) {
+            return dispatchProps.sendFiles(files, stateProps.user, stateProps.locale);
+        }
+    };
+})(ShellContainer);
+//# sourceMappingURL=Shell.js.map
+
+/***/ }),
+/* 388 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(291);
+var botframework_directlinejs_1 = __webpack_require__(308);
+var Chat_1 = __webpack_require__(293);
+var Strings_1 = __webpack_require__(389);
+exports.shell = function (state, action) {
+    if (state === void 0) {
+        state = {
+            input: '',
+            sendTyping: false
+        };
+    }
+    switch (action.type) {
+        case 'Update_Input':
+            return tslib_1.__assign({}, state, { input: action.input });
+        case 'Send_Message':
+            return tslib_1.__assign({}, state, { input: '' });
+        case 'Set_Send_Typing':
+            return tslib_1.__assign({}, state, { sendTyping: action.sendTyping });
+        default:
+            return state;
+    }
+};
+exports.format = function (state, action) {
+    if (state === void 0) {
+        state = {
+            locale: 'en-us',
+            options: {
+                showHeader: true
+            },
+            strings: Strings_1.defaultStrings,
+            carouselMargin: undefined
+        };
+    }
+    switch (action.type) {
+        case 'Set_Format_Options':
+            return tslib_1.__assign({}, state, { options: action.options });
+        case 'Set_Locale':
+            return tslib_1.__assign({}, state, { locale: action.locale, strings: Strings_1.strings(action.locale) });
+        case 'Set_Measurements':
+            return tslib_1.__assign({}, state, { carouselMargin: action.carouselMargin });
+        default:
+            return state;
+    }
+};
+exports.size = function (state, action) {
+    if (state === void 0) {
+        state = {
+            width: undefined,
+            height: undefined
+        };
+    }
+    switch (action.type) {
+        case 'Set_Size':
+            return tslib_1.__assign({}, state, { width: action.width, height: action.height });
+        default:
+            return state;
+    }
+};
+exports.connection = function (state, action) {
+    if (state === void 0) {
+        state = {
+            connectionStatus: botframework_directlinejs_1.ConnectionStatus.Uninitialized,
+            botConnection: undefined,
+            selectedActivity: undefined,
+            user: undefined,
+            bot: undefined
+        };
+    }
+    switch (action.type) {
+        case 'Start_Connection':
+            return tslib_1.__assign({}, state, { botConnection: action.botConnection, user: action.user, bot: action.bot, selectedActivity: action.selectedActivity });
+        case 'Connection_Change':
+            return tslib_1.__assign({}, state, { connectionStatus: action.connectionStatus });
+        default:
+            return state;
+    }
+};
+var copyArrayWithUpdatedItem = function copyArrayWithUpdatedItem(array, i, item) {
+    return array.slice(0, i).concat([item], array.slice(i + 1));
+};
+exports.history = function (state, action) {
+    if (state === void 0) {
+        state = {
+            activities: [],
+            clientActivityBase: Date.now().toString() + Math.random().toString().substr(1) + '.',
+            clientActivityCounter: 0,
+            selectedActivity: null
+        };
+    }
+    Chat_1.konsole.log("history action", action);
+    switch (action.type) {
+        case 'Receive_Sent_Message':
+            {
+                if (!action.activity.channelData || !action.activity.channelData.clientActivityId) {
+                    // only postBack messages don't have clientActivityId, and these shouldn't be added to the history
+                    return state;
+                }
+                var i_1 = state.activities.findIndex(function (activity) {
+                    return activity.channelData && activity.channelData.clientActivityId === action.activity.channelData.clientActivityId;
+                });
+                if (i_1 !== -1) {
+                    var activity_1 = state.activities[i_1];
+                    return tslib_1.__assign({}, state, { activities: copyArrayWithUpdatedItem(state.activities, i_1, activity_1), selectedActivity: state.selectedActivity === activity_1 ? action.activity : state.selectedActivity });
+                }
+                // else fall through and treat this as a new message
+            }
+        case 'Receive_Message':
+            if (state.activities.find(function (a) {
+                return a.id === action.activity.id;
+            })) return state; // don't allow duplicate messages
+            return tslib_1.__assign({}, state, { activities: state.activities.filter(function (activity) {
+                    return activity.type !== "typing";
+                }).concat([action.activity], state.activities.filter(function (activity) {
+                    return activity.from.id !== action.activity.from.id && activity.type === "typing";
+                })) });
+        case 'Send_Message':
+            return tslib_1.__assign({}, state, { activities: state.activities.filter(function (activity) {
+                    return activity.type !== "typing";
+                }).concat([tslib_1.__assign({}, action.activity, { timestamp: new Date().toISOString(), channelData: { clientActivityId: state.clientActivityBase + state.clientActivityCounter } })], state.activities.filter(function (activity) {
+                    return activity.type === "typing";
+                })), clientActivityCounter: state.clientActivityCounter + 1 });
+        case 'Send_Message_Retry':
+            {
+                var activity_2 = state.activities.find(function (activity) {
+                    return activity.channelData && activity.channelData.clientActivityId === action.clientActivityId;
+                });
+                var newActivity_1 = activity_2.id === undefined ? activity_2 : tslib_1.__assign({}, activity_2, { id: undefined });
+                return tslib_1.__assign({}, state, { activities: state.activities.filter(function (activityT) {
+                        return activityT.type !== "typing" && activityT !== activity_2;
+                    }).concat([newActivity_1], state.activities.filter(function (activity) {
+                        return activity.type === "typing";
+                    })), selectedActivity: state.selectedActivity === activity_2 ? newActivity_1 : state.selectedActivity });
+            }
+        case 'Send_Message_Succeed':
+        case 'Send_Message_Fail':
+            {
+                var i_2 = state.activities.findIndex(function (activity) {
+                    return activity.channelData && activity.channelData.clientActivityId === action.clientActivityId;
+                });
+                if (i_2 === -1) return state;
+                var activity_3 = state.activities[i_2];
+                if (activity_3.id && activity_3.id != "retry") return state;
+                var newActivity_2 = tslib_1.__assign({}, activity_3, { id: action.type === 'Send_Message_Succeed' ? action.id : null });
+                return tslib_1.__assign({}, state, { activities: copyArrayWithUpdatedItem(state.activities, i_2, newActivity_2), clientActivityCounter: state.clientActivityCounter + 1, selectedActivity: state.selectedActivity === activity_3 ? newActivity_2 : state.selectedActivity });
+            }
+        case 'Show_Typing':
+            return tslib_1.__assign({}, state, { activities: state.activities.filter(function (activity) {
+                    return activity.type !== "typing";
+                }).concat(state.activities.filter(function (activity) {
+                    return activity.from.id !== action.activity.from.id && activity.type === "typing";
+                }), [action.activity]) });
+        case 'Clear_Typing':
+            return tslib_1.__assign({}, state, { activities: state.activities.filter(function (activity) {
+                    return activity.id !== action.id;
+                }), selectedActivity: state.selectedActivity && state.selectedActivity.id === action.id ? null : state.selectedActivity });
+        case 'Select_Activity':
+            if (action.selectedActivity === state.selectedActivity) return state;
+            return tslib_1.__assign({}, state, { selectedActivity: action.selectedActivity });
+        case 'Take_SuggestedAction':
+            var i = state.activities.findIndex(function (activity) {
+                return activity === action.message;
+            });
+            var activity = state.activities[i];
+            var newActivity = tslib_1.__assign({}, activity, { suggestedActions: undefined });
+            return tslib_1.__assign({}, state, { activities: copyArrayWithUpdatedItem(state.activities, i, newActivity), selectedActivity: state.selectedActivity === activity ? newActivity : state.selectedActivity });
+        default:
+            return state;
+    }
+};
+var nullAction = { type: null };
+// Epics - chain actions together with async operations
+var redux_1 = __webpack_require__(318);
+var Observable_1 = __webpack_require__(288);
+__webpack_require__(357);
+__webpack_require__(358);
+__webpack_require__(359);
+__webpack_require__(360);
+__webpack_require__(361);
+__webpack_require__(362);
+__webpack_require__(505);
+__webpack_require__(355);
+__webpack_require__(356);
+var sendMessage = function sendMessage(action$, store) {
+    return action$.ofType('Send_Message').map(function (action) {
+        var state = store.getState();
+        var clientActivityId = state.history.clientActivityBase + (state.history.clientActivityCounter - 1);
+        return { type: 'Send_Message_Try', clientActivityId: clientActivityId };
+    });
+};
+var trySendMessage = function trySendMessage(action$, store) {
+    return action$.ofType('Send_Message_Try').flatMap(function (action) {
+        var state = store.getState();
+        var clientActivityId = action.clientActivityId;
+        var activity = state.history.activities.find(function (activity) {
+            return activity.channelData && activity.channelData.clientActivityId === clientActivityId;
+        });
+        if (!activity) {
+            Chat_1.konsole.log("trySendMessage: activity not found");
+            return Observable_1.Observable.empty();
+        }
+        return state.connection.botConnection.postActivity(activity).map(function (id) {
+            return { type: 'Send_Message_Succeed', clientActivityId: clientActivityId, id: id };
+        }).catch(function (error) {
+            return Observable_1.Observable.of({ type: 'Send_Message_Fail', clientActivityId: clientActivityId });
+        });
+    });
+};
+var retrySendMessage = function retrySendMessage(action$) {
+    return action$.ofType('Send_Message_Retry').map(function (action) {
+        return { type: 'Send_Message_Try', clientActivityId: action.clientActivityId };
+    });
+};
+var updateSelectedActivity = function updateSelectedActivity(action$, store) {
+    return action$.ofType('Send_Message_Succeed', 'Send_Message_Fail', 'Show_Typing', 'Clear_Typing').map(function (action) {
+        var state = store.getState();
+        if (state.connection.selectedActivity) state.connection.selectedActivity.next({ activity: state.history.selectedActivity });
+        return nullAction;
+    });
+};
+var showTyping = function showTyping(action$) {
+    return action$.ofType('Show_Typing').delay(3000).map(function (action) {
+        return { type: 'Clear_Typing', id: action.activity.id };
+    });
+};
+var sendTyping = function sendTyping(action$, store) {
+    return action$.ofType('Update_Input').map(function (_) {
+        return store.getState();
+    }).filter(function (state) {
+        return state.shell.sendTyping;
+    }).throttleTime(3000).do(function (_) {
+        return Chat_1.konsole.log("sending typing");
+    }).flatMap(function (state) {
+        return state.connection.botConnection.postActivity({
+            type: 'typing',
+            from: state.connection.user
+        }).map(function (_) {
+            return nullAction;
+        }).catch(function (error) {
+            return Observable_1.Observable.of(nullAction);
+        });
+    });
+};
+// Now we put it all together into a store with middleware
+var redux_2 = __webpack_require__(318);
+var redux_observable_1 = __webpack_require__(486);
+exports.createStore = function () {
+    return redux_2.createStore(redux_2.combineReducers({
+        shell: exports.shell,
+        format: exports.format,
+        size: exports.size,
+        connection: exports.connection,
+        history: exports.history
+    }), redux_1.applyMiddleware(redux_observable_1.createEpicMiddleware(redux_observable_1.combineEpics(updateSelectedActivity, sendMessage, trySendMessage, retrySendMessage, showTyping, sendTyping))));
+};
+//# sourceMappingURL=Store.js.map
+
+/***/ }),
+/* 389 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var localizedStrings = {
+    'en-us': {
+        title: "Chat",
+        send: "Send",
+        unknownFile: "[File of type '%1']",
+        unknownCard: "[Unknown Card '%1']",
+        receiptTax: "Tax",
+        receiptTotal: "Total",
+        messageRetry: "retry",
+        messageFailed: "couldn't send",
+        messageSending: "sending",
+        timeSent: " at %1",
+        consolePlaceholder: "Type your message..."
+    },
+    'de-de': {
+        title: "Chat",
+        send: "Senden",
+        unknownFile: "[Datei vom Typ '%1']",
+        unknownCard: "[Unbekannte Card '%1']",
+        receiptTax: "MwSt.",
+        receiptTotal: "Gesamtbetrag",
+        messageRetry: "wiederholen",
+        messageFailed: "konnte nicht senden",
+        messageSending: "sendet",
+        timeSent: " am %1",
+        consolePlaceholder: "Verfasse eine Nachricht..."
+    },
+    'pl-pl': {
+        title: "Chat",
+        send: "Wyślij",
+        unknownFile: "[Plik typu '%1']",
+        unknownCard: "[Nieznana karta '%1']",
+        receiptTax: "Podatek",
+        receiptTotal: "Razem",
+        messageRetry: "wyślij ponownie",
+        messageFailed: "wysłanie nieudane",
+        messageSending: "wysyłanie",
+        timeSent: " o %1",
+        consolePlaceholder: "Wpisz swoją wiadomość..."
+    },
+    'ru-ru': {
+        title: "Чат",
+        send: "Отправить",
+        unknownFile: "[Неизвестный тип '%1']",
+        unknownCard: "[Неизвестная карта '%1']",
+        receiptTax: "Налог",
+        receiptTotal: "Итого",
+        messageRetry: "повторить",
+        messageFailed: "не удалось отправить",
+        messageSending: "отправка",
+        timeSent: " в %1",
+        consolePlaceholder: "Введите ваше сообщение..."
+    },
+    'nl-nl': {
+        title: "Chat",
+        send: "Verstuur",
+        unknownFile: "[Bestand van het type '%1']",
+        unknownCard: "[Onbekende kaart '%1']",
+        receiptTax: "BTW",
+        receiptTotal: "Totaal",
+        messageRetry: "opnieuw",
+        messageFailed: "versturen mislukt",
+        messageSending: "versturen",
+        timeSent: " om %1",
+        consolePlaceholder: "Typ je bericht..."
+    },
+    'lv-lv': {
+        title: "Tērzēšana",
+        send: "Sūtīt",
+        unknownFile: "[Nezināms tips '%1']",
+        unknownCard: "[Nezināma kartīte '%1']",
+        receiptTax: "Nodoklis",
+        receiptTotal: "Kopsumma",
+        messageRetry: "Mēģināt vēlreiz",
+        messageFailed: "Neizdevās nosūtīt",
+        messageSending: "Nosūtīšana",
+        timeSent: " %1",
+        consolePlaceholder: "Ierakstiet savu ziņu..."
+    },
+    'pt-br': {
+        title: "Bate-papo",
+        send: "Enviar",
+        unknownFile: "[Arquivo do tipo '%1']",
+        unknownCard: "[Cartão desconhecido '%1']",
+        receiptTax: "Imposto",
+        receiptTotal: "Total",
+        messageRetry: "repedit",
+        messageFailed: "não pude enviar",
+        messageSending: "enviando",
+        timeSent: " às %1",
+        consolePlaceholder: "Digite sua mensagem..."
+    },
+    'fr-fr': {
+        title: "Chat",
+        send: "Envoyer",
+        unknownFile: "[Fichier de type '%1']",
+        unknownCard: "[Carte inconnue '%1']",
+        receiptTax: "Taxe",
+        receiptTotal: "Total",
+        messageRetry: "reéssayer",
+        messageFailed: "envoi impossible",
+        messageSending: "envoi",
+        timeSent: " à %1",
+        consolePlaceholder: "Écrivez votre message..."
+    },
+    'es-es': {
+        title: "Chat",
+        send: "Enviar",
+        unknownFile: "[Archivo de tipo '%1']",
+        unknownCard: "[Tarjeta desconocida '%1']",
+        receiptTax: "Impuestos",
+        receiptTotal: "Total",
+        messageRetry: "reintentar",
+        messageFailed: "no enviado",
+        messageSending: "enviando",
+        timeSent: " a las %1",
+        consolePlaceholder: "Escribe tu mensaje..."
+    },
+    'el-gr': {
+        title: "Συνομιλία",
+        send: "Αποστολή",
+        unknownFile: "[Αρχείο τύπου '%1']",
+        unknownCard: "[Αγνωστη Κάρτα '%1']",
+        receiptTax: "ΦΠΑ",
+        receiptTotal: "Σύνολο",
+        messageRetry: "δοκιμή",
+        messageFailed: "αποτυχία",
+        messageSending: "αποστολή",
+        timeSent: " την %1",
+        consolePlaceholder: "Πληκτρολόγηση μηνύματος..."
+    },
+    'it-it': {
+        title: "Chat",
+        send: "Invia",
+        unknownFile: "[File di tipo '%1']",
+        unknownCard: "[Card sconosciuta '%1']",
+        receiptTax: "Tasse",
+        receiptTotal: "Totale",
+        messageRetry: "riprova",
+        messageFailed: "impossibile inviare",
+        messageSending: "invio",
+        timeSent: " il %1",
+        consolePlaceholder: "Scrivi il tuo messaggio..."
+    }
+};
+exports.defaultStrings = localizedStrings['en-us'];
+// Returns strings using the "best match available"" locale
+// e.g. if 'en-us' is the only supported English locale, then
+// strings('en') should return localizedStrings('en-us')
+exports.strings = function (locale) {
+    if (locale.startsWith('de')) locale = 'de-de';else if (locale.startsWith('pl')) locale = 'pl-pl';else if (locale.startsWith('ru')) locale = 'ru-ru';else if (locale.startsWith('nl')) locale = 'nl-nl';else if (locale.startsWith('lv')) locale = 'lv-lv';else if (locale.startsWith('pt')) locale = 'pt-br';else if (locale.startsWith('fr')) locale = 'fr-fr';else if (locale.startsWith('es')) locale = 'es-es';else if (locale.startsWith('el')) locale = 'el-gr';else if (locale.startsWith('it')) locale = 'it-it';else locale = 'en-us';
+    return localizedStrings[locale];
+};
+//# sourceMappingURL=Strings.js.map
+
+/***/ }),
+/* 390 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+/***/ }),
+/* 391 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObject = __webpack_require__(298);
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+/***/ }),
+/* 392 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObject = __webpack_require__(298),
+    isArray = __webpack_require__(399),
+    SPECIES = __webpack_require__(301)('species');
+
+module.exports = function (original) {
+  var C;
+  if (isArray(original)) {
+    C = original.constructor;
+    // cross-realm fallback
+    if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
+    if (isObject(C)) {
+      C = C[SPECIES];
+      if (C === null) C = undefined;
+    }
+  }return C === undefined ? Array : C;
+};
+
+/***/ }),
+/* 393 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 9.4.2.3 ArraySpeciesCreate(originalArray, length)
+var speciesConstructor = __webpack_require__(392);
+
+module.exports = function (original, length) {
+  return new (speciesConstructor(original))(length);
+};
+
+/***/ }),
+/* 394 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObject = __webpack_require__(298),
+    document = __webpack_require__(297).document
+// in old IE typeof document.createElement is 'object'
+,
+    is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+/***/ }),
+/* 395 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var MATCH = __webpack_require__(301)('match');
+module.exports = function (KEY) {
+  var re = /./;
+  try {
+    '/./'[KEY](re);
+  } catch (e) {
+    try {
+      re[MATCH] = false;
+      return !'/./'[KEY](re);
+    } catch (f) {/* empty */}
+  }return true;
+};
+
+/***/ }),
+/* 396 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+/***/ }),
+/* 397 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = !__webpack_require__(311) && !__webpack_require__(332)(function () {
+  return Object.defineProperty(__webpack_require__(394)('div'), 'a', { get: function get() {
+      return 7;
+    } }).a != 7;
+});
+
+/***/ }),
+/* 398 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(310);
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+/***/ }),
+/* 399 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.2.2 IsArray(argument)
+var cof = __webpack_require__(310);
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+
+/***/ }),
+/* 400 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.2.8 IsRegExp(argument)
+var isObject = __webpack_require__(298),
+    cof = __webpack_require__(310),
+    MATCH = __webpack_require__(301)('match');
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
+};
+
+/***/ }),
+/* 401 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var anObject = __webpack_require__(391),
+    IE8_DOM_DEFINE = __webpack_require__(397),
+    toPrimitive = __webpack_require__(408),
+    dP = Object.defineProperty;
+
+exports.f = __webpack_require__(311) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) {/* empty */}
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+/***/ }),
+/* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+/***/ }),
+/* 403 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var global = __webpack_require__(297),
+    hide = __webpack_require__(313),
+    has = __webpack_require__(396),
+    SRC = __webpack_require__(334)('src'),
+    TO_STRING = 'toString',
+    $toString = Function[TO_STRING],
+    TPL = ('' + $toString).split(TO_STRING);
+
+__webpack_require__(329).inspectSource = function (it) {
+  return $toString.call(it);
+};
+
+(module.exports = function (O, key, val, safe) {
+  var isFunction = typeof val == 'function';
+  if (isFunction) has(val, 'name') || hide(val, 'name', key);
+  if (O[key] === val) return;
+  if (isFunction) has(val, SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
+  if (O === global) {
+    O[key] = val;
+  } else {
+    if (!safe) {
+      delete O[key];
+      hide(O, key, val);
+    } else {
+      if (O[key]) O[key] = val;else hide(O, key, val);
+    }
+  }
+  // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+})(Function.prototype, TO_STRING, function toString() {
+  return typeof this == 'function' && this[SRC] || $toString.call(this);
+});
+
+/***/ }),
+/* 404 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var global = __webpack_require__(297),
+    SHARED = '__core-js_shared__',
+    store = global[SHARED] || (global[SHARED] = {});
+module.exports = function (key) {
+  return store[key] || (store[key] = {});
+};
+
+/***/ }),
+/* 405 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// helper for String#{startsWith, endsWith, includes}
+var isRegExp = __webpack_require__(400),
+    defined = __webpack_require__(331);
+
+module.exports = function (that, searchString, NAME) {
+  if (isRegExp(searchString)) throw TypeError('String#' + NAME + " doesn't accept regex!");
+  return String(defined(that));
+};
+
+/***/ }),
+/* 406 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.1.4 ToInteger
+var ceil = Math.ceil,
+    floor = Math.floor;
+module.exports = function (it) {
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+/***/ }),
+/* 407 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(331);
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+/***/ }),
+/* 408 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(298);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+/***/ }),
+/* 409 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 22.1.3.9 Array.prototype.findIndex(predicate, thisArg = undefined)
+
+var $export = __webpack_require__(312),
+    $find = __webpack_require__(328)(6),
+    KEY = 'findIndex',
+    forced = true;
+// Shouldn't skip holes
+if (KEY in []) Array(1)[KEY](function () {
+  forced = false;
+});
+$export($export.P + $export.F * forced, 'Array', {
+  findIndex: function findIndex(callbackfn /*, that = undefined */) {
+    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+__webpack_require__(327)(KEY);
+
+/***/ }),
+/* 410 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
+
+var $export = __webpack_require__(312),
+    $find = __webpack_require__(328)(5),
+    KEY = 'find',
+    forced = true;
+// Shouldn't skip holes
+if (KEY in []) Array(1)[KEY](function () {
+  forced = false;
+});
+$export($export.P + $export.F * forced, 'Array', {
+  find: function find(callbackfn /*, that = undefined */) {
+    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+__webpack_require__(327)(KEY);
+
+/***/ }),
+/* 411 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// 21.1.3.18 String.prototype.startsWith(searchString [, position ])
+
+
+var $export = __webpack_require__(312),
+    toLength = __webpack_require__(333),
+    context = __webpack_require__(405),
+    STARTS_WITH = 'startsWith',
+    $startsWith = ''[STARTS_WITH];
+
+$export($export.P + $export.F * __webpack_require__(395)(STARTS_WITH), 'String', {
+  startsWith: function startsWith(searchString /*, position = 0 */) {
+    var that = context(this, searchString, STARTS_WITH),
+        index = toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length)),
+        search = String(searchString);
+    return $startsWith ? $startsWith.call(that, search, index) : that.slice(index, index + search.length) === search;
+  }
+});
+
+/***/ }),
+/* 412 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Helpers
+
+// Merge objects
+//
+
+function assign(obj /*from1, from2, from3, ...*/) {
+  var sources = Array.prototype.slice.call(arguments, 1);
+
+  sources.forEach(function (source) {
+    if (!source) {
+      return;
+    }
+
+    Object.keys(source).forEach(function (key) {
+      obj[key] = source[key];
+    });
+  });
+
+  return obj;
+}
+
+function _class(obj) {
+  return Object.prototype.toString.call(obj);
+}
+function isString(obj) {
+  return _class(obj) === '[object String]';
+}
+function isObject(obj) {
+  return _class(obj) === '[object Object]';
+}
+function isRegExp(obj) {
+  return _class(obj) === '[object RegExp]';
+}
+function isFunction(obj) {
+  return _class(obj) === '[object Function]';
+}
+
+function escapeRE(str) {
+  return str.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&');
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+var defaultOptions = {
+  fuzzyLink: true,
+  fuzzyEmail: true,
+  fuzzyIP: false
+};
+
+function isOptionsObj(obj) {
+  return Object.keys(obj || {}).reduce(function (acc, k) {
+    return acc || defaultOptions.hasOwnProperty(k);
+  }, false);
+}
+
+var defaultSchemas = {
+  'http:': {
+    validate: function validate(text, pos, self) {
+      var tail = text.slice(pos);
+
+      if (!self.re.http) {
+        // compile lazily, because "host"-containing variables can change on tlds update.
+        self.re.http = new RegExp('^\\/\\/' + self.re.src_auth + self.re.src_host_port_strict + self.re.src_path, 'i');
+      }
+      if (self.re.http.test(tail)) {
+        return tail.match(self.re.http)[0].length;
+      }
+      return 0;
+    }
+  },
+  'https:': 'http:',
+  'ftp:': 'http:',
+  '//': {
+    validate: function validate(text, pos, self) {
+      var tail = text.slice(pos);
+
+      if (!self.re.no_http) {
+        // compile lazily, because "host"-containing variables can change on tlds update.
+        self.re.no_http = new RegExp('^' + self.re.src_auth +
+        // Don't allow single-level domains, because of false positives like '//test'
+        // with code comments
+        '(?:localhost|(?:(?:' + self.re.src_domain + ')\\.)+' + self.re.src_domain_root + ')' + self.re.src_port + self.re.src_host_terminator + self.re.src_path, 'i');
+      }
+
+      if (self.re.no_http.test(tail)) {
+        // should not be `://` & `///`, that protects from errors in protocol name
+        if (pos >= 3 && text[pos - 3] === ':') {
+          return 0;
+        }
+        if (pos >= 3 && text[pos - 3] === '/') {
+          return 0;
+        }
+        return tail.match(self.re.no_http)[0].length;
+      }
+      return 0;
+    }
+  },
+  'mailto:': {
+    validate: function validate(text, pos, self) {
+      var tail = text.slice(pos);
+
+      if (!self.re.mailto) {
+        self.re.mailto = new RegExp('^' + self.re.src_email_name + '@' + self.re.src_host_strict, 'i');
+      }
+      if (self.re.mailto.test(tail)) {
+        return tail.match(self.re.mailto)[0].length;
+      }
+      return 0;
+    }
+  }
+};
+
+/*eslint-disable max-len*/
+
+// RE pattern for 2-character tlds (autogenerated by ./support/tlds_2char_gen.js)
+var tlds_2ch_src_re = 'a[cdefgilmnoqrstuwxz]|b[abdefghijmnorstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[cegrstu]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdeghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnortuvxyz]|t[cdfghjklmnortvwz]|u[agksyz]|v[aceginu]|w[fs]|y[et]|z[amw]';
+
+// DON'T try to make PRs with changes. Extend TLDs with LinkifyIt.tlds() instead
+var tlds_default = 'biz|com|edu|gov|net|org|pro|web|xxx|aero|asia|coop|info|museum|name|shop|рф'.split('|');
+
+/*eslint-enable max-len*/
+
+////////////////////////////////////////////////////////////////////////////////
+
+function resetScanCache(self) {
+  self.__index__ = -1;
+  self.__text_cache__ = '';
+}
+
+function createValidator(re) {
+  return function (text, pos) {
+    var tail = text.slice(pos);
+
+    if (re.test(tail)) {
+      return tail.match(re)[0].length;
+    }
+    return 0;
+  };
+}
+
+function createNormalizer() {
+  return function (match, self) {
+    self.normalize(match);
+  };
+}
+
+// Schemas compiler. Build regexps.
+//
+function compile(self) {
+
+  // Load & clone RE patterns.
+  var re = self.re = __webpack_require__(413)(self.__opts__);
+
+  // Define dynamic patterns
+  var tlds = self.__tlds__.slice();
+
+  self.onCompile();
+
+  if (!self.__tlds_replaced__) {
+    tlds.push(tlds_2ch_src_re);
+  }
+  tlds.push(re.src_xn);
+
+  re.src_tlds = tlds.join('|');
+
+  function untpl(tpl) {
+    return tpl.replace('%TLDS%', re.src_tlds);
+  }
+
+  re.email_fuzzy = RegExp(untpl(re.tpl_email_fuzzy), 'i');
+  re.link_fuzzy = RegExp(untpl(re.tpl_link_fuzzy), 'i');
+  re.link_no_ip_fuzzy = RegExp(untpl(re.tpl_link_no_ip_fuzzy), 'i');
+  re.host_fuzzy_test = RegExp(untpl(re.tpl_host_fuzzy_test), 'i');
+
+  //
+  // Compile each schema
+  //
+
+  var aliases = [];
+
+  self.__compiled__ = {}; // Reset compiled data
+
+  function schemaError(name, val) {
+    throw new Error('(LinkifyIt) Invalid schema "' + name + '": ' + val);
+  }
+
+  Object.keys(self.__schemas__).forEach(function (name) {
+    var val = self.__schemas__[name];
+
+    // skip disabled methods
+    if (val === null) {
+      return;
+    }
+
+    var compiled = { validate: null, link: null };
+
+    self.__compiled__[name] = compiled;
+
+    if (isObject(val)) {
+      if (isRegExp(val.validate)) {
+        compiled.validate = createValidator(val.validate);
+      } else if (isFunction(val.validate)) {
+        compiled.validate = val.validate;
+      } else {
+        schemaError(name, val);
+      }
+
+      if (isFunction(val.normalize)) {
+        compiled.normalize = val.normalize;
+      } else if (!val.normalize) {
+        compiled.normalize = createNormalizer();
+      } else {
+        schemaError(name, val);
+      }
+
+      return;
+    }
+
+    if (isString(val)) {
+      aliases.push(name);
+      return;
+    }
+
+    schemaError(name, val);
+  });
+
+  //
+  // Compile postponed aliases
+  //
+
+  aliases.forEach(function (alias) {
+    if (!self.__compiled__[self.__schemas__[alias]]) {
+      // Silently fail on missed schemas to avoid errons on disable.
+      // schemaError(alias, self.__schemas__[alias]);
+      return;
+    }
+
+    self.__compiled__[alias].validate = self.__compiled__[self.__schemas__[alias]].validate;
+    self.__compiled__[alias].normalize = self.__compiled__[self.__schemas__[alias]].normalize;
+  });
+
+  //
+  // Fake record for guessed links
+  //
+  self.__compiled__[''] = { validate: null, normalize: createNormalizer() };
+
+  //
+  // Build schema condition
+  //
+  var slist = Object.keys(self.__compiled__).filter(function (name) {
+    // Filter disabled & fake schemas
+    return name.length > 0 && self.__compiled__[name];
+  }).map(escapeRE).join('|');
+  // (?!_) cause 1.5x slowdown
+  self.re.schema_test = RegExp('(^|(?!_)(?:[><\uFF5C]|' + re.src_ZPCc + '))(' + slist + ')', 'i');
+  self.re.schema_search = RegExp('(^|(?!_)(?:[><\uFF5C]|' + re.src_ZPCc + '))(' + slist + ')', 'ig');
+
+  self.re.pretest = RegExp('(' + self.re.schema_test.source + ')|' + '(' + self.re.host_fuzzy_test.source + ')|' + '@', 'i');
+
+  //
+  // Cleanup
+  //
+
+  resetScanCache(self);
+}
+
+/**
+ * class Match
+ *
+ * Match result. Single element of array, returned by [[LinkifyIt#match]]
+ **/
+function Match(self, shift) {
+  var start = self.__index__,
+      end = self.__last_index__,
+      text = self.__text_cache__.slice(start, end);
+
+  /**
+   * Match#schema -> String
+   *
+   * Prefix (protocol) for matched string.
+   **/
+  this.schema = self.__schema__.toLowerCase();
+  /**
+   * Match#index -> Number
+   *
+   * First position of matched string.
+   **/
+  this.index = start + shift;
+  /**
+   * Match#lastIndex -> Number
+   *
+   * Next position after matched string.
+   **/
+  this.lastIndex = end + shift;
+  /**
+   * Match#raw -> String
+   *
+   * Matched string.
+   **/
+  this.raw = text;
+  /**
+   * Match#text -> String
+   *
+   * Notmalized text of matched string.
+   **/
+  this.text = text;
+  /**
+   * Match#url -> String
+   *
+   * Normalized url of matched string.
+   **/
+  this.url = text;
+}
+
+function createMatch(self, shift) {
+  var match = new Match(self, shift);
+
+  self.__compiled__[match.schema].normalize(match, self);
+
+  return match;
+}
+
+/**
+ * class LinkifyIt
+ **/
+
+/**
+ * new LinkifyIt(schemas, options)
+ * - schemas (Object): Optional. Additional schemas to validate (prefix/validator)
+ * - options (Object): { fuzzyLink|fuzzyEmail|fuzzyIP: true|false }
+ *
+ * Creates new linkifier instance with optional additional schemas.
+ * Can be called without `new` keyword for convenience.
+ *
+ * By default understands:
+ *
+ * - `http(s)://...` , `ftp://...`, `mailto:...` & `//...` links
+ * - "fuzzy" links and emails (example.com, foo@bar.com).
+ *
+ * `schemas` is an object, where each key/value describes protocol/rule:
+ *
+ * - __key__ - link prefix (usually, protocol name with `:` at the end, `skype:`
+ *   for example). `linkify-it` makes shure that prefix is not preceeded with
+ *   alphanumeric char and symbols. Only whitespaces and punctuation allowed.
+ * - __value__ - rule to check tail after link prefix
+ *   - _String_ - just alias to existing rule
+ *   - _Object_
+ *     - _validate_ - validator function (should return matched length on success),
+ *       or `RegExp`.
+ *     - _normalize_ - optional function to normalize text & url of matched result
+ *       (for example, for @twitter mentions).
+ *
+ * `options`:
+ *
+ * - __fuzzyLink__ - recognige URL-s without `http(s):` prefix. Default `true`.
+ * - __fuzzyIP__ - allow IPs in fuzzy links above. Can conflict with some texts
+ *   like version numbers. Default `false`.
+ * - __fuzzyEmail__ - recognize emails without `mailto:` prefix.
+ *
+ **/
+function LinkifyIt(schemas, options) {
+  if (!(this instanceof LinkifyIt)) {
+    return new LinkifyIt(schemas, options);
+  }
+
+  if (!options) {
+    if (isOptionsObj(schemas)) {
+      options = schemas;
+      schemas = {};
+    }
+  }
+
+  this.__opts__ = assign({}, defaultOptions, options);
+
+  // Cache last tested result. Used to skip repeating steps on next `match` call.
+  this.__index__ = -1;
+  this.__last_index__ = -1; // Next scan position
+  this.__schema__ = '';
+  this.__text_cache__ = '';
+
+  this.__schemas__ = assign({}, defaultSchemas, schemas);
+  this.__compiled__ = {};
+
+  this.__tlds__ = tlds_default;
+  this.__tlds_replaced__ = false;
+
+  this.re = {};
+
+  compile(this);
+}
+
+/** chainable
+ * LinkifyIt#add(schema, definition)
+ * - schema (String): rule name (fixed pattern prefix)
+ * - definition (String|RegExp|Object): schema definition
+ *
+ * Add new rule definition. See constructor description for details.
+ **/
+LinkifyIt.prototype.add = function add(schema, definition) {
+  this.__schemas__[schema] = definition;
+  compile(this);
+  return this;
+};
+
+/** chainable
+ * LinkifyIt#set(options)
+ * - options (Object): { fuzzyLink|fuzzyEmail|fuzzyIP: true|false }
+ *
+ * Set recognition options for links without schema.
+ **/
+LinkifyIt.prototype.set = function set(options) {
+  this.__opts__ = assign(this.__opts__, options);
+  return this;
+};
+
+/**
+ * LinkifyIt#test(text) -> Boolean
+ *
+ * Searches linkifiable pattern and returns `true` on success or `false` on fail.
+ **/
+LinkifyIt.prototype.test = function test(text) {
+  // Reset scan cache
+  this.__text_cache__ = text;
+  this.__index__ = -1;
+
+  if (!text.length) {
+    return false;
+  }
+
+  var m, ml, me, len, shift, next, re, tld_pos, at_pos;
+
+  // try to scan for link with schema - that's the most simple rule
+  if (this.re.schema_test.test(text)) {
+    re = this.re.schema_search;
+    re.lastIndex = 0;
+    while ((m = re.exec(text)) !== null) {
+      len = this.testSchemaAt(text, m[2], re.lastIndex);
+      if (len) {
+        this.__schema__ = m[2];
+        this.__index__ = m.index + m[1].length;
+        this.__last_index__ = m.index + m[0].length + len;
+        break;
+      }
+    }
+  }
+
+  if (this.__opts__.fuzzyLink && this.__compiled__['http:']) {
+    // guess schemaless links
+    tld_pos = text.search(this.re.host_fuzzy_test);
+    if (tld_pos >= 0) {
+      // if tld is located after found link - no need to check fuzzy pattern
+      if (this.__index__ < 0 || tld_pos < this.__index__) {
+        if ((ml = text.match(this.__opts__.fuzzyIP ? this.re.link_fuzzy : this.re.link_no_ip_fuzzy)) !== null) {
+
+          shift = ml.index + ml[1].length;
+
+          if (this.__index__ < 0 || shift < this.__index__) {
+            this.__schema__ = '';
+            this.__index__ = shift;
+            this.__last_index__ = ml.index + ml[0].length;
+          }
+        }
+      }
+    }
+  }
+
+  if (this.__opts__.fuzzyEmail && this.__compiled__['mailto:']) {
+    // guess schemaless emails
+    at_pos = text.indexOf('@');
+    if (at_pos >= 0) {
+      // We can't skip this check, because this cases are possible:
+      // 192.168.1.1@gmail.com, my.in@example.com
+      if ((me = text.match(this.re.email_fuzzy)) !== null) {
+
+        shift = me.index + me[1].length;
+        next = me.index + me[0].length;
+
+        if (this.__index__ < 0 || shift < this.__index__ || shift === this.__index__ && next > this.__last_index__) {
+          this.__schema__ = 'mailto:';
+          this.__index__ = shift;
+          this.__last_index__ = next;
+        }
+      }
+    }
+  }
+
+  return this.__index__ >= 0;
+};
+
+/**
+ * LinkifyIt#pretest(text) -> Boolean
+ *
+ * Very quick check, that can give false positives. Returns true if link MAY BE
+ * can exists. Can be used for speed optimization, when you need to check that
+ * link NOT exists.
+ **/
+LinkifyIt.prototype.pretest = function pretest(text) {
+  return this.re.pretest.test(text);
+};
+
+/**
+ * LinkifyIt#testSchemaAt(text, name, position) -> Number
+ * - text (String): text to scan
+ * - name (String): rule (schema) name
+ * - position (Number): text offset to check from
+ *
+ * Similar to [[LinkifyIt#test]] but checks only specific protocol tail exactly
+ * at given position. Returns length of found pattern (0 on fail).
+ **/
+LinkifyIt.prototype.testSchemaAt = function testSchemaAt(text, schema, pos) {
+  // If not supported schema check requested - terminate
+  if (!this.__compiled__[schema.toLowerCase()]) {
+    return 0;
+  }
+  return this.__compiled__[schema.toLowerCase()].validate(text, pos, this);
+};
+
+/**
+ * LinkifyIt#match(text) -> Array|null
+ *
+ * Returns array of found link descriptions or `null` on fail. We strongly
+ * recommend to use [[LinkifyIt#test]] first, for best speed.
+ *
+ * ##### Result match description
+ *
+ * - __schema__ - link schema, can be empty for fuzzy links, or `//` for
+ *   protocol-neutral  links.
+ * - __index__ - offset of matched text
+ * - __lastIndex__ - index of next char after mathch end
+ * - __raw__ - matched text
+ * - __text__ - normalized text
+ * - __url__ - link, generated from matched text
+ **/
+LinkifyIt.prototype.match = function match(text) {
+  var shift = 0,
+      result = [];
+
+  // Try to take previous element from cache, if .test() called before
+  if (this.__index__ >= 0 && this.__text_cache__ === text) {
+    result.push(createMatch(this, shift));
+    shift = this.__last_index__;
+  }
+
+  // Cut head if cache was used
+  var tail = shift ? text.slice(shift) : text;
+
+  // Scan string until end reached
+  while (this.test(tail)) {
+    result.push(createMatch(this, shift));
+
+    tail = tail.slice(this.__last_index__);
+    shift += this.__last_index__;
+  }
+
+  if (result.length) {
+    return result;
+  }
+
+  return null;
+};
+
+/** chainable
+ * LinkifyIt#tlds(list [, keepOld]) -> this
+ * - list (Array): list of tlds
+ * - keepOld (Boolean): merge with current list if `true` (`false` by default)
+ *
+ * Load (or merge) new tlds list. Those are user for fuzzy links (without prefix)
+ * to avoid false positives. By default this algorythm used:
+ *
+ * - hostname with any 2-letter root zones are ok.
+ * - biz|com|edu|gov|net|org|pro|web|xxx|aero|asia|coop|info|museum|name|shop|рф
+ *   are ok.
+ * - encoded (`xn--...`) root zones are ok.
+ *
+ * If list is replaced, then exact match for 2-chars root zones will be checked.
+ **/
+LinkifyIt.prototype.tlds = function tlds(list, keepOld) {
+  list = Array.isArray(list) ? list : [list];
+
+  if (!keepOld) {
+    this.__tlds__ = list.slice();
+    this.__tlds_replaced__ = true;
+    compile(this);
+    return this;
+  }
+
+  this.__tlds__ = this.__tlds__.concat(list).sort().filter(function (el, idx, arr) {
+    return el !== arr[idx - 1];
+  }).reverse();
+
+  compile(this);
+  return this;
+};
+
+/**
+ * LinkifyIt#normalize(match)
+ *
+ * Default normalizer (if schema does not define it's own).
+ **/
+LinkifyIt.prototype.normalize = function normalize(match) {
+
+  // Do minimal possible changes by default. Need to collect feedback prior
+  // to move forward https://github.com/markdown-it/linkify-it/issues/1
+
+  if (!match.schema) {
+    match.url = 'http://' + match.url;
+  }
+
+  if (match.schema === 'mailto:' && !/^mailto:/i.test(match.url)) {
+    match.url = 'mailto:' + match.url;
+  }
+};
+
+/**
+ * LinkifyIt#onCompile()
+ *
+ * Override to modify basic RegExp-s.
+ **/
+LinkifyIt.prototype.onCompile = function onCompile() {};
+
+module.exports = LinkifyIt;
+
+/***/ }),
+/* 413 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (opts) {
+  var re = {};
+
+  // Use direct extract instead of `regenerate` to reduse browserified size
+  re.src_Any = __webpack_require__(375).source;
+  re.src_Cc = __webpack_require__(373).source;
+  re.src_Z = __webpack_require__(374).source;
+  re.src_P = __webpack_require__(325).source;
+
+  // \p{\Z\P\Cc\CF} (white spaces + control + format + punctuation)
+  re.src_ZPCc = [re.src_Z, re.src_P, re.src_Cc].join('|');
+
+  // \p{\Z\Cc} (white spaces + control)
+  re.src_ZCc = [re.src_Z, re.src_Cc].join('|');
+
+  // Experimental. List of chars, completely prohibited in links
+  // because can separate it from other part of text
+  var text_separators = '[><\uFF5C]';
+
+  // All possible word characters (everything without punctuation, spaces & controls)
+  // Defined via punctuation & spaces to save space
+  // Should be something like \p{\L\N\S\M} (\w but without `_`)
+  re.src_pseudo_letter = '(?:(?!' + text_separators + '|' + re.src_ZPCc + ')' + re.src_Any + ')';
+  // The same as abothe but without [0-9]
+  // var src_pseudo_letter_non_d = '(?:(?![0-9]|' + src_ZPCc + ')' + src_Any + ')';
+
+  ////////////////////////////////////////////////////////////////////////////////
+
+  re.src_ip4 = '(?:(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)';
+
+  // Prohibit any of "@/[]()" in user/pass to avoid wrong domain fetch.
+  re.src_auth = '(?:(?:(?!' + re.src_ZCc + '|[@/\\[\\]()]).)+@)?';
+
+  re.src_port = '(?::(?:6(?:[0-4]\\d{3}|5(?:[0-4]\\d{2}|5(?:[0-2]\\d|3[0-5])))|[1-5]?\\d{1,4}))?';
+
+  re.src_host_terminator = '(?=$|' + text_separators + '|' + re.src_ZPCc + ')(?!-|_|:\\d|\\.-|\\.(?!$|' + re.src_ZPCc + '))';
+
+  re.src_path = '(?:' + '[/?#]' + '(?:' + '(?!' + re.src_ZCc + '|' + text_separators + '|[()[\\]{}.,"\'?!\\-]).|' + '\\[(?:(?!' + re.src_ZCc + '|\\]).)*\\]|' + '\\((?:(?!' + re.src_ZCc + '|[)]).)*\\)|' + '\\{(?:(?!' + re.src_ZCc + '|[}]).)*\\}|' + '\\"(?:(?!' + re.src_ZCc + '|["]).)+\\"|' + "\\'(?:(?!" + re.src_ZCc + "|[']).)+\\'|" + "\\'(?=" + re.src_pseudo_letter + '|[-]).|' + // allow `I'm_king` if no pair found
+  '\\.{2,3}[a-zA-Z0-9%/]|' + // github has ... in commit range links. Restrict to
+  // - english
+  // - percent-encoded
+  // - parts of file path
+  // until more examples found.
+  '\\.(?!' + re.src_ZCc + '|[.]).|' + (opts && opts['---'] ? '\\-(?!--(?:[^-]|$))(?:-*)|' // `---` => long dash, terminate
+  : '\\-+|') + '\\,(?!' + re.src_ZCc + ').|' + // allow `,,,` in paths
+  '\\!(?!' + re.src_ZCc + '|[!]).|' + '\\?(?!' + re.src_ZCc + '|[?]).' + ')+' + '|\\/' + ')?';
+
+  re.src_email_name = '[\\-;:&=\\+\\$,\\"\\.a-zA-Z0-9_]+';
+
+  re.src_xn = 'xn--[a-z0-9\\-]{1,59}';
+
+  // More to read about domain names
+  // http://serverfault.com/questions/638260/
+
+  re.src_domain_root =
+
+  // Allow letters & digits (http://test1)
+  '(?:' + re.src_xn + '|' + re.src_pseudo_letter + '{1,63}' + ')';
+
+  re.src_domain = '(?:' + re.src_xn + '|' + '(?:' + re.src_pseudo_letter + ')' + '|' +
+  // don't allow `--` in domain names, because:
+  // - that can conflict with markdown &mdash; / &ndash;
+  // - nobody use those anyway
+  '(?:' + re.src_pseudo_letter + '(?:-(?!-)|' + re.src_pseudo_letter + '){0,61}' + re.src_pseudo_letter + ')' + ')';
+
+  re.src_host = '(?:' +
+  // Don't need IP check, because digits are already allowed in normal domain names
+  //   src_ip4 +
+  // '|' +
+  '(?:(?:(?:' + re.src_domain + ')\\.)*' + re.src_domain /*_root*/ + ')' + ')';
+
+  re.tpl_host_fuzzy = '(?:' + re.src_ip4 + '|' + '(?:(?:(?:' + re.src_domain + ')\\.)+(?:%TLDS%))' + ')';
+
+  re.tpl_host_no_ip_fuzzy = '(?:(?:(?:' + re.src_domain + ')\\.)+(?:%TLDS%))';
+
+  re.src_host_strict = re.src_host + re.src_host_terminator;
+
+  re.tpl_host_fuzzy_strict = re.tpl_host_fuzzy + re.src_host_terminator;
+
+  re.src_host_port_strict = re.src_host + re.src_port + re.src_host_terminator;
+
+  re.tpl_host_port_fuzzy_strict = re.tpl_host_fuzzy + re.src_port + re.src_host_terminator;
+
+  re.tpl_host_port_no_ip_fuzzy_strict = re.tpl_host_no_ip_fuzzy + re.src_port + re.src_host_terminator;
+
+  ////////////////////////////////////////////////////////////////////////////////
+  // Main rules
+
+  // Rude test fuzzy links by host, for quick deny
+  re.tpl_host_fuzzy_test = 'localhost|www\\.|\\.\\d{1,3}\\.|(?:\\.(?:%TLDS%)(?:' + re.src_ZPCc + '|>|$))';
+
+  re.tpl_email_fuzzy = '(^|' + text_separators + '|\\(|' + re.src_ZCc + ')(' + re.src_email_name + '@' + re.tpl_host_fuzzy_strict + ')';
+
+  re.tpl_link_fuzzy =
+  // Fuzzy link can't be prepended with .:/\- and non punctuation.
+  // but can start with > (markdown blockquote)
+  '(^|(?![.:/\\-_@])(?:[$+<=>^`|\uFF5C]|' + re.src_ZPCc + '))' + '((?![$+<=>^`|\uFF5C])' + re.tpl_host_port_fuzzy_strict + re.src_path + ')';
+
+  re.tpl_link_no_ip_fuzzy =
+  // Fuzzy link can't be prepended with .:/\- and non punctuation.
+  // but can start with > (markdown blockquote)
+  '(^|(?![.:/\\-_@])(?:[$+<=>^`|\uFF5C]|' + re.src_ZPCc + '))' + '((?![$+<=>^`|\uFF5C])' + re.tpl_host_port_no_ip_fuzzy_strict + re.src_path + ')';
+
+  return re;
+};
+
+/***/ }),
+/* 414 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Symbol2 = __webpack_require__(335);
+
+var _Symbol3 = _interopRequireDefault(_Symbol2);
+
+var _getRawTag = __webpack_require__(417);
+
+var _getRawTag2 = _interopRequireDefault(_getRawTag);
+
+var _objectToString = __webpack_require__(418);
+
+var _objectToString2 = _interopRequireDefault(_objectToString);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = _Symbol3.default ? _Symbol3.default.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  return symToStringTag && symToStringTag in Object(value) ? (0, _getRawTag2.default)(value) : (0, _objectToString2.default)(value);
+}
+
+exports.default = baseGetTag;
+
+/***/ }),
+/* 415 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
+
+exports.default = freeGlobal;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(307)))
+
+/***/ }),
+/* 416 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _overArg = __webpack_require__(419);
+
+var _overArg2 = _interopRequireDefault(_overArg);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** Built-in value references. */
+var getPrototype = (0, _overArg2.default)(Object.getPrototypeOf, Object);
+
+exports.default = getPrototype;
+
+/***/ }),
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Symbol2 = __webpack_require__(335);
+
+var _Symbol3 = _interopRequireDefault(_Symbol2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = _Symbol3.default ? _Symbol3.default.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+exports.default = getRawTag;
+
+/***/ }),
+/* 418 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+exports.default = objectToString;
+
+/***/ }),
+/* 419 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Creates a unary function that invokes `func` with its argument transformed.
+ *
+ * @private
+ * @param {Function} func The function to wrap.
+ * @param {Function} transform The argument transform.
+ * @returns {Function} Returns the new function.
+ */
+function overArg(func, transform) {
+  return function (arg) {
+    return func(transform(arg));
+  };
+}
+
+exports.default = overArg;
+
+/***/ }),
+/* 420 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _freeGlobal = __webpack_require__(415);
+
+var _freeGlobal2 = _interopRequireDefault(_freeGlobal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** Detect free variable `self`. */
+var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = _freeGlobal2.default || freeSelf || Function('return this')();
+
+exports.default = root;
+
+/***/ }),
+/* 421 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+}
+
+exports.default = isObjectLike;
+
+/***/ }),
+/* 422 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// List of valid html blocks names, accorting to commonmark spec
+// http://jgm.github.io/CommonMark/spec.html#html-blocks
+
+
+
+module.exports = ['address', 'article', 'aside', 'base', 'basefont', 'blockquote', 'body', 'caption', 'center', 'col', 'colgroup', 'dd', 'details', 'dialog', 'dir', 'div', 'dl', 'dt', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'frame', 'frameset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hr', 'html', 'iframe', 'legend', 'li', 'link', 'main', 'menu', 'menuitem', 'meta', 'nav', 'noframes', 'ol', 'optgroup', 'option', 'p', 'param', 'pre', 'section', 'source', 'title', 'summary', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'title', 'tr', 'track', 'ul'];
+
+/***/ }),
+/* 423 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Just a shortcut for bulk export
+
+
+exports.parseLinkLabel = __webpack_require__(425);
+exports.parseLinkDestination = __webpack_require__(424);
+exports.parseLinkTitle = __webpack_require__(426);
+
+/***/ }),
+/* 424 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Parse link destination
+//
+
+
+var isSpace = __webpack_require__(289).isSpace;
+var unescapeAll = __webpack_require__(289).unescapeAll;
+
+module.exports = function parseLinkDestination(str, pos, max) {
+  var code,
+      level,
+      lines = 0,
+      start = pos,
+      result = {
+    ok: false,
+    pos: 0,
+    lines: 0,
+    str: ''
+  };
+
+  if (str.charCodeAt(pos) === 0x3C /* < */) {
+      pos++;
+      while (pos < max) {
+        code = str.charCodeAt(pos);
+        if (code === 0x0A /* \n */ || isSpace(code)) {
+          return result;
+        }
+        if (code === 0x3E /* > */) {
+            result.pos = pos + 1;
+            result.str = unescapeAll(str.slice(start + 1, pos));
+            result.ok = true;
+            return result;
+          }
+        if (code === 0x5C /* \ */ && pos + 1 < max) {
+          pos += 2;
+          continue;
+        }
+
+        pos++;
+      }
+
+      // no closing '>'
+      return result;
+    }
+
+  // this should be ... } else { ... branch
+
+  level = 0;
+  while (pos < max) {
+    code = str.charCodeAt(pos);
+
+    if (code === 0x20) {
+      break;
+    }
+
+    // ascii control characters
+    if (code < 0x20 || code === 0x7F) {
+      break;
+    }
+
+    if (code === 0x5C /* \ */ && pos + 1 < max) {
+      pos += 2;
+      continue;
+    }
+
+    if (code === 0x28 /* ( */) {
+        level++;
+        if (level > 1) {
+          break;
+        }
+      }
+
+    if (code === 0x29 /* ) */) {
+        level--;
+        if (level < 0) {
+          break;
+        }
+      }
+
+    pos++;
+  }
+
+  if (start === pos) {
+    return result;
+  }
+
+  result.str = unescapeAll(str.slice(start, pos));
+  result.lines = lines;
+  result.pos = pos;
+  result.ok = true;
+  return result;
+};
+
+/***/ }),
+/* 425 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Parse link label
+//
+// this function assumes that first character ("[") already matches;
+// returns the end of the label
+//
+
+
+module.exports = function parseLinkLabel(state, start, disableNested) {
+  var level,
+      found,
+      marker,
+      prevPos,
+      labelEnd = -1,
+      max = state.posMax,
+      oldPos = state.pos;
+
+  state.pos = start + 1;
+  level = 1;
+
+  while (state.pos < max) {
+    marker = state.src.charCodeAt(state.pos);
+    if (marker === 0x5D /* ] */) {
+        level--;
+        if (level === 0) {
+          found = true;
+          break;
+        }
+      }
+
+    prevPos = state.pos;
+    state.md.inline.skipToken(state);
+    if (marker === 0x5B /* [ */) {
+        if (prevPos === state.pos - 1) {
+          // increase level if we find text `[`, which is not a part of any token
+          level++;
+        } else if (disableNested) {
+          state.pos = oldPos;
+          return -1;
+        }
+      }
+  }
+
+  if (found) {
+    labelEnd = state.pos;
+  }
+
+  // restore old state
+  state.pos = oldPos;
+
+  return labelEnd;
+};
+
+/***/ }),
+/* 426 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Parse link title
+//
+
+
+var unescapeAll = __webpack_require__(289).unescapeAll;
+
+module.exports = function parseLinkTitle(str, pos, max) {
+  var code,
+      marker,
+      lines = 0,
+      start = pos,
+      result = {
+    ok: false,
+    pos: 0,
+    lines: 0,
+    str: ''
+  };
+
+  if (pos >= max) {
+    return result;
+  }
+
+  marker = str.charCodeAt(pos);
+
+  if (marker !== 0x22 /* " */ && marker !== 0x27 /* ' */ && marker !== 0x28 /* ( */) {
+      return result;
+    }
+
+  pos++;
+
+  // if opening marker is "(", switch it to closing marker ")"
+  if (marker === 0x28) {
+    marker = 0x29;
+  }
+
+  while (pos < max) {
+    code = str.charCodeAt(pos);
+    if (code === marker) {
+      result.pos = pos + 1;
+      result.lines = lines;
+      result.str = unescapeAll(str.slice(start + 1, pos));
+      result.ok = true;
+      return result;
+    } else if (code === 0x0A) {
+      lines++;
+    } else if (code === 0x5C /* \ */ && pos + 1 < max) {
+      pos++;
+      if (str.charCodeAt(pos) === 0x0A) {
+        lines++;
+      }
+    }
+
+    pos++;
+  }
+
+  return result;
+};
+
+/***/ }),
+/* 427 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Main parser class
+
+
+
+var utils = __webpack_require__(289);
+var helpers = __webpack_require__(423);
+var Renderer = __webpack_require__(434);
+var ParserCore = __webpack_require__(429);
+var ParserBlock = __webpack_require__(428);
+var ParserInline = __webpack_require__(430);
+var LinkifyIt = __webpack_require__(412);
+var mdurl = __webpack_require__(341);
+var punycode = __webpack_require__(474);
+
+var config = {
+  'default': __webpack_require__(432),
+  zero: __webpack_require__(433),
+  commonmark: __webpack_require__(431)
+};
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// This validator can prohibit more than really needed to prevent XSS. It's a
+// tradeoff to keep code simple and to be secure by default.
+//
+// If you need different setup - override validator method as you wish. Or
+// replace it with dummy function and use external sanitizer.
+//
+
+var BAD_PROTO_RE = /^(vbscript|javascript|file|data):/;
+var GOOD_DATA_RE = /^data:image\/(gif|png|jpeg|webp);/;
+
+function validateLink(url) {
+  // url should be normalized at this point, and existing entities are decoded
+  var str = url.trim().toLowerCase();
+
+  return BAD_PROTO_RE.test(str) ? GOOD_DATA_RE.test(str) ? true : false : true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+var RECODE_HOSTNAME_FOR = ['http:', 'https:', 'mailto:'];
+
+function normalizeLink(url) {
+  var parsed = mdurl.parse(url, true);
+
+  if (parsed.hostname) {
+    // Encode hostnames in urls like:
+    // `http://host/`, `https://host/`, `mailto:user@host`, `//host/`
+    //
+    // We don't encode unknown schemas, because it's likely that we encode
+    // something we shouldn't (e.g. `skype:name` treated as `skype:host`)
+    //
+    if (!parsed.protocol || RECODE_HOSTNAME_FOR.indexOf(parsed.protocol) >= 0) {
+      try {
+        parsed.hostname = punycode.toASCII(parsed.hostname);
+      } catch (er) {/**/}
+    }
+  }
+
+  return mdurl.encode(mdurl.format(parsed));
+}
+
+function normalizeLinkText(url) {
+  var parsed = mdurl.parse(url, true);
+
+  if (parsed.hostname) {
+    // Encode hostnames in urls like:
+    // `http://host/`, `https://host/`, `mailto:user@host`, `//host/`
+    //
+    // We don't encode unknown schemas, because it's likely that we encode
+    // something we shouldn't (e.g. `skype:name` treated as `skype:host`)
+    //
+    if (!parsed.protocol || RECODE_HOSTNAME_FOR.indexOf(parsed.protocol) >= 0) {
+      try {
+        parsed.hostname = punycode.toUnicode(parsed.hostname);
+      } catch (er) {/**/}
+    }
+  }
+
+  return mdurl.decode(mdurl.format(parsed));
+}
+
+/**
+ * class MarkdownIt
+ *
+ * Main parser/renderer class.
+ *
+ * ##### Usage
+ *
+ * ```javascript
+ * // node.js, "classic" way:
+ * var MarkdownIt = require('markdown-it'),
+ *     md = new MarkdownIt();
+ * var result = md.render('# markdown-it rulezz!');
+ *
+ * // node.js, the same, but with sugar:
+ * var md = require('markdown-it')();
+ * var result = md.render('# markdown-it rulezz!');
+ *
+ * // browser without AMD, added to "window" on script load
+ * // Note, there are no dash.
+ * var md = window.markdownit();
+ * var result = md.render('# markdown-it rulezz!');
+ * ```
+ *
+ * Single line rendering, without paragraph wrap:
+ *
+ * ```javascript
+ * var md = require('markdown-it')();
+ * var result = md.renderInline('__markdown-it__ rulezz!');
+ * ```
+ **/
+
+/**
+ * new MarkdownIt([presetName, options])
+ * - presetName (String): optional, `commonmark` / `zero`
+ * - options (Object)
+ *
+ * Creates parser instanse with given config. Can be called without `new`.
+ *
+ * ##### presetName
+ *
+ * MarkdownIt provides named presets as a convenience to quickly
+ * enable/disable active syntax rules and options for common use cases.
+ *
+ * - ["commonmark"](https://github.com/markdown-it/markdown-it/blob/master/lib/presets/commonmark.js) -
+ *   configures parser to strict [CommonMark](http://commonmark.org/) mode.
+ * - [default](https://github.com/markdown-it/markdown-it/blob/master/lib/presets/default.js) -
+ *   similar to GFM, used when no preset name given. Enables all available rules,
+ *   but still without html, typographer & autolinker.
+ * - ["zero"](https://github.com/markdown-it/markdown-it/blob/master/lib/presets/zero.js) -
+ *   all rules disabled. Useful to quickly setup your config via `.enable()`.
+ *   For example, when you need only `bold` and `italic` markup and nothing else.
+ *
+ * ##### options:
+ *
+ * - __html__ - `false`. Set `true` to enable HTML tags in source. Be careful!
+ *   That's not safe! You may need external sanitizer to protect output from XSS.
+ *   It's better to extend features via plugins, instead of enabling HTML.
+ * - __xhtmlOut__ - `false`. Set `true` to add '/' when closing single tags
+ *   (`<br />`). This is needed only for full CommonMark compatibility. In real
+ *   world you will need HTML output.
+ * - __breaks__ - `false`. Set `true` to convert `\n` in paragraphs into `<br>`.
+ * - __langPrefix__ - `language-`. CSS language class prefix for fenced blocks.
+ *   Can be useful for external highlighters.
+ * - __linkify__ - `false`. Set `true` to autoconvert URL-like text to links.
+ * - __typographer__  - `false`. Set `true` to enable [some language-neutral
+ *   replacement](https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js) +
+ *   quotes beautification (smartquotes).
+ * - __quotes__ - `“”‘’`, String or Array. Double + single quotes replacement
+ *   pairs, when typographer enabled and smartquotes on. For example, you can
+ *   use `'«»„“'` for Russian, `'„“‚‘'` for German, and
+ *   `['«\xA0', '\xA0»', '‹\xA0', '\xA0›']` for French (including nbsp).
+ * - __highlight__ - `null`. Highlighter function for fenced code blocks.
+ *   Highlighter `function (str, lang)` should return escaped HTML. It can also
+ *   return empty string if the source was not changed and should be escaped
+ *   externaly. If result starts with <pre... internal wrapper is skipped.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * // commonmark mode
+ * var md = require('markdown-it')('commonmark');
+ *
+ * // default mode
+ * var md = require('markdown-it')();
+ *
+ * // enable everything
+ * var md = require('markdown-it')({
+ *   html: true,
+ *   linkify: true,
+ *   typographer: true
+ * });
+ * ```
+ *
+ * ##### Syntax highlighting
+ *
+ * ```js
+ * var hljs = require('highlight.js') // https://highlightjs.org/
+ *
+ * var md = require('markdown-it')({
+ *   highlight: function (str, lang) {
+ *     if (lang && hljs.getLanguage(lang)) {
+ *       try {
+ *         return hljs.highlight(lang, str, true).value;
+ *       } catch (__) {}
+ *     }
+ *
+ *     return ''; // use external default escaping
+ *   }
+ * });
+ * ```
+ *
+ * Or with full wrapper override (if you need assign class to `<pre>`):
+ *
+ * ```javascript
+ * var hljs = require('highlight.js') // https://highlightjs.org/
+ *
+ * // Actual default values
+ * var md = require('markdown-it')({
+ *   highlight: function (str, lang) {
+ *     if (lang && hljs.getLanguage(lang)) {
+ *       try {
+ *         return '<pre class="hljs"><code>' +
+ *                hljs.highlight(lang, str, true).value +
+ *                '</code></pre>';
+ *       } catch (__) {}
+ *     }
+ *
+ *     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+ *   }
+ * });
+ * ```
+ *
+ **/
+function MarkdownIt(presetName, options) {
+  if (!(this instanceof MarkdownIt)) {
+    return new MarkdownIt(presetName, options);
+  }
+
+  if (!options) {
+    if (!utils.isString(presetName)) {
+      options = presetName || {};
+      presetName = 'default';
+    }
+  }
+
+  /**
+   * MarkdownIt#inline -> ParserInline
+   *
+   * Instance of [[ParserInline]]. You may need it to add new rules when
+   * writing plugins. For simple rules control use [[MarkdownIt.disable]] and
+   * [[MarkdownIt.enable]].
+   **/
+  this.inline = new ParserInline();
+
+  /**
+   * MarkdownIt#block -> ParserBlock
+   *
+   * Instance of [[ParserBlock]]. You may need it to add new rules when
+   * writing plugins. For simple rules control use [[MarkdownIt.disable]] and
+   * [[MarkdownIt.enable]].
+   **/
+  this.block = new ParserBlock();
+
+  /**
+   * MarkdownIt#core -> Core
+   *
+   * Instance of [[Core]] chain executor. You may need it to add new rules when
+   * writing plugins. For simple rules control use [[MarkdownIt.disable]] and
+   * [[MarkdownIt.enable]].
+   **/
+  this.core = new ParserCore();
+
+  /**
+   * MarkdownIt#renderer -> Renderer
+   *
+   * Instance of [[Renderer]]. Use it to modify output look. Or to add rendering
+   * rules for new token types, generated by plugins.
+   *
+   * ##### Example
+   *
+   * ```javascript
+   * var md = require('markdown-it')();
+   *
+   * function myToken(tokens, idx, options, env, self) {
+   *   //...
+   *   return result;
+   * };
+   *
+   * md.renderer.rules['my_token'] = myToken
+   * ```
+   *
+   * See [[Renderer]] docs and [source code](https://github.com/markdown-it/markdown-it/blob/master/lib/renderer.js).
+   **/
+  this.renderer = new Renderer();
+
+  /**
+   * MarkdownIt#linkify -> LinkifyIt
+   *
+   * [linkify-it](https://github.com/markdown-it/linkify-it) instance.
+   * Used by [linkify](https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/linkify.js)
+   * rule.
+   **/
+  this.linkify = new LinkifyIt();
+
+  /**
+   * MarkdownIt#validateLink(url) -> Boolean
+   *
+   * Link validation function. CommonMark allows too much in links. By default
+   * we disable `javascript:`, `vbscript:`, `file:` schemas, and almost all `data:...` schemas
+   * except some embedded image types.
+   *
+   * You can change this behaviour:
+   *
+   * ```javascript
+   * var md = require('markdown-it')();
+   * // enable everything
+   * md.validateLink = function () { return true; }
+   * ```
+   **/
+  this.validateLink = validateLink;
+
+  /**
+   * MarkdownIt#normalizeLink(url) -> String
+   *
+   * Function used to encode link url to a machine-readable format,
+   * which includes url-encoding, punycode, etc.
+   **/
+  this.normalizeLink = normalizeLink;
+
+  /**
+   * MarkdownIt#normalizeLinkText(url) -> String
+   *
+   * Function used to decode link url to a human-readable format`
+   **/
+  this.normalizeLinkText = normalizeLinkText;
+
+  // Expose utils & helpers for easy acces from plugins
+
+  /**
+   * MarkdownIt#utils -> utils
+   *
+   * Assorted utility functions, useful to write plugins. See details
+   * [here](https://github.com/markdown-it/markdown-it/blob/master/lib/common/utils.js).
+   **/
+  this.utils = utils;
+
+  /**
+   * MarkdownIt#helpers -> helpers
+   *
+   * Link components parser functions, useful to write plugins. See details
+   * [here](https://github.com/markdown-it/markdown-it/blob/master/lib/helpers).
+   **/
+  this.helpers = utils.assign({}, helpers);
+
+  this.options = {};
+  this.configure(presetName);
+
+  if (options) {
+    this.set(options);
+  }
+}
+
+/** chainable
+ * MarkdownIt.set(options)
+ *
+ * Set parser options (in the same format as in constructor). Probably, you
+ * will never need it, but you can change options after constructor call.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * var md = require('markdown-it')()
+ *             .set({ html: true, breaks: true })
+ *             .set({ typographer, true });
+ * ```
+ *
+ * __Note:__ To achieve the best possible performance, don't modify a
+ * `markdown-it` instance options on the fly. If you need multiple configurations
+ * it's best to create multiple instances and initialize each with separate
+ * config.
+ **/
+MarkdownIt.prototype.set = function (options) {
+  utils.assign(this.options, options);
+  return this;
+};
+
+/** chainable, internal
+ * MarkdownIt.configure(presets)
+ *
+ * Batch load of all options and compenent settings. This is internal method,
+ * and you probably will not need it. But if you with - see available presets
+ * and data structure [here](https://github.com/markdown-it/markdown-it/tree/master/lib/presets)
+ *
+ * We strongly recommend to use presets instead of direct config loads. That
+ * will give better compatibility with next versions.
+ **/
+MarkdownIt.prototype.configure = function (presets) {
+  var self = this,
+      presetName;
+
+  if (utils.isString(presets)) {
+    presetName = presets;
+    presets = config[presetName];
+    if (!presets) {
+      throw new Error('Wrong `markdown-it` preset "' + presetName + '", check name');
+    }
+  }
+
+  if (!presets) {
+    throw new Error('Wrong `markdown-it` preset, can\'t be empty');
+  }
+
+  if (presets.options) {
+    self.set(presets.options);
+  }
+
+  if (presets.components) {
+    Object.keys(presets.components).forEach(function (name) {
+      if (presets.components[name].rules) {
+        self[name].ruler.enableOnly(presets.components[name].rules);
+      }
+      if (presets.components[name].rules2) {
+        self[name].ruler2.enableOnly(presets.components[name].rules2);
+      }
+    });
+  }
+  return this;
+};
+
+/** chainable
+ * MarkdownIt.enable(list, ignoreInvalid)
+ * - list (String|Array): rule name or list of rule names to enable
+ * - ignoreInvalid (Boolean): set `true` to ignore errors when rule not found.
+ *
+ * Enable list or rules. It will automatically find appropriate components,
+ * containing rules with given names. If rule not found, and `ignoreInvalid`
+ * not set - throws exception.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * var md = require('markdown-it')()
+ *             .enable(['sub', 'sup'])
+ *             .disable('smartquotes');
+ * ```
+ **/
+MarkdownIt.prototype.enable = function (list, ignoreInvalid) {
+  var result = [];
+
+  if (!Array.isArray(list)) {
+    list = [list];
+  }
+
+  ['core', 'block', 'inline'].forEach(function (chain) {
+    result = result.concat(this[chain].ruler.enable(list, true));
+  }, this);
+
+  result = result.concat(this.inline.ruler2.enable(list, true));
+
+  var missed = list.filter(function (name) {
+    return result.indexOf(name) < 0;
+  });
+
+  if (missed.length && !ignoreInvalid) {
+    throw new Error('MarkdownIt. Failed to enable unknown rule(s): ' + missed);
+  }
+
+  return this;
+};
+
+/** chainable
+ * MarkdownIt.disable(list, ignoreInvalid)
+ * - list (String|Array): rule name or list of rule names to disable.
+ * - ignoreInvalid (Boolean): set `true` to ignore errors when rule not found.
+ *
+ * The same as [[MarkdownIt.enable]], but turn specified rules off.
+ **/
+MarkdownIt.prototype.disable = function (list, ignoreInvalid) {
+  var result = [];
+
+  if (!Array.isArray(list)) {
+    list = [list];
+  }
+
+  ['core', 'block', 'inline'].forEach(function (chain) {
+    result = result.concat(this[chain].ruler.disable(list, true));
+  }, this);
+
+  result = result.concat(this.inline.ruler2.disable(list, true));
+
+  var missed = list.filter(function (name) {
+    return result.indexOf(name) < 0;
+  });
+
+  if (missed.length && !ignoreInvalid) {
+    throw new Error('MarkdownIt. Failed to disable unknown rule(s): ' + missed);
+  }
+  return this;
+};
+
+/** chainable
+ * MarkdownIt.use(plugin, params)
+ *
+ * Load specified plugin with given params into current parser instance.
+ * It's just a sugar to call `plugin(md, params)` with curring.
+ *
+ * ##### Example
+ *
+ * ```javascript
+ * var iterator = require('markdown-it-for-inline');
+ * var md = require('markdown-it')()
+ *             .use(iterator, 'foo_replace', 'text', function (tokens, idx) {
+ *               tokens[idx].content = tokens[idx].content.replace(/foo/g, 'bar');
+ *             });
+ * ```
+ **/
+MarkdownIt.prototype.use = function (plugin /*, params, ... */) {
+  var args = [this].concat(Array.prototype.slice.call(arguments, 1));
+  plugin.apply(plugin, args);
+  return this;
+};
+
+/** internal
+ * MarkdownIt.parse(src, env) -> Array
+ * - src (String): source string
+ * - env (Object): environment sandbox
+ *
+ * Parse input string and returns list of block tokens (special token type
+ * "inline" will contain list of inline tokens). You should not call this
+ * method directly, until you write custom renderer (for example, to produce
+ * AST).
+ *
+ * `env` is used to pass data between "distributed" rules and return additional
+ * metadata like reference info, needed for the renderer. It also can be used to
+ * inject data in specific cases. Usually, you will be ok to pass `{}`,
+ * and then pass updated object to renderer.
+ **/
+MarkdownIt.prototype.parse = function (src, env) {
+  if (typeof src !== 'string') {
+    throw new Error('Input data should be a String');
+  }
+
+  var state = new this.core.State(src, this, env);
+
+  this.core.process(state);
+
+  return state.tokens;
+};
+
+/**
+ * MarkdownIt.render(src [, env]) -> String
+ * - src (String): source string
+ * - env (Object): environment sandbox
+ *
+ * Render markdown string into html. It does all magic for you :).
+ *
+ * `env` can be used to inject additional metadata (`{}` by default).
+ * But you will not need it with high probability. See also comment
+ * in [[MarkdownIt.parse]].
+ **/
+MarkdownIt.prototype.render = function (src, env) {
+  env = env || {};
+
+  return this.renderer.render(this.parse(src, env), this.options, env);
+};
+
+/** internal
+ * MarkdownIt.parseInline(src, env) -> Array
+ * - src (String): source string
+ * - env (Object): environment sandbox
+ *
+ * The same as [[MarkdownIt.parse]] but skip all block rules. It returns the
+ * block tokens list with the single `inline` element, containing parsed inline
+ * tokens in `children` property. Also updates `env` object.
+ **/
+MarkdownIt.prototype.parseInline = function (src, env) {
+  var state = new this.core.State(src, this, env);
+
+  state.inlineMode = true;
+  this.core.process(state);
+
+  return state.tokens;
+};
+
+/**
+ * MarkdownIt.renderInline(src [, env]) -> String
+ * - src (String): source string
+ * - env (Object): environment sandbox
+ *
+ * Similar to [[MarkdownIt.render]] but for single paragraph content. Result
+ * will NOT be wrapped into `<p>` tags.
+ **/
+MarkdownIt.prototype.renderInline = function (src, env) {
+  env = env || {};
+
+  return this.renderer.render(this.parseInline(src, env), this.options, env);
+};
+
+module.exports = MarkdownIt;
+
+/***/ }),
+/* 428 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/** internal
+ * class ParserBlock
+ *
+ * Block-level tokenizer.
+ **/
+
+
+var Ruler = __webpack_require__(315);
+
+var _rules = [
+// First 2 params - rule name & source. Secondary array - list of rules,
+// which can be terminated by this one.
+['table', __webpack_require__(446), ['paragraph', 'reference']], ['code', __webpack_require__(436)], ['fence', __webpack_require__(437), ['paragraph', 'reference', 'blockquote', 'list']], ['blockquote', __webpack_require__(435), ['paragraph', 'reference', 'list']], ['hr', __webpack_require__(439), ['paragraph', 'reference', 'blockquote', 'list']], ['list', __webpack_require__(442), ['paragraph', 'reference', 'blockquote']], ['reference', __webpack_require__(444)], ['heading', __webpack_require__(438), ['paragraph', 'reference', 'blockquote']], ['lheading', __webpack_require__(441)], ['html_block', __webpack_require__(440), ['paragraph', 'reference', 'blockquote']], ['paragraph', __webpack_require__(443)]];
+
+/**
+ * new ParserBlock()
+ **/
+function ParserBlock() {
+  /**
+   * ParserBlock#ruler -> Ruler
+   *
+   * [[Ruler]] instance. Keep configuration of block rules.
+   **/
+  this.ruler = new Ruler();
+
+  for (var i = 0; i < _rules.length; i++) {
+    this.ruler.push(_rules[i][0], _rules[i][1], { alt: (_rules[i][2] || []).slice() });
+  }
+}
+
+// Generate tokens for input range
+//
+ParserBlock.prototype.tokenize = function (state, startLine, endLine) {
+  var ok,
+      i,
+      rules = this.ruler.getRules(''),
+      len = rules.length,
+      line = startLine,
+      hasEmptyLines = false,
+      maxNesting = state.md.options.maxNesting;
+
+  while (line < endLine) {
+    state.line = line = state.skipEmptyLines(line);
+    if (line >= endLine) {
+      break;
+    }
+
+    // Termination condition for nested calls.
+    // Nested calls currently used for blockquotes & lists
+    if (state.sCount[line] < state.blkIndent) {
+      break;
+    }
+
+    // If nesting level exceeded - skip tail to the end. That's not ordinary
+    // situation and we should not care about content.
+    if (state.level >= maxNesting) {
+      state.line = endLine;
+      break;
+    }
+
+    // Try all possible rules.
+    // On success, rule should:
+    //
+    // - update `state.line`
+    // - update `state.tokens`
+    // - return true
+
+    for (i = 0; i < len; i++) {
+      ok = rules[i](state, line, endLine, false);
+      if (ok) {
+        break;
+      }
+    }
+
+    // set state.tight iff we had an empty line before current tag
+    // i.e. latest empty line should not count
+    state.tight = !hasEmptyLines;
+
+    // paragraph might "eat" one newline after it in nested lists
+    if (state.isEmpty(state.line - 1)) {
+      hasEmptyLines = true;
+    }
+
+    line = state.line;
+
+    if (line < endLine && state.isEmpty(line)) {
+      hasEmptyLines = true;
+      line++;
+      state.line = line;
+    }
+  }
+};
+
+/**
+ * ParserBlock.parse(str, md, env, outTokens)
+ *
+ * Process input string and push block tokens into `outTokens`
+ **/
+ParserBlock.prototype.parse = function (src, md, env, outTokens) {
+  var state;
+
+  if (!src) {
+    return;
+  }
+
+  state = new this.State(src, md, env, outTokens);
+
+  this.tokenize(state, state.line, state.lineMax);
+};
+
+ParserBlock.prototype.State = __webpack_require__(445);
+
+module.exports = ParserBlock;
+
+/***/ }),
+/* 429 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/** internal
+ * class Core
+ *
+ * Top-level rules executor. Glues block/inline parsers and does intermediate
+ * transformations.
+ **/
+
+
+var Ruler = __webpack_require__(315);
+
+var _rules = [['normalize', __webpack_require__(450)], ['block', __webpack_require__(447)], ['inline', __webpack_require__(448)], ['linkify', __webpack_require__(449)], ['replacements', __webpack_require__(451)], ['smartquotes', __webpack_require__(452)]];
+
+/**
+ * new Core()
+ **/
+function Core() {
+  /**
+   * Core#ruler -> Ruler
+   *
+   * [[Ruler]] instance. Keep configuration of core rules.
+   **/
+  this.ruler = new Ruler();
+
+  for (var i = 0; i < _rules.length; i++) {
+    this.ruler.push(_rules[i][0], _rules[i][1]);
+  }
+}
+
+/**
+ * Core.process(state)
+ *
+ * Executes core chain rules.
+ **/
+Core.prototype.process = function (state) {
+  var i, l, rules;
+
+  rules = this.ruler.getRules('');
+
+  for (i = 0, l = rules.length; i < l; i++) {
+    rules[i](state);
+  }
+};
+
+Core.prototype.State = __webpack_require__(453);
+
+module.exports = Core;
+
+/***/ }),
+/* 430 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/** internal
+ * class ParserInline
+ *
+ * Tokenizes paragraph content.
+ **/
+
+
+var Ruler = __webpack_require__(315);
+
+////////////////////////////////////////////////////////////////////////////////
+// Parser rules
+
+var _rules = [['text', __webpack_require__(464)], ['newline', __webpack_require__(462)], ['escape', __webpack_require__(458)], ['backticks', __webpack_require__(455)], ['strikethrough', __webpack_require__(340).tokenize], ['emphasis', __webpack_require__(339).tokenize], ['link', __webpack_require__(461)], ['image', __webpack_require__(460)], ['autolink', __webpack_require__(454)], ['html_inline', __webpack_require__(459)], ['entity', __webpack_require__(457)]];
+
+var _rules2 = [['balance_pairs', __webpack_require__(456)], ['strikethrough', __webpack_require__(340).postProcess], ['emphasis', __webpack_require__(339).postProcess], ['text_collapse', __webpack_require__(465)]];
+
+/**
+ * new ParserInline()
+ **/
+function ParserInline() {
+  var i;
+
+  /**
+   * ParserInline#ruler -> Ruler
+   *
+   * [[Ruler]] instance. Keep configuration of inline rules.
+   **/
+  this.ruler = new Ruler();
+
+  for (i = 0; i < _rules.length; i++) {
+    this.ruler.push(_rules[i][0], _rules[i][1]);
+  }
+
+  /**
+   * ParserInline#ruler2 -> Ruler
+   *
+   * [[Ruler]] instance. Second ruler used for post-processing
+   * (e.g. in emphasis-like rules).
+   **/
+  this.ruler2 = new Ruler();
+
+  for (i = 0; i < _rules2.length; i++) {
+    this.ruler2.push(_rules2[i][0], _rules2[i][1]);
+  }
+}
+
+// Skip single token by running all rules in validation mode;
+// returns `true` if any rule reported success
+//
+ParserInline.prototype.skipToken = function (state) {
+  var ok,
+      i,
+      pos = state.pos,
+      rules = this.ruler.getRules(''),
+      len = rules.length,
+      maxNesting = state.md.options.maxNesting,
+      cache = state.cache;
+
+  if (typeof cache[pos] !== 'undefined') {
+    state.pos = cache[pos];
+    return;
+  }
+
+  if (state.level < maxNesting) {
+    for (i = 0; i < len; i++) {
+      // Increment state.level and decrement it later to limit recursion.
+      // It's harmless to do here, because no tokens are created. But ideally,
+      // we'd need a separate private state variable for this purpose.
+      //
+      state.level++;
+      ok = rules[i](state, true);
+      state.level--;
+
+      if (ok) {
+        break;
+      }
+    }
+  } else {
+    // Too much nesting, just skip until the end of the paragraph.
+    //
+    // NOTE: this will cause links to behave incorrectly in the following case,
+    //       when an amount of `[` is exactly equal to `maxNesting + 1`:
+    //
+    //       [[[[[[[[[[[[[[[[[[[[[foo]()
+    //
+    // TODO: remove this workaround when CM standard will allow nested links
+    //       (we can replace it by preventing links from being parsed in
+    //       validation mode)
+    //
+    state.pos = state.posMax;
+  }
+
+  if (!ok) {
+    state.pos++;
+  }
+  cache[pos] = state.pos;
+};
+
+// Generate tokens for input range
+//
+ParserInline.prototype.tokenize = function (state) {
+  var ok,
+      i,
+      rules = this.ruler.getRules(''),
+      len = rules.length,
+      end = state.posMax,
+      maxNesting = state.md.options.maxNesting;
+
+  while (state.pos < end) {
+    // Try all possible rules.
+    // On success, rule should:
+    //
+    // - update `state.pos`
+    // - update `state.tokens`
+    // - return true
+
+    if (state.level < maxNesting) {
+      for (i = 0; i < len; i++) {
+        ok = rules[i](state, false);
+        if (ok) {
+          break;
+        }
+      }
+    }
+
+    if (ok) {
+      if (state.pos >= end) {
+        break;
+      }
+      continue;
+    }
+
+    state.pending += state.src[state.pos++];
+  }
+
+  if (state.pending) {
+    state.pushPending();
+  }
+};
+
+/**
+ * ParserInline.parse(str, md, env, outTokens)
+ *
+ * Process input string and push inline tokens into `outTokens`
+ **/
+ParserInline.prototype.parse = function (str, md, env, outTokens) {
+  var i, rules, len;
+  var state = new this.State(str, md, env, outTokens);
+
+  this.tokenize(state);
+
+  rules = this.ruler2.getRules('');
+  len = rules.length;
+
+  for (i = 0; i < len; i++) {
+    rules[i](state);
+  }
+};
+
+ParserInline.prototype.State = __webpack_require__(463);
+
+module.exports = ParserInline;
+
+/***/ }),
+/* 431 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Commonmark default options
+
+
+
+module.exports = {
+  options: {
+    html: true, // Enable HTML tags in source
+    xhtmlOut: true, // Use '/' to close single tags (<br />)
+    breaks: false, // Convert '\n' in paragraphs into <br>
+    langPrefix: 'language-', // CSS language prefix for fenced blocks
+    linkify: false, // autoconvert URL-like texts to links
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer: false,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Could be either a String or an Array.
+    //
+    // For example, you can use '«»„“' for Russian, '„“‚‘' for German,
+    // and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
+    quotes: '\u201C\u201D\u2018\u2019', /* “”‘’ */
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if the source string is not changed and should be escaped externaly.
+    // If result starts with <pre... internal wrapper is skipped.
+    //
+    // function (/*str, lang*/) { return ''; }
+    //
+    highlight: null,
+
+    maxNesting: 20 // Internal protection, recursion limit
+  },
+
+  components: {
+
+    core: {
+      rules: ['normalize', 'block', 'inline']
+    },
+
+    block: {
+      rules: ['blockquote', 'code', 'fence', 'heading', 'hr', 'html_block', 'lheading', 'list', 'reference', 'paragraph']
+    },
+
+    inline: {
+      rules: ['autolink', 'backticks', 'emphasis', 'entity', 'escape', 'html_inline', 'image', 'link', 'newline', 'text'],
+      rules2: ['balance_pairs', 'emphasis', 'text_collapse']
+    }
+  }
+};
+
+/***/ }),
+/* 432 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// markdown-it default options
+
+
+
+module.exports = {
+  options: {
+    html: false, // Enable HTML tags in source
+    xhtmlOut: false, // Use '/' to close single tags (<br />)
+    breaks: false, // Convert '\n' in paragraphs into <br>
+    langPrefix: 'language-', // CSS language prefix for fenced blocks
+    linkify: false, // autoconvert URL-like texts to links
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer: false,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Could be either a String or an Array.
+    //
+    // For example, you can use '«»„“' for Russian, '„“‚‘' for German,
+    // and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
+    quotes: '\u201C\u201D\u2018\u2019', /* “”‘’ */
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if the source string is not changed and should be escaped externaly.
+    // If result starts with <pre... internal wrapper is skipped.
+    //
+    // function (/*str, lang*/) { return ''; }
+    //
+    highlight: null,
+
+    maxNesting: 100 // Internal protection, recursion limit
+  },
+
+  components: {
+
+    core: {},
+    block: {},
+    inline: {}
+  }
+};
+
+/***/ }),
+/* 433 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// "Zero" preset, with nothing enabled. Useful for manual configuring of simple
+// modes. For example, to parse bold/italic only.
+
+
+
+module.exports = {
+  options: {
+    html: false, // Enable HTML tags in source
+    xhtmlOut: false, // Use '/' to close single tags (<br />)
+    breaks: false, // Convert '\n' in paragraphs into <br>
+    langPrefix: 'language-', // CSS language prefix for fenced blocks
+    linkify: false, // autoconvert URL-like texts to links
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer: false,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Could be either a String or an Array.
+    //
+    // For example, you can use '«»„“' for Russian, '„“‚‘' for German,
+    // and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
+    quotes: '\u201C\u201D\u2018\u2019', /* “”‘’ */
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if the source string is not changed and should be escaped externaly.
+    // If result starts with <pre... internal wrapper is skipped.
+    //
+    // function (/*str, lang*/) { return ''; }
+    //
+    highlight: null,
+
+    maxNesting: 20 // Internal protection, recursion limit
+  },
+
+  components: {
+
+    core: {
+      rules: ['normalize', 'block', 'inline']
+    },
+
+    block: {
+      rules: ['paragraph']
+    },
+
+    inline: {
+      rules: ['text'],
+      rules2: ['balance_pairs', 'text_collapse']
+    }
+  }
+};
+
+/***/ }),
+/* 434 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * class Renderer
+ *
+ * Generates HTML from parsed token stream. Each instance has independent
+ * copy of rules. Those can be rewritten with ease. Also, you can add new
+ * rules if you create plugin and adds new token types.
+ **/
+
+
+var assign = __webpack_require__(289).assign;
+var unescapeAll = __webpack_require__(289).unescapeAll;
+var escapeHtml = __webpack_require__(289).escapeHtml;
+
+////////////////////////////////////////////////////////////////////////////////
+
+var default_rules = {};
+
+default_rules.code_inline = function (tokens, idx, options, env, slf) {
+  var token = tokens[idx];
+
+  return '<code' + slf.renderAttrs(token) + '>' + escapeHtml(tokens[idx].content) + '</code>';
+};
+
+default_rules.code_block = function (tokens, idx, options, env, slf) {
+  var token = tokens[idx];
+
+  return '<pre' + slf.renderAttrs(token) + '><code>' + escapeHtml(tokens[idx].content) + '</code></pre>\n';
+};
+
+default_rules.fence = function (tokens, idx, options, env, slf) {
+  var token = tokens[idx],
+      info = token.info ? unescapeAll(token.info).trim() : '',
+      langName = '',
+      highlighted,
+      i,
+      tmpAttrs,
+      tmpToken;
+
+  if (info) {
+    langName = info.split(/\s+/g)[0];
+  }
+
+  if (options.highlight) {
+    highlighted = options.highlight(token.content, langName) || escapeHtml(token.content);
+  } else {
+    highlighted = escapeHtml(token.content);
+  }
+
+  if (highlighted.indexOf('<pre') === 0) {
+    return highlighted + '\n';
+  }
+
+  // If language exists, inject class gently, without mudofying original token.
+  // May be, one day we will add .clone() for token and simplify this part, but
+  // now we prefer to keep things local.
+  if (info) {
+    i = token.attrIndex('class');
+    tmpAttrs = token.attrs ? token.attrs.slice() : [];
+
+    if (i < 0) {
+      tmpAttrs.push(['class', options.langPrefix + langName]);
+    } else {
+      tmpAttrs[i][1] += ' ' + options.langPrefix + langName;
+    }
+
+    // Fake token just to render attributes
+    tmpToken = {
+      attrs: tmpAttrs
+    };
+
+    return '<pre><code' + slf.renderAttrs(tmpToken) + '>' + highlighted + '</code></pre>\n';
+  }
+
+  return '<pre><code' + slf.renderAttrs(token) + '>' + highlighted + '</code></pre>\n';
+};
+
+default_rules.image = function (tokens, idx, options, env, slf) {
+  var token = tokens[idx];
+
+  // "alt" attr MUST be set, even if empty. Because it's mandatory and
+  // should be placed on proper position for tests.
+  //
+  // Replace content with actual value
+
+  token.attrs[token.attrIndex('alt')][1] = slf.renderInlineAsText(token.children, options, env);
+
+  return slf.renderToken(tokens, idx, options);
+};
+
+default_rules.hardbreak = function (tokens, idx, options /*, env */) {
+  return options.xhtmlOut ? '<br />\n' : '<br>\n';
+};
+default_rules.softbreak = function (tokens, idx, options /*, env */) {
+  return options.breaks ? options.xhtmlOut ? '<br />\n' : '<br>\n' : '\n';
+};
+
+default_rules.text = function (tokens, idx /*, options, env */) {
+  return escapeHtml(tokens[idx].content);
+};
+
+default_rules.html_block = function (tokens, idx /*, options, env */) {
+  return tokens[idx].content;
+};
+default_rules.html_inline = function (tokens, idx /*, options, env */) {
+  return tokens[idx].content;
+};
+
+/**
+ * new Renderer()
+ *
+ * Creates new [[Renderer]] instance and fill [[Renderer#rules]] with defaults.
+ **/
+function Renderer() {
+
+  /**
+   * Renderer#rules -> Object
+   *
+   * Contains render rules for tokens. Can be updated and extended.
+   *
+   * ##### Example
+   *
+   * ```javascript
+   * var md = require('markdown-it')();
+   *
+   * md.renderer.rules.strong_open  = function () { return '<b>'; };
+   * md.renderer.rules.strong_close = function () { return '</b>'; };
+   *
+   * var result = md.renderInline(...);
+   * ```
+   *
+   * Each rule is called as independed static function with fixed signature:
+   *
+   * ```javascript
+   * function my_token_render(tokens, idx, options, env, renderer) {
+   *   // ...
+   *   return renderedHTML;
+   * }
+   * ```
+   *
+   * See [source code](https://github.com/markdown-it/markdown-it/blob/master/lib/renderer.js)
+   * for more details and examples.
+   **/
+  this.rules = assign({}, default_rules);
+}
+
+/**
+ * Renderer.renderAttrs(token) -> String
+ *
+ * Render token attributes to string.
+ **/
+Renderer.prototype.renderAttrs = function renderAttrs(token) {
+  var i, l, result;
+
+  if (!token.attrs) {
+    return '';
+  }
+
+  result = '';
+
+  for (i = 0, l = token.attrs.length; i < l; i++) {
+    result += ' ' + escapeHtml(token.attrs[i][0]) + '="' + escapeHtml(token.attrs[i][1]) + '"';
+  }
+
+  return result;
+};
+
+/**
+ * Renderer.renderToken(tokens, idx, options) -> String
+ * - tokens (Array): list of tokens
+ * - idx (Numbed): token index to render
+ * - options (Object): params of parser instance
+ *
+ * Default token renderer. Can be overriden by custom function
+ * in [[Renderer#rules]].
+ **/
+Renderer.prototype.renderToken = function renderToken(tokens, idx, options) {
+  var nextToken,
+      result = '',
+      needLf = false,
+      token = tokens[idx];
+
+  // Tight list paragraphs
+  if (token.hidden) {
+    return '';
+  }
+
+  // Insert a newline between hidden paragraph and subsequent opening
+  // block-level tag.
+  //
+  // For example, here we should insert a newline before blockquote:
+  //  - a
+  //    >
+  //
+  if (token.block && token.nesting !== -1 && idx && tokens[idx - 1].hidden) {
+    result += '\n';
+  }
+
+  // Add token name, e.g. `<img`
+  result += (token.nesting === -1 ? '</' : '<') + token.tag;
+
+  // Encode attributes, e.g. `<img src="foo"`
+  result += this.renderAttrs(token);
+
+  // Add a slash for self-closing tags, e.g. `<img src="foo" /`
+  if (token.nesting === 0 && options.xhtmlOut) {
+    result += ' /';
+  }
+
+  // Check if we need to add a newline after this tag
+  if (token.block) {
+    needLf = true;
+
+    if (token.nesting === 1) {
+      if (idx + 1 < tokens.length) {
+        nextToken = tokens[idx + 1];
+
+        if (nextToken.type === 'inline' || nextToken.hidden) {
+          // Block-level tag containing an inline tag.
+          //
+          needLf = false;
+        } else if (nextToken.nesting === -1 && nextToken.tag === token.tag) {
+          // Opening tag + closing tag of the same type. E.g. `<li></li>`.
+          //
+          needLf = false;
+        }
+      }
+    }
+  }
+
+  result += needLf ? '>\n' : '>';
+
+  return result;
+};
+
+/**
+ * Renderer.renderInline(tokens, options, env) -> String
+ * - tokens (Array): list on block tokens to renter
+ * - options (Object): params of parser instance
+ * - env (Object): additional data from parsed input (references, for example)
+ *
+ * The same as [[Renderer.render]], but for single token of `inline` type.
+ **/
+Renderer.prototype.renderInline = function (tokens, options, env) {
+  var type,
+      result = '',
+      rules = this.rules;
+
+  for (var i = 0, len = tokens.length; i < len; i++) {
+    type = tokens[i].type;
+
+    if (typeof rules[type] !== 'undefined') {
+      result += rules[type](tokens, i, options, env, this);
+    } else {
+      result += this.renderToken(tokens, i, options);
+    }
+  }
+
+  return result;
+};
+
+/** internal
+ * Renderer.renderInlineAsText(tokens, options, env) -> String
+ * - tokens (Array): list on block tokens to renter
+ * - options (Object): params of parser instance
+ * - env (Object): additional data from parsed input (references, for example)
+ *
+ * Special kludge for image `alt` attributes to conform CommonMark spec.
+ * Don't try to use it! Spec requires to show `alt` content with stripped markup,
+ * instead of simple escaping.
+ **/
+Renderer.prototype.renderInlineAsText = function (tokens, options, env) {
+  var result = '';
+
+  for (var i = 0, len = tokens.length; i < len; i++) {
+    if (tokens[i].type === 'text') {
+      result += tokens[i].content;
+    } else if (tokens[i].type === 'image') {
+      result += this.renderInlineAsText(tokens[i].children, options, env);
+    }
+  }
+
+  return result;
+};
+
+/**
+ * Renderer.render(tokens, options, env) -> String
+ * - tokens (Array): list on block tokens to renter
+ * - options (Object): params of parser instance
+ * - env (Object): additional data from parsed input (references, for example)
+ *
+ * Takes token stream and generates HTML. Probably, you will never need to call
+ * this method directly.
+ **/
+Renderer.prototype.render = function (tokens, options, env) {
+  var i,
+      len,
+      type,
+      result = '',
+      rules = this.rules;
+
+  for (i = 0, len = tokens.length; i < len; i++) {
+    type = tokens[i].type;
+
+    if (type === 'inline') {
+      result += this.renderInline(tokens[i].children, options, env);
+    } else if (typeof rules[type] !== 'undefined') {
+      result += rules[tokens[i].type](tokens, i, options, env, this);
+    } else {
+      result += this.renderToken(tokens, i, options, env);
+    }
+  }
+
+  return result;
+};
+
+module.exports = Renderer;
+
+/***/ }),
+/* 435 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Block quotes
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function blockquote(state, startLine, endLine, silent) {
+  var adjustTab,
+      ch,
+      i,
+      initial,
+      isOutdented,
+      l,
+      lastLineEmpty,
+      lines,
+      nextLine,
+      offset,
+      oldBMarks,
+      oldBSCount,
+      oldIndent,
+      oldParentType,
+      oldSCount,
+      oldTShift,
+      spaceAfterMarker,
+      terminate,
+      terminatorRules,
+      token,
+      oldLineMax = state.lineMax,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  // check the block quote marker
+  if (state.src.charCodeAt(pos++) !== 0x3E /* > */) {
+      return false;
+    }
+
+  // we know that it's going to be a valid blockquote,
+  // so no point trying to find the end of it in silent mode
+  if (silent) {
+    return true;
+  }
+
+  // skip spaces after ">" and re-calculate offset
+  initial = offset = state.sCount[startLine] + pos - (state.bMarks[startLine] + state.tShift[startLine]);
+
+  // skip one optional space after '>'
+  if (state.src.charCodeAt(pos) === 0x20 /* space */) {
+      // ' >   test '
+      //     ^ -- position start of line here:
+      pos++;
+      initial++;
+      offset++;
+      adjustTab = false;
+      spaceAfterMarker = true;
+    } else if (state.src.charCodeAt(pos) === 0x09 /* tab */) {
+      spaceAfterMarker = true;
+
+      if ((state.bsCount[startLine] + offset) % 4 === 3) {
+        // '  >\t  test '
+        //       ^ -- position start of line here (tab has width===1)
+        pos++;
+        initial++;
+        offset++;
+        adjustTab = false;
+      } else {
+        // ' >\t  test '
+        //    ^ -- position start of line here + shift bsCount slightly
+        //         to make extra space appear
+        adjustTab = true;
+      }
+    } else {
+    spaceAfterMarker = false;
+  }
+
+  oldBMarks = [state.bMarks[startLine]];
+  state.bMarks[startLine] = pos;
+
+  while (pos < max) {
+    ch = state.src.charCodeAt(pos);
+
+    if (isSpace(ch)) {
+      if (ch === 0x09) {
+        offset += 4 - (offset + state.bsCount[startLine] + (adjustTab ? 1 : 0)) % 4;
+      } else {
+        offset++;
+      }
+    } else {
+      break;
+    }
+
+    pos++;
+  }
+
+  oldBSCount = [state.bsCount[startLine]];
+  state.bsCount[startLine] = state.sCount[startLine] + 1 + (spaceAfterMarker ? 1 : 0);
+
+  lastLineEmpty = pos >= max;
+
+  oldSCount = [state.sCount[startLine]];
+  state.sCount[startLine] = offset - initial;
+
+  oldTShift = [state.tShift[startLine]];
+  state.tShift[startLine] = pos - state.bMarks[startLine];
+
+  terminatorRules = state.md.block.ruler.getRules('blockquote');
+
+  oldParentType = state.parentType;
+  state.parentType = 'blockquote';
+
+  // Search the end of the block
+  //
+  // Block ends with either:
+  //  1. an empty line outside:
+  //     ```
+  //     > test
+  //
+  //     ```
+  //  2. an empty line inside:
+  //     ```
+  //     >
+  //     test
+  //     ```
+  //  3. another tag:
+  //     ```
+  //     > test
+  //      - - -
+  //     ```
+  for (nextLine = startLine + 1; nextLine < endLine; nextLine++) {
+    // check if it's outdented, i.e. it's inside list item and indented
+    // less than said list item:
+    //
+    // ```
+    // 1. anything
+    //    > current blockquote
+    // 2. checking this line
+    // ```
+    isOutdented = state.sCount[nextLine] < state.blkIndent;
+
+    pos = state.bMarks[nextLine] + state.tShift[nextLine];
+    max = state.eMarks[nextLine];
+
+    if (pos >= max) {
+      // Case 1: line is not inside the blockquote, and this line is empty.
+      break;
+    }
+
+    if (state.src.charCodeAt(pos++) === 0x3E /* > */ && !isOutdented) {
+      // This line is inside the blockquote.
+
+      // skip spaces after ">" and re-calculate offset
+      initial = offset = state.sCount[nextLine] + pos - (state.bMarks[nextLine] + state.tShift[nextLine]);
+
+      // skip one optional space after '>'
+      if (state.src.charCodeAt(pos) === 0x20 /* space */) {
+          // ' >   test '
+          //     ^ -- position start of line here:
+          pos++;
+          initial++;
+          offset++;
+          adjustTab = false;
+          spaceAfterMarker = true;
+        } else if (state.src.charCodeAt(pos) === 0x09 /* tab */) {
+          spaceAfterMarker = true;
+
+          if ((state.bsCount[nextLine] + offset) % 4 === 3) {
+            // '  >\t  test '
+            //       ^ -- position start of line here (tab has width===1)
+            pos++;
+            initial++;
+            offset++;
+            adjustTab = false;
+          } else {
+            // ' >\t  test '
+            //    ^ -- position start of line here + shift bsCount slightly
+            //         to make extra space appear
+            adjustTab = true;
+          }
+        } else {
+        spaceAfterMarker = false;
+      }
+
+      oldBMarks.push(state.bMarks[nextLine]);
+      state.bMarks[nextLine] = pos;
+
+      while (pos < max) {
+        ch = state.src.charCodeAt(pos);
+
+        if (isSpace(ch)) {
+          if (ch === 0x09) {
+            offset += 4 - (offset + state.bsCount[nextLine] + (adjustTab ? 1 : 0)) % 4;
+          } else {
+            offset++;
+          }
+        } else {
+          break;
+        }
+
+        pos++;
+      }
+
+      lastLineEmpty = pos >= max;
+
+      oldBSCount.push(state.bsCount[nextLine]);
+      state.bsCount[nextLine] = state.sCount[nextLine] + 1 + (spaceAfterMarker ? 1 : 0);
+
+      oldSCount.push(state.sCount[nextLine]);
+      state.sCount[nextLine] = offset - initial;
+
+      oldTShift.push(state.tShift[nextLine]);
+      state.tShift[nextLine] = pos - state.bMarks[nextLine];
+      continue;
+    }
+
+    // Case 2: line is not inside the blockquote, and the last line was empty.
+    if (lastLineEmpty) {
+      break;
+    }
+
+    // Case 3: another tag found.
+    terminate = false;
+    for (i = 0, l = terminatorRules.length; i < l; i++) {
+      if (terminatorRules[i](state, nextLine, endLine, true)) {
+        terminate = true;
+        break;
+      }
+    }
+
+    if (terminate) {
+      // Quirk to enforce "hard termination mode" for paragraphs;
+      // normally if you call `tokenize(state, startLine, nextLine)`,
+      // paragraphs will look below nextLine for paragraph continuation,
+      // but if blockquote is terminated by another tag, they shouldn't
+      state.lineMax = nextLine;
+
+      if (state.blkIndent !== 0) {
+        // state.blkIndent was non-zero, we now set it to zero,
+        // so we need to re-calculate all offsets to appear as
+        // if indent wasn't changed
+        oldBMarks.push(state.bMarks[nextLine]);
+        oldBSCount.push(state.bsCount[nextLine]);
+        oldTShift.push(state.tShift[nextLine]);
+        oldSCount.push(state.sCount[nextLine]);
+        state.sCount[nextLine] -= state.blkIndent;
+      }
+
+      break;
+    }
+
+    if (isOutdented) break;
+
+    oldBMarks.push(state.bMarks[nextLine]);
+    oldBSCount.push(state.bsCount[nextLine]);
+    oldTShift.push(state.tShift[nextLine]);
+    oldSCount.push(state.sCount[nextLine]);
+
+    // A negative indentation means that this is a paragraph continuation
+    //
+    state.sCount[nextLine] = -1;
+  }
+
+  oldIndent = state.blkIndent;
+  state.blkIndent = 0;
+
+  token = state.push('blockquote_open', 'blockquote', 1);
+  token.markup = '>';
+  token.map = lines = [startLine, 0];
+
+  state.md.block.tokenize(state, startLine, nextLine);
+
+  token = state.push('blockquote_close', 'blockquote', -1);
+  token.markup = '>';
+
+  state.lineMax = oldLineMax;
+  state.parentType = oldParentType;
+  lines[1] = state.line;
+
+  // Restore original tShift; this might not be necessary since the parser
+  // has already been here, but just to make sure we can do that.
+  for (i = 0; i < oldTShift.length; i++) {
+    state.bMarks[i + startLine] = oldBMarks[i];
+    state.tShift[i + startLine] = oldTShift[i];
+    state.sCount[i + startLine] = oldSCount[i];
+    state.bsCount[i + startLine] = oldBSCount[i];
+  }
+  state.blkIndent = oldIndent;
+
+  return true;
+};
+
+/***/ }),
+/* 436 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Code block (4 spaces padded)
+
+
+
+module.exports = function code(state, startLine, endLine /*, silent*/) {
+  var nextLine, last, token;
+
+  if (state.sCount[startLine] - state.blkIndent < 4) {
+    return false;
+  }
+
+  last = nextLine = startLine + 1;
+
+  while (nextLine < endLine) {
+    if (state.isEmpty(nextLine)) {
+      nextLine++;
+      continue;
+    }
+
+    if (state.sCount[nextLine] - state.blkIndent >= 4) {
+      nextLine++;
+      last = nextLine;
+      continue;
+    }
+    break;
+  }
+
+  state.line = last;
+
+  token = state.push('code_block', 'code', 0);
+  token.content = state.getLines(startLine, last, 4 + state.blkIndent, true);
+  token.map = [startLine, state.line];
+
+  return true;
+};
+
+/***/ }),
+/* 437 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// fences (``` lang, ~~~ lang)
+
+
+
+module.exports = function fence(state, startLine, endLine, silent) {
+  var marker,
+      len,
+      params,
+      nextLine,
+      mem,
+      token,
+      markup,
+      haveEndMarker = false,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  if (pos + 3 > max) {
+    return false;
+  }
+
+  marker = state.src.charCodeAt(pos);
+
+  if (marker !== 0x7E /* ~ */ && marker !== 0x60 /* ` */) {
+      return false;
+    }
+
+  // scan marker length
+  mem = pos;
+  pos = state.skipChars(pos, marker);
+
+  len = pos - mem;
+
+  if (len < 3) {
+    return false;
+  }
+
+  markup = state.src.slice(mem, pos);
+  params = state.src.slice(pos, max);
+
+  if (params.indexOf(String.fromCharCode(marker)) >= 0) {
+    return false;
+  }
+
+  // Since start is found, we can report success here in validation mode
+  if (silent) {
+    return true;
+  }
+
+  // search end of block
+  nextLine = startLine;
+
+  for (;;) {
+    nextLine++;
+    if (nextLine >= endLine) {
+      // unclosed block should be autoclosed by end of document.
+      // also block seems to be autoclosed by end of parent
+      break;
+    }
+
+    pos = mem = state.bMarks[nextLine] + state.tShift[nextLine];
+    max = state.eMarks[nextLine];
+
+    if (pos < max && state.sCount[nextLine] < state.blkIndent) {
+      // non-empty line with negative indent should stop the list:
+      // - ```
+      //  test
+      break;
+    }
+
+    if (state.src.charCodeAt(pos) !== marker) {
+      continue;
+    }
+
+    if (state.sCount[nextLine] - state.blkIndent >= 4) {
+      // closing fence should be indented less than 4 spaces
+      continue;
+    }
+
+    pos = state.skipChars(pos, marker);
+
+    // closing code fence must be at least as long as the opening one
+    if (pos - mem < len) {
+      continue;
+    }
+
+    // make sure tail has spaces only
+    pos = state.skipSpaces(pos);
+
+    if (pos < max) {
+      continue;
+    }
+
+    haveEndMarker = true;
+    // found!
+    break;
+  }
+
+  // If a fence has heading spaces, they should be removed from its inner block
+  len = state.sCount[startLine];
+
+  state.line = nextLine + (haveEndMarker ? 1 : 0);
+
+  token = state.push('fence', 'code', 0);
+  token.info = params;
+  token.content = state.getLines(startLine + 1, nextLine, len, true);
+  token.markup = markup;
+  token.map = [startLine, state.line];
+
+  return true;
+};
+
+/***/ }),
+/* 438 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// heading (#, ##, ...)
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function heading(state, startLine, endLine, silent) {
+  var ch,
+      level,
+      tmp,
+      token,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  ch = state.src.charCodeAt(pos);
+
+  if (ch !== 0x23 /* # */ || pos >= max) {
+    return false;
+  }
+
+  // count heading level
+  level = 1;
+  ch = state.src.charCodeAt(++pos);
+  while (ch === 0x23 /* # */ && pos < max && level <= 6) {
+    level++;
+    ch = state.src.charCodeAt(++pos);
+  }
+
+  if (level > 6 || pos < max && !isSpace(ch)) {
+    return false;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  // Let's cut tails like '    ###  ' from the end of string
+
+  max = state.skipSpacesBack(max, pos);
+  tmp = state.skipCharsBack(max, 0x23, pos); // #
+  if (tmp > pos && isSpace(state.src.charCodeAt(tmp - 1))) {
+    max = tmp;
+  }
+
+  state.line = startLine + 1;
+
+  token = state.push('heading_open', 'h' + String(level), 1);
+  token.markup = '########'.slice(0, level);
+  token.map = [startLine, state.line];
+
+  token = state.push('inline', '', 0);
+  token.content = state.src.slice(pos, max).trim();
+  token.map = [startLine, state.line];
+  token.children = [];
+
+  token = state.push('heading_close', 'h' + String(level), -1);
+  token.markup = '########'.slice(0, level);
+
+  return true;
+};
+
+/***/ }),
+/* 439 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Horizontal rule
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function hr(state, startLine, endLine, silent) {
+  var marker,
+      cnt,
+      ch,
+      token,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  marker = state.src.charCodeAt(pos++);
+
+  // Check hr marker
+  if (marker !== 0x2A /* * */ && marker !== 0x2D /* - */ && marker !== 0x5F /* _ */) {
+      return false;
+    }
+
+  // markers can be mixed with spaces, but there should be at least 3 of them
+
+  cnt = 1;
+  while (pos < max) {
+    ch = state.src.charCodeAt(pos++);
+    if (ch !== marker && !isSpace(ch)) {
+      return false;
+    }
+    if (ch === marker) {
+      cnt++;
+    }
+  }
+
+  if (cnt < 3) {
+    return false;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  state.line = startLine + 1;
+
+  token = state.push('hr', 'hr', 0);
+  token.map = [startLine, state.line];
+  token.markup = Array(cnt + 1).join(String.fromCharCode(marker));
+
+  return true;
+};
+
+/***/ }),
+/* 440 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// HTML block
+
+
+
+var block_names = __webpack_require__(422);
+var HTML_OPEN_CLOSE_TAG_RE = __webpack_require__(338).HTML_OPEN_CLOSE_TAG_RE;
+
+// An array of opening and corresponding closing sequences for html tags,
+// last argument defines whether it can terminate a paragraph or not
+//
+var HTML_SEQUENCES = [[/^<(script|pre|style)(?=(\s|>|$))/i, /<\/(script|pre|style)>/i, true], [/^<!--/, /-->/, true], [/^<\?/, /\?>/, true], [/^<![A-Z]/, />/, true], [/^<!\[CDATA\[/, /\]\]>/, true], [new RegExp('^</?(' + block_names.join('|') + ')(?=(\\s|/?>|$))', 'i'), /^$/, true], [new RegExp(HTML_OPEN_CLOSE_TAG_RE.source + '\\s*$'), /^$/, false]];
+
+module.exports = function html_block(state, startLine, endLine, silent) {
+  var i,
+      nextLine,
+      token,
+      lineText,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  if (!state.md.options.html) {
+    return false;
+  }
+
+  if (state.src.charCodeAt(pos) !== 0x3C /* < */) {
+      return false;
+    }
+
+  lineText = state.src.slice(pos, max);
+
+  for (i = 0; i < HTML_SEQUENCES.length; i++) {
+    if (HTML_SEQUENCES[i][0].test(lineText)) {
+      break;
+    }
+  }
+
+  if (i === HTML_SEQUENCES.length) {
+    return false;
+  }
+
+  if (silent) {
+    // true if this sequence can be a terminator, false otherwise
+    return HTML_SEQUENCES[i][2];
+  }
+
+  nextLine = startLine + 1;
+
+  // If we are here - we detected HTML block.
+  // Let's roll down till block end.
+  if (!HTML_SEQUENCES[i][1].test(lineText)) {
+    for (; nextLine < endLine; nextLine++) {
+      if (state.sCount[nextLine] < state.blkIndent) {
+        break;
+      }
+
+      pos = state.bMarks[nextLine] + state.tShift[nextLine];
+      max = state.eMarks[nextLine];
+      lineText = state.src.slice(pos, max);
+
+      if (HTML_SEQUENCES[i][1].test(lineText)) {
+        if (lineText.length !== 0) {
+          nextLine++;
+        }
+        break;
+      }
+    }
+  }
+
+  state.line = nextLine;
+
+  token = state.push('html_block', '', 0);
+  token.map = [startLine, nextLine];
+  token.content = state.getLines(startLine, nextLine, state.blkIndent, true);
+
+  return true;
+};
+
+/***/ }),
+/* 441 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// lheading (---, ===)
+
+
+
+module.exports = function lheading(state, startLine, endLine /*, silent*/) {
+  var content,
+      terminate,
+      i,
+      l,
+      token,
+      pos,
+      max,
+      level,
+      marker,
+      nextLine = startLine + 1,
+      oldParentType,
+      terminatorRules = state.md.block.ruler.getRules('paragraph');
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  oldParentType = state.parentType;
+  state.parentType = 'paragraph'; // use paragraph to match terminatorRules
+
+  // jump line-by-line until empty one or EOF
+  for (; nextLine < endLine && !state.isEmpty(nextLine); nextLine++) {
+    // this would be a code block normally, but after paragraph
+    // it's considered a lazy continuation regardless of what's there
+    if (state.sCount[nextLine] - state.blkIndent > 3) {
+      continue;
+    }
+
+    //
+    // Check for underline in setext header
+    //
+    if (state.sCount[nextLine] >= state.blkIndent) {
+      pos = state.bMarks[nextLine] + state.tShift[nextLine];
+      max = state.eMarks[nextLine];
+
+      if (pos < max) {
+        marker = state.src.charCodeAt(pos);
+
+        if (marker === 0x2D /* - */ || marker === 0x3D /* = */) {
+            pos = state.skipChars(pos, marker);
+            pos = state.skipSpaces(pos);
+
+            if (pos >= max) {
+              level = marker === 0x3D /* = */ ? 1 : 2;
+              break;
+            }
+          }
+      }
+    }
+
+    // quirk for blockquotes, this line should already be checked by that rule
+    if (state.sCount[nextLine] < 0) {
+      continue;
+    }
+
+    // Some tags can terminate paragraph without empty line.
+    terminate = false;
+    for (i = 0, l = terminatorRules.length; i < l; i++) {
+      if (terminatorRules[i](state, nextLine, endLine, true)) {
+        terminate = true;
+        break;
+      }
+    }
+    if (terminate) {
+      break;
+    }
+  }
+
+  if (!level) {
+    // Didn't find valid underline
+    return false;
+  }
+
+  content = state.getLines(startLine, nextLine, state.blkIndent, false).trim();
+
+  state.line = nextLine + 1;
+
+  token = state.push('heading_open', 'h' + String(level), 1);
+  token.markup = String.fromCharCode(marker);
+  token.map = [startLine, state.line];
+
+  token = state.push('inline', '', 0);
+  token.content = content;
+  token.map = [startLine, state.line - 1];
+  token.children = [];
+
+  token = state.push('heading_close', 'h' + String(level), -1);
+  token.markup = String.fromCharCode(marker);
+
+  state.parentType = oldParentType;
+
+  return true;
+};
+
+/***/ }),
+/* 442 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Lists
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+// Search `[-+*][\n ]`, returns next pos arter marker on success
+// or -1 on fail.
+function skipBulletListMarker(state, startLine) {
+  var marker, pos, max, ch;
+
+  pos = state.bMarks[startLine] + state.tShift[startLine];
+  max = state.eMarks[startLine];
+
+  marker = state.src.charCodeAt(pos++);
+  // Check bullet
+  if (marker !== 0x2A /* * */ && marker !== 0x2D /* - */ && marker !== 0x2B /* + */) {
+      return -1;
+    }
+
+  if (pos < max) {
+    ch = state.src.charCodeAt(pos);
+
+    if (!isSpace(ch)) {
+      // " -test " - is not a list item
+      return -1;
+    }
+  }
+
+  return pos;
+}
+
+// Search `\d+[.)][\n ]`, returns next pos arter marker on success
+// or -1 on fail.
+function skipOrderedListMarker(state, startLine) {
+  var ch,
+      start = state.bMarks[startLine] + state.tShift[startLine],
+      pos = start,
+      max = state.eMarks[startLine];
+
+  // List marker should have at least 2 chars (digit + dot)
+  if (pos + 1 >= max) {
+    return -1;
+  }
+
+  ch = state.src.charCodeAt(pos++);
+
+  if (ch < 0x30 /* 0 */ || ch > 0x39 /* 9 */) {
+      return -1;
+    }
+
+  for (;;) {
+    // EOL -> fail
+    if (pos >= max) {
+      return -1;
+    }
+
+    ch = state.src.charCodeAt(pos++);
+
+    if (ch >= 0x30 /* 0 */ && ch <= 0x39 /* 9 */) {
+
+        // List marker should have no more than 9 digits
+        // (prevents integer overflow in browsers)
+        if (pos - start >= 10) {
+          return -1;
+        }
+
+        continue;
+      }
+
+    // found valid marker
+    if (ch === 0x29 /* ) */ || ch === 0x2e /* . */) {
+        break;
+      }
+
+    return -1;
+  }
+
+  if (pos < max) {
+    ch = state.src.charCodeAt(pos);
+
+    if (!isSpace(ch)) {
+      // " 1.test " - is not a list item
+      return -1;
+    }
+  }
+  return pos;
+}
+
+function markTightParagraphs(state, idx) {
+  var i,
+      l,
+      level = state.level + 2;
+
+  for (i = idx + 2, l = state.tokens.length - 2; i < l; i++) {
+    if (state.tokens[i].level === level && state.tokens[i].type === 'paragraph_open') {
+      state.tokens[i + 2].hidden = true;
+      state.tokens[i].hidden = true;
+      i += 2;
+    }
+  }
+}
+
+module.exports = function list(state, startLine, endLine, silent) {
+  var ch,
+      contentStart,
+      i,
+      indent,
+      indentAfterMarker,
+      initial,
+      isOrdered,
+      itemLines,
+      l,
+      listLines,
+      listTokIdx,
+      markerCharCode,
+      markerValue,
+      max,
+      nextLine,
+      offset,
+      oldIndent,
+      oldLIndent,
+      oldParentType,
+      oldTShift,
+      oldTight,
+      pos,
+      posAfterMarker,
+      prevEmptyEnd,
+      start,
+      terminate,
+      terminatorRules,
+      token,
+      isTerminatingParagraph = false,
+      tight = true;
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  // limit conditions when list can interrupt
+  // a paragraph (validation mode only)
+  if (silent && state.parentType === 'paragraph') {
+    // Next list item should still terminate previous list item;
+    //
+    // This code can fail if plugins use blkIndent as well as lists,
+    // but I hope the spec gets fixed long before that happens.
+    //
+    if (state.tShift[startLine] >= state.blkIndent) {
+      isTerminatingParagraph = true;
+    }
+  }
+
+  // Detect list type and position after marker
+  if ((posAfterMarker = skipOrderedListMarker(state, startLine)) >= 0) {
+    isOrdered = true;
+    start = state.bMarks[startLine] + state.tShift[startLine];
+    markerValue = Number(state.src.substr(start, posAfterMarker - start - 1));
+
+    // If we're starting a new ordered list right after
+    // a paragraph, it should start with 1.
+    if (isTerminatingParagraph && markerValue !== 1) return false;
+  } else if ((posAfterMarker = skipBulletListMarker(state, startLine)) >= 0) {
+    isOrdered = false;
+  } else {
+    return false;
+  }
+
+  // If we're starting a new unordered list right after
+  // a paragraph, first line should not be empty.
+  if (isTerminatingParagraph) {
+    if (state.skipSpaces(posAfterMarker) >= state.eMarks[startLine]) return false;
+  }
+
+  // We should terminate list on style change. Remember first one to compare.
+  markerCharCode = state.src.charCodeAt(posAfterMarker - 1);
+
+  // For validation mode we can terminate immediately
+  if (silent) {
+    return true;
+  }
+
+  // Start list
+  listTokIdx = state.tokens.length;
+
+  if (isOrdered) {
+    token = state.push('ordered_list_open', 'ol', 1);
+    if (markerValue !== 1) {
+      token.attrs = [['start', markerValue]];
+    }
+  } else {
+    token = state.push('bullet_list_open', 'ul', 1);
+  }
+
+  token.map = listLines = [startLine, 0];
+  token.markup = String.fromCharCode(markerCharCode);
+
+  //
+  // Iterate list items
+  //
+
+  nextLine = startLine;
+  prevEmptyEnd = false;
+  terminatorRules = state.md.block.ruler.getRules('list');
+
+  oldParentType = state.parentType;
+  state.parentType = 'list';
+
+  while (nextLine < endLine) {
+    pos = posAfterMarker;
+    max = state.eMarks[nextLine];
+
+    initial = offset = state.sCount[nextLine] + posAfterMarker - (state.bMarks[startLine] + state.tShift[startLine]);
+
+    while (pos < max) {
+      ch = state.src.charCodeAt(pos);
+
+      if (isSpace(ch)) {
+        if (ch === 0x09) {
+          offset += 4 - (offset + state.bsCount[nextLine]) % 4;
+        } else {
+          offset++;
+        }
+      } else {
+        break;
+      }
+
+      pos++;
+    }
+
+    contentStart = pos;
+
+    if (contentStart >= max) {
+      // trimming space in "-    \n  3" case, indent is 1 here
+      indentAfterMarker = 1;
+    } else {
+      indentAfterMarker = offset - initial;
+    }
+
+    // If we have more than 4 spaces, the indent is 1
+    // (the rest is just indented code block)
+    if (indentAfterMarker > 4) {
+      indentAfterMarker = 1;
+    }
+
+    // "  -  test"
+    //  ^^^^^ - calculating total length of this thing
+    indent = initial + indentAfterMarker;
+
+    // Run subparser & write tokens
+    token = state.push('list_item_open', 'li', 1);
+    token.markup = String.fromCharCode(markerCharCode);
+    token.map = itemLines = [startLine, 0];
+
+    oldIndent = state.blkIndent;
+    oldTight = state.tight;
+    oldTShift = state.tShift[startLine];
+    oldLIndent = state.sCount[startLine];
+    state.blkIndent = indent;
+    state.tight = true;
+    state.tShift[startLine] = contentStart - state.bMarks[startLine];
+    state.sCount[startLine] = offset;
+
+    if (contentStart >= max && state.isEmpty(startLine + 1)) {
+      // workaround for this case
+      // (list item is empty, list terminates before "foo"):
+      // ~~~~~~~~
+      //   -
+      //
+      //     foo
+      // ~~~~~~~~
+      state.line = Math.min(state.line + 2, endLine);
+    } else {
+      state.md.block.tokenize(state, startLine, endLine, true);
+    }
+
+    // If any of list item is tight, mark list as tight
+    if (!state.tight || prevEmptyEnd) {
+      tight = false;
+    }
+    // Item become loose if finish with empty line,
+    // but we should filter last element, because it means list finish
+    prevEmptyEnd = state.line - startLine > 1 && state.isEmpty(state.line - 1);
+
+    state.blkIndent = oldIndent;
+    state.tShift[startLine] = oldTShift;
+    state.sCount[startLine] = oldLIndent;
+    state.tight = oldTight;
+
+    token = state.push('list_item_close', 'li', -1);
+    token.markup = String.fromCharCode(markerCharCode);
+
+    nextLine = startLine = state.line;
+    itemLines[1] = nextLine;
+    contentStart = state.bMarks[startLine];
+
+    if (nextLine >= endLine) {
+      break;
+    }
+
+    //
+    // Try to check if list is terminated or continued.
+    //
+    if (state.sCount[nextLine] < state.blkIndent) {
+      break;
+    }
+
+    // fail if terminating block found
+    terminate = false;
+    for (i = 0, l = terminatorRules.length; i < l; i++) {
+      if (terminatorRules[i](state, nextLine, endLine, true)) {
+        terminate = true;
+        break;
+      }
+    }
+    if (terminate) {
+      break;
+    }
+
+    // fail if list has another type
+    if (isOrdered) {
+      posAfterMarker = skipOrderedListMarker(state, nextLine);
+      if (posAfterMarker < 0) {
+        break;
+      }
+    } else {
+      posAfterMarker = skipBulletListMarker(state, nextLine);
+      if (posAfterMarker < 0) {
+        break;
+      }
+    }
+
+    if (markerCharCode !== state.src.charCodeAt(posAfterMarker - 1)) {
+      break;
+    }
+  }
+
+  // Finilize list
+  if (isOrdered) {
+    token = state.push('ordered_list_close', 'ol', -1);
+  } else {
+    token = state.push('bullet_list_close', 'ul', -1);
+  }
+  token.markup = String.fromCharCode(markerCharCode);
+
+  listLines[1] = nextLine;
+  state.line = nextLine;
+
+  state.parentType = oldParentType;
+
+  // mark paragraphs tight if needed
+  if (tight) {
+    markTightParagraphs(state, listTokIdx);
+  }
+
+  return true;
+};
+
+/***/ }),
+/* 443 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Paragraph
+
+
+
+module.exports = function paragraph(state, startLine /*, endLine*/) {
+  var content,
+      terminate,
+      i,
+      l,
+      token,
+      oldParentType,
+      nextLine = startLine + 1,
+      terminatorRules = state.md.block.ruler.getRules('paragraph'),
+      endLine = state.lineMax;
+
+  oldParentType = state.parentType;
+  state.parentType = 'paragraph';
+
+  // jump line-by-line until empty one or EOF
+  for (; nextLine < endLine && !state.isEmpty(nextLine); nextLine++) {
+    // this would be a code block normally, but after paragraph
+    // it's considered a lazy continuation regardless of what's there
+    if (state.sCount[nextLine] - state.blkIndent > 3) {
+      continue;
+    }
+
+    // quirk for blockquotes, this line should already be checked by that rule
+    if (state.sCount[nextLine] < 0) {
+      continue;
+    }
+
+    // Some tags can terminate paragraph without empty line.
+    terminate = false;
+    for (i = 0, l = terminatorRules.length; i < l; i++) {
+      if (terminatorRules[i](state, nextLine, endLine, true)) {
+        terminate = true;
+        break;
+      }
+    }
+    if (terminate) {
+      break;
+    }
+  }
+
+  content = state.getLines(startLine, nextLine, state.blkIndent, false).trim();
+
+  state.line = nextLine;
+
+  token = state.push('paragraph_open', 'p', 1);
+  token.map = [startLine, state.line];
+
+  token = state.push('inline', '', 0);
+  token.content = content;
+  token.map = [startLine, state.line];
+  token.children = [];
+
+  token = state.push('paragraph_close', 'p', -1);
+
+  state.parentType = oldParentType;
+
+  return true;
+};
+
+/***/ }),
+/* 444 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var normalizeReference = __webpack_require__(289).normalizeReference;
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function reference(state, startLine, _endLine, silent) {
+  var ch,
+      destEndPos,
+      destEndLineNo,
+      endLine,
+      href,
+      i,
+      l,
+      label,
+      labelEnd,
+      oldParentType,
+      res,
+      start,
+      str,
+      terminate,
+      terminatorRules,
+      title,
+      lines = 0,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine],
+      nextLine = startLine + 1;
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  if (state.src.charCodeAt(pos) !== 0x5B /* [ */) {
+      return false;
+    }
+
+  // Simple check to quickly interrupt scan on [link](url) at the start of line.
+  // Can be useful on practice: https://github.com/markdown-it/markdown-it/issues/54
+  while (++pos < max) {
+    if (state.src.charCodeAt(pos) === 0x5D /* ] */ && state.src.charCodeAt(pos - 1) !== 0x5C /* \ */) {
+        if (pos + 1 === max) {
+          return false;
+        }
+        if (state.src.charCodeAt(pos + 1) !== 0x3A /* : */) {
+            return false;
+          }
+        break;
+      }
+  }
+
+  endLine = state.lineMax;
+
+  // jump line-by-line until empty one or EOF
+  terminatorRules = state.md.block.ruler.getRules('reference');
+
+  oldParentType = state.parentType;
+  state.parentType = 'reference';
+
+  for (; nextLine < endLine && !state.isEmpty(nextLine); nextLine++) {
+    // this would be a code block normally, but after paragraph
+    // it's considered a lazy continuation regardless of what's there
+    if (state.sCount[nextLine] - state.blkIndent > 3) {
+      continue;
+    }
+
+    // quirk for blockquotes, this line should already be checked by that rule
+    if (state.sCount[nextLine] < 0) {
+      continue;
+    }
+
+    // Some tags can terminate paragraph without empty line.
+    terminate = false;
+    for (i = 0, l = terminatorRules.length; i < l; i++) {
+      if (terminatorRules[i](state, nextLine, endLine, true)) {
+        terminate = true;
+        break;
+      }
+    }
+    if (terminate) {
+      break;
+    }
+  }
+
+  str = state.getLines(startLine, nextLine, state.blkIndent, false).trim();
+  max = str.length;
+
+  for (pos = 1; pos < max; pos++) {
+    ch = str.charCodeAt(pos);
+    if (ch === 0x5B /* [ */) {
+        return false;
+      } else if (ch === 0x5D /* ] */) {
+        labelEnd = pos;
+        break;
+      } else if (ch === 0x0A /* \n */) {
+        lines++;
+      } else if (ch === 0x5C /* \ */) {
+        pos++;
+        if (pos < max && str.charCodeAt(pos) === 0x0A) {
+          lines++;
+        }
+      }
+  }
+
+  if (labelEnd < 0 || str.charCodeAt(labelEnd + 1) !== 0x3A /* : */) {
+      return false;
+    }
+
+  // [label]:   destination   'title'
+  //         ^^^ skip optional whitespace here
+  for (pos = labelEnd + 2; pos < max; pos++) {
+    ch = str.charCodeAt(pos);
+    if (ch === 0x0A) {
+      lines++;
+    } else if (isSpace(ch)) {
+      /*eslint no-empty:0*/
+    } else {
+      break;
+    }
+  }
+
+  // [label]:   destination   'title'
+  //            ^^^^^^^^^^^ parse this
+  res = state.md.helpers.parseLinkDestination(str, pos, max);
+  if (!res.ok) {
+    return false;
+  }
+
+  href = state.md.normalizeLink(res.str);
+  if (!state.md.validateLink(href)) {
+    return false;
+  }
+
+  pos = res.pos;
+  lines += res.lines;
+
+  // save cursor state, we could require to rollback later
+  destEndPos = pos;
+  destEndLineNo = lines;
+
+  // [label]:   destination   'title'
+  //                       ^^^ skipping those spaces
+  start = pos;
+  for (; pos < max; pos++) {
+    ch = str.charCodeAt(pos);
+    if (ch === 0x0A) {
+      lines++;
+    } else if (isSpace(ch)) {
+      /*eslint no-empty:0*/
+    } else {
+      break;
+    }
+  }
+
+  // [label]:   destination   'title'
+  //                          ^^^^^^^ parse this
+  res = state.md.helpers.parseLinkTitle(str, pos, max);
+  if (pos < max && start !== pos && res.ok) {
+    title = res.str;
+    pos = res.pos;
+    lines += res.lines;
+  } else {
+    title = '';
+    pos = destEndPos;
+    lines = destEndLineNo;
+  }
+
+  // skip trailing spaces until the rest of the line
+  while (pos < max) {
+    ch = str.charCodeAt(pos);
+    if (!isSpace(ch)) {
+      break;
+    }
+    pos++;
+  }
+
+  if (pos < max && str.charCodeAt(pos) !== 0x0A) {
+    if (title) {
+      // garbage at the end of the line after title,
+      // but it could still be a valid reference if we roll back
+      title = '';
+      pos = destEndPos;
+      lines = destEndLineNo;
+      while (pos < max) {
+        ch = str.charCodeAt(pos);
+        if (!isSpace(ch)) {
+          break;
+        }
+        pos++;
+      }
+    }
+  }
+
+  if (pos < max && str.charCodeAt(pos) !== 0x0A) {
+    // garbage at the end of the line
+    return false;
+  }
+
+  label = normalizeReference(str.slice(1, labelEnd));
+  if (!label) {
+    // CommonMark 0.20 disallows empty labels
+    return false;
+  }
+
+  // Reference can not terminate anything. This check is for safety only.
+  /*istanbul ignore if*/
+  if (silent) {
+    return true;
+  }
+
+  if (typeof state.env.references === 'undefined') {
+    state.env.references = {};
+  }
+  if (typeof state.env.references[label] === 'undefined') {
+    state.env.references[label] = { title: title, href: href };
+  }
+
+  state.parentType = oldParentType;
+
+  state.line = startLine + lines + 1;
+  return true;
+};
+
+/***/ }),
+/* 445 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Parser state class
+
+
+
+var Token = __webpack_require__(316);
+var isSpace = __webpack_require__(289).isSpace;
+
+function StateBlock(src, md, env, tokens) {
+  var ch, s, start, pos, len, indent, offset, indent_found;
+
+  this.src = src;
+
+  // link to parser instance
+  this.md = md;
+
+  this.env = env;
+
+  //
+  // Internal state vartiables
+  //
+
+  this.tokens = tokens;
+
+  this.bMarks = []; // line begin offsets for fast jumps
+  this.eMarks = []; // line end offsets for fast jumps
+  this.tShift = []; // offsets of the first non-space characters (tabs not expanded)
+  this.sCount = []; // indents for each line (tabs expanded)
+
+  // An amount of virtual spaces (tabs expanded) between beginning
+  // of each line (bMarks) and real beginning of that line.
+  //
+  // It exists only as a hack because blockquotes override bMarks
+  // losing information in the process.
+  //
+  // It's used only when expanding tabs, you can think about it as
+  // an initial tab length, e.g. bsCount=21 applied to string `\t123`
+  // means first tab should be expanded to 4-21%4 === 3 spaces.
+  //
+  this.bsCount = [];
+
+  // block parser variables
+  this.blkIndent = 0; // required block content indent
+  // (for example, if we are in list)
+  this.line = 0; // line index in src
+  this.lineMax = 0; // lines count
+  this.tight = false; // loose/tight mode for lists
+  this.ddIndent = -1; // indent of the current dd block (-1 if there isn't any)
+
+  // can be 'blockquote', 'list', 'root', 'paragraph' or 'reference'
+  // used in lists to determine if they interrupt a paragraph
+  this.parentType = 'root';
+
+  this.level = 0;
+
+  // renderer
+  this.result = '';
+
+  // Create caches
+  // Generate markers.
+  s = this.src;
+  indent_found = false;
+
+  for (start = pos = indent = offset = 0, len = s.length; pos < len; pos++) {
+    ch = s.charCodeAt(pos);
+
+    if (!indent_found) {
+      if (isSpace(ch)) {
+        indent++;
+
+        if (ch === 0x09) {
+          offset += 4 - offset % 4;
+        } else {
+          offset++;
+        }
+        continue;
+      } else {
+        indent_found = true;
+      }
+    }
+
+    if (ch === 0x0A || pos === len - 1) {
+      if (ch !== 0x0A) {
+        pos++;
+      }
+      this.bMarks.push(start);
+      this.eMarks.push(pos);
+      this.tShift.push(indent);
+      this.sCount.push(offset);
+      this.bsCount.push(0);
+
+      indent_found = false;
+      indent = 0;
+      offset = 0;
+      start = pos + 1;
+    }
+  }
+
+  // Push fake entry to simplify cache bounds checks
+  this.bMarks.push(s.length);
+  this.eMarks.push(s.length);
+  this.tShift.push(0);
+  this.sCount.push(0);
+  this.bsCount.push(0);
+
+  this.lineMax = this.bMarks.length - 1; // don't count last fake line
+}
+
+// Push new token to "stream".
+//
+StateBlock.prototype.push = function (type, tag, nesting) {
+  var token = new Token(type, tag, nesting);
+  token.block = true;
+
+  if (nesting < 0) {
+    this.level--;
+  }
+  token.level = this.level;
+  if (nesting > 0) {
+    this.level++;
+  }
+
+  this.tokens.push(token);
+  return token;
+};
+
+StateBlock.prototype.isEmpty = function isEmpty(line) {
+  return this.bMarks[line] + this.tShift[line] >= this.eMarks[line];
+};
+
+StateBlock.prototype.skipEmptyLines = function skipEmptyLines(from) {
+  for (var max = this.lineMax; from < max; from++) {
+    if (this.bMarks[from] + this.tShift[from] < this.eMarks[from]) {
+      break;
+    }
+  }
+  return from;
+};
+
+// Skip spaces from given position.
+StateBlock.prototype.skipSpaces = function skipSpaces(pos) {
+  var ch;
+
+  for (var max = this.src.length; pos < max; pos++) {
+    ch = this.src.charCodeAt(pos);
+    if (!isSpace(ch)) {
+      break;
+    }
+  }
+  return pos;
+};
+
+// Skip spaces from given position in reverse.
+StateBlock.prototype.skipSpacesBack = function skipSpacesBack(pos, min) {
+  if (pos <= min) {
+    return pos;
+  }
+
+  while (pos > min) {
+    if (!isSpace(this.src.charCodeAt(--pos))) {
+      return pos + 1;
+    }
+  }
+  return pos;
+};
+
+// Skip char codes from given position
+StateBlock.prototype.skipChars = function skipChars(pos, code) {
+  for (var max = this.src.length; pos < max; pos++) {
+    if (this.src.charCodeAt(pos) !== code) {
+      break;
+    }
+  }
+  return pos;
+};
+
+// Skip char codes reverse from given position - 1
+StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code, min) {
+  if (pos <= min) {
+    return pos;
+  }
+
+  while (pos > min) {
+    if (code !== this.src.charCodeAt(--pos)) {
+      return pos + 1;
+    }
+  }
+  return pos;
+};
+
+// cut lines range from source.
+StateBlock.prototype.getLines = function getLines(begin, end, indent, keepLastLF) {
+  var i,
+      lineIndent,
+      ch,
+      first,
+      last,
+      queue,
+      lineStart,
+      line = begin;
+
+  if (begin >= end) {
+    return '';
+  }
+
+  queue = new Array(end - begin);
+
+  for (i = 0; line < end; line++, i++) {
+    lineIndent = 0;
+    lineStart = first = this.bMarks[line];
+
+    if (line + 1 < end || keepLastLF) {
+      // No need for bounds check because we have fake entry on tail.
+      last = this.eMarks[line] + 1;
+    } else {
+      last = this.eMarks[line];
+    }
+
+    while (first < last && lineIndent < indent) {
+      ch = this.src.charCodeAt(first);
+
+      if (isSpace(ch)) {
+        if (ch === 0x09) {
+          lineIndent += 4 - (lineIndent + this.bsCount[line]) % 4;
+        } else {
+          lineIndent++;
+        }
+      } else if (first - lineStart < this.tShift[line]) {
+        // patched tShift masked characters to look like spaces (blockquotes, list markers)
+        lineIndent++;
+      } else {
+        break;
+      }
+
+      first++;
+    }
+
+    if (lineIndent > indent) {
+      // partially expanding tabs in code blocks, e.g '\t\tfoobar'
+      // with indent=2 becomes '  \tfoobar'
+      queue[i] = new Array(lineIndent - indent + 1).join(' ') + this.src.slice(first, last);
+    } else {
+      queue[i] = this.src.slice(first, last);
+    }
+  }
+
+  return queue.join('');
+};
+
+// re-export Token class to use in block rules
+StateBlock.prototype.Token = Token;
+
+module.exports = StateBlock;
+
+/***/ }),
+/* 446 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// GFM table, non-standard
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+function getLine(state, line) {
+  var pos = state.bMarks[line] + state.blkIndent,
+      max = state.eMarks[line];
+
+  return state.src.substr(pos, max - pos);
+}
+
+function escapedSplit(str) {
+  var result = [],
+      pos = 0,
+      max = str.length,
+      ch,
+      escapes = 0,
+      lastPos = 0,
+      backTicked = false,
+      lastBackTick = 0;
+
+  ch = str.charCodeAt(pos);
+
+  while (pos < max) {
+    if (ch === 0x60 /* ` */) {
+        if (backTicked) {
+          // make \` close code sequence, but not open it;
+          // the reason is: `\` is correct code block
+          backTicked = false;
+          lastBackTick = pos;
+        } else if (escapes % 2 === 0) {
+          backTicked = true;
+          lastBackTick = pos;
+        }
+      } else if (ch === 0x7c /* | */ && escapes % 2 === 0 && !backTicked) {
+      result.push(str.substring(lastPos, pos));
+      lastPos = pos + 1;
+    }
+
+    if (ch === 0x5c /* \ */) {
+        escapes++;
+      } else {
+      escapes = 0;
+    }
+
+    pos++;
+
+    // If there was an un-closed backtick, go back to just after
+    // the last backtick, but as if it was a normal character
+    if (pos === max && backTicked) {
+      backTicked = false;
+      pos = lastBackTick + 1;
+    }
+
+    ch = str.charCodeAt(pos);
+  }
+
+  result.push(str.substring(lastPos));
+
+  return result;
+}
+
+module.exports = function table(state, startLine, endLine, silent) {
+  var ch, lineText, pos, i, nextLine, columns, columnCount, token, aligns, t, tableLines, tbodyLines;
+
+  // should have at least two lines
+  if (startLine + 2 > endLine) {
+    return false;
+  }
+
+  nextLine = startLine + 1;
+
+  if (state.sCount[nextLine] < state.blkIndent) {
+    return false;
+  }
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[nextLine] - state.blkIndent >= 4) {
+    return false;
+  }
+
+  // first character of the second line should be '|', '-', ':',
+  // and no other characters are allowed but spaces;
+  // basically, this is the equivalent of /^[-:|][-:|\s]*$/ regexp
+
+  pos = state.bMarks[nextLine] + state.tShift[nextLine];
+  if (pos >= state.eMarks[nextLine]) {
+    return false;
+  }
+
+  ch = state.src.charCodeAt(pos++);
+  if (ch !== 0x7C /* | */ && ch !== 0x2D /* - */ && ch !== 0x3A /* : */) {
+      return false;
+    }
+
+  while (pos < state.eMarks[nextLine]) {
+    ch = state.src.charCodeAt(pos);
+
+    if (ch !== 0x7C /* | */ && ch !== 0x2D /* - */ && ch !== 0x3A /* : */ && !isSpace(ch)) {
+      return false;
+    }
+
+    pos++;
+  }
+
+  lineText = getLine(state, startLine + 1);
+
+  columns = lineText.split('|');
+  aligns = [];
+  for (i = 0; i < columns.length; i++) {
+    t = columns[i].trim();
+    if (!t) {
+      // allow empty columns before and after table, but not in between columns;
+      // e.g. allow ` |---| `, disallow ` ---||--- `
+      if (i === 0 || i === columns.length - 1) {
+        continue;
+      } else {
+        return false;
+      }
+    }
+
+    if (!/^:?-+:?$/.test(t)) {
+      return false;
+    }
+    if (t.charCodeAt(t.length - 1) === 0x3A /* : */) {
+        aligns.push(t.charCodeAt(0) === 0x3A /* : */ ? 'center' : 'right');
+      } else if (t.charCodeAt(0) === 0x3A /* : */) {
+        aligns.push('left');
+      } else {
+      aligns.push('');
+    }
+  }
+
+  lineText = getLine(state, startLine).trim();
+  if (lineText.indexOf('|') === -1) {
+    return false;
+  }
+  if (state.sCount[startLine] - state.blkIndent >= 4) {
+    return false;
+  }
+  columns = escapedSplit(lineText.replace(/^\||\|$/g, ''));
+
+  // header row will define an amount of columns in the entire table,
+  // and align row shouldn't be smaller than that (the rest of the rows can)
+  columnCount = columns.length;
+  if (columnCount > aligns.length) {
+    return false;
+  }
+
+  if (silent) {
+    return true;
+  }
+
+  token = state.push('table_open', 'table', 1);
+  token.map = tableLines = [startLine, 0];
+
+  token = state.push('thead_open', 'thead', 1);
+  token.map = [startLine, startLine + 1];
+
+  token = state.push('tr_open', 'tr', 1);
+  token.map = [startLine, startLine + 1];
+
+  for (i = 0; i < columns.length; i++) {
+    token = state.push('th_open', 'th', 1);
+    token.map = [startLine, startLine + 1];
+    if (aligns[i]) {
+      token.attrs = [['style', 'text-align:' + aligns[i]]];
+    }
+
+    token = state.push('inline', '', 0);
+    token.content = columns[i].trim();
+    token.map = [startLine, startLine + 1];
+    token.children = [];
+
+    token = state.push('th_close', 'th', -1);
+  }
+
+  token = state.push('tr_close', 'tr', -1);
+  token = state.push('thead_close', 'thead', -1);
+
+  token = state.push('tbody_open', 'tbody', 1);
+  token.map = tbodyLines = [startLine + 2, 0];
+
+  for (nextLine = startLine + 2; nextLine < endLine; nextLine++) {
+    if (state.sCount[nextLine] < state.blkIndent) {
+      break;
+    }
+
+    lineText = getLine(state, nextLine).trim();
+    if (lineText.indexOf('|') === -1) {
+      break;
+    }
+    if (state.sCount[nextLine] - state.blkIndent >= 4) {
+      break;
+    }
+    columns = escapedSplit(lineText.replace(/^\||\|$/g, ''));
+
+    token = state.push('tr_open', 'tr', 1);
+    for (i = 0; i < columnCount; i++) {
+      token = state.push('td_open', 'td', 1);
+      if (aligns[i]) {
+        token.attrs = [['style', 'text-align:' + aligns[i]]];
+      }
+
+      token = state.push('inline', '', 0);
+      token.content = columns[i] ? columns[i].trim() : '';
+      token.children = [];
+
+      token = state.push('td_close', 'td', -1);
+    }
+    token = state.push('tr_close', 'tr', -1);
+  }
+  token = state.push('tbody_close', 'tbody', -1);
+  token = state.push('table_close', 'table', -1);
+
+  tableLines[1] = tbodyLines[1] = nextLine;
+  state.line = nextLine;
+  return true;
+};
+
+/***/ }),
+/* 447 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function block(state) {
+  var token;
+
+  if (state.inlineMode) {
+    token = new state.Token('inline', '', 0);
+    token.content = state.src;
+    token.map = [0, 1];
+    token.children = [];
+    state.tokens.push(token);
+  } else {
+    state.md.block.parse(state.src, state.md, state.env, state.tokens);
+  }
+};
+
+/***/ }),
+/* 448 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function inline(state) {
+  var tokens = state.tokens,
+      tok,
+      i,
+      l;
+
+  // Parse inlines
+  for (i = 0, l = tokens.length; i < l; i++) {
+    tok = tokens[i];
+    if (tok.type === 'inline') {
+      state.md.inline.parse(tok.content, state.md, state.env, tok.children);
+    }
+  }
+};
+
+/***/ }),
+/* 449 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Replace link-like texts with link nodes.
+//
+// Currently restricted by `md.validateLink()` to http/https/ftp
+//
+
+
+var arrayReplaceAt = __webpack_require__(289).arrayReplaceAt;
+
+function isLinkOpen(str) {
+  return (/^<a[>\s]/i.test(str)
+  );
+}
+function isLinkClose(str) {
+  return (/^<\/a\s*>/i.test(str)
+  );
+}
+
+module.exports = function linkify(state) {
+  var i,
+      j,
+      l,
+      tokens,
+      token,
+      currentToken,
+      nodes,
+      ln,
+      text,
+      pos,
+      lastPos,
+      level,
+      htmlLinkLevel,
+      url,
+      fullUrl,
+      urlText,
+      blockTokens = state.tokens,
+      links;
+
+  if (!state.md.options.linkify) {
+    return;
+  }
+
+  for (j = 0, l = blockTokens.length; j < l; j++) {
+    if (blockTokens[j].type !== 'inline' || !state.md.linkify.pretest(blockTokens[j].content)) {
+      continue;
+    }
+
+    tokens = blockTokens[j].children;
+
+    htmlLinkLevel = 0;
+
+    // We scan from the end, to keep position when new tags added.
+    // Use reversed logic in links start/end match
+    for (i = tokens.length - 1; i >= 0; i--) {
+      currentToken = tokens[i];
+
+      // Skip content of markdown links
+      if (currentToken.type === 'link_close') {
+        i--;
+        while (tokens[i].level !== currentToken.level && tokens[i].type !== 'link_open') {
+          i--;
+        }
+        continue;
+      }
+
+      // Skip content of html tag links
+      if (currentToken.type === 'html_inline') {
+        if (isLinkOpen(currentToken.content) && htmlLinkLevel > 0) {
+          htmlLinkLevel--;
+        }
+        if (isLinkClose(currentToken.content)) {
+          htmlLinkLevel++;
+        }
+      }
+      if (htmlLinkLevel > 0) {
+        continue;
+      }
+
+      if (currentToken.type === 'text' && state.md.linkify.test(currentToken.content)) {
+
+        text = currentToken.content;
+        links = state.md.linkify.match(text);
+
+        // Now split string to nodes
+        nodes = [];
+        level = currentToken.level;
+        lastPos = 0;
+
+        for (ln = 0; ln < links.length; ln++) {
+
+          url = links[ln].url;
+          fullUrl = state.md.normalizeLink(url);
+          if (!state.md.validateLink(fullUrl)) {
+            continue;
+          }
+
+          urlText = links[ln].text;
+
+          // Linkifier might send raw hostnames like "example.com", where url
+          // starts with domain name. So we prepend http:// in those cases,
+          // and remove it afterwards.
+          //
+          if (!links[ln].schema) {
+            urlText = state.md.normalizeLinkText('http://' + urlText).replace(/^http:\/\//, '');
+          } else if (links[ln].schema === 'mailto:' && !/^mailto:/i.test(urlText)) {
+            urlText = state.md.normalizeLinkText('mailto:' + urlText).replace(/^mailto:/, '');
+          } else {
+            urlText = state.md.normalizeLinkText(urlText);
+          }
+
+          pos = links[ln].index;
+
+          if (pos > lastPos) {
+            token = new state.Token('text', '', 0);
+            token.content = text.slice(lastPos, pos);
+            token.level = level;
+            nodes.push(token);
+          }
+
+          token = new state.Token('link_open', 'a', 1);
+          token.attrs = [['href', fullUrl]];
+          token.level = level++;
+          token.markup = 'linkify';
+          token.info = 'auto';
+          nodes.push(token);
+
+          token = new state.Token('text', '', 0);
+          token.content = urlText;
+          token.level = level;
+          nodes.push(token);
+
+          token = new state.Token('link_close', 'a', -1);
+          token.level = --level;
+          token.markup = 'linkify';
+          token.info = 'auto';
+          nodes.push(token);
+
+          lastPos = links[ln].lastIndex;
+        }
+        if (lastPos < text.length) {
+          token = new state.Token('text', '', 0);
+          token.content = text.slice(lastPos);
+          token.level = level;
+          nodes.push(token);
+        }
+
+        // replace current node
+        blockTokens[j].children = tokens = arrayReplaceAt(tokens, i, nodes);
+      }
+    }
+  }
+};
+
+/***/ }),
+/* 450 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Normalize input string
+
+
+
+var NEWLINES_RE = /\r[\n\u0085]?|[\u2424\u2028\u0085]/g;
+var NULL_RE = /\u0000/g;
+
+module.exports = function inline(state) {
+  var str;
+
+  // Normalize newlines
+  str = state.src.replace(NEWLINES_RE, '\n');
+
+  // Replace NULL characters
+  str = str.replace(NULL_RE, '\uFFFD');
+
+  state.src = str;
+};
+
+/***/ }),
+/* 451 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Simple typographyc replacements
+//
+// (c) (C) → ©
+// (tm) (TM) → ™
+// (r) (R) → ®
+// +- → ±
+// (p) (P) -> §
+// ... → … (also ?.... → ?.., !.... → !..)
+// ???????? → ???, !!!!! → !!!, `,,` → `,`
+// -- → &ndash;, --- → &mdash;
+//
+
+
+// TODO:
+// - fractionals 1/2, 1/4, 3/4 -> ½, ¼, ¾
+// - miltiplication 2 x 4 -> 2 × 4
+
+var RARE_RE = /\+-|\.\.|\?\?\?\?|!!!!|,,|--/;
+
+// Workaround for phantomjs - need regex without /g flag,
+// or root check will fail every second time
+var SCOPED_ABBR_TEST_RE = /\((c|tm|r|p)\)/i;
+
+var SCOPED_ABBR_RE = /\((c|tm|r|p)\)/ig;
+var SCOPED_ABBR = {
+  c: '©',
+  r: '®',
+  p: '§',
+  tm: '™'
+};
+
+function replaceFn(match, name) {
+  return SCOPED_ABBR[name.toLowerCase()];
+}
+
+function replace_scoped(inlineTokens) {
+  var i,
+      token,
+      inside_autolink = 0;
+
+  for (i = inlineTokens.length - 1; i >= 0; i--) {
+    token = inlineTokens[i];
+
+    if (token.type === 'text' && !inside_autolink) {
+      token.content = token.content.replace(SCOPED_ABBR_RE, replaceFn);
+    }
+
+    if (token.type === 'link_open' && token.info === 'auto') {
+      inside_autolink--;
+    }
+
+    if (token.type === 'link_close' && token.info === 'auto') {
+      inside_autolink++;
+    }
+  }
+}
+
+function replace_rare(inlineTokens) {
+  var i,
+      token,
+      inside_autolink = 0;
+
+  for (i = inlineTokens.length - 1; i >= 0; i--) {
+    token = inlineTokens[i];
+
+    if (token.type === 'text' && !inside_autolink) {
+      if (RARE_RE.test(token.content)) {
+        token.content = token.content.replace(/\+-/g, '±')
+        // .., ..., ....... -> …
+        // but ?..... & !..... -> ?.. & !..
+        .replace(/\.{2,}/g, '…').replace(/([?!])…/g, '$1..').replace(/([?!]){4,}/g, '$1$1$1').replace(/,{2,}/g, ',')
+        // em-dash
+        .replace(/(^|[^-])---([^-]|$)/mg, '$1\u2014$2')
+        // en-dash
+        .replace(/(^|\s)--(\s|$)/mg, '$1\u2013$2').replace(/(^|[^-\s])--([^-\s]|$)/mg, '$1\u2013$2');
+      }
+    }
+
+    if (token.type === 'link_open' && token.info === 'auto') {
+      inside_autolink--;
+    }
+
+    if (token.type === 'link_close' && token.info === 'auto') {
+      inside_autolink++;
+    }
+  }
+}
+
+module.exports = function replace(state) {
+  var blkIdx;
+
+  if (!state.md.options.typographer) {
+    return;
+  }
+
+  for (blkIdx = state.tokens.length - 1; blkIdx >= 0; blkIdx--) {
+
+    if (state.tokens[blkIdx].type !== 'inline') {
+      continue;
+    }
+
+    if (SCOPED_ABBR_TEST_RE.test(state.tokens[blkIdx].content)) {
+      replace_scoped(state.tokens[blkIdx].children);
+    }
+
+    if (RARE_RE.test(state.tokens[blkIdx].content)) {
+      replace_rare(state.tokens[blkIdx].children);
+    }
+  }
+};
+
+/***/ }),
+/* 452 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Convert straight quotation marks to typographic ones
+//
+
+
+var isWhiteSpace = __webpack_require__(289).isWhiteSpace;
+var isPunctChar = __webpack_require__(289).isPunctChar;
+var isMdAsciiPunct = __webpack_require__(289).isMdAsciiPunct;
+
+var QUOTE_TEST_RE = /['"]/;
+var QUOTE_RE = /['"]/g;
+var APOSTROPHE = '\u2019'; /* ’ */
+
+function replaceAt(str, index, ch) {
+  return str.substr(0, index) + ch + str.substr(index + 1);
+}
+
+function process_inlines(tokens, state) {
+  var i, token, text, t, pos, max, thisLevel, item, lastChar, nextChar, isLastPunctChar, isNextPunctChar, isLastWhiteSpace, isNextWhiteSpace, canOpen, canClose, j, isSingle, stack, openQuote, closeQuote;
+
+  stack = [];
+
+  for (i = 0; i < tokens.length; i++) {
+    token = tokens[i];
+
+    thisLevel = tokens[i].level;
+
+    for (j = stack.length - 1; j >= 0; j--) {
+      if (stack[j].level <= thisLevel) {
+        break;
+      }
+    }
+    stack.length = j + 1;
+
+    if (token.type !== 'text') {
+      continue;
+    }
+
+    text = token.content;
+    pos = 0;
+    max = text.length;
+
+    /*eslint no-labels:0,block-scoped-var:0*/
+    OUTER: while (pos < max) {
+      QUOTE_RE.lastIndex = pos;
+      t = QUOTE_RE.exec(text);
+      if (!t) {
+        break;
+      }
+
+      canOpen = canClose = true;
+      pos = t.index + 1;
+      isSingle = t[0] === "'";
+
+      // Find previous character,
+      // default to space if it's the beginning of the line
+      //
+      lastChar = 0x20;
+
+      if (t.index - 1 >= 0) {
+        lastChar = text.charCodeAt(t.index - 1);
+      } else {
+        for (j = i - 1; j >= 0; j--) {
+          if (tokens[j].type !== 'text') {
+            continue;
+          }
+
+          lastChar = tokens[j].content.charCodeAt(tokens[j].content.length - 1);
+          break;
+        }
+      }
+
+      // Find next character,
+      // default to space if it's the end of the line
+      //
+      nextChar = 0x20;
+
+      if (pos < max) {
+        nextChar = text.charCodeAt(pos);
+      } else {
+        for (j = i + 1; j < tokens.length; j++) {
+          if (tokens[j].type !== 'text') {
+            continue;
+          }
+
+          nextChar = tokens[j].content.charCodeAt(0);
+          break;
+        }
+      }
+
+      isLastPunctChar = isMdAsciiPunct(lastChar) || isPunctChar(String.fromCharCode(lastChar));
+      isNextPunctChar = isMdAsciiPunct(nextChar) || isPunctChar(String.fromCharCode(nextChar));
+
+      isLastWhiteSpace = isWhiteSpace(lastChar);
+      isNextWhiteSpace = isWhiteSpace(nextChar);
+
+      if (isNextWhiteSpace) {
+        canOpen = false;
+      } else if (isNextPunctChar) {
+        if (!(isLastWhiteSpace || isLastPunctChar)) {
+          canOpen = false;
+        }
+      }
+
+      if (isLastWhiteSpace) {
+        canClose = false;
+      } else if (isLastPunctChar) {
+        if (!(isNextWhiteSpace || isNextPunctChar)) {
+          canClose = false;
+        }
+      }
+
+      if (nextChar === 0x22 /* " */ && t[0] === '"') {
+        if (lastChar >= 0x30 /* 0 */ && lastChar <= 0x39 /* 9 */) {
+            // special case: 1"" - count first quote as an inch
+            canClose = canOpen = false;
+          }
+      }
+
+      if (canOpen && canClose) {
+        // treat this as the middle of the word
+        canOpen = false;
+        canClose = isNextPunctChar;
+      }
+
+      if (!canOpen && !canClose) {
+        // middle of word
+        if (isSingle) {
+          token.content = replaceAt(token.content, t.index, APOSTROPHE);
+        }
+        continue;
+      }
+
+      if (canClose) {
+        // this could be a closing quote, rewind the stack to get a match
+        for (j = stack.length - 1; j >= 0; j--) {
+          item = stack[j];
+          if (stack[j].level < thisLevel) {
+            break;
+          }
+          if (item.single === isSingle && stack[j].level === thisLevel) {
+            item = stack[j];
+
+            if (isSingle) {
+              openQuote = state.md.options.quotes[2];
+              closeQuote = state.md.options.quotes[3];
+            } else {
+              openQuote = state.md.options.quotes[0];
+              closeQuote = state.md.options.quotes[1];
+            }
+
+            // replace token.content *before* tokens[item.token].content,
+            // because, if they are pointing at the same token, replaceAt
+            // could mess up indices when quote length != 1
+            token.content = replaceAt(token.content, t.index, closeQuote);
+            tokens[item.token].content = replaceAt(tokens[item.token].content, item.pos, openQuote);
+
+            pos += closeQuote.length - 1;
+            if (item.token === i) {
+              pos += openQuote.length - 1;
+            }
+
+            text = token.content;
+            max = text.length;
+
+            stack.length = j;
+            continue OUTER;
+          }
+        }
+      }
+
+      if (canOpen) {
+        stack.push({
+          token: i,
+          pos: t.index,
+          single: isSingle,
+          level: thisLevel
+        });
+      } else if (canClose && isSingle) {
+        token.content = replaceAt(token.content, t.index, APOSTROPHE);
+      }
+    }
+  }
+}
+
+module.exports = function smartquotes(state) {
+  /*eslint max-depth:0*/
+  var blkIdx;
+
+  if (!state.md.options.typographer) {
+    return;
+  }
+
+  for (blkIdx = state.tokens.length - 1; blkIdx >= 0; blkIdx--) {
+
+    if (state.tokens[blkIdx].type !== 'inline' || !QUOTE_TEST_RE.test(state.tokens[blkIdx].content)) {
+      continue;
+    }
+
+    process_inlines(state.tokens[blkIdx].children, state);
+  }
+};
+
+/***/ }),
+/* 453 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Core state object
+//
+
+
+var Token = __webpack_require__(316);
+
+function StateCore(src, md, env) {
+  this.src = src;
+  this.env = env;
+  this.tokens = [];
+  this.inlineMode = false;
+  this.md = md; // link to parser instance
+}
+
+// re-export Token class to use in core rules
+StateCore.prototype.Token = Token;
+
+module.exports = StateCore;
+
+/***/ }),
+/* 454 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Process autolinks '<protocol:...>'
+
+
+
+/*eslint max-len:0*/
+
+var EMAIL_RE = /^<([a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)>/;
+var AUTOLINK_RE = /^<([a-zA-Z][a-zA-Z0-9+.\-]{1,31}):([^<>\x00-\x20]*)>/;
+
+module.exports = function autolink(state, silent) {
+  var tail,
+      linkMatch,
+      emailMatch,
+      url,
+      fullUrl,
+      token,
+      pos = state.pos;
+
+  if (state.src.charCodeAt(pos) !== 0x3C /* < */) {
+      return false;
+    }
+
+  tail = state.src.slice(pos);
+
+  if (tail.indexOf('>') < 0) {
+    return false;
+  }
+
+  if (AUTOLINK_RE.test(tail)) {
+    linkMatch = tail.match(AUTOLINK_RE);
+
+    url = linkMatch[0].slice(1, -1);
+    fullUrl = state.md.normalizeLink(url);
+    if (!state.md.validateLink(fullUrl)) {
+      return false;
+    }
+
+    if (!silent) {
+      token = state.push('link_open', 'a', 1);
+      token.attrs = [['href', fullUrl]];
+      token.markup = 'autolink';
+      token.info = 'auto';
+
+      token = state.push('text', '', 0);
+      token.content = state.md.normalizeLinkText(url);
+
+      token = state.push('link_close', 'a', -1);
+      token.markup = 'autolink';
+      token.info = 'auto';
+    }
+
+    state.pos += linkMatch[0].length;
+    return true;
+  }
+
+  if (EMAIL_RE.test(tail)) {
+    emailMatch = tail.match(EMAIL_RE);
+
+    url = emailMatch[0].slice(1, -1);
+    fullUrl = state.md.normalizeLink('mailto:' + url);
+    if (!state.md.validateLink(fullUrl)) {
+      return false;
+    }
+
+    if (!silent) {
+      token = state.push('link_open', 'a', 1);
+      token.attrs = [['href', fullUrl]];
+      token.markup = 'autolink';
+      token.info = 'auto';
+
+      token = state.push('text', '', 0);
+      token.content = state.md.normalizeLinkText(url);
+
+      token = state.push('link_close', 'a', -1);
+      token.markup = 'autolink';
+      token.info = 'auto';
+    }
+
+    state.pos += emailMatch[0].length;
+    return true;
+  }
+
+  return false;
+};
+
+/***/ }),
+/* 455 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Parse backticks
+
+
+
+module.exports = function backtick(state, silent) {
+  var start,
+      max,
+      marker,
+      matchStart,
+      matchEnd,
+      token,
+      pos = state.pos,
+      ch = state.src.charCodeAt(pos);
+
+  if (ch !== 0x60 /* ` */) {
+      return false;
+    }
+
+  start = pos;
+  pos++;
+  max = state.posMax;
+
+  while (pos < max && state.src.charCodeAt(pos) === 0x60 /* ` */) {
+    pos++;
+  }
+
+  marker = state.src.slice(start, pos);
+
+  matchStart = matchEnd = pos;
+
+  while ((matchStart = state.src.indexOf('`', matchEnd)) !== -1) {
+    matchEnd = matchStart + 1;
+
+    while (matchEnd < max && state.src.charCodeAt(matchEnd) === 0x60 /* ` */) {
+      matchEnd++;
+    }
+
+    if (matchEnd - matchStart === marker.length) {
+      if (!silent) {
+        token = state.push('code_inline', 'code', 0);
+        token.markup = marker;
+        token.content = state.src.slice(pos, matchStart).replace(/[ \n]+/g, ' ').trim();
+      }
+      state.pos = matchEnd;
+      return true;
+    }
+  }
+
+  if (!silent) {
+    state.pending += marker;
+  }
+  state.pos += marker.length;
+  return true;
+};
+
+/***/ }),
+/* 456 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// For each opening emphasis-like marker find a matching closing one
+//
+
+
+module.exports = function link_pairs(state) {
+  var i,
+      j,
+      lastDelim,
+      currDelim,
+      delimiters = state.delimiters,
+      max = state.delimiters.length;
+
+  for (i = 0; i < max; i++) {
+    lastDelim = delimiters[i];
+
+    if (!lastDelim.close) {
+      continue;
+    }
+
+    j = i - lastDelim.jump - 1;
+
+    while (j >= 0) {
+      currDelim = delimiters[j];
+
+      if (currDelim.open && currDelim.marker === lastDelim.marker && currDelim.end < 0 && currDelim.level === lastDelim.level) {
+
+        // typeofs are for backward compatibility with plugins
+        var odd_match = (currDelim.close || lastDelim.open) && typeof currDelim.length !== 'undefined' && typeof lastDelim.length !== 'undefined' && (currDelim.length + lastDelim.length) % 3 === 0;
+
+        if (!odd_match) {
+          lastDelim.jump = i - j;
+          lastDelim.open = false;
+          currDelim.end = i;
+          currDelim.jump = 0;
+          break;
+        }
+      }
+
+      j -= currDelim.jump + 1;
+    }
+  }
+};
+
+/***/ }),
+/* 457 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Process html entity - &#123;, &#xAF;, &quot;, ...
+
+
+
+var entities = __webpack_require__(337);
+var has = __webpack_require__(289).has;
+var isValidEntityCode = __webpack_require__(289).isValidEntityCode;
+var fromCodePoint = __webpack_require__(289).fromCodePoint;
+
+var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
+var NAMED_RE = /^&([a-z][a-z0-9]{1,31});/i;
+
+module.exports = function entity(state, silent) {
+  var ch,
+      code,
+      match,
+      pos = state.pos,
+      max = state.posMax;
+
+  if (state.src.charCodeAt(pos) !== 0x26 /* & */) {
+      return false;
+    }
+
+  if (pos + 1 < max) {
+    ch = state.src.charCodeAt(pos + 1);
+
+    if (ch === 0x23 /* # */) {
+        match = state.src.slice(pos).match(DIGITAL_RE);
+        if (match) {
+          if (!silent) {
+            code = match[1][0].toLowerCase() === 'x' ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
+            state.pending += isValidEntityCode(code) ? fromCodePoint(code) : fromCodePoint(0xFFFD);
+          }
+          state.pos += match[0].length;
+          return true;
+        }
+      } else {
+      match = state.src.slice(pos).match(NAMED_RE);
+      if (match) {
+        if (has(entities, match[1])) {
+          if (!silent) {
+            state.pending += entities[match[1]];
+          }
+          state.pos += match[0].length;
+          return true;
+        }
+      }
+    }
+  }
+
+  if (!silent) {
+    state.pending += '&';
+  }
+  state.pos++;
+  return true;
+};
+
+/***/ }),
+/* 458 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Proceess escaped chars and hardbreaks
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+var ESCAPED = [];
+
+for (var i = 0; i < 256; i++) {
+  ESCAPED.push(0);
+}
+
+'\\!"#$%&\'()*+,./:;<=>?@[]^_`{|}~-'.split('').forEach(function (ch) {
+  ESCAPED[ch.charCodeAt(0)] = 1;
+});
+
+module.exports = function escape(state, silent) {
+  var ch,
+      pos = state.pos,
+      max = state.posMax;
+
+  if (state.src.charCodeAt(pos) !== 0x5C /* \ */) {
+      return false;
+    }
+
+  pos++;
+
+  if (pos < max) {
+    ch = state.src.charCodeAt(pos);
+
+    if (ch < 256 && ESCAPED[ch] !== 0) {
+      if (!silent) {
+        state.pending += state.src[pos];
+      }
+      state.pos += 2;
+      return true;
+    }
+
+    if (ch === 0x0A) {
+      if (!silent) {
+        state.push('hardbreak', 'br', 0);
+      }
+
+      pos++;
+      // skip leading whitespaces from next line
+      while (pos < max) {
+        ch = state.src.charCodeAt(pos);
+        if (!isSpace(ch)) {
+          break;
+        }
+        pos++;
+      }
+
+      state.pos = pos;
+      return true;
+    }
+  }
+
+  if (!silent) {
+    state.pending += '\\';
+  }
+  state.pos++;
+  return true;
+};
+
+/***/ }),
+/* 459 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Process html tags
+
+
+
+var HTML_TAG_RE = __webpack_require__(338).HTML_TAG_RE;
+
+function isLetter(ch) {
+  /*eslint no-bitwise:0*/
+  var lc = ch | 0x20; // to lower case
+  return lc >= 0x61 /* a */ && lc <= 0x7a /* z */;
+}
+
+module.exports = function html_inline(state, silent) {
+  var ch,
+      match,
+      max,
+      token,
+      pos = state.pos;
+
+  if (!state.md.options.html) {
+    return false;
+  }
+
+  // Check start
+  max = state.posMax;
+  if (state.src.charCodeAt(pos) !== 0x3C /* < */ || pos + 2 >= max) {
+    return false;
+  }
+
+  // Quick fail on second char
+  ch = state.src.charCodeAt(pos + 1);
+  if (ch !== 0x21 /* ! */ && ch !== 0x3F /* ? */ && ch !== 0x2F /* / */ && !isLetter(ch)) {
+    return false;
+  }
+
+  match = state.src.slice(pos).match(HTML_TAG_RE);
+  if (!match) {
+    return false;
+  }
+
+  if (!silent) {
+    token = state.push('html_inline', '', 0);
+    token.content = state.src.slice(pos, pos + match[0].length);
+  }
+  state.pos += match[0].length;
+  return true;
+};
+
+/***/ }),
+/* 460 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Process ![image](<src> "title")
+
+
+
+var normalizeReference = __webpack_require__(289).normalizeReference;
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function image(state, silent) {
+  var attrs,
+      code,
+      content,
+      label,
+      labelEnd,
+      labelStart,
+      pos,
+      ref,
+      res,
+      title,
+      token,
+      tokens,
+      start,
+      href = '',
+      oldPos = state.pos,
+      max = state.posMax;
+
+  if (state.src.charCodeAt(state.pos) !== 0x21 /* ! */) {
+      return false;
+    }
+  if (state.src.charCodeAt(state.pos + 1) !== 0x5B /* [ */) {
+      return false;
+    }
+
+  labelStart = state.pos + 2;
+  labelEnd = state.md.helpers.parseLinkLabel(state, state.pos + 1, false);
+
+  // parser failed to find ']', so it's not a valid link
+  if (labelEnd < 0) {
+    return false;
+  }
+
+  pos = labelEnd + 1;
+  if (pos < max && state.src.charCodeAt(pos) === 0x28 /* ( */) {
+      //
+      // Inline link
+      //
+
+      // [link](  <href>  "title"  )
+      //        ^^ skipping these spaces
+      pos++;
+      for (; pos < max; pos++) {
+        code = state.src.charCodeAt(pos);
+        if (!isSpace(code) && code !== 0x0A) {
+          break;
+        }
+      }
+      if (pos >= max) {
+        return false;
+      }
+
+      // [link](  <href>  "title"  )
+      //          ^^^^^^ parsing link destination
+      start = pos;
+      res = state.md.helpers.parseLinkDestination(state.src, pos, state.posMax);
+      if (res.ok) {
+        href = state.md.normalizeLink(res.str);
+        if (state.md.validateLink(href)) {
+          pos = res.pos;
+        } else {
+          href = '';
+        }
+      }
+
+      // [link](  <href>  "title"  )
+      //                ^^ skipping these spaces
+      start = pos;
+      for (; pos < max; pos++) {
+        code = state.src.charCodeAt(pos);
+        if (!isSpace(code) && code !== 0x0A) {
+          break;
+        }
+      }
+
+      // [link](  <href>  "title"  )
+      //                  ^^^^^^^ parsing link title
+      res = state.md.helpers.parseLinkTitle(state.src, pos, state.posMax);
+      if (pos < max && start !== pos && res.ok) {
+        title = res.str;
+        pos = res.pos;
+
+        // [link](  <href>  "title"  )
+        //                         ^^ skipping these spaces
+        for (; pos < max; pos++) {
+          code = state.src.charCodeAt(pos);
+          if (!isSpace(code) && code !== 0x0A) {
+            break;
+          }
+        }
+      } else {
+        title = '';
+      }
+
+      if (pos >= max || state.src.charCodeAt(pos) !== 0x29 /* ) */) {
+          state.pos = oldPos;
+          return false;
+        }
+      pos++;
+    } else {
+    //
+    // Link reference
+    //
+    if (typeof state.env.references === 'undefined') {
+      return false;
+    }
+
+    if (pos < max && state.src.charCodeAt(pos) === 0x5B /* [ */) {
+        start = pos + 1;
+        pos = state.md.helpers.parseLinkLabel(state, pos);
+        if (pos >= 0) {
+          label = state.src.slice(start, pos++);
+        } else {
+          pos = labelEnd + 1;
+        }
+      } else {
+      pos = labelEnd + 1;
+    }
+
+    // covers label === '' and label === undefined
+    // (collapsed reference link and shortcut reference link respectively)
+    if (!label) {
+      label = state.src.slice(labelStart, labelEnd);
+    }
+
+    ref = state.env.references[normalizeReference(label)];
+    if (!ref) {
+      state.pos = oldPos;
+      return false;
+    }
+    href = ref.href;
+    title = ref.title;
+  }
+
+  //
+  // We found the end of the link, and know for a fact it's a valid link;
+  // so all that's left to do is to call tokenizer.
+  //
+  if (!silent) {
+    content = state.src.slice(labelStart, labelEnd);
+
+    state.md.inline.parse(content, state.md, state.env, tokens = []);
+
+    token = state.push('image', 'img', 0);
+    token.attrs = attrs = [['src', href], ['alt', '']];
+    token.children = tokens;
+    token.content = content;
+
+    if (title) {
+      attrs.push(['title', title]);
+    }
+  }
+
+  state.pos = pos;
+  state.posMax = max;
+  return true;
+};
+
+/***/ }),
+/* 461 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Process [link](<to> "stuff")
+
+
+
+var normalizeReference = __webpack_require__(289).normalizeReference;
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function link(state, silent) {
+  var attrs,
+      code,
+      label,
+      labelEnd,
+      labelStart,
+      pos,
+      res,
+      ref,
+      title,
+      token,
+      href = '',
+      oldPos = state.pos,
+      max = state.posMax,
+      start = state.pos,
+      parseReference = true;
+
+  if (state.src.charCodeAt(state.pos) !== 0x5B /* [ */) {
+      return false;
+    }
+
+  labelStart = state.pos + 1;
+  labelEnd = state.md.helpers.parseLinkLabel(state, state.pos, true);
+
+  // parser failed to find ']', so it's not a valid link
+  if (labelEnd < 0) {
+    return false;
+  }
+
+  pos = labelEnd + 1;
+  if (pos < max && state.src.charCodeAt(pos) === 0x28 /* ( */) {
+      //
+      // Inline link
+      //
+
+      // might have found a valid shortcut link, disable reference parsing
+      parseReference = false;
+
+      // [link](  <href>  "title"  )
+      //        ^^ skipping these spaces
+      pos++;
+      for (; pos < max; pos++) {
+        code = state.src.charCodeAt(pos);
+        if (!isSpace(code) && code !== 0x0A) {
+          break;
+        }
+      }
+      if (pos >= max) {
+        return false;
+      }
+
+      // [link](  <href>  "title"  )
+      //          ^^^^^^ parsing link destination
+      start = pos;
+      res = state.md.helpers.parseLinkDestination(state.src, pos, state.posMax);
+      if (res.ok) {
+        href = state.md.normalizeLink(res.str);
+        if (state.md.validateLink(href)) {
+          pos = res.pos;
+        } else {
+          href = '';
+        }
+      }
+
+      // [link](  <href>  "title"  )
+      //                ^^ skipping these spaces
+      start = pos;
+      for (; pos < max; pos++) {
+        code = state.src.charCodeAt(pos);
+        if (!isSpace(code) && code !== 0x0A) {
+          break;
+        }
+      }
+
+      // [link](  <href>  "title"  )
+      //                  ^^^^^^^ parsing link title
+      res = state.md.helpers.parseLinkTitle(state.src, pos, state.posMax);
+      if (pos < max && start !== pos && res.ok) {
+        title = res.str;
+        pos = res.pos;
+
+        // [link](  <href>  "title"  )
+        //                         ^^ skipping these spaces
+        for (; pos < max; pos++) {
+          code = state.src.charCodeAt(pos);
+          if (!isSpace(code) && code !== 0x0A) {
+            break;
+          }
+        }
+      } else {
+        title = '';
+      }
+
+      if (pos >= max || state.src.charCodeAt(pos) !== 0x29 /* ) */) {
+          // parsing a valid shortcut link failed, fallback to reference
+          parseReference = true;
+        }
+      pos++;
+    }
+
+  if (parseReference) {
+    //
+    // Link reference
+    //
+    if (typeof state.env.references === 'undefined') {
+      return false;
+    }
+
+    if (pos < max && state.src.charCodeAt(pos) === 0x5B /* [ */) {
+        start = pos + 1;
+        pos = state.md.helpers.parseLinkLabel(state, pos);
+        if (pos >= 0) {
+          label = state.src.slice(start, pos++);
+        } else {
+          pos = labelEnd + 1;
+        }
+      } else {
+      pos = labelEnd + 1;
+    }
+
+    // covers label === '' and label === undefined
+    // (collapsed reference link and shortcut reference link respectively)
+    if (!label) {
+      label = state.src.slice(labelStart, labelEnd);
+    }
+
+    ref = state.env.references[normalizeReference(label)];
+    if (!ref) {
+      state.pos = oldPos;
+      return false;
+    }
+    href = ref.href;
+    title = ref.title;
+  }
+
+  //
+  // We found the end of the link, and know for a fact it's a valid link;
+  // so all that's left to do is to call tokenizer.
+  //
+  if (!silent) {
+    state.pos = labelStart;
+    state.posMax = labelEnd;
+
+    token = state.push('link_open', 'a', 1);
+    token.attrs = attrs = [['href', href]];
+    if (title) {
+      attrs.push(['title', title]);
+    }
+
+    state.md.inline.tokenize(state);
+
+    token = state.push('link_close', 'a', -1);
+  }
+
+  state.pos = pos;
+  state.posMax = max;
+  return true;
+};
+
+/***/ }),
+/* 462 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Proceess '\n'
+
+
+
+var isSpace = __webpack_require__(289).isSpace;
+
+module.exports = function newline(state, silent) {
+  var pmax,
+      max,
+      pos = state.pos;
+
+  if (state.src.charCodeAt(pos) !== 0x0A /* \n */) {
+      return false;
+    }
+
+  pmax = state.pending.length - 1;
+  max = state.posMax;
+
+  // '  \n' -> hardbreak
+  // Lookup in pending chars is bad practice! Don't copy to other rules!
+  // Pending string is stored in concat mode, indexed lookups will cause
+  // convertion to flat mode.
+  if (!silent) {
+    if (pmax >= 0 && state.pending.charCodeAt(pmax) === 0x20) {
+      if (pmax >= 1 && state.pending.charCodeAt(pmax - 1) === 0x20) {
+        state.pending = state.pending.replace(/ +$/, '');
+        state.push('hardbreak', 'br', 0);
+      } else {
+        state.pending = state.pending.slice(0, -1);
+        state.push('softbreak', 'br', 0);
+      }
+    } else {
+      state.push('softbreak', 'br', 0);
+    }
+  }
+
+  pos++;
+
+  // skip heading spaces for next line
+  while (pos < max && isSpace(state.src.charCodeAt(pos))) {
+    pos++;
+  }
+
+  state.pos = pos;
+  return true;
+};
+
+/***/ }),
+/* 463 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Inline parser state
+
+
+
+var Token = __webpack_require__(316);
+var isWhiteSpace = __webpack_require__(289).isWhiteSpace;
+var isPunctChar = __webpack_require__(289).isPunctChar;
+var isMdAsciiPunct = __webpack_require__(289).isMdAsciiPunct;
+
+function StateInline(src, md, env, outTokens) {
+  this.src = src;
+  this.env = env;
+  this.md = md;
+  this.tokens = outTokens;
+
+  this.pos = 0;
+  this.posMax = this.src.length;
+  this.level = 0;
+  this.pending = '';
+  this.pendingLevel = 0;
+
+  this.cache = {}; // Stores { start: end } pairs. Useful for backtrack
+  // optimization of pairs parse (emphasis, strikes).
+
+  this.delimiters = []; // Emphasis-like delimiters
+}
+
+// Flush pending text
+//
+StateInline.prototype.pushPending = function () {
+  var token = new Token('text', '', 0);
+  token.content = this.pending;
+  token.level = this.pendingLevel;
+  this.tokens.push(token);
+  this.pending = '';
+  return token;
+};
+
+// Push new token to "stream".
+// If pending text exists - flush it as text token
+//
+StateInline.prototype.push = function (type, tag, nesting) {
+  if (this.pending) {
+    this.pushPending();
+  }
+
+  var token = new Token(type, tag, nesting);
+
+  if (nesting < 0) {
+    this.level--;
+  }
+  token.level = this.level;
+  if (nesting > 0) {
+    this.level++;
+  }
+
+  this.pendingLevel = this.level;
+  this.tokens.push(token);
+  return token;
+};
+
+// Scan a sequence of emphasis-like markers, and determine whether
+// it can start an emphasis sequence or end an emphasis sequence.
+//
+//  - start - position to scan from (it should point at a valid marker);
+//  - canSplitWord - determine if these markers can be found inside a word
+//
+StateInline.prototype.scanDelims = function (start, canSplitWord) {
+  var pos = start,
+      lastChar,
+      nextChar,
+      count,
+      can_open,
+      can_close,
+      isLastWhiteSpace,
+      isLastPunctChar,
+      isNextWhiteSpace,
+      isNextPunctChar,
+      left_flanking = true,
+      right_flanking = true,
+      max = this.posMax,
+      marker = this.src.charCodeAt(start);
+
+  // treat beginning of the line as a whitespace
+  lastChar = start > 0 ? this.src.charCodeAt(start - 1) : 0x20;
+
+  while (pos < max && this.src.charCodeAt(pos) === marker) {
+    pos++;
+  }
+
+  count = pos - start;
+
+  // treat end of the line as a whitespace
+  nextChar = pos < max ? this.src.charCodeAt(pos) : 0x20;
+
+  isLastPunctChar = isMdAsciiPunct(lastChar) || isPunctChar(String.fromCharCode(lastChar));
+  isNextPunctChar = isMdAsciiPunct(nextChar) || isPunctChar(String.fromCharCode(nextChar));
+
+  isLastWhiteSpace = isWhiteSpace(lastChar);
+  isNextWhiteSpace = isWhiteSpace(nextChar);
+
+  if (isNextWhiteSpace) {
+    left_flanking = false;
+  } else if (isNextPunctChar) {
+    if (!(isLastWhiteSpace || isLastPunctChar)) {
+      left_flanking = false;
+    }
+  }
+
+  if (isLastWhiteSpace) {
+    right_flanking = false;
+  } else if (isLastPunctChar) {
+    if (!(isNextWhiteSpace || isNextPunctChar)) {
+      right_flanking = false;
+    }
+  }
+
+  if (!canSplitWord) {
+    can_open = left_flanking && (!right_flanking || isLastPunctChar);
+    can_close = right_flanking && (!left_flanking || isNextPunctChar);
+  } else {
+    can_open = left_flanking;
+    can_close = right_flanking;
+  }
+
+  return {
+    can_open: can_open,
+    can_close: can_close,
+    length: count
+  };
+};
+
+// re-export Token class to use in block rules
+StateInline.prototype.Token = Token;
+
+module.exports = StateInline;
+
+/***/ }),
+/* 464 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Skip text characters for text token, place those to pending buffer
+// and increment current pos
+
+
+
+// Rule to skip pure text
+// '{}$%@~+=:' reserved for extentions
+
+// !, ", #, $, %, &, ', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, or ~
+
+// !!!! Don't confuse with "Markdown ASCII Punctuation" chars
+// http://spec.commonmark.org/0.15/#ascii-punctuation-character
+
+function isTerminatorChar(ch) {
+  switch (ch) {
+    case 0x0A /* \n */:
+    case 0x21 /* ! */:
+    case 0x23 /* # */:
+    case 0x24 /* $ */:
+    case 0x25 /* % */:
+    case 0x26 /* & */:
+    case 0x2A /* * */:
+    case 0x2B /* + */:
+    case 0x2D /* - */:
+    case 0x3A /* : */:
+    case 0x3C /* < */:
+    case 0x3D /* = */:
+    case 0x3E /* > */:
+    case 0x40 /* @ */:
+    case 0x5B /* [ */:
+    case 0x5C /* \ */:
+    case 0x5D /* ] */:
+    case 0x5E /* ^ */:
+    case 0x5F /* _ */:
+    case 0x60 /* ` */:
+    case 0x7B /* { */:
+    case 0x7D /* } */:
+    case 0x7E /* ~ */:
+      return true;
+    default:
+      return false;
+  }
+}
+
+module.exports = function text(state, silent) {
+  var pos = state.pos;
+
+  while (pos < state.posMax && !isTerminatorChar(state.src.charCodeAt(pos))) {
+    pos++;
+  }
+
+  if (pos === state.pos) {
+    return false;
+  }
+
+  if (!silent) {
+    state.pending += state.src.slice(state.pos, pos);
+  }
+
+  state.pos = pos;
+
+  return true;
+};
+
+// Alternative implementation, for memory.
+//
+// It costs 10% of performance, but allows extend terminators list, if place it
+// to `ParcerInline` property. Probably, will switch to it sometime, such
+// flexibility required.
+
+/*
+var TERMINATOR_RE = /[\n!#$%&*+\-:<=>@[\\\]^_`{}~]/;
+
+module.exports = function text(state, silent) {
+  var pos = state.pos,
+      idx = state.src.slice(pos).search(TERMINATOR_RE);
+
+  // first char is terminator -> empty text
+  if (idx === 0) { return false; }
+
+  // no terminator -> text till end of string
+  if (idx < 0) {
+    if (!silent) { state.pending += state.src.slice(pos); }
+    state.pos = state.src.length;
+    return true;
+  }
+
+  if (!silent) { state.pending += state.src.slice(pos, pos + idx); }
+
+  state.pos += idx;
+
+  return true;
+};*/
+
+/***/ }),
+/* 465 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Merge adjacent text nodes into one, and re-calculate all token levels
+//
+
+
+module.exports = function text_collapse(state) {
+  var curr,
+      last,
+      level = 0,
+      tokens = state.tokens,
+      max = state.tokens.length;
+
+  for (curr = last = 0; curr < max; curr++) {
+    // re-calculate levels
+    level += tokens[curr].nesting;
+    tokens[curr].level = level;
+
+    if (tokens[curr].type === 'text' && curr + 1 < max && tokens[curr + 1].type === 'text') {
+
+      // collapse two adjacent text nodes
+      tokens[curr + 1].content = tokens[curr].content + tokens[curr + 1].content;
+    } else {
+      if (curr !== last) {
+        tokens[last] = tokens[curr];
+      }
+
+      last++;
+    }
+  }
+
+  if (curr !== last) {
+    tokens.length = last;
+  }
+};
+
+/***/ }),
+/* 466 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+
+/* eslint-disable no-bitwise */
+
+var decodeCache = {};
+
+function getDecodeCache(exclude) {
+  var i,
+      ch,
+      cache = decodeCache[exclude];
+  if (cache) {
+    return cache;
+  }
+
+  cache = decodeCache[exclude] = [];
+
+  for (i = 0; i < 128; i++) {
+    ch = String.fromCharCode(i);
+    cache.push(ch);
+  }
+
+  for (i = 0; i < exclude.length; i++) {
+    ch = exclude.charCodeAt(i);
+    cache[ch] = '%' + ('0' + ch.toString(16).toUpperCase()).slice(-2);
+  }
+
+  return cache;
+}
+
+// Decode percent-encoded string.
+//
+function decode(string, exclude) {
+  var cache;
+
+  if (typeof exclude !== 'string') {
+    exclude = decode.defaultChars;
+  }
+
+  cache = getDecodeCache(exclude);
+
+  return string.replace(/(%[a-f0-9]{2})+/gi, function (seq) {
+    var i,
+        l,
+        b1,
+        b2,
+        b3,
+        b4,
+        chr,
+        result = '';
+
+    for (i = 0, l = seq.length; i < l; i += 3) {
+      b1 = parseInt(seq.slice(i + 1, i + 3), 16);
+
+      if (b1 < 0x80) {
+        result += cache[b1];
+        continue;
+      }
+
+      if ((b1 & 0xE0) === 0xC0 && i + 3 < l) {
+        // 110xxxxx 10xxxxxx
+        b2 = parseInt(seq.slice(i + 4, i + 6), 16);
+
+        if ((b2 & 0xC0) === 0x80) {
+          chr = b1 << 6 & 0x7C0 | b2 & 0x3F;
+
+          if (chr < 0x80) {
+            result += '\uFFFD\uFFFD';
+          } else {
+            result += String.fromCharCode(chr);
+          }
+
+          i += 3;
+          continue;
+        }
+      }
+
+      if ((b1 & 0xF0) === 0xE0 && i + 6 < l) {
+        // 1110xxxx 10xxxxxx 10xxxxxx
+        b2 = parseInt(seq.slice(i + 4, i + 6), 16);
+        b3 = parseInt(seq.slice(i + 7, i + 9), 16);
+
+        if ((b2 & 0xC0) === 0x80 && (b3 & 0xC0) === 0x80) {
+          chr = b1 << 12 & 0xF000 | b2 << 6 & 0xFC0 | b3 & 0x3F;
+
+          if (chr < 0x800 || chr >= 0xD800 && chr <= 0xDFFF) {
+            result += '\uFFFD\uFFFD\uFFFD';
+          } else {
+            result += String.fromCharCode(chr);
+          }
+
+          i += 6;
+          continue;
+        }
+      }
+
+      if ((b1 & 0xF8) === 0xF0 && i + 9 < l) {
+        // 111110xx 10xxxxxx 10xxxxxx 10xxxxxx
+        b2 = parseInt(seq.slice(i + 4, i + 6), 16);
+        b3 = parseInt(seq.slice(i + 7, i + 9), 16);
+        b4 = parseInt(seq.slice(i + 10, i + 12), 16);
+
+        if ((b2 & 0xC0) === 0x80 && (b3 & 0xC0) === 0x80 && (b4 & 0xC0) === 0x80) {
+          chr = b1 << 18 & 0x1C0000 | b2 << 12 & 0x3F000 | b3 << 6 & 0xFC0 | b4 & 0x3F;
+
+          if (chr < 0x10000 || chr > 0x10FFFF) {
+            result += '\uFFFD\uFFFD\uFFFD\uFFFD';
+          } else {
+            chr -= 0x10000;
+            result += String.fromCharCode(0xD800 + (chr >> 10), 0xDC00 + (chr & 0x3FF));
+          }
+
+          i += 9;
+          continue;
+        }
+      }
+
+      result += '\uFFFD';
+    }
+
+    return result;
+  });
+}
+
+decode.defaultChars = ';/?:@&=+$,#';
+decode.componentChars = '';
+
+module.exports = decode;
+
+/***/ }),
+/* 467 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+
+var encodeCache = {};
+
+// Create a lookup array where anything but characters in `chars` string
+// and alphanumeric chars is percent-encoded.
+//
+function getEncodeCache(exclude) {
+  var i,
+      ch,
+      cache = encodeCache[exclude];
+  if (cache) {
+    return cache;
+  }
+
+  cache = encodeCache[exclude] = [];
+
+  for (i = 0; i < 128; i++) {
+    ch = String.fromCharCode(i);
+
+    if (/^[0-9a-z]$/i.test(ch)) {
+      // always allow unencoded alphanumeric characters
+      cache.push(ch);
+    } else {
+      cache.push('%' + ('0' + i.toString(16).toUpperCase()).slice(-2));
+    }
+  }
+
+  for (i = 0; i < exclude.length; i++) {
+    cache[exclude.charCodeAt(i)] = exclude[i];
+  }
+
+  return cache;
+}
+
+// Encode unsafe characters with percent-encoding, skipping already
+// encoded sequences.
+//
+//  - string       - string to encode
+//  - exclude      - list of characters to ignore (in addition to a-zA-Z0-9)
+//  - keepEscaped  - don't encode '%' in a correct escape sequence (default: true)
+//
+function encode(string, exclude, keepEscaped) {
+  var i,
+      l,
+      code,
+      nextCode,
+      cache,
+      result = '';
+
+  if (typeof exclude !== 'string') {
+    // encode(string, keepEscaped)
+    keepEscaped = exclude;
+    exclude = encode.defaultChars;
+  }
+
+  if (typeof keepEscaped === 'undefined') {
+    keepEscaped = true;
+  }
+
+  cache = getEncodeCache(exclude);
+
+  for (i = 0, l = string.length; i < l; i++) {
+    code = string.charCodeAt(i);
+
+    if (keepEscaped && code === 0x25 /* % */ && i + 2 < l) {
+      if (/^[0-9a-f]{2}$/i.test(string.slice(i + 1, i + 3))) {
+        result += string.slice(i, i + 3);
+        i += 2;
+        continue;
+      }
+    }
+
+    if (code < 128) {
+      result += cache[code];
+      continue;
+    }
+
+    if (code >= 0xD800 && code <= 0xDFFF) {
+      if (code >= 0xD800 && code <= 0xDBFF && i + 1 < l) {
+        nextCode = string.charCodeAt(i + 1);
+        if (nextCode >= 0xDC00 && nextCode <= 0xDFFF) {
+          result += encodeURIComponent(string[i] + string[i + 1]);
+          i++;
+          continue;
+        }
+      }
+      result += '%EF%BF%BD';
+      continue;
+    }
+
+    result += encodeURIComponent(string[i]);
+  }
+
+  return result;
+}
+
+encode.defaultChars = ";/?:@&=+$,-_.!~*'()#";
+encode.componentChars = "-_.!~*'()";
+
+module.exports = encode;
+
+/***/ }),
+/* 468 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+
+module.exports = function format(url) {
+  var result = '';
+
+  result += url.protocol || '';
+  result += url.slashes ? '//' : '';
+  result += url.auth ? url.auth + '@' : '';
+
+  if (url.hostname && url.hostname.indexOf(':') !== -1) {
+    // ipv6 address
+    result += '[' + url.hostname + ']';
+  } else {
+    result += url.hostname || '';
+  }
+
+  result += url.port ? ':' + url.port : '';
+  result += url.pathname || '';
+  result += url.search || '';
+  result += url.hash || '';
+
+  return result;
+};
+
+/***/ }),
+/* 469 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+//
+// Changes from joyent/node:
+//
+// 1. No leading slash in paths,
+//    e.g. in `url.parse('http://foo?bar')` pathname is ``, not `/`
+//
+// 2. Backslashes are not replaced with slashes,
+//    so `http:\\example.org\` is treated like a relative path
+//
+// 3. Trailing colon is treated like a part of the path,
+//    i.e. in `http://example.org:foo` pathname is `:foo`
+//
+// 4. Nothing is URL-encoded in the resulting object,
+//    (in joyent/node some chars in auth and paths are encoded)
+//
+// 5. `url.parse()` does not have `parseQueryString` argument
+//
+// 6. Removed extraneous result properties: `host`, `path`, `query`, etc.,
+//    which can be constructed using other parts of the url.
+//
+
+
+function Url() {
+  this.protocol = null;
+  this.slashes = null;
+  this.auth = null;
+  this.port = null;
+  this.hostname = null;
+  this.hash = null;
+  this.search = null;
+  this.pathname = null;
+}
+
+// Reference: RFC 3986, RFC 1808, RFC 2396
+
+// define these here so at least they only have to be
+// compiled once on the first module load.
+var protocolPattern = /^([a-z0-9.+-]+:)/i,
+    portPattern = /:[0-9]*$/,
+
+
+// Special case for a simple path URL
+simplePathPattern = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
+
+
+// RFC 2396: characters reserved for delimiting URLs.
+// We actually just auto-escape these.
+delims = ['<', '>', '"', '`', ' ', '\r', '\n', '\t'],
+
+
+// RFC 2396: characters not allowed for various reasons.
+unwise = ['{', '}', '|', '\\', '^', '`'].concat(delims),
+
+
+// Allowed by RFCs, but cause of XSS attacks.  Always escape these.
+autoEscape = ['\''].concat(unwise),
+
+// Characters that are never ever allowed in a hostname.
+// Note that any invalid chars are also handled, but these
+// are the ones that are *expected* to be seen, so we fast-path
+// them.
+nonHostChars = ['%', '/', '?', ';', '#'].concat(autoEscape),
+    hostEndingChars = ['/', '?', '#'],
+    hostnameMaxLen = 255,
+    hostnamePartPattern = /^[+a-z0-9A-Z_-]{0,63}$/,
+    hostnamePartStart = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
+
+// protocols that can allow "unsafe" and "unwise" chars.
+/* eslint-disable no-script-url */
+// protocols that never have a hostname.
+hostlessProtocol = {
+  'javascript': true,
+  'javascript:': true
+},
+
+// protocols that always contain a // bit.
+slashedProtocol = {
+  'http': true,
+  'https': true,
+  'ftp': true,
+  'gopher': true,
+  'file': true,
+  'http:': true,
+  'https:': true,
+  'ftp:': true,
+  'gopher:': true,
+  'file:': true
+};
+/* eslint-enable no-script-url */
+
+function urlParse(url, slashesDenoteHost) {
+  if (url && url instanceof Url) {
+    return url;
+  }
+
+  var u = new Url();
+  u.parse(url, slashesDenoteHost);
+  return u;
+}
+
+Url.prototype.parse = function (url, slashesDenoteHost) {
+  var i,
+      l,
+      lowerProto,
+      hec,
+      slashes,
+      rest = url;
+
+  // trim before proceeding.
+  // This is to support parse stuff like "  http://foo.com  \n"
+  rest = rest.trim();
+
+  if (!slashesDenoteHost && url.split('#').length === 1) {
+    // Try fast path regexp
+    var simplePath = simplePathPattern.exec(rest);
+    if (simplePath) {
+      this.pathname = simplePath[1];
+      if (simplePath[2]) {
+        this.search = simplePath[2];
+      }
+      return this;
+    }
+  }
+
+  var proto = protocolPattern.exec(rest);
+  if (proto) {
+    proto = proto[0];
+    lowerProto = proto.toLowerCase();
+    this.protocol = proto;
+    rest = rest.substr(proto.length);
+  }
+
+  // figure out if it's got a host
+  // user@server is *always* interpreted as a hostname, and url
+  // resolution will treat //foo/bar as host=foo,path=bar because that's
+  // how the browser resolves relative URLs.
+  if (slashesDenoteHost || proto || rest.match(/^\/\/[^@\/]+@[^@\/]+/)) {
+    slashes = rest.substr(0, 2) === '//';
+    if (slashes && !(proto && hostlessProtocol[proto])) {
+      rest = rest.substr(2);
+      this.slashes = true;
+    }
+  }
+
+  if (!hostlessProtocol[proto] && (slashes || proto && !slashedProtocol[proto])) {
+
+    // there's a hostname.
+    // the first instance of /, ?, ;, or # ends the host.
+    //
+    // If there is an @ in the hostname, then non-host chars *are* allowed
+    // to the left of the last @ sign, unless some host-ending character
+    // comes *before* the @-sign.
+    // URLs are obnoxious.
+    //
+    // ex:
+    // http://a@b@c/ => user:a@b host:c
+    // http://a@b?@c => user:a host:c path:/?@c
+
+    // v0.12 TODO(isaacs): This is not quite how Chrome does things.
+    // Review our test case against browsers more comprehensively.
+
+    // find the first instance of any hostEndingChars
+    var hostEnd = -1;
+    for (i = 0; i < hostEndingChars.length; i++) {
+      hec = rest.indexOf(hostEndingChars[i]);
+      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd)) {
+        hostEnd = hec;
+      }
+    }
+
+    // at this point, either we have an explicit point where the
+    // auth portion cannot go past, or the last @ char is the decider.
+    var auth, atSign;
+    if (hostEnd === -1) {
+      // atSign can be anywhere.
+      atSign = rest.lastIndexOf('@');
+    } else {
+      // atSign must be in auth portion.
+      // http://a@b/c@d => host:b auth:a path:/c@d
+      atSign = rest.lastIndexOf('@', hostEnd);
+    }
+
+    // Now we have a portion which is definitely the auth.
+    // Pull that off.
+    if (atSign !== -1) {
+      auth = rest.slice(0, atSign);
+      rest = rest.slice(atSign + 1);
+      this.auth = auth;
+    }
+
+    // the host is the remaining to the left of the first non-host char
+    hostEnd = -1;
+    for (i = 0; i < nonHostChars.length; i++) {
+      hec = rest.indexOf(nonHostChars[i]);
+      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd)) {
+        hostEnd = hec;
+      }
+    }
+    // if we still have not hit it, then the entire thing is a host.
+    if (hostEnd === -1) {
+      hostEnd = rest.length;
+    }
+
+    if (rest[hostEnd - 1] === ':') {
+      hostEnd--;
+    }
+    var host = rest.slice(0, hostEnd);
+    rest = rest.slice(hostEnd);
+
+    // pull out port.
+    this.parseHost(host);
+
+    // we've indicated that there is a hostname,
+    // so even if it's empty, it has to be present.
+    this.hostname = this.hostname || '';
+
+    // if hostname begins with [ and ends with ]
+    // assume that it's an IPv6 address.
+    var ipv6Hostname = this.hostname[0] === '[' && this.hostname[this.hostname.length - 1] === ']';
+
+    // validate a little.
+    if (!ipv6Hostname) {
+      var hostparts = this.hostname.split(/\./);
+      for (i = 0, l = hostparts.length; i < l; i++) {
+        var part = hostparts[i];
+        if (!part) {
+          continue;
+        }
+        if (!part.match(hostnamePartPattern)) {
+          var newpart = '';
+          for (var j = 0, k = part.length; j < k; j++) {
+            if (part.charCodeAt(j) > 127) {
+              // we replace non-ASCII char with a temporary placeholder
+              // we need this to make sure size of hostname is not
+              // broken by replacing non-ASCII by nothing
+              newpart += 'x';
+            } else {
+              newpart += part[j];
+            }
+          }
+          // we test again with ASCII char only
+          if (!newpart.match(hostnamePartPattern)) {
+            var validParts = hostparts.slice(0, i);
+            var notHost = hostparts.slice(i + 1);
+            var bit = part.match(hostnamePartStart);
+            if (bit) {
+              validParts.push(bit[1]);
+              notHost.unshift(bit[2]);
+            }
+            if (notHost.length) {
+              rest = notHost.join('.') + rest;
+            }
+            this.hostname = validParts.join('.');
+            break;
+          }
+        }
+      }
+    }
+
+    if (this.hostname.length > hostnameMaxLen) {
+      this.hostname = '';
+    }
+
+    // strip [ and ] from the hostname
+    // the host field still retains them, though
+    if (ipv6Hostname) {
+      this.hostname = this.hostname.substr(1, this.hostname.length - 2);
+    }
+  }
+
+  // chop off from the tail first.
+  var hash = rest.indexOf('#');
+  if (hash !== -1) {
+    // got a fragment string.
+    this.hash = rest.substr(hash);
+    rest = rest.slice(0, hash);
+  }
+  var qm = rest.indexOf('?');
+  if (qm !== -1) {
+    this.search = rest.substr(qm);
+    rest = rest.slice(0, qm);
+  }
+  if (rest) {
+    this.pathname = rest;
+  }
+  if (slashedProtocol[lowerProto] && this.hostname && !this.pathname) {
+    this.pathname = '';
+  }
+
+  return this;
+};
+
+Url.prototype.parseHost = function (host) {
+  var port = portPattern.exec(host);
+  if (port) {
+    port = port[0];
+    if (port !== ':') {
+      this.port = port.substr(1);
+    }
+    host = host.substr(0, host.length - port.length);
+  }
+  if (host) {
+    this.hostname = host;
+  }
+};
+
+module.exports = urlParse;
+
+/***/ }),
+/* 470 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function __export(m) {
+    for (var p in m) {
+        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(471));
+__export(__webpack_require__(342));
+__export(__webpack_require__(472));
+//# sourceMappingURL=adaptive-cards.js.map
+
+/***/ }),
+/* 471 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function () {
+    var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+        d.__proto__ = b;
+    } || function (d, b) {
+        for (var p in b) {
+            if (b.hasOwnProperty(p)) d[p] = b[p];
+        }
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() {
+            this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+}();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Enums = __webpack_require__(342);
+var Utils = __webpack_require__(343);
+var TextFormatters = __webpack_require__(473);
+function invokeSetParent(obj, parent) {
+    // This is not super pretty, but it the closest emulation of
+    // "internal" in TypeScript.
+    obj["setParent"](parent);
+}
+function isActionAllowed(action, forbiddenActionTypes) {
+    if (forbiddenActionTypes) {
+        for (var i = 0; i < forbiddenActionTypes.length; i++) {
+            if (action.getJsonTypeName() === forbiddenActionTypes[i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function isElementAllowed(element, forbiddenElementTypes) {
+    if (!hostConfig.supportsInteractivity && element.isInteractive) {
+        return false;
+    }
+    if (forbiddenElementTypes) {
+        for (var i = 0; i < forbiddenElementTypes.length; i++) {
+            if (element.getJsonTypeName() === forbiddenElementTypes[i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+var CardElement = function () {
+    function CardElement() {
+        this._parent = null;
+        this.horizontalAlignment = "left";
+        this.separation = "default";
+    }
+    CardElement.prototype.internalGetNonZeroPadding = function (element, padding) {
+        if (padding.top == 0) {
+            padding.top = element.padding.top;
+        }
+        if (padding.right == 0) {
+            padding.right = element.padding.right;
+        }
+        if (padding.bottom == 0) {
+            padding.bottom = element.padding.bottom;
+        }
+        if (padding.left == 0) {
+            padding.left = element.padding.left;
+        }
+        if (element.parent) {
+            this.internalGetNonZeroPadding(element.parent, padding);
+        }
+    };
+    CardElement.prototype.showBottomSpacer = function (requestingElement) {
+        if (this.parent) {
+            this.parent.showBottomSpacer(this);
+        }
+    };
+    CardElement.prototype.hideBottomSpacer = function (requestingElement) {
+        if (this.parent) {
+            this.parent.hideBottomSpacer(this);
+        }
+    };
+    CardElement.prototype.setParent = function (value) {
+        this._parent = value;
+    };
+    Object.defineProperty(CardElement.prototype, "useDefaultSizing", {
+        get: function get() {
+            return true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CardElement.prototype, "padding", {
+        get: function get() {
+            return { top: 0, right: 0, bottom: 0, left: 0 };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CardElement.prototype.getNonZeroPadding = function () {
+        var padding = { top: 0, right: 0, bottom: 0, left: 0 };
+        this.internalGetNonZeroPadding(this, padding);
+        return padding;
+    };
+    CardElement.prototype.getForbiddenElementTypes = function () {
+        return null;
+    };
+    CardElement.prototype.getForbiddenActionTypes = function () {
+        return null;
+    };
+    CardElement.prototype.parse = function (json) {
+        this.speak = json["speak"];
+        this.horizontalAlignment = Utils.getValueOrDefault(json["horizontalAlignment"], "left");
+        this.separation = Utils.getValueOrDefault(json["separation"], "default");
+    };
+    CardElement.prototype.validate = function () {
+        return [];
+    };
+    CardElement.prototype.render = function () {
+        var renderedElement = this.internalRender();
+        if (renderedElement != null) {
+            renderedElement.style.boxSizing = "border-box";
+        }
+        return renderedElement;
+    };
+    CardElement.prototype.isLastItem = function (item) {
+        return this.parent ? this.parent.isLastItem(item) : true;
+    };
+    CardElement.prototype.getRootElement = function () {
+        var rootElement = this;
+        while (rootElement.parent) {
+            rootElement = rootElement.parent;
+        }
+        return rootElement;
+    };
+    CardElement.prototype.getAllInputs = function () {
+        return [];
+    };
+    Object.defineProperty(CardElement.prototype, "isInteractive", {
+        get: function get() {
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CardElement.prototype, "isStandalone", {
+        get: function get() {
+            return true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(CardElement.prototype, "parent", {
+        get: function get() {
+            return this._parent;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return CardElement;
+}();
+exports.CardElement = CardElement;
+var TextBlock = function (_super) {
+    __extends(TextBlock, _super);
+    function TextBlock() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.size = "normal";
+        _this.weight = "normal";
+        _this.isSubtle = false;
+        _this.wrap = false;
+        return _this;
+    }
+    TextBlock.prototype.internalRender = function () {
+        if (!Utils.isNullOrEmpty(this.text)) {
+            var element = document.createElement("div");
+            if (hostConfig.fontFamily) {
+                element.style.fontFamily = hostConfig.fontFamily;
+            }
+            switch (this.horizontalAlignment) {
+                case "center":
+                    element.style.textAlign = "center";
+                    break;
+                case "right":
+                    element.style.textAlign = "right";
+                    break;
+                default:
+                    element.style.textAlign = "left";
+                    break;
+            }
+            var cssStyle = "text ";
+            var fontSize;
+            switch (this.size) {
+                case "small":
+                    fontSize = hostConfig.fontSizes.small;
+                    break;
+                case "medium":
+                    fontSize = hostConfig.fontSizes.medium;
+                    break;
+                case "large":
+                    fontSize = hostConfig.fontSizes.large;
+                    break;
+                case "extraLarge":
+                    fontSize = hostConfig.fontSizes.extraLarge;
+                    break;
+                default:
+                    fontSize = hostConfig.fontSizes.normal;
+                    break;
+            }
+            // Looks like 1.33 is the magic number to compute line-height
+            // from font size.
+            var computedLineHeight = fontSize * 1.33;
+            element.style.fontSize = fontSize + "px";
+            element.style.lineHeight = computedLineHeight + "px";
+            var actualTextColor = this.color ? this.color : hostConfig.textBlock.color;
+            var colorDefinition;
+            switch (actualTextColor) {
+                case "dark":
+                    colorDefinition = hostConfig.colors.dark;
+                    break;
+                case "light":
+                    colorDefinition = hostConfig.colors.light;
+                    break;
+                case "accent":
+                    colorDefinition = hostConfig.colors.accent;
+                    break;
+                case "good":
+                    colorDefinition = hostConfig.colors.good;
+                    break;
+                case "warning":
+                    colorDefinition = hostConfig.colors.warning;
+                    break;
+                case "attention":
+                    colorDefinition = hostConfig.colors.attention;
+                    break;
+                default:
+                    colorDefinition = hostConfig.colors.dark;
+                    break;
+            }
+            element.style.color = Utils.stringToCssColor(this.isSubtle ? colorDefinition.subtle : colorDefinition.normal);
+            var fontWeight;
+            switch (this.weight) {
+                case "lighter":
+                    fontWeight = hostConfig.fontWeights.lighter;
+                    break;
+                case "bolder":
+                    fontWeight = hostConfig.fontWeights.bolder;
+                    break;
+                default:
+                    fontWeight = hostConfig.fontWeights.normal;
+                    break;
+            }
+            element.style.fontWeight = fontWeight.toString();
+            var formattedText = TextFormatters.formatText(this.text);
+            element.innerHTML = Utils.processMarkdown(formattedText);
+            if (element.firstElementChild instanceof HTMLElement) {
+                var firstElementChild = element.firstElementChild;
+                firstElementChild.style.marginTop = "0px";
+                firstElementChild.style.width = "100%";
+                if (!this.wrap) {
+                    firstElementChild.style.overflow = "hidden";
+                    firstElementChild.style.textOverflow = "ellipsis";
+                }
+            }
+            if (element.lastElementChild instanceof HTMLElement) {
+                element.lastElementChild.style.marginBottom = "0px";
+            }
+            var anchors = element.getElementsByTagName("a");
+            for (var i = 0; i < anchors.length; i++) {
+                anchors[i].target = "_blank";
+            }
+            if (this.wrap) {
+                element.style.wordWrap = "break-word";
+                if (this.maxLines > 0) {
+                    element.style.maxHeight = computedLineHeight * this.maxLines + "px";
+                    element.style.overflow = "hidden";
+                }
+            } else {
+                element.style.whiteSpace = "nowrap";
+            }
+            return element;
+        } else {
+            return null;
+        }
+    };
+    TextBlock.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.text = json["text"];
+        this.size = Utils.getValueOrDefault(json["size"], "normal");
+        this.weight = Utils.getValueOrDefault(json["weight"], "normal");
+        this.color = Utils.getValueOrDefault(json["color"], hostConfig.textBlock.color);
+        this.isSubtle = json["isSubtle"];
+        this.wrap = json["wrap"] === undefined ? false : json["wrap"];
+        this.maxLines = json["maxLines"];
+    };
+    TextBlock.prototype.getJsonTypeName = function () {
+        return "TextBlock";
+    };
+    TextBlock.prototype.getDefaultSeparationDefinition = function () {
+        switch (this.size) {
+            case "small":
+                return hostConfig.textBlock.separations.small;
+            case "medium":
+                return hostConfig.textBlock.separations.medium;
+            case "large":
+                return hostConfig.textBlock.separations.large;
+            case "extraLarge":
+                return hostConfig.textBlock.separations.extraLarge;
+            default:
+                return hostConfig.textBlock.separations.normal;
+        }
+    };
+    TextBlock.prototype.renderSpeech = function () {
+        if (this.speak != null) return this.speak + '\n';
+        if (this.text) return '<s>' + this.text + '</s>\n';
+        return null;
+    };
+    return TextBlock;
+}(CardElement);
+exports.TextBlock = TextBlock;
+var Fact = function () {
+    function Fact() {}
+    Fact.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak + '\n';
+        }
+        return '<s>' + this.name + ' ' + this.value + '</s>\n';
+    };
+    return Fact;
+}();
+exports.Fact = Fact;
+var FactSet = function (_super) {
+    __extends(FactSet, _super);
+    function FactSet() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.facts = [];
+        return _this;
+    }
+    Object.defineProperty(FactSet.prototype, "useDefaultSizing", {
+        get: function get() {
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    FactSet.prototype.internalRender = function () {
+        var element = null;
+        if (this.facts.length > 0) {
+            element = document.createElement("table");
+            element.style.borderWidth = "0px";
+            element.style.borderSpacing = "0px";
+            element.style.borderStyle = "none";
+            element.style.borderCollapse = "collapse";
+            element.style.display = "block";
+            element.style.overflow = "hidden";
+            for (var i = 0; i < this.facts.length; i++) {
+                var trElement = document.createElement("tr");
+                if (i > 0) {
+                    trElement.style.marginTop = hostConfig.factSet.spacing + "px";
+                }
+                var tdElement = document.createElement("td");
+                tdElement.style.padding = "0";
+                if (hostConfig.factSet.title.maxWidth) {
+                    tdElement.style.maxWidth = hostConfig.factSet.title.maxWidth + "px";
+                }
+                tdElement.style.verticalAlign = "top";
+                var textBlock = new TextBlock();
+                textBlock.text = this.facts[i].name;
+                textBlock.size = hostConfig.factSet.title.size;
+                textBlock.color = hostConfig.factSet.title.color;
+                textBlock.isSubtle = hostConfig.factSet.title.isSubtle;
+                textBlock.weight = hostConfig.factSet.title.weight;
+                textBlock.wrap = hostConfig.factSet.title.wrap;
+                textBlock.separation = "none";
+                Utils.appendChild(tdElement, textBlock.render());
+                Utils.appendChild(trElement, tdElement);
+                tdElement = document.createElement("td");
+                tdElement.style.padding = "0px 0px 0px 10px";
+                tdElement.style.verticalAlign = "top";
+                textBlock = new TextBlock();
+                textBlock.text = this.facts[i].value;
+                textBlock.size = hostConfig.factSet.value.size;
+                textBlock.color = hostConfig.factSet.value.color;
+                textBlock.isSubtle = hostConfig.factSet.value.isSubtle;
+                textBlock.weight = hostConfig.factSet.value.weight;
+                textBlock.wrap = hostConfig.factSet.value.wrap;
+                textBlock.separation = "none";
+                Utils.appendChild(tdElement, textBlock.render());
+                Utils.appendChild(trElement, tdElement);
+                Utils.appendChild(element, trElement);
+            }
+        }
+        return element;
+    };
+    FactSet.prototype.getJsonTypeName = function () {
+        return "FactSet";
+    };
+    FactSet.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.factSet.separation;
+    };
+    FactSet.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        if (json["facts"] != null) {
+            var jsonFacts = json["facts"];
+            for (var i = 0; i < jsonFacts.length; i++) {
+                var fact = new Fact();
+                fact.name = jsonFacts[i]["title"];
+                fact.value = jsonFacts[i]["value"];
+                fact.speak = jsonFacts[i]["speak"];
+                this.facts.push(fact);
+            }
+        }
+    };
+    FactSet.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak + '\n';
+        }
+        // render each fact
+        var speak = null;
+        if (this.facts.length > 0) {
+            speak = '';
+            for (var i = 0; i < this.facts.length; i++) {
+                var speech = this.facts[i].renderSpeech();
+                if (speech) {
+                    speak += speech;
+                }
+            }
+        }
+        return '<p>' + speak + '\n</p>\n';
+    };
+    return FactSet;
+}(CardElement);
+exports.FactSet = FactSet;
+var Image = function (_super) {
+    __extends(Image, _super);
+    function Image() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.style = "normal";
+        _this.size = "medium";
+        return _this;
+    }
+    Object.defineProperty(Image.prototype, "useDefaultSizing", {
+        get: function get() {
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Image.prototype.internalRender = function () {
+        var _this = this;
+        var element = null;
+        if (!Utils.isNullOrEmpty(this.url)) {
+            element = document.createElement("div");
+            element.classList.add("ac-image");
+            element.style.display = "flex";
+            element.style.alignItems = "flex-start";
+            if (this.selectAction != null) {
+                element.classList.add("ac-selectable");
+            }
+            element.onclick = function (e) {
+                if (_this.selectAction) {
+                    _this.selectAction.execute();
+                    e.cancelBubble = true;
+                }
+            };
+            switch (this.horizontalAlignment) {
+                case "center":
+                    element.style.justifyContent = "center";
+                    break;
+                case "right":
+                    element.style.justifyContent = "flex-end";
+                    break;
+                default:
+                    element.style.justifyContent = "flex-start";
+                    break;
+            }
+            var imageElement = document.createElement("img");
+            imageElement.style.maxHeight = "100%";
+            switch (this.size) {
+                case "stretch":
+                    imageElement.style.width = "100%";
+                    break;
+                case "auto":
+                    imageElement.style.maxWidth = "100%";
+                    imageElement.style.maxHeight = "500px";
+                    break;
+                case "small":
+                    imageElement.style.maxWidth = hostConfig.imageSizes.small + "px";
+                    break;
+                case "large":
+                    imageElement.style.maxWidth = hostConfig.imageSizes.large + "px";
+                    break;
+                case "medium":
+                    imageElement.style.maxWidth = hostConfig.imageSizes.medium + "px";
+                    break;
+            }
+            if (this.style == "person") {
+                imageElement.style.borderRadius = "50%";
+                imageElement.style.backgroundPosition = "50% 50%";
+                imageElement.style.backgroundRepeat = "no-repeat";
+            }
+            imageElement.src = this.url;
+            element.appendChild(imageElement);
+        }
+        return element;
+    };
+    Image.prototype.getJsonTypeName = function () {
+        return "Image";
+    };
+    Image.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.image.separation;
+    };
+    Image.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.url = json["url"];
+        this.style = Utils.getValueOrDefault(json["style"], "normal");
+        this.size = Utils.getValueOrDefault(json["size"], "medium");
+        var selectActionJson = json["selectAction"];
+        if (selectActionJson != undefined) {
+            this.selectAction = Action.createAction(selectActionJson);
+            invokeSetParent(this.selectAction, this);
+        }
+    };
+    Image.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak + '\n';
+        }
+        return null;
+    };
+    return Image;
+}(CardElement);
+exports.Image = Image;
+var ImageSet = function (_super) {
+    __extends(ImageSet, _super);
+    function ImageSet() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._images = [];
+        _this.imageSize = "medium";
+        return _this;
+    }
+    ImageSet.prototype.internalRender = function () {
+        var element = null;
+        if (this._images.length > 0) {
+            element = document.createElement("div");
+            element.style.display = "flex";
+            element.style.flexWrap = "wrap";
+            for (var i = 0; i < this._images.length; i++) {
+                var renderedImage = this._images[i].render();
+                renderedImage.style.display = "inline-flex";
+                renderedImage.style.margin = "0px";
+                renderedImage.style.marginRight = "10px";
+                renderedImage.style.height = "100px";
+                Utils.appendChild(element, renderedImage);
+            }
+        }
+        return element;
+    };
+    ImageSet.prototype.getJsonTypeName = function () {
+        return "ImageSet";
+    };
+    ImageSet.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.imageSet.separation;
+    };
+    ImageSet.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.imageSize = Utils.getValueOrDefault(json["imageSize"], "medium");
+        if (json["images"] != null) {
+            var jsonImages = json["images"];
+            for (var i = 0; i < jsonImages.length; i++) {
+                var image = new Image();
+                image.parse(jsonImages[i]);
+                image.size = this.imageSize;
+                this.addImage(image);
+            }
+        }
+    };
+    ImageSet.prototype.addImage = function (image) {
+        if (!image.parent) {
+            this._images.push(image);
+            invokeSetParent(image, this);
+        } else {
+            throw new Error("This image already belongs to another ImageSet");
+        }
+    };
+    ImageSet.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak;
+        }
+        var speak = null;
+        if (this._images.length > 0) {
+            speak = '';
+            for (var i = 0; i < this._images.length; i++) {
+                speak += this._images[i].renderSpeech();
+            }
+        }
+        return speak;
+    };
+    return ImageSet;
+}(CardElement);
+exports.ImageSet = ImageSet;
+var Input = function (_super) {
+    __extends(Input, _super);
+    function Input() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Input.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.input.separation;
+    };
+    Input.prototype.validate = function () {
+        if (!this.id) {
+            return [{ error: Enums.ValidationError.PropertyCantBeNull, message: "All inputs must have a unique Id" }];
+        } else {
+            return [];
+        }
+    };
+    Input.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.id = json["id"];
+        this.defaultValue = json["value"];
+    };
+    Input.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak;
+        }
+        if (this.title) {
+            return '<s>' + this.title + '</s>\n';
+        }
+        return null;
+    };
+    Input.prototype.getAllInputs = function () {
+        return [this];
+    };
+    Object.defineProperty(Input.prototype, "isInteractive", {
+        get: function get() {
+            return true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Input;
+}(CardElement);
+exports.Input = Input;
+var TextInput = function (_super) {
+    __extends(TextInput, _super);
+    function TextInput() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TextInput.prototype.internalRender = function () {
+        if (this.isMultiline) {
+            this._textareaElement = document.createElement("textarea");
+            this._textareaElement.className = "ac-input ac-textInput ac-multiline";
+            this._textareaElement.style.width = "100%";
+            if (!Utils.isNullOrEmpty(this.placeholder)) {
+                this._textareaElement.placeholder = this.placeholder;
+            }
+            if (!Utils.isNullOrEmpty(this.defaultValue)) {
+                this._textareaElement.value = this.defaultValue;
+            }
+            if (this.maxLength > 0) {
+                this._textareaElement.maxLength = this.maxLength;
+            }
+            return this._textareaElement;
+        } else {
+            this._inputElement = document.createElement("input");
+            this._inputElement.type = "text";
+            this._inputElement.className = "ac-input ac-textInput";
+            this._inputElement.style.width = "100%";
+            if (!Utils.isNullOrEmpty(this.placeholder)) {
+                this._inputElement.placeholder = this.placeholder;
+            }
+            if (!Utils.isNullOrEmpty(this.defaultValue)) {
+                this._inputElement.value = this.defaultValue;
+            }
+            if (this.maxLength > 0) {
+                this._inputElement.maxLength = this.maxLength;
+            }
+            return this._inputElement;
+        }
+    };
+    TextInput.prototype.getJsonTypeName = function () {
+        return "Input.Text";
+    };
+    TextInput.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.maxLength = json["maxLength"];
+        this.isMultiline = json["isMultiline"];
+        this.placeholder = json["placeholder"];
+    };
+    Object.defineProperty(TextInput.prototype, "value", {
+        get: function get() {
+            if (this.isMultiline) {
+                return this._textareaElement ? this._textareaElement.value : null;
+            } else {
+                return this._inputElement ? this._inputElement.value : null;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return TextInput;
+}(Input);
+exports.TextInput = TextInput;
+var ToggleInput = function (_super) {
+    __extends(ToggleInput, _super);
+    function ToggleInput() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ToggleInput.prototype.internalRender = function () {
+        var element = document.createElement("div");
+        element.className = "ac-input";
+        element.style.width = "100%";
+        this._checkboxInputElement = document.createElement("input");
+        this._checkboxInputElement.type = "checkbox";
+        this._checkboxInputElement.style.display = "inline-block";
+        this._checkboxInputElement.style.verticalAlign = "middle";
+        this._checkboxInputElement.style.margin = "0";
+        if (this.defaultValue == this.valueOn) {
+            this._checkboxInputElement.checked = true;
+        }
+        var label = new TextBlock();
+        label.text = this.title;
+        var labelElement = label.render();
+        labelElement.style.display = "inline-block";
+        labelElement.style.marginLeft = "6px";
+        labelElement.style.verticalAlign = "middle";
+        var compoundInput = document.createElement("div");
+        Utils.appendChild(element, this._checkboxInputElement);
+        Utils.appendChild(element, labelElement);
+        return element;
+    };
+    ToggleInput.prototype.getJsonTypeName = function () {
+        return "Input.Toggle";
+    };
+    ToggleInput.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.title = json["title"];
+        this.valueOn = json["valueOn"];
+        this.valueOff = json["valueOff"];
+    };
+    Object.defineProperty(ToggleInput.prototype, "value", {
+        get: function get() {
+            if (this._checkboxInputElement) {
+                return this._checkboxInputElement.checked ? this.valueOn : this.valueOff;
+            } else {
+                return null;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ToggleInput;
+}(Input);
+exports.ToggleInput = ToggleInput;
+var Choice = function () {
+    function Choice() {}
+    return Choice;
+}();
+exports.Choice = Choice;
+var ChoiceSetInput = function (_super) {
+    __extends(ChoiceSetInput, _super);
+    function ChoiceSetInput() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.choices = [];
+        return _this;
+    }
+    ChoiceSetInput.prototype.internalRender = function () {
+        if (!this.isMultiSelect) {
+            if (this.isCompact) {
+                // Render as a combo box
+                this._selectElement = document.createElement("select");
+                this._selectElement.className = "ac-input ac-multichoiceInput";
+                this._selectElement.style.width = "100%";
+                var option = document.createElement("option");
+                option.selected = true;
+                option.disabled = true;
+                option.hidden = true;
+                if (this.placeholder) {
+                    option.text = this.placeholder;
+                }
+                Utils.appendChild(this._selectElement, option);
+                for (var i = 0; i < this.choices.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = this.choices[i].value;
+                    option.text = this.choices[i].title;
+                    if (this.choices[i].value == this.defaultValue) {
+                        option.selected = true;
+                    }
+                    Utils.appendChild(this._selectElement, option);
+                }
+                return this._selectElement;
+            } else {
+                // Render as a series of radio buttons
+                var element = document.createElement("div");
+                element.className = "ac-input";
+                element.style.width = "100%";
+                this._toggleInputs = [];
+                for (var i = 0; i < this.choices.length; i++) {
+                    var radioInput = document.createElement("input");
+                    radioInput.type = "radio";
+                    radioInput.style.margin = "0";
+                    radioInput.style.display = "inline-block";
+                    radioInput.style.verticalAlign = "middle";
+                    radioInput.name = this.id;
+                    radioInput.value = this.choices[i].value;
+                    if (this.choices[i].value == this.defaultValue) {
+                        radioInput.checked = true;
+                    }
+                    this._toggleInputs.push(radioInput);
+                    var label = new TextBlock();
+                    label.text = this.choices[i].title;
+                    var labelElement = label.render();
+                    labelElement.style.display = "inline-block";
+                    labelElement.style.marginLeft = "6px";
+                    labelElement.style.verticalAlign = "middle";
+                    var compoundInput = document.createElement("div");
+                    Utils.appendChild(compoundInput, radioInput);
+                    Utils.appendChild(compoundInput, labelElement);
+                    Utils.appendChild(element, compoundInput);
+                }
+                return element;
+            }
+        } else {
+            // Render as a list of toggle inputs
+            var defaultValues = this.defaultValue ? this.defaultValue.split(",") : null;
+            var element = document.createElement("div");
+            element.className = "ac-input";
+            element.style.width = "100%";
+            this._toggleInputs = [];
+            for (var i = 0; i < this.choices.length; i++) {
+                var checkboxInput = document.createElement("input");
+                checkboxInput.type = "checkbox";
+                checkboxInput.style.margin = "0";
+                checkboxInput.style.display = "inline-block";
+                checkboxInput.style.verticalAlign = "middle";
+                checkboxInput.value = this.choices[i].value;
+                if (defaultValues) {
+                    if (defaultValues.indexOf(this.choices[i].value) >= 0) {
+                        checkboxInput.checked = true;
+                    }
+                }
+                this._toggleInputs.push(checkboxInput);
+                var label = new TextBlock();
+                label.text = this.choices[i].title;
+                var labelElement = label.render();
+                labelElement.style.display = "inline-block";
+                labelElement.style.marginLeft = "6px";
+                labelElement.style.verticalAlign = "middle";
+                var compoundInput = document.createElement("div");
+                Utils.appendChild(compoundInput, checkboxInput);
+                Utils.appendChild(compoundInput, labelElement);
+                Utils.appendChild(element, compoundInput);
+            }
+            return element;
+        }
+    };
+    ChoiceSetInput.prototype.getJsonTypeName = function () {
+        return "Input.ChoiceSet";
+    };
+    ChoiceSetInput.prototype.validate = function () {
+        var result = [];
+        if (this.choices.length == 0) {
+            result = [{ error: Enums.ValidationError.CollectionCantBeEmpty, message: "An Input.ChoiceSet must have at least one choice defined." }];
+        }
+        for (var i = 0; i < this.choices.length; i++) {
+            if (!this.choices[i].title || !this.choices[i].value) {
+                result = result.concat([{ error: Enums.ValidationError.PropertyCantBeNull, message: "All choices in an Input.ChoiceSet must have their title and value properties set." }]);
+                break;
+            }
+        }
+        return result;
+    };
+    ChoiceSetInput.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.isCompact = !(json["style"] === "expanded");
+        this.isMultiSelect = json["isMultiSelect"];
+        this.placeholder = json["placeholder"];
+        if (json["choices"] != undefined) {
+            var choiceArray = json["choices"];
+            for (var i = 0; i < choiceArray.length; i++) {
+                var choice = new Choice();
+                choice.title = choiceArray[i]["title"];
+                choice.value = choiceArray[i]["value"];
+                this.choices.push(choice);
+            }
+        }
+    };
+    Object.defineProperty(ChoiceSetInput.prototype, "value", {
+        get: function get() {
+            if (!this.isMultiSelect) {
+                if (this.isCompact) {
+                    return this._selectElement ? this._selectElement.value : null;
+                } else {
+                    if (!this._toggleInputs || this._toggleInputs.length == 0) {
+                        return null;
+                    }
+                    for (var i = 0; i < this._toggleInputs.length; i++) {
+                        if (this._toggleInputs[i].checked) {
+                            return this._toggleInputs[i].value;
+                        }
+                    }
+                    return null;
+                }
+            } else {
+                if (!this._toggleInputs || this._toggleInputs.length == 0) {
+                    return null;
+                }
+                var result = "";
+                for (var i = 0; i < this._toggleInputs.length; i++) {
+                    if (this._toggleInputs[i].checked) {
+                        if (result != "") {
+                            result += ";";
+                        }
+                        result += this._toggleInputs[i].value;
+                    }
+                }
+                return result == "" ? null : result;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ChoiceSetInput;
+}(Input);
+exports.ChoiceSetInput = ChoiceSetInput;
+var NumberInput = function (_super) {
+    __extends(NumberInput, _super);
+    function NumberInput() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NumberInput.prototype.internalRender = function () {
+        this._numberInputElement = document.createElement("input");
+        this._numberInputElement.type = "number";
+        this._numberInputElement.className = "ac-input ac-numberInput";
+        this._numberInputElement.min = this.min;
+        this._numberInputElement.max = this.max;
+        this._numberInputElement.style.width = "100%";
+        if (!Utils.isNullOrEmpty(this.defaultValue)) {
+            this._numberInputElement.value = this.defaultValue;
+        }
+        return this._numberInputElement;
+    };
+    NumberInput.prototype.getJsonTypeName = function () {
+        return "Input.Number";
+    };
+    NumberInput.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.min = json["min"];
+        this.max = json["max"];
+    };
+    Object.defineProperty(NumberInput.prototype, "value", {
+        get: function get() {
+            return this._numberInputElement ? this._numberInputElement.value : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return NumberInput;
+}(Input);
+exports.NumberInput = NumberInput;
+var DateInput = function (_super) {
+    __extends(DateInput, _super);
+    function DateInput() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DateInput.prototype.internalRender = function () {
+        this._dateInputElement = document.createElement("input");
+        this._dateInputElement.type = "date";
+        this._dateInputElement.className = "ac-input ac-dateInput";
+        this._dateInputElement.style.width = "100%";
+        if (!Utils.isNullOrEmpty(this.defaultValue)) {
+            this._dateInputElement.value = this.defaultValue;
+        }
+        return this._dateInputElement;
+    };
+    DateInput.prototype.getJsonTypeName = function () {
+        return "Input.Date";
+    };
+    Object.defineProperty(DateInput.prototype, "value", {
+        get: function get() {
+            return this._dateInputElement ? this._dateInputElement.value : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return DateInput;
+}(Input);
+exports.DateInput = DateInput;
+var TimeInput = function (_super) {
+    __extends(TimeInput, _super);
+    function TimeInput() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TimeInput.prototype.internalRender = function () {
+        this._timeInputElement = document.createElement("input");
+        this._timeInputElement.type = "time";
+        this._timeInputElement.className = "ac-input ac-timeInput";
+        this._timeInputElement.style.width = "100%";
+        if (!Utils.isNullOrEmpty(this.defaultValue)) {
+            this._timeInputElement.value = this.defaultValue;
+        }
+        return this._timeInputElement;
+    };
+    TimeInput.prototype.getJsonTypeName = function () {
+        return "Input.Time";
+    };
+    Object.defineProperty(TimeInput.prototype, "value", {
+        get: function get() {
+            return this._timeInputElement ? this._timeInputElement.value : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return TimeInput;
+}(Input);
+exports.TimeInput = TimeInput;
+var ActionButtonState;
+(function (ActionButtonState) {
+    ActionButtonState[ActionButtonState["Normal"] = 0] = "Normal";
+    ActionButtonState[ActionButtonState["Expanded"] = 1] = "Expanded";
+    ActionButtonState[ActionButtonState["Subdued"] = 2] = "Subdued";
+})(ActionButtonState || (ActionButtonState = {}));
+var ActionButton = function () {
+    function ActionButton(action, style) {
+        var _this = this;
+        this._style = "button";
+        this._element = null;
+        this._state = ActionButtonState.Normal;
+        this.onClick = null;
+        this._action = action;
+        this._style = style;
+        this._element = document.createElement("button");
+        this._element.style.overflow = "hidden";
+        this._element.style.whiteSpace = "nowrap";
+        this._element.style.textOverflow = "ellipsis";
+        this._element.onclick = function (e) {
+            _this.click();
+        };
+        this.updateCssStyle();
+    }
+    ActionButton.prototype.click = function () {
+        if (this.onClick != null) {
+            this.onClick(this);
+        }
+    };
+    ActionButton.prototype.updateCssStyle = function () {
+        this._element.className = this._style == "link" ? "ac-linkButton" : "ac-pushButton";
+        if (this._action instanceof ShowCardAction) {
+            this._element.classList.add("expandable");
+        }
+        switch (this._state) {
+            case ActionButtonState.Expanded:
+                this._element.classList.add("expanded");
+                break;
+            case ActionButtonState.Subdued:
+                this._element.classList.add("subdued");
+                break;
+        }
+    };
+    Object.defineProperty(ActionButton.prototype, "action", {
+        get: function get() {
+            return this._action;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActionButton.prototype, "text", {
+        get: function get() {
+            return this._text;
+        },
+        set: function set(value) {
+            this._text = value;
+            this._element.innerText = this._text;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActionButton.prototype, "element", {
+        get: function get() {
+            return this._element;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ActionButton.prototype, "state", {
+        get: function get() {
+            return this._state;
+        },
+        set: function set(value) {
+            this._state = value;
+            this.updateCssStyle();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ActionButton;
+}();
+var Action = function () {
+    function Action() {
+        this._parent = null;
+    }
+    Action.createAction = function (json) {
+        var actionType = json["type"];
+        var result = AdaptiveCard.actionTypeRegistry.createInstance(actionType);
+        if (result) {
+            result.parse(json);
+        } else {
+            raiseParseError({
+                error: Enums.ValidationError.UnknownActionType,
+                message: "Unknown action type: " + actionType
+            });
+        }
+        return result;
+    };
+    Action.prototype.setParent = function (value) {
+        this._parent = value;
+    };
+    Action.prototype.validate = function () {
+        return [];
+    };
+    Action.prototype.prepare = function (inputs) {
+        // Do nothing in base implementation
+    };
+    ;
+    Action.prototype.parse = function (json) {
+        this.title = json["title"];
+    };
+    Action.prototype.getAllInputs = function () {
+        return [];
+    };
+    Object.defineProperty(Action.prototype, "parent", {
+        get: function get() {
+            return this._parent;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Action;
+}();
+exports.Action = Action;
+var ExternalAction = function (_super) {
+    __extends(ExternalAction, _super);
+    function ExternalAction() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ExternalAction.prototype.execute = function () {
+        raiseExecuteActionEvent(this);
+    };
+    return ExternalAction;
+}(Action);
+exports.ExternalAction = ExternalAction;
+var SubmitAction = function (_super) {
+    __extends(SubmitAction, _super);
+    function SubmitAction() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._isPrepared = false;
+        return _this;
+    }
+    SubmitAction.prototype.getJsonTypeName = function () {
+        return "Action.Submit";
+    };
+    SubmitAction.prototype.prepare = function (inputs) {
+        if (this._originalData) {
+            this._processedData = JSON.parse(JSON.stringify(this._originalData));
+        } else {
+            this._processedData = {};
+        }
+        for (var i = 0; i < inputs.length; i++) {
+            var inputValue = inputs[i].value;
+            if (inputValue != null) {
+                this._processedData[inputs[i].id] = inputs[i].value;
+            }
+        }
+        this._isPrepared = true;
+    };
+    SubmitAction.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.data = json["data"];
+    };
+    Object.defineProperty(SubmitAction.prototype, "data", {
+        get: function get() {
+            return this._isPrepared ? this._processedData : this._originalData;
+        },
+        set: function set(value) {
+            this._originalData = value;
+            this._isPrepared = false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return SubmitAction;
+}(ExternalAction);
+exports.SubmitAction = SubmitAction;
+var OpenUrlAction = function (_super) {
+    __extends(OpenUrlAction, _super);
+    function OpenUrlAction() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OpenUrlAction.prototype.getJsonTypeName = function () {
+        return "Action.OpenUrl";
+    };
+    OpenUrlAction.prototype.validate = function () {
+        if (!this.url) {
+            return [{ error: Enums.ValidationError.PropertyCantBeNull, message: "An Action.OpenUrl must have its url property set." }];
+        } else {
+            return [];
+        }
+    };
+    OpenUrlAction.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.url = json["url"];
+    };
+    return OpenUrlAction;
+}(ExternalAction);
+exports.OpenUrlAction = OpenUrlAction;
+var HttpHeader = function () {
+    function HttpHeader() {
+        this._value = new Utils.StringWithSubstitutions();
+    }
+    HttpHeader.prototype.prepare = function (inputs) {
+        this._value.substituteInputValues(inputs);
+    };
+    Object.defineProperty(HttpHeader.prototype, "value", {
+        get: function get() {
+            return this._value.get();
+        },
+        set: function set(newValue) {
+            this._value.set(newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return HttpHeader;
+}();
+exports.HttpHeader = HttpHeader;
+var HttpAction = function (_super) {
+    __extends(HttpAction, _super);
+    function HttpAction() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._url = new Utils.StringWithSubstitutions();
+        _this._body = new Utils.StringWithSubstitutions();
+        _this._headers = [];
+        return _this;
+    }
+    HttpAction.prototype.getJsonTypeName = function () {
+        return "Action.Http";
+    };
+    HttpAction.prototype.validate = function () {
+        var result = [];
+        if (!this.url) {
+            result = [{ error: Enums.ValidationError.PropertyCantBeNull, message: "An Action.Http must have its url property set." }];
+        }
+        if (this.headers.length > 0) {
+            for (var i = 0; i < this.headers.length; i++) {
+                if (!this.headers[i].name || !this.headers[i].value) {
+                    result = result.concat([{ error: Enums.ValidationError.PropertyCantBeNull, message: "All headers of an Action.Http must have their name and value properties set." }]);
+                    break;
+                }
+            }
+        }
+        return result;
+    };
+    HttpAction.prototype.prepare = function (inputs) {
+        this._url.substituteInputValues(inputs);
+        this._body.substituteInputValues(inputs);
+        for (var i = 0; i < this._headers.length; i++) {
+            this._headers[i].prepare(inputs);
+        }
+    };
+    ;
+    HttpAction.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.url = json["url"];
+        this.method = json["method"];
+        this.body = json["body"];
+        if (json["headers"] != null) {
+            var jsonHeaders = json["headers"];
+            for (var i = 0; i < jsonHeaders.length; i++) {
+                var httpHeader = new HttpHeader();
+                httpHeader.name = jsonHeaders[i]["name"];
+                httpHeader.value = jsonHeaders[i]["value"];
+                this.headers.push(httpHeader);
+            }
+        }
+    };
+    Object.defineProperty(HttpAction.prototype, "url", {
+        get: function get() {
+            return this._url.get();
+        },
+        set: function set(value) {
+            this._url.set(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(HttpAction.prototype, "body", {
+        get: function get() {
+            return this._body.get();
+        },
+        set: function set(value) {
+            this._body.set(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(HttpAction.prototype, "headers", {
+        get: function get() {
+            return this._headers;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return HttpAction;
+}(ExternalAction);
+exports.HttpAction = HttpAction;
+var ShowCardAction = function (_super) {
+    __extends(ShowCardAction, _super);
+    function ShowCardAction() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.card = new InlineAdaptiveCard();
+        return _this;
+    }
+    ShowCardAction.prototype.setParent = function (value) {
+        _super.prototype.setParent.call(this, value);
+        invokeSetParent(this.card, value);
+    };
+    ShowCardAction.prototype.execute = function () {
+        raiseShowPopupCardEvent(this);
+    };
+    ShowCardAction.prototype.getJsonTypeName = function () {
+        return "Action.ShowCard";
+    };
+    ShowCardAction.prototype.validate = function () {
+        return this.card.validate();
+    };
+    ShowCardAction.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.card.parse(json["card"]);
+    };
+    ShowCardAction.prototype.getAllInputs = function () {
+        return this.card.getAllInputs();
+    };
+    return ShowCardAction;
+}(Action);
+exports.ShowCardAction = ShowCardAction;
+var ActionCollection = function () {
+    function ActionCollection(owner) {
+        this._actionButtons = [];
+        this._expandedAction = null;
+        this._renderedActionCount = 0;
+        this.items = [];
+        this.actionStyle = "button";
+        this.onHideActionCardPane = null;
+        this.onShowActionCardPane = null;
+        this._owner = owner;
+    }
+    ActionCollection.prototype.hideActionCardPane = function () {
+        this._actionCardContainer.innerHTML = '';
+        this._actionCardContainer.style.padding = "0px";
+        this._actionCardContainer.style.marginTop = "0px";
+        if (this.onHideActionCardPane) {
+            this.onHideActionCardPane();
+        }
+        if (this._expandedAction) {
+            raiseInlineCardExpandedEvent(this._expandedAction, false);
+        }
+        this._expandedAction = null;
+    };
+    ActionCollection.prototype.showActionCardPane = function (action) {
+        if (this.onShowActionCardPane) {
+            this.onShowActionCardPane(action);
+        }
+        var renderedCard = action.card.render();
+        this._actionCardContainer.innerHTML = '';
+        this._actionCardContainer.style.marginTop = this._renderedActionCount > 0 ? hostConfig.actions.showCard.inlineTopMargin + "px" : "0px";
+        if (hostConfig.actions.showCard.actionMode == "inlineEdgeToEdge") {
+            var padding = this._owner.getNonZeroPadding();
+            this._actionCardContainer.style.paddingLeft = padding.left + "px";
+            this._actionCardContainer.style.paddingRight = padding.right + "px";
+            this._actionCardContainer.style.marginLeft = "-" + padding.left + "px";
+            this._actionCardContainer.style.marginRight = "-" + padding.right + "px";
+            renderedCard.style.paddingLeft = "0px";
+            renderedCard.style.paddingRight = "0px";
+        }
+        Utils.appendChild(this._actionCardContainer, renderedCard);
+        raiseInlineCardExpandedEvent(action, true);
+        this._expandedAction = action;
+    };
+    ActionCollection.prototype.actionClicked = function (actionButton) {
+        if (!(actionButton.action instanceof ShowCardAction)) {
+            for (var i = 0; i < this._actionButtons.length; i++) {
+                this._actionButtons[i].state = ActionButtonState.Normal;
+            }
+            this.hideActionCardPane();
+            actionButton.action.execute();
+        } else {
+            if (hostConfig.actions.showCard.actionMode == "popup") {
+                actionButton.action.execute();
+            } else if (actionButton.action === this._expandedAction) {
+                for (var i = 0; i < this._actionButtons.length; i++) {
+                    this._actionButtons[i].state = ActionButtonState.Normal;
+                }
+                this.hideActionCardPane();
+            } else {
+                for (var i = 0; i < this._actionButtons.length; i++) {
+                    if (this._actionButtons[i] !== actionButton) {
+                        this._actionButtons[i].state = ActionButtonState.Subdued;
+                    }
+                }
+                actionButton.state = ActionButtonState.Expanded;
+                this.showActionCardPane(actionButton.action);
+            }
+        }
+    };
+    ActionCollection.prototype.validate = function () {
+        var result = [];
+        if (hostConfig.actions.maxActions && this.items.length > hostConfig.actions.maxActions) {
+            result.push({
+                error: Enums.ValidationError.TooManyActions,
+                message: "A maximum of " + hostConfig.actions.maxActions + " actions are allowed."
+            });
+        }
+        if (this.items.length > 0 && !hostConfig.supportsInteractivity) {
+            result.push({
+                error: Enums.ValidationError.InteractivityNotAllowed,
+                message: "Interactivity is not allowed."
+            });
+        }
+        for (var i = 0; i < this.items.length; i++) {
+            if (!isActionAllowed(this.items[i], this._owner.getForbiddenActionTypes())) {
+                result.push({
+                    error: Enums.ValidationError.ActionTypeNotAllowed,
+                    message: "Actions of type " + this.items[i].getJsonTypeName() + " are not allowe."
+                });
+            }
+        }
+        for (var i = 0; i < this.items.length; i++) {
+            result = result.concat(this.items[i].validate());
+        }
+        return result;
+    };
+    ActionCollection.prototype.render = function () {
+        var _this = this;
+        if (!hostConfig.supportsInteractivity) {
+            return null;
+        }
+        var element = document.createElement("div");
+        this._actionCardContainer = document.createElement("div");
+        this._actionCardContainer.style.backgroundColor = Utils.stringToCssColor(hostConfig.actions.showCard.backgroundColor);
+        this._renderedActionCount = 0;
+        var maxActions = hostConfig.actions.maxActions ? Math.min(hostConfig.actions.maxActions, this.items.length) : this.items.length;
+        var forbiddenActionTypes = this._owner.getForbiddenActionTypes();
+        if (hostConfig.actions.preExpandSingleShowCardAction && maxActions == 1 && this.items[0] instanceof ShowCardAction && isActionAllowed(this.items[i], forbiddenActionTypes)) {
+            this.showActionCardPane(this.items[0]);
+            this._renderedActionCount = 1;
+        } else {
+            var buttonStrip = document.createElement("div");
+            buttonStrip.style.display = "flex";
+            if (hostConfig.actions.actionsOrientation == "horizontal") {
+                buttonStrip.style.flexDirection = "row";
+                switch (hostConfig.actions.actionAlignment) {
+                    case "center":
+                        buttonStrip.style.justifyContent = "center";
+                        break;
+                    case "right":
+                        buttonStrip.style.justifyContent = "flex-end";
+                        break;
+                    default:
+                        buttonStrip.style.justifyContent = "flex-start";
+                        break;
+                }
+            } else {
+                buttonStrip.style.flexDirection = "column";
+                switch (hostConfig.actions.actionAlignment) {
+                    case "center":
+                        buttonStrip.style.alignItems = "center";
+                        break;
+                    case "right":
+                        buttonStrip.style.alignItems = "flex-end";
+                        break;
+                    case "stretch":
+                        buttonStrip.style.alignItems = "stretch";
+                        break;
+                    default:
+                        buttonStrip.style.alignItems = "flex-start";
+                        break;
+                }
+            }
+            for (var i = 0; i < maxActions; i++) {
+                if (isActionAllowed(this.items[i], forbiddenActionTypes)) {
+                    var actionButton = new ActionButton(this.items[i], this.actionStyle);
+                    actionButton.element.style.overflow = "hidden";
+                    actionButton.element.style.overflow = "table-cell";
+                    actionButton.element.style.flex = hostConfig.actions.actionAlignment == "stretch" ? "0 1 100%" : "0 1 auto";
+                    actionButton.text = this.items[i].title;
+                    actionButton.onClick = function (ab) {
+                        _this.actionClicked(ab);
+                    };
+                    this._actionButtons.push(actionButton);
+                    buttonStrip.appendChild(actionButton.element);
+                    if (i < this.items.length - 1 && hostConfig.actions.buttonSpacing > 0) {
+                        var spacer = document.createElement("div");
+                        if (hostConfig.actions.actionsOrientation == "horizontal") {
+                            spacer.style.flex = "0 0 auto";
+                            spacer.style.width = hostConfig.actions.buttonSpacing + "px";
+                        } else {
+                            spacer.style.height = hostConfig.actions.buttonSpacing + "px";
+                        }
+                        Utils.appendChild(buttonStrip, spacer);
+                    }
+                    this._renderedActionCount++;
+                }
+            }
+            var buttonStripContainer = document.createElement("div");
+            buttonStripContainer.style.overflow = "hidden";
+            buttonStripContainer.appendChild(buttonStrip);
+            Utils.appendChild(element, buttonStripContainer);
+        }
+        Utils.appendChild(element, this._actionCardContainer);
+        return this._renderedActionCount > 0 ? element : null;
+    };
+    ActionCollection.prototype.addAction = function (action) {
+        if (!action.parent) {
+            this.items.push(action);
+            invokeSetParent(action, this._owner);
+        } else {
+            throw new Error("The action already belongs to another element.");
+        }
+    };
+    ActionCollection.prototype.clear = function () {
+        this.items = [];
+    };
+    ActionCollection.prototype.getAllInputs = function () {
+        var result = [];
+        for (var i = 0; i < this.items.length; i++) {
+            var action = this.items[i];
+            result = result.concat(action.getAllInputs());
+        }
+        return result;
+    };
+    return ActionCollection;
+}();
+var ActionSet = function (_super) {
+    __extends(ActionSet, _super);
+    function ActionSet() {
+        var _this = _super.call(this) || this;
+        _this.actionStyle = "button";
+        _this._actionCollection = new ActionCollection(_this);
+        _this._actionCollection.onHideActionCardPane = function () {
+            _this.showBottomSpacer(_this);
+        };
+        _this._actionCollection.onShowActionCardPane = function (action) {
+            _this.hideBottomSpacer(_this);
+        };
+        return _this;
+    }
+    ActionSet.prototype.internalRender = function () {
+        this._actionCollection.actionStyle = this.actionStyle;
+        return this._actionCollection.render();
+    };
+    ActionSet.prototype.getJsonTypeName = function () {
+        return "ActionSet";
+    };
+    ActionSet.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.actions.separation;
+    };
+    ActionSet.prototype.validate = function () {
+        return this._actionCollection.validate();
+    };
+    ActionSet.prototype.parse = function (json, itemsCollectionPropertyName) {
+        if (itemsCollectionPropertyName === void 0) {
+            itemsCollectionPropertyName = "items";
+        }
+        _super.prototype.parse.call(this, json);
+        this.actionStyle = Utils.getValueOrDefault(json["actionStyle"], "button");
+        if (json["actions"] != undefined) {
+            var jsonActions = json["actions"];
+            for (var i = 0; i < jsonActions.length; i++) {
+                this.addAction(Action.createAction(jsonActions[i]));
+            }
+        }
+    };
+    ActionSet.prototype.addAction = function (action) {
+        if (action != null) {
+            this._actionCollection.addAction(action);
+        }
+    };
+    ActionSet.prototype.getAllInputs = function () {
+        return this._actionCollection.getAllInputs();
+    };
+    ActionSet.prototype.renderSpeech = function () {
+        // TODO: What's the right thing to do here?
+        return "";
+    };
+    Object.defineProperty(ActionSet.prototype, "isInteractive", {
+        get: function get() {
+            return true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ActionSet;
+}(CardElement);
+exports.ActionSet = ActionSet;
+var ContainerBase = function (_super) {
+    __extends(ContainerBase, _super);
+    function ContainerBase() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._items = [];
+        return _this;
+    }
+    ContainerBase.prototype.showBottomSpacer = function (requestingElement) {
+        if ((!requestingElement || this.isLastItem(requestingElement)) && hostConfig.actions.showCard.actionMode == "inlineEdgeToEdge") {
+            this._element.style.paddingBottom = this.padding.bottom + "px";
+            _super.prototype.showBottomSpacer.call(this, this);
+        }
+    };
+    ContainerBase.prototype.hideBottomSpacer = function (requestingElement) {
+        if ((!requestingElement || this.isLastItem(requestingElement)) && hostConfig.actions.showCard.actionMode == "inlineEdgeToEdge") {
+            this._element.style.paddingBottom = "0px";
+            _super.prototype.hideBottomSpacer.call(this, this);
+        }
+    };
+    ContainerBase.prototype.internalRender = function () {
+        var _this = this;
+        this._element = document.createElement("div");
+        this._element.className = "ac-container";
+        if (this.backgroundImage) {
+            this._element.style.backgroundImage = "url('" + this.backgroundImage + "')";
+            this._element.style.backgroundRepeat = "no-repeat";
+            this._element.style.backgroundSize = "cover";
+        }
+        var backgroundColor = this.getBackgroundColor();
+        if (backgroundColor) {
+            this._element.style.backgroundColor = Utils.stringToCssColor(backgroundColor);
+        }
+        if (this.selectAction) {
+            this._element.classList.add("ac-selectable");
+        }
+        this._element.style.paddingTop = this.padding.top + "px";
+        this._element.style.paddingRight = this.padding.right + "px";
+        this._element.style.paddingBottom = this.padding.bottom + "px";
+        this._element.style.paddingLeft = this.padding.left + "px";
+        this._element.onclick = function (e) {
+            if (_this.selectAction != null) {
+                _this.selectAction.execute();
+                e.cancelBubble = true;
+            }
+        };
+        if (this._items.length > 0) {
+            var renderedElementCount = 0;
+            for (var i = 0; i < this._items.length; i++) {
+                var renderedElement = isElementAllowed(this._items[i], this.getForbiddenElementTypes()) ? this._items[i].render() : null;
+                if (renderedElement != null) {
+                    if (renderedElementCount > 0 && this._items[i].separation != "none") {
+                        var separationDefinition = this._items[i].separation == "default" ? this._items[i].getDefaultSeparationDefinition() : hostConfig.strongSeparation;
+                        Utils.appendChild(this._element, Utils.renderSeparation(separationDefinition, "vertical"));
+                    }
+                    Utils.appendChild(this._element, renderedElement);
+                    renderedElementCount++;
+                }
+            }
+        }
+        return this._element;
+    };
+    ContainerBase.prototype.getBackgroundColor = function () {
+        return null;
+    };
+    Object.defineProperty(ContainerBase.prototype, "padding", {
+        get: function get() {
+            return { left: 0, top: 0, right: 0, bottom: 0 };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ContainerBase.prototype.isLastItem = function (item) {
+        return this._items.indexOf(item) == this._items.length - 1;
+    };
+    ContainerBase.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.container.separation;
+    };
+    ContainerBase.prototype.validate = function () {
+        var result = [];
+        for (var i = 0; i < this._items.length; i++) {
+            if (!hostConfig.supportsInteractivity && this._items[i].isInteractive) {
+                result.push({
+                    error: Enums.ValidationError.InteractivityNotAllowed,
+                    message: "Interactivity is not allowed."
+                });
+            }
+            if (!isElementAllowed(this._items[i], this.getForbiddenElementTypes())) {
+                result.push({
+                    error: Enums.ValidationError.InteractivityNotAllowed,
+                    message: "Elements of type " + this._items[i].getJsonTypeName() + " are not allowed in this container."
+                });
+            }
+            result = result.concat(this._items[i].validate());
+        }
+        return result;
+    };
+    ContainerBase.prototype.parse = function (json, itemsCollectionPropertyName) {
+        if (itemsCollectionPropertyName === void 0) {
+            itemsCollectionPropertyName = "items";
+        }
+        _super.prototype.parse.call(this, json);
+        this.backgroundImage = json["backgroundImage"];
+        if (json[itemsCollectionPropertyName] != null) {
+            var items = json[itemsCollectionPropertyName];
+            for (var i = 0; i < items.length; i++) {
+                var elementType = items[i]["type"];
+                var element = AdaptiveCard.elementTypeRegistry.createInstance(elementType);
+                if (!element) {
+                    raiseParseError({
+                        error: Enums.ValidationError.UnknownElementType,
+                        message: "Unknown element type: " + elementType
+                    });
+                } else {
+                    this.addItem(element);
+                    element.parse(items[i]);
+                }
+            }
+        }
+        var selectActionJson = json["selectAction"];
+        if (selectActionJson != undefined) {
+            this.selectAction = Action.createAction(selectActionJson);
+            invokeSetParent(this.selectAction, this);
+        }
+    };
+    ContainerBase.prototype.addItem = function (item) {
+        if (!item.parent) {
+            if (item.isStandalone) {
+                this._items.push(item);
+                invokeSetParent(item, this);
+            } else {
+                throw new Error("Elements of type " + item.getJsonTypeName() + " cannot be used as standalone elements.");
+            }
+        } else {
+            throw new Error("The element already belongs to another container.");
+        }
+    };
+    ContainerBase.prototype.clear = function () {
+        this._items = [];
+    };
+    ContainerBase.prototype.getAllInputs = function () {
+        var result = [];
+        for (var i = 0; i < this._items.length; i++) {
+            var item = this._items[i];
+            result = result.concat(item.getAllInputs());
+        }
+        return result;
+    };
+    ContainerBase.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak;
+        }
+        // render each item
+        var speak = null;
+        if (this._items.length > 0) {
+            speak = '';
+            for (var i = 0; i < this._items.length; i++) {
+                var result = this._items[i].renderSpeech();
+                if (result) {
+                    speak += result;
+                }
+            }
+        }
+        return speak;
+    };
+    return ContainerBase;
+}(CardElement);
+exports.ContainerBase = ContainerBase;
+var Container = function (_super) {
+    __extends(Container, _super);
+    function Container() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.style = "normal";
+        return _this;
+    }
+    Container.prototype.getBackgroundColor = function () {
+        return this.style == "normal" ? hostConfig.container.normal.backgroundColor : hostConfig.container.emphasis.backgroundColor;
+    };
+    Container.prototype.internalRender = function () {
+        var renderedContainer = _super.prototype.internalRender.call(this);
+        if (renderedContainer) {
+            var styleDefinition = this.style == "normal" ? hostConfig.container.normal : hostConfig.container.emphasis;
+            if (styleDefinition.borderThickness) {
+                renderedContainer.style.borderTop = styleDefinition.borderThickness.top + "px solid";
+                renderedContainer.style.borderRight = styleDefinition.borderThickness.right + "px solid";
+                renderedContainer.style.borderBottom = styleDefinition.borderThickness.bottom + "px solid";
+                renderedContainer.style.borderLeft = styleDefinition.borderThickness.left + "px solid";
+            }
+            if (styleDefinition.borderColor) {
+                renderedContainer.style.borderColor = Utils.stringToCssColor(styleDefinition.borderColor);
+            }
+        }
+        return renderedContainer;
+    };
+    Object.defineProperty(Container.prototype, "padding", {
+        get: function get() {
+            var styleDefinition = this.style == "normal" ? hostConfig.container.normal : hostConfig.container.emphasis;
+            return styleDefinition.padding ? styleDefinition.padding : { top: 0, right: 0, bottom: 0, left: 0 };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Container.prototype.getJsonTypeName = function () {
+        return "Container";
+    };
+    Container.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        this.style = Utils.getValueOrDefault(json["style"], "normal");
+    };
+    return Container;
+}(ContainerBase);
+exports.Container = Container;
+var Column = function (_super) {
+    __extends(Column, _super);
+    function Column() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._computedWeight = 0;
+        _this.size = "auto";
+        return _this;
+    }
+    Object.defineProperty(Column.prototype, "padding", {
+        get: function get() {
+            return { left: 0, top: 0, right: 0, bottom: 0 };
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Column.prototype.internalRender = function () {
+        var element = _super.prototype.internalRender.call(this);
+        if (element) {
+            element.style.minWidth = "0";
+            if (typeof this.size === "number") {
+                element.style.flex = "1 1 " + (this._computedWeight > 0 ? this._computedWeight : this.size) + "%";
+            } else if (this.size === "auto") {
+                element.style.flex = "0 1 auto";
+            } else {
+                element.style.flex = "1 1 auto";
+            }
+        }
+        return element;
+    };
+    Column.prototype.getJsonTypeName = function () {
+        return "Column";
+    };
+    Column.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.column.separation;
+    };
+    Column.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        var parsedSize = json["size"];
+        var invalidSize = false;
+        if (typeof parsedSize === "number") {
+            if (parsedSize <= 0) {
+                invalidSize = true;
+            }
+        } else if (typeof parsedSize === "string") {
+            if (parsedSize != "auto" && parsedSize != "stretch") {
+                var sizeAsNumber = parseInt(parsedSize);
+                if (!isNaN(sizeAsNumber)) {
+                    parsedSize = sizeAsNumber;
+                } else {
+                    invalidSize = true;
+                }
+            }
+        } else if (parsedSize) {
+            invalidSize = true;
+        }
+        if (invalidSize) {
+            raiseParseError({
+                error: Enums.ValidationError.InvalidPropertyValue,
+                message: "Invalid column size: " + parsedSize
+            });
+        } else {
+            this.size = parsedSize;
+        }
+    };
+    Object.defineProperty(Column.prototype, "isStandalone", {
+        get: function get() {
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Column;
+}(Container);
+exports.Column = Column;
+var ColumnSet = function (_super) {
+    __extends(ColumnSet, _super);
+    function ColumnSet() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this._columns = [];
+        return _this;
+    }
+    ColumnSet.prototype.internalRender = function () {
+        if (this._columns.length > 0) {
+            var element = document.createElement("div");
+            element.style.display = "flex";
+            element.style.overflow = "hidden";
+            switch (this.horizontalAlignment) {
+                case "center":
+                    element.style.justifyContent = "center";
+                    break;
+                case "right":
+                    element.style.justifyContent = "flex-end";
+                    break;
+                default:
+                    element.style.justifyContent = "flex-start";
+                    break;
+            }
+            var totalWeight = 0;
+            for (var i = 0; i < this._columns.length; i++) {
+                if (typeof this._columns[i].size === "number") {
+                    totalWeight += this._columns[i].size;
+                }
+            }
+            var renderedColumnCount = 0;
+            for (var i = 0; i < this._columns.length; i++) {
+                if (typeof this._columns[i].size === "number" && totalWeight > 0) {
+                    var computedWeight = 100 / totalWeight * this._columns[i].size;
+                    // Best way to emulate "internal" access I know of
+                    this._columns[i]["_computedWeight"] = computedWeight;
+                }
+                var renderedColumn = this._columns[i].render();
+                if (renderedColumn != null) {
+                    Utils.appendChild(element, renderedColumn);
+                    if (this._columns.length > 1 && i < this._columns.length - 1 && this._columns[i + 1].separation != "none") {
+                        var separationDefinition = this._columns[i + 1].separation == "default" ? this._columns[i + 1].getDefaultSeparationDefinition() : hostConfig.strongSeparation;
+                        if (separationDefinition) {
+                            var separator = Utils.renderSeparation(separationDefinition, "horizontal");
+                            separator.style.flex = "0 0 auto";
+                            Utils.appendChild(element, separator);
+                        }
+                    }
+                    renderedColumnCount++;
+                }
+            }
+            return renderedColumnCount > 0 ? element : null;
+        } else {
+            return null;
+        }
+    };
+    ColumnSet.prototype.getJsonTypeName = function () {
+        return "ColumnSet";
+    };
+    ColumnSet.prototype.getDefaultSeparationDefinition = function () {
+        return hostConfig.columnSet.separation;
+    };
+    ColumnSet.prototype.parse = function (json) {
+        _super.prototype.parse.call(this, json);
+        if (json["columns"] != null) {
+            var jsonColumns = json["columns"];
+            for (var i = 0; i < jsonColumns.length; i++) {
+                var column = new Column();
+                column.parse(jsonColumns[i]);
+                this.addColumn(column);
+            }
+        }
+    };
+    ColumnSet.prototype.addColumn = function (column) {
+        if (!column.parent) {
+            this._columns.push(column);
+            invokeSetParent(column, this);
+        } else {
+            throw new Error("This column already belongs to another ColumnSet.");
+        }
+    };
+    ColumnSet.prototype.getAllInputs = function () {
+        var result = [];
+        for (var i = 0; i < this._columns.length; i++) {
+            result = result.concat(this._columns[i].getAllInputs());
+        }
+        return result;
+    };
+    ColumnSet.prototype.renderSpeech = function () {
+        if (this.speak != null) {
+            return this.speak;
+        }
+        // render each item
+        var speak = '';
+        if (this._columns.length > 0) {
+            for (var i = 0; i < this._columns.length; i++) {
+                speak += this._columns[i].renderSpeech();
+            }
+        }
+        return speak;
+    };
+    return ColumnSet;
+}(CardElement);
+exports.ColumnSet = ColumnSet;
+function raiseExecuteActionEvent(action) {
+    if (AdaptiveCard.onExecuteAction != null) {
+        action.prepare(action.parent.getRootElement().getAllInputs());
+        AdaptiveCard.onExecuteAction(action);
+    }
+}
+function raiseInlineCardExpandedEvent(action, isExpanded) {
+    if (AdaptiveCard.onInlineCardExpanded != null) {
+        AdaptiveCard.onInlineCardExpanded(action, isExpanded);
+    }
+}
+function raiseShowPopupCardEvent(action) {
+    if (AdaptiveCard.onShowPopupCard != null) {
+        AdaptiveCard.onShowPopupCard(action);
+    }
+}
+function raiseParseError(error) {
+    if (AdaptiveCard.onParseError != null) {
+        AdaptiveCard.onParseError(error);
+    }
+}
+var TypeRegistry = function () {
+    function TypeRegistry() {
+        this._items = [];
+    }
+    TypeRegistry.prototype.findTypeRegistration = function (typeName) {
+        for (var i = 0; i < this._items.length; i++) {
+            if (this._items[i].typeName === typeName) {
+                return this._items[i];
+            }
+        }
+        return null;
+    };
+    TypeRegistry.prototype.clear = function () {
+        this._items = [];
+    };
+    TypeRegistry.prototype.registerType = function (typeName, createInstance) {
+        var registrationInfo = this.findTypeRegistration(typeName);
+        if (registrationInfo != null) {
+            registrationInfo.createInstance = createInstance;
+        } else {
+            registrationInfo = {
+                typeName: typeName,
+                createInstance: createInstance
+            };
+            this._items.push(registrationInfo);
+        }
+    };
+    TypeRegistry.prototype.unregisterType = function (typeName) {
+        for (var i = 0; i < this._items.length; i++) {
+            if (this._items[i].typeName === typeName) {
+                this._items = this._items.splice(i, 1);
+                return;
+            }
+        }
+    };
+    TypeRegistry.prototype.createInstance = function (typeName) {
+        var registrationInfo = this.findTypeRegistration(typeName);
+        return registrationInfo ? registrationInfo.createInstance() : null;
+    };
+    return TypeRegistry;
+}();
+exports.TypeRegistry = TypeRegistry;
+var ContainerWithActions = function (_super) {
+    __extends(ContainerWithActions, _super);
+    function ContainerWithActions() {
+        var _this = _super.call(this) || this;
+        _this.actionStyle = "button";
+        _this._actionCollection = new ActionCollection(_this);
+        _this._actionCollection.onHideActionCardPane = function () {
+            _this.showBottomSpacer(null);
+        };
+        _this._actionCollection.onShowActionCardPane = function (action) {
+            _this.hideBottomSpacer(null);
+        };
+        return _this;
+    }
+    ContainerWithActions.prototype.internalRender = function () {
+        _super.prototype.internalRender.call(this);
+        this._actionCollection.actionStyle = this.actionStyle;
+        var renderedActions = this._actionCollection.render();
+        if (renderedActions) {
+            Utils.appendChild(this._element, Utils.renderSeparation(hostConfig.actions.separation, "vertical"));
+            Utils.appendChild(this._element, renderedActions);
+        }
+        return this._element.children.length > 0 ? this._element : null;
+    };
+    ContainerWithActions.prototype.parse = function (json, itemsCollectionPropertyName) {
+        if (itemsCollectionPropertyName === void 0) {
+            itemsCollectionPropertyName = "items";
+        }
+        _super.prototype.parse.call(this, json, itemsCollectionPropertyName);
+        this.actionStyle = Utils.getValueOrDefault(json["actionStyle"], "button");
+        if (json["actions"] != undefined) {
+            var jsonActions = json["actions"];
+            for (var i = 0; i < jsonActions.length; i++) {
+                var action = Action.createAction(jsonActions[i]);
+                if (action != null) {
+                    this.addAction(action);
+                }
+            }
+        }
+    };
+    ContainerWithActions.prototype.isLastItem = function (item) {
+        return _super.prototype.isLastItem.call(this, item) && this._actionCollection.items.length == 0;
+    };
+    ContainerWithActions.prototype.addAction = function (action) {
+        this._actionCollection.addAction(action);
+    };
+    ContainerWithActions.prototype.clear = function () {
+        _super.prototype.clear.call(this);
+        this._actionCollection.clear();
+    };
+    ContainerWithActions.prototype.getAllInputs = function () {
+        return _super.prototype.getAllInputs.call(this).concat(this._actionCollection.getAllInputs());
+    };
+    Object.defineProperty(ContainerWithActions.prototype, "isStandalone", {
+        get: function get() {
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return ContainerWithActions;
+}(ContainerBase);
+exports.ContainerWithActions = ContainerWithActions;
+var AdaptiveCard = function (_super) {
+    __extends(AdaptiveCard, _super);
+    function AdaptiveCard() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.minVersion = { major: 1, minor: 0 };
+        return _this;
+    }
+    AdaptiveCard.initialize = function () {
+        AdaptiveCard.elementTypeRegistry.clear();
+        AdaptiveCard.elementTypeRegistry.registerType("Container", function () {
+            return new Container();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("TextBlock", function () {
+            return new TextBlock();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Image", function () {
+            return new Image();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("ImageSet", function () {
+            return new ImageSet();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("FactSet", function () {
+            return new FactSet();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("ColumnSet", function () {
+            return new ColumnSet();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("ActionSet", function () {
+            return new ActionSet();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Input.Text", function () {
+            return new TextInput();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Input.Date", function () {
+            return new DateInput();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Input.Time", function () {
+            return new TimeInput();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Input.Number", function () {
+            return new NumberInput();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Input.ChoiceSet", function () {
+            return new ChoiceSetInput();
+        });
+        AdaptiveCard.elementTypeRegistry.registerType("Input.Toggle", function () {
+            return new ToggleInput();
+        });
+        AdaptiveCard.actionTypeRegistry.clear();
+        AdaptiveCard.actionTypeRegistry.registerType("Action.Http", function () {
+            return new HttpAction();
+        });
+        AdaptiveCard.actionTypeRegistry.registerType("Action.OpenUrl", function () {
+            return new OpenUrlAction();
+        });
+        AdaptiveCard.actionTypeRegistry.registerType("Action.Submit", function () {
+            return new SubmitAction();
+        });
+        AdaptiveCard.actionTypeRegistry.registerType("Action.ShowCard", function () {
+            return new ShowCardAction();
+        });
+    };
+    AdaptiveCard.prototype.isVersionSupported = function () {
+        var unsupportedVersion = AdaptiveCard.currentVersion.major < this.minVersion.major || AdaptiveCard.currentVersion.major == this.minVersion.major && AdaptiveCard.currentVersion.minor < this.minVersion.minor;
+        return !unsupportedVersion;
+    };
+    AdaptiveCard.prototype.getBackgroundColor = function () {
+        return hostConfig.adaptiveCard.backgroundColor;
+    };
+    Object.defineProperty(AdaptiveCard.prototype, "padding", {
+        get: function get() {
+            return hostConfig.adaptiveCard.padding;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AdaptiveCard.prototype.getJsonTypeName = function () {
+        return "AdaptiveCard";
+    };
+    AdaptiveCard.prototype.validate = function () {
+        var result = [];
+        if (this._cardTypeName != "AdaptiveCard") {
+            result.push({
+                error: Enums.ValidationError.MissingCardType,
+                message: "Invalid or missing card type. Make sure the card's type property is set to \"AdaptiveCard\"."
+            });
+        }
+        if (!this.isVersionSupported()) {
+            result.push({
+                error: Enums.ValidationError.UnsupportedCardVersion,
+                message: "The specified card version is not supported."
+            });
+        }
+        return result.concat(_super.prototype.validate.call(this));
+    };
+    AdaptiveCard.prototype.parse = function (json) {
+        this._cardTypeName = json["type"];
+        var minVersion = json["minVersion"];
+        var regEx = /(\d+).(\d+)/gi;
+        var matches = regEx.exec(minVersion);
+        if (matches != null && matches.length == 3) {
+            this.minVersion.major = parseInt(matches[1]);
+            this.minVersion.minor = parseInt(matches[2]);
+        }
+        this.fallbackText = json["fallbackText"];
+        _super.prototype.parse.call(this, json, "body");
+    };
+    AdaptiveCard.prototype.render = function () {
+        var renderedCard;
+        if (!this.isVersionSupported()) {
+            renderedCard = document.createElement("div");
+            renderedCard.innerHTML = this.fallbackText ? this.fallbackText : "The specified card version is not supported.";
+            return renderedCard;
+        } else {
+            return _super.prototype.render.call(this);
+        }
+    };
+    return AdaptiveCard;
+}(ContainerWithActions);
+AdaptiveCard.currentVersion = { major: 1, minor: 0 };
+AdaptiveCard.elementTypeRegistry = new TypeRegistry();
+AdaptiveCard.actionTypeRegistry = new TypeRegistry();
+AdaptiveCard.onExecuteAction = null;
+AdaptiveCard.onShowPopupCard = null;
+AdaptiveCard.onInlineCardExpanded = null;
+AdaptiveCard.onParseError = null;
+exports.AdaptiveCard = AdaptiveCard;
+// This calls acts as a static constructor (see https://github.com/Microsoft/TypeScript/issues/265)
+AdaptiveCard.initialize();
+var InlineAdaptiveCard = function (_super) {
+    __extends(InlineAdaptiveCard, _super);
+    function InlineAdaptiveCard() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(InlineAdaptiveCard.prototype, "padding", {
+        get: function get() {
+            return hostConfig.actions.showCard.padding;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    InlineAdaptiveCard.prototype.getBackgroundColor = function () {
+        return null;
+    };
+    InlineAdaptiveCard.prototype.getForbiddenActionTypes = function () {
+        return [ShowCardAction];
+    };
+    return InlineAdaptiveCard;
+}(AdaptiveCard);
+var defaultHostConfig = {
+    supportsInteractivity: true,
+    strongSeparation: {
+        spacing: 40,
+        lineThickness: 1,
+        lineColor: "#EEEEEE"
+    },
+    fontFamily: "Segoe UI",
+    fontSizes: {
+        small: 8,
+        normal: 10,
+        medium: 12,
+        large: 14,
+        extraLarge: 16
+    },
+    fontWeights: {
+        lighter: 200,
+        normal: 400,
+        bolder: 600
+    },
+    colors: {
+        dark: {
+            normal: "#0000FF",
+            subtle: "#222222"
+        },
+        light: {
+            normal: "#FFFFFF",
+            subtle: "#DDDDDD"
+        },
+        accent: {
+            normal: "#0000FF",
+            subtle: "#0000DD"
+        },
+        attention: {
+            normal: "#FF6600",
+            subtle: "#DD4400"
+        },
+        good: {
+            normal: "#00FF00",
+            subtle: "#00DD00"
+        },
+        warning: {
+            normal: "#FF0000",
+            subtle: "#DD0000"
+        }
+    },
+    imageSizes: {
+        small: 40,
+        medium: 80,
+        large: 160
+    },
+    actions: {
+        maxActions: 5,
+        separation: {
+            spacing: 20
+        },
+        buttonSpacing: 20,
+        showCard: {
+            actionMode: "inlineEdgeToEdge",
+            inlineTopMargin: 16,
+            backgroundColor: "#22000000",
+            padding: {
+                top: 16,
+                right: 16,
+                bottom: 16,
+                left: 16
+            }
+        },
+        actionsOrientation: "horizontal",
+        actionAlignment: "left"
+    },
+    adaptiveCard: {
+        backgroundColor: "#00000000",
+        padding: {
+            left: 20,
+            top: 20,
+            right: 20,
+            bottom: 20
+        }
+    },
+    container: {
+        separation: {
+            spacing: 20
+        },
+        normal: {},
+        emphasis: {
+            backgroundColor: "#EEEEEE",
+            borderColor: "#AAAAAA",
+            borderThickness: {
+                top: 1,
+                right: 1,
+                bottom: 1,
+                left: 1
+            },
+            padding: {
+                top: 10,
+                right: 10,
+                bottom: 10,
+                left: 10
+            }
+        }
+    },
+    textBlock: {
+        color: "dark",
+        separations: {
+            small: {
+                spacing: 20
+            },
+            normal: {
+                spacing: 20
+            },
+            medium: {
+                spacing: 20
+            },
+            large: {
+                spacing: 20
+            },
+            extraLarge: {
+                spacing: 20
+            }
+        }
+    },
+    image: {
+        size: "medium",
+        separation: {
+            spacing: 20
+        }
+    },
+    imageSet: {
+        imageSize: "medium",
+        separation: {
+            spacing: 20
+        }
+    },
+    factSet: {
+        separation: {
+            spacing: 20
+        },
+        title: {
+            color: "dark",
+            size: "normal",
+            isSubtle: false,
+            weight: "bolder",
+            wrap: true,
+            maxWidth: 150
+        },
+        value: {
+            color: "dark",
+            size: "normal",
+            isSubtle: false,
+            weight: "normal",
+            wrap: true
+        },
+        spacing: 10
+    },
+    input: {
+        separation: {
+            spacing: 20
+        }
+    },
+    columnSet: {
+        separation: {
+            spacing: 20
+        }
+    },
+    column: {
+        separation: {
+            spacing: 20
+        }
+    }
+};
+var hostConfig = defaultHostConfig;
+function setHostConfig(configuration) {
+    hostConfig = configuration;
+}
+exports.setHostConfig = setHostConfig;
+function resetHostConfig() {
+    hostConfig = defaultHostConfig;
+}
+exports.resetHostConfig = resetHostConfig;
+//# sourceMappingURL=card-elements.js.map
+
+/***/ }),
+/* 472 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Utils = __webpack_require__(343);
+function parseSpacingDefinition(obj) {
+    return obj ? {
+        top: obj["top"],
+        right: obj["right"],
+        bottom: obj["bottom"],
+        left: obj["left"]
+    } : null;
+}
+function parseColorDefinition(obj) {
+    return obj ? {
+        normal: obj["normal"],
+        subtle: obj["subtle"]
+    } : null;
+}
+function parseSeparationDefinition(obj) {
+    return obj ? {
+        spacing: obj["spacing"],
+        lineThickness: obj["lineThickness"],
+        lineColor: obj["lineColor"]
+    } : null;
+}
+function parseAdaptiveCardConfiguration(obj) {
+    return obj ? {
+        backgroundColor: obj["backgroundColor"],
+        padding: parseSpacingDefinition(obj["padding"])
+    } : null;
+}
+function parseTextBlockConfiguration(obj) {
+    return obj ? {
+        color: obj["color"],
+        separations: {
+            small: parseSeparationDefinition(obj["separations"]["small"]),
+            normal: parseSeparationDefinition(obj["separations"]["normal"]),
+            medium: parseSeparationDefinition(obj["separations"]["medium"]),
+            large: parseSeparationDefinition(obj["separations"]["large"]),
+            extraLarge: parseSeparationDefinition(obj["separations"]["extraLarge"])
+        }
+    } : null;
+}
+function parseContainerStyleDefinition(obj) {
+    return obj ? {
+        backgroundColor: obj["backgroundColor"],
+        padding: parseSpacingDefinition(obj["padding"]),
+        borderColor: obj["borderColor"],
+        borderThickness: parseSpacingDefinition(obj["borderThickness"])
+    } : null;
+}
+function parseContainerConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"]),
+        normal: parseContainerStyleDefinition(obj["normal"]),
+        emphasis: parseContainerStyleDefinition(obj["emphasis"])
+    } : null;
+}
+function parseImageConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"]),
+        size: obj["size"]
+    } : null;
+}
+function parseImageSetConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"]),
+        imageSize: obj["imageSize"]
+    } : null;
+}
+function parseFactTextDefinition(obj) {
+    return obj ? {
+        size: Utils.getValueOrDefault(obj["size"], "normal"),
+        color: Utils.getValueOrDefault(obj["color"], "dark"),
+        isSubtle: obj["isSubtle"],
+        weight: Utils.getValueOrDefault(obj["weight"], "normal"),
+        wrap: obj["wrap"]
+    } : null;
+}
+function parseFactTitleDefinition(obj) {
+    var result = parseFactTextDefinition(obj);
+    if (result) {
+        result.maxWidth = obj["maxWidth"];
+    }
+    return result;
+}
+function parseFactSetConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"]),
+        title: parseFactTitleDefinition(obj["title"]),
+        value: parseFactTextDefinition(obj["value"]),
+        spacing: obj["spacing"]
+    } : null;
+}
+function parseColumnSetConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"])
+    } : null;
+}
+function parseColumnConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"])
+    } : null;
+}
+function parseShowCardActionConfiguration(obj) {
+    return obj ? {
+        actionMode: Utils.getValueOrDefault(obj["actionMode"], "inlineEdgeToEdge"),
+        inlineTopMargin: obj["inlineTopMargin"],
+        backgroundColor: obj["backgroundColor"],
+        padding: parseSpacingDefinition(obj["padding"])
+    } : null;
+}
+function parseActionsConfiguration(obj) {
+    return obj ? {
+        maxActions: obj["maxActions"],
+        separation: parseSeparationDefinition(obj["separation"]),
+        buttonSpacing: obj["buttonSpacing"],
+        showCard: parseShowCardActionConfiguration(obj["showCard"]),
+        preExpandSingleShowCardAction: Utils.getValueOrDefault(obj["preExpandSingleShowCardAction"], false),
+        actionsOrientation: Utils.getValueOrDefault(obj["actionsOrientation"], "horizontal"),
+        actionAlignment: Utils.getValueOrDefault(obj["actionAlignment"], "left")
+    } : null;
+}
+function parseInputConfiguration(obj) {
+    return obj ? {
+        separation: parseSeparationDefinition(obj["separation"])
+    } : null;
+}
+function parseHostConfig(serializedConfiguration) {
+    var obj = JSON.parse(serializedConfiguration);
+    return obj ? {
+        supportsInteractivity: obj["supportsInteractivity"],
+        fontFamily: obj["fontFamily"],
+        fontSizes: {
+            small: obj["fontSizes"]["small"],
+            normal: obj["fontSizes"]["normal"],
+            medium: obj["fontSizes"]["medium"],
+            large: obj["fontSizes"]["large"],
+            extraLarge: obj["fontSizes"]["extraLarge"]
+        },
+        fontWeights: {
+            lighter: obj["fontWeights"]["lighter"],
+            normal: obj["fontWeights"]["normal"],
+            bolder: obj["fontWeights"]["bolder"]
+        },
+        imageSizes: {
+            small: obj["imageSizes"]["small"],
+            medium: obj["imageSizes"]["medium"],
+            large: obj["imageSizes"]["large"]
+        },
+        colors: {
+            dark: parseColorDefinition(obj["colors"]["dark"]),
+            light: parseColorDefinition(obj["colors"]["light"]),
+            accent: parseColorDefinition(obj["colors"]["accent"]),
+            good: parseColorDefinition(obj["colors"]["good"]),
+            warning: parseColorDefinition(obj["colors"]["warning"]),
+            attention: parseColorDefinition(obj["colors"]["attention"])
+        },
+        strongSeparation: parseSeparationDefinition(obj["strongSeparation"]),
+        actions: parseActionsConfiguration(obj["actions"]),
+        adaptiveCard: parseAdaptiveCardConfiguration(obj["adaptiveCard"]),
+        container: parseContainerConfiguration(obj["container"]),
+        textBlock: parseTextBlockConfiguration(obj["textBlock"]),
+        image: parseImageConfiguration(obj["image"]),
+        imageSet: parseImageSetConfiguration(obj["imageSet"]),
+        factSet: parseFactSetConfiguration(obj["factSet"]),
+        column: parseColumnConfiguration(obj["column"]),
+        columnSet: parseColumnSetConfiguration(obj["columnSet"]),
+        input: parseInputConfiguration(obj["input"])
+    } : null;
+}
+exports.parseHostConfig = parseHostConfig;
+//# sourceMappingURL=host-config.js.map
+
+/***/ }),
+/* 473 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function () {
+    var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (d, b) {
+        d.__proto__ = b;
+    } || function (d, b) {
+        for (var p in b) {
+            if (b.hasOwnProperty(p)) d[p] = b[p];
+        }
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() {
+            this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+}();
+Object.defineProperty(exports, "__esModule", { value: true });
+var AbstractTextFormatter = function () {
+    function AbstractTextFormatter(regularExpression) {
+        this._regularExpression = regularExpression;
+    }
+    AbstractTextFormatter.prototype.format = function (input) {
+        var matches;
+        var result = input;
+        while ((matches = this._regularExpression.exec(input)) != null) {
+            result = result.replace(matches[0], this.internalFormat(matches));
+        }
+        ;
+        return result;
+    };
+    return AbstractTextFormatter;
+}();
+var DateFormatter = function (_super) {
+    __extends(DateFormatter, _super);
+    function DateFormatter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DateFormatter.prototype.internalFormat = function (matches) {
+        var date = new Date(Date.parse(matches[1]));
+        if (matches[2] != undefined) {
+            var longOrShort = matches[2].toLowerCase();
+            return date.toLocaleDateString(undefined, { day: "numeric", weekday: longOrShort, month: longOrShort, year: "numeric" });
+        } else {
+            return date.toLocaleDateString();
+        }
+    };
+    return DateFormatter;
+}(AbstractTextFormatter);
+var TimeFormatter = function (_super) {
+    __extends(TimeFormatter, _super);
+    function TimeFormatter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TimeFormatter.prototype.internalFormat = function (matches) {
+        var date = new Date(Date.parse(matches[1]));
+        return date.toLocaleTimeString();
+    };
+    return TimeFormatter;
+}(AbstractTextFormatter);
+function formatText(text) {
+    var formatters = [new DateFormatter(/\{{2}date\((\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:z|Z|-\d{1,2}))(?:,(long|short))?\)\}{2}/gi), new TimeFormatter(/\{{2}time\((\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:z|Z|-\d{1,2}))\)\}{2}/gi)];
+    var result = text;
+    for (var i = 0; i < formatters.length; i++) {
+        result = formatters[i].format(result);
+    }
+    return result;
+}
+exports.formatText = formatText;
+//# sourceMappingURL=text-formatters.js.map
+
+/***/ }),
+/* 474 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */
+;(function (root) {
+
+	/** Detect free variables */
+	var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
+	var freeModule = ( false ? 'undefined' : _typeof(module)) == 'object' && module && !module.nodeType && module;
+	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global;
+	if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal || freeGlobal.self === freeGlobal) {
+		root = freeGlobal;
+	}
+
+	/**
+  * The `punycode` object.
+  * @name punycode
+  * @type Object
+  */
+	var punycode,
+
+
+	/** Highest positive signed 32-bit float value */
+	maxInt = 2147483647,
+	    // aka. 0x7FFFFFFF or 2^31-1
+
+	/** Bootstring parameters */
+	base = 36,
+	    tMin = 1,
+	    tMax = 26,
+	    skew = 38,
+	    damp = 700,
+	    initialBias = 72,
+	    initialN = 128,
+	    // 0x80
+	delimiter = '-',
+	    // '\x2D'
+
+	/** Regular expressions */
+	regexPunycode = /^xn--/,
+	    regexNonASCII = /[^\x20-\x7E]/,
+	    // unprintable ASCII chars + non-ASCII chars
+	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g,
+	    // RFC 3490 separators
+
+	/** Error messages */
+	errors = {
+		'overflow': 'Overflow: input needs wider integers to process',
+		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+		'invalid-input': 'Invalid input'
+	},
+
+
+	/** Convenience shortcuts */
+	baseMinusTMin = base - tMin,
+	    floor = Math.floor,
+	    stringFromCharCode = String.fromCharCode,
+
+
+	/** Temporary variable */
+	key;
+
+	/*--------------------------------------------------------------------------*/
+
+	/**
+  * A generic error utility function.
+  * @private
+  * @param {String} type The error type.
+  * @returns {Error} Throws a `RangeError` with the applicable error message.
+  */
+	function error(type) {
+		throw new RangeError(errors[type]);
+	}
+
+	/**
+  * A generic `Array#map` utility function.
+  * @private
+  * @param {Array} array The array to iterate over.
+  * @param {Function} callback The function that gets called for every array
+  * item.
+  * @returns {Array} A new array of values returned by the callback function.
+  */
+	function map(array, fn) {
+		var length = array.length;
+		var result = [];
+		while (length--) {
+			result[length] = fn(array[length]);
+		}
+		return result;
+	}
+
+	/**
+  * A simple `Array#map`-like wrapper to work with domain name strings or email
+  * addresses.
+  * @private
+  * @param {String} domain The domain name or email address.
+  * @param {Function} callback The function that gets called for every
+  * character.
+  * @returns {Array} A new string of characters returned by the callback
+  * function.
+  */
+	function mapDomain(string, fn) {
+		var parts = string.split('@');
+		var result = '';
+		if (parts.length > 1) {
+			// In email addresses, only the domain name should be punycoded. Leave
+			// the local part (i.e. everything up to `@`) intact.
+			result = parts[0] + '@';
+			string = parts[1];
+		}
+		// Avoid `split(regex)` for IE8 compatibility. See #17.
+		string = string.replace(regexSeparators, '\x2E');
+		var labels = string.split('.');
+		var encoded = map(labels, fn).join('.');
+		return result + encoded;
+	}
+
+	/**
+  * Creates an array containing the numeric code points of each Unicode
+  * character in the string. While JavaScript uses UCS-2 internally,
+  * this function will convert a pair of surrogate halves (each of which
+  * UCS-2 exposes as separate characters) into a single code point,
+  * matching UTF-16.
+  * @see `punycode.ucs2.encode`
+  * @see <https://mathiasbynens.be/notes/javascript-encoding>
+  * @memberOf punycode.ucs2
+  * @name decode
+  * @param {String} string The Unicode input string (UCS-2).
+  * @returns {Array} The new array of code points.
+  */
+	function ucs2decode(string) {
+		var output = [],
+		    counter = 0,
+		    length = string.length,
+		    value,
+		    extra;
+		while (counter < length) {
+			value = string.charCodeAt(counter++);
+			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+				// high surrogate, and there is a next character
+				extra = string.charCodeAt(counter++);
+				if ((extra & 0xFC00) == 0xDC00) {
+					// low surrogate
+					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+				} else {
+					// unmatched surrogate; only append this code unit, in case the next
+					// code unit is the high surrogate of a surrogate pair
+					output.push(value);
+					counter--;
+				}
+			} else {
+				output.push(value);
+			}
+		}
+		return output;
+	}
+
+	/**
+  * Creates a string based on an array of numeric code points.
+  * @see `punycode.ucs2.decode`
+  * @memberOf punycode.ucs2
+  * @name encode
+  * @param {Array} codePoints The array of numeric code points.
+  * @returns {String} The new Unicode string (UCS-2).
+  */
+	function ucs2encode(array) {
+		return map(array, function (value) {
+			var output = '';
+			if (value > 0xFFFF) {
+				value -= 0x10000;
+				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
+				value = 0xDC00 | value & 0x3FF;
+			}
+			output += stringFromCharCode(value);
+			return output;
+		}).join('');
+	}
+
+	/**
+  * Converts a basic code point into a digit/integer.
+  * @see `digitToBasic()`
+  * @private
+  * @param {Number} codePoint The basic numeric code point value.
+  * @returns {Number} The numeric value of a basic code point (for use in
+  * representing integers) in the range `0` to `base - 1`, or `base` if
+  * the code point does not represent a value.
+  */
+	function basicToDigit(codePoint) {
+		if (codePoint - 48 < 10) {
+			return codePoint - 22;
+		}
+		if (codePoint - 65 < 26) {
+			return codePoint - 65;
+		}
+		if (codePoint - 97 < 26) {
+			return codePoint - 97;
+		}
+		return base;
+	}
+
+	/**
+  * Converts a digit/integer into a basic code point.
+  * @see `basicToDigit()`
+  * @private
+  * @param {Number} digit The numeric value of a basic code point.
+  * @returns {Number} The basic code point whose value (when used for
+  * representing integers) is `digit`, which needs to be in the range
+  * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
+  * used; else, the lowercase form is used. The behavior is undefined
+  * if `flag` is non-zero and `digit` has no uppercase form.
+  */
+	function digitToBasic(digit, flag) {
+		//  0..25 map to ASCII a..z or A..Z
+		// 26..35 map to ASCII 0..9
+		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
+	}
+
+	/**
+  * Bias adaptation function as per section 3.4 of RFC 3492.
+  * https://tools.ietf.org/html/rfc3492#section-3.4
+  * @private
+  */
+	function adapt(delta, numPoints, firstTime) {
+		var k = 0;
+		delta = firstTime ? floor(delta / damp) : delta >> 1;
+		delta += floor(delta / numPoints);
+		for (; /* no initialization */delta > baseMinusTMin * tMax >> 1; k += base) {
+			delta = floor(delta / baseMinusTMin);
+		}
+		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+	}
+
+	/**
+  * Converts a Punycode string of ASCII-only symbols to a string of Unicode
+  * symbols.
+  * @memberOf punycode
+  * @param {String} input The Punycode string of ASCII-only symbols.
+  * @returns {String} The resulting string of Unicode symbols.
+  */
+	function decode(input) {
+		// Don't use UCS-2
+		var output = [],
+		    inputLength = input.length,
+		    out,
+		    i = 0,
+		    n = initialN,
+		    bias = initialBias,
+		    basic,
+		    j,
+		    index,
+		    oldi,
+		    w,
+		    k,
+		    digit,
+		    t,
+
+		/** Cached calculation results */
+		baseMinusT;
+
+		// Handle the basic code points: let `basic` be the number of input code
+		// points before the last delimiter, or `0` if there is none, then copy
+		// the first basic code points to the output.
+
+		basic = input.lastIndexOf(delimiter);
+		if (basic < 0) {
+			basic = 0;
+		}
+
+		for (j = 0; j < basic; ++j) {
+			// if it's not a basic code point
+			if (input.charCodeAt(j) >= 0x80) {
+				error('not-basic');
+			}
+			output.push(input.charCodeAt(j));
+		}
+
+		// Main decoding loop: start just after the last delimiter if any basic code
+		// points were copied; start at the beginning otherwise.
+
+		for (index = basic > 0 ? basic + 1 : 0; index < inputLength;) /* no final expression */{
+
+			// `index` is the index of the next character to be consumed.
+			// Decode a generalized variable-length integer into `delta`,
+			// which gets added to `i`. The overflow checking is easier
+			// if we increase `i` as we go, then subtract off its starting
+			// value at the end to obtain `delta`.
+			for (oldi = i, w = 1, k = base;; /* no condition */k += base) {
+
+				if (index >= inputLength) {
+					error('invalid-input');
+				}
+
+				digit = basicToDigit(input.charCodeAt(index++));
+
+				if (digit >= base || digit > floor((maxInt - i) / w)) {
+					error('overflow');
+				}
+
+				i += digit * w;
+				t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
+
+				if (digit < t) {
+					break;
+				}
+
+				baseMinusT = base - t;
+				if (w > floor(maxInt / baseMinusT)) {
+					error('overflow');
+				}
+
+				w *= baseMinusT;
+			}
+
+			out = output.length + 1;
+			bias = adapt(i - oldi, out, oldi == 0);
+
+			// `i` was supposed to wrap around from `out` to `0`,
+			// incrementing `n` each time, so we'll fix that now:
+			if (floor(i / out) > maxInt - n) {
+				error('overflow');
+			}
+
+			n += floor(i / out);
+			i %= out;
+
+			// Insert `n` at position `i` of the output
+			output.splice(i++, 0, n);
+		}
+
+		return ucs2encode(output);
+	}
+
+	/**
+  * Converts a string of Unicode symbols (e.g. a domain name label) to a
+  * Punycode string of ASCII-only symbols.
+  * @memberOf punycode
+  * @param {String} input The string of Unicode symbols.
+  * @returns {String} The resulting Punycode string of ASCII-only symbols.
+  */
+	function encode(input) {
+		var n,
+		    delta,
+		    handledCPCount,
+		    basicLength,
+		    bias,
+		    j,
+		    m,
+		    q,
+		    k,
+		    t,
+		    currentValue,
+		    output = [],
+
+		/** `inputLength` will hold the number of code points in `input`. */
+		inputLength,
+
+		/** Cached calculation results */
+		handledCPCountPlusOne,
+		    baseMinusT,
+		    qMinusT;
+
+		// Convert the input in UCS-2 to Unicode
+		input = ucs2decode(input);
+
+		// Cache the length
+		inputLength = input.length;
+
+		// Initialize the state
+		n = initialN;
+		delta = 0;
+		bias = initialBias;
+
+		// Handle the basic code points
+		for (j = 0; j < inputLength; ++j) {
+			currentValue = input[j];
+			if (currentValue < 0x80) {
+				output.push(stringFromCharCode(currentValue));
+			}
+		}
+
+		handledCPCount = basicLength = output.length;
+
+		// `handledCPCount` is the number of code points that have been handled;
+		// `basicLength` is the number of basic code points.
+
+		// Finish the basic string - if it is not empty - with a delimiter
+		if (basicLength) {
+			output.push(delimiter);
+		}
+
+		// Main encoding loop:
+		while (handledCPCount < inputLength) {
+
+			// All non-basic code points < n have been handled already. Find the next
+			// larger one:
+			for (m = maxInt, j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+				if (currentValue >= n && currentValue < m) {
+					m = currentValue;
+				}
+			}
+
+			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
+			// but guard against overflow
+			handledCPCountPlusOne = handledCPCount + 1;
+			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+				error('overflow');
+			}
+
+			delta += (m - n) * handledCPCountPlusOne;
+			n = m;
+
+			for (j = 0; j < inputLength; ++j) {
+				currentValue = input[j];
+
+				if (currentValue < n && ++delta > maxInt) {
+					error('overflow');
+				}
+
+				if (currentValue == n) {
+					// Represent delta as a generalized variable-length integer
+					for (q = delta, k = base;; /* no condition */k += base) {
+						t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
+						if (q < t) {
+							break;
+						}
+						qMinusT = q - t;
+						baseMinusT = base - t;
+						output.push(stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0)));
+						q = floor(qMinusT / baseMinusT);
+					}
+
+					output.push(stringFromCharCode(digitToBasic(q, 0)));
+					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
+					delta = 0;
+					++handledCPCount;
+				}
+			}
+
+			++delta;
+			++n;
+		}
+		return output.join('');
+	}
+
+	/**
+  * Converts a Punycode string representing a domain name or an email address
+  * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
+  * it doesn't matter if you call it on a string that has already been
+  * converted to Unicode.
+  * @memberOf punycode
+  * @param {String} input The Punycoded domain name or email address to
+  * convert to Unicode.
+  * @returns {String} The Unicode representation of the given Punycode
+  * string.
+  */
+	function toUnicode(input) {
+		return mapDomain(input, function (string) {
+			return regexPunycode.test(string) ? decode(string.slice(4).toLowerCase()) : string;
+		});
+	}
+
+	/**
+  * Converts a Unicode string representing a domain name or an email address to
+  * Punycode. Only the non-ASCII parts of the domain name will be converted,
+  * i.e. it doesn't matter if you call it with a domain that's already in
+  * ASCII.
+  * @memberOf punycode
+  * @param {String} input The domain name or email address to convert, as a
+  * Unicode string.
+  * @returns {String} The Punycode representation of the given domain name or
+  * email address.
+  */
+	function toASCII(input) {
+		return mapDomain(input, function (string) {
+			return regexNonASCII.test(string) ? 'xn--' + encode(string) : string;
+		});
+	}
+
+	/*--------------------------------------------------------------------------*/
+
+	/** Define the public API */
+	punycode = {
+		/**
+   * A string representing the current Punycode.js version number.
+   * @memberOf punycode
+   * @type String
+   */
+		'version': '1.4.1',
+		/**
+   * An object of methods to convert from JavaScript's internal character
+   * representation (UCS-2) to Unicode code points, and back.
+   * @see <https://mathiasbynens.be/notes/javascript-encoding>
+   * @memberOf punycode
+   * @type Object
+   */
+		'ucs2': {
+			'decode': ucs2decode,
+			'encode': ucs2encode
+		},
+		'decode': decode,
+		'encode': encode,
+		'toASCII': toASCII,
+		'toUnicode': toUnicode
+	};
+
+	/** Expose `punycode` */
+	// Some AMD build optimizers, like r.js, check for specific condition patterns
+	// like the following:
+	if ("function" == 'function' && _typeof(__webpack_require__(377)) == 'object' && __webpack_require__(377)) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return punycode;
+		}.call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (freeExports && freeModule) {
+		if (module.exports == freeExports) {
+			// in Node.js, io.js, or RingoJS v0.8.0+
+			freeModule.exports = punycode;
+		} else {
+			// in Narwhal or RingoJS v0.7.0-
+			for (key in punycode) {
+				punycode.hasOwnProperty(key) && (freeExports[key] = punycode[key]);
+			}
+		}
+	} else {
+		// in Rhino or a web browser
+		root.punycode = punycode;
+	}
+})(undefined);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(376)(module), __webpack_require__(307)))
+
+/***/ }),
+/* 475 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.createProvider = createProvider;
+
+var _react = __webpack_require__(2);
+
+var _propTypes = __webpack_require__(8);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _PropTypes = __webpack_require__(346);
+
+var _warning = __webpack_require__(317);
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var didWarnAboutReceivingStore = false;
+function warnAboutReceivingStore() {
+  if (didWarnAboutReceivingStore) {
+    return;
+  }
+  didWarnAboutReceivingStore = true;
+
+  (0, _warning2.default)('<Provider> does not support changing `store` on the fly. ' + 'It is most likely that you see this error because you updated to ' + 'Redux 2.x and React Redux 2.x which no longer hot reload reducers ' + 'automatically. See https://github.com/reactjs/react-redux/releases/' + 'tag/v2.0.0 for the migration instructions.');
+}
+
+function createProvider() {
+  var _Provider$childContex;
+
+  var storeKey = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'store';
+  var subKey = arguments[1];
+
+  var subscriptionKey = subKey || storeKey + 'Subscription';
+
+  var Provider = function (_Component) {
+    _inherits(Provider, _Component);
+
+    Provider.prototype.getChildContext = function getChildContext() {
+      var _ref;
+
+      return _ref = {}, _ref[storeKey] = this[storeKey], _ref[subscriptionKey] = null, _ref;
+    };
+
+    function Provider(props, context) {
+      _classCallCheck(this, Provider);
+
+      var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+
+      _this[storeKey] = props.store;
+      return _this;
+    }
+
+    Provider.prototype.render = function render() {
+      return _react.Children.only(this.props.children);
+    };
+
+    return Provider;
+  }(_react.Component);
+
+  if (process.env.NODE_ENV !== 'production') {
+    Provider.prototype.componentWillReceiveProps = function (nextProps) {
+      if (this[storeKey] !== nextProps.store) {
+        warnAboutReceivingStore();
+      }
+    };
+  }
+
+  Provider.propTypes = {
+    store: _PropTypes.storeShape.isRequired,
+    children: _propTypes2.default.element.isRequired
+  };
+  Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[storeKey] = _PropTypes.storeShape.isRequired, _Provider$childContex[subscriptionKey] = _PropTypes.subscriptionShape, _Provider$childContex);
+  Provider.displayName = 'Provider';
+
+  return Provider;
+}
+
+exports.default = createProvider();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 476 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.createConnect = createConnect;
+
+var _connectAdvanced = __webpack_require__(344);
+
+var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
+
+var _shallowEqual = __webpack_require__(483);
+
+var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
+
+var _mapDispatchToProps = __webpack_require__(477);
+
+var _mapDispatchToProps2 = _interopRequireDefault(_mapDispatchToProps);
+
+var _mapStateToProps = __webpack_require__(478);
+
+var _mapStateToProps2 = _interopRequireDefault(_mapStateToProps);
+
+var _mergeProps = __webpack_require__(479);
+
+var _mergeProps2 = _interopRequireDefault(_mergeProps);
+
+var _selectorFactory = __webpack_require__(480);
+
+var _selectorFactory2 = _interopRequireDefault(_selectorFactory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+/*
+  connect is a facade over connectAdvanced. It turns its args into a compatible
+  selectorFactory, which has the signature:
+
+    (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
+  
+  connect passes its args to connectAdvanced as options, which will in turn pass them to
+  selectorFactory each time a Connect component instance is instantiated or hot reloaded.
+
+  selectorFactory returns a final props selector from its mapStateToProps,
+  mapStateToPropsFactories, mapDispatchToProps, mapDispatchToPropsFactories, mergeProps,
+  mergePropsFactories, and pure args.
+
+  The resulting final props selector is called by the Connect component instance whenever
+  it receives new props or store state.
+ */
+
+function match(arg, factories, name) {
+  for (var i = factories.length - 1; i >= 0; i--) {
+    var result = factories[i](arg);
+    if (result) return result;
+  }
+
+  return function (dispatch, options) {
+    throw new Error('Invalid value of type ' + (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) + ' for ' + name + ' argument when connecting component ' + options.wrappedComponentName + '.');
+  };
+}
+
+function strictEqual(a, b) {
+  return a === b;
+}
+
+// createConnect with default args builds the 'official' connect behavior. Calling it with
+// different options opens up some testing and extensibility scenarios
+function createConnect() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$connectHOC = _ref.connectHOC,
+      connectHOC = _ref$connectHOC === undefined ? _connectAdvanced2.default : _ref$connectHOC,
+      _ref$mapStateToPropsF = _ref.mapStateToPropsFactories,
+      mapStateToPropsFactories = _ref$mapStateToPropsF === undefined ? _mapStateToProps2.default : _ref$mapStateToPropsF,
+      _ref$mapDispatchToPro = _ref.mapDispatchToPropsFactories,
+      mapDispatchToPropsFactories = _ref$mapDispatchToPro === undefined ? _mapDispatchToProps2.default : _ref$mapDispatchToPro,
+      _ref$mergePropsFactor = _ref.mergePropsFactories,
+      mergePropsFactories = _ref$mergePropsFactor === undefined ? _mergeProps2.default : _ref$mergePropsFactor,
+      _ref$selectorFactory = _ref.selectorFactory,
+      selectorFactory = _ref$selectorFactory === undefined ? _selectorFactory2.default : _ref$selectorFactory;
+
+  return function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
+    var _ref2 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
+        _ref2$pure = _ref2.pure,
+        pure = _ref2$pure === undefined ? true : _ref2$pure,
+        _ref2$areStatesEqual = _ref2.areStatesEqual,
+        areStatesEqual = _ref2$areStatesEqual === undefined ? strictEqual : _ref2$areStatesEqual,
+        _ref2$areOwnPropsEqua = _ref2.areOwnPropsEqual,
+        areOwnPropsEqual = _ref2$areOwnPropsEqua === undefined ? _shallowEqual2.default : _ref2$areOwnPropsEqua,
+        _ref2$areStatePropsEq = _ref2.areStatePropsEqual,
+        areStatePropsEqual = _ref2$areStatePropsEq === undefined ? _shallowEqual2.default : _ref2$areStatePropsEq,
+        _ref2$areMergedPropsE = _ref2.areMergedPropsEqual,
+        areMergedPropsEqual = _ref2$areMergedPropsE === undefined ? _shallowEqual2.default : _ref2$areMergedPropsE,
+        extraOptions = _objectWithoutProperties(_ref2, ['pure', 'areStatesEqual', 'areOwnPropsEqual', 'areStatePropsEqual', 'areMergedPropsEqual']);
+
+    var initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps');
+    var initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps');
+    var initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps');
+
+    return connectHOC(selectorFactory, _extends({
+      // used in error messages
+      methodName: 'connect',
+
+      // used to compute Connect's displayName from the wrapped component's displayName.
+      getDisplayName: function getDisplayName(name) {
+        return 'Connect(' + name + ')';
+      },
+
+      // if mapStateToProps is falsy, the Connect component doesn't subscribe to store state changes
+      shouldHandleStateChanges: Boolean(mapStateToProps),
+
+      // passed through to selectorFactory
+      initMapStateToProps: initMapStateToProps,
+      initMapDispatchToProps: initMapDispatchToProps,
+      initMergeProps: initMergeProps,
+      pure: pure,
+      areStatesEqual: areStatesEqual,
+      areOwnPropsEqual: areOwnPropsEqual,
+      areStatePropsEqual: areStatePropsEqual,
+      areMergedPropsEqual: areMergedPropsEqual
+
+    }, extraOptions));
+  };
+}
+
+exports.default = createConnect();
+
+/***/ }),
+/* 477 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.whenMapDispatchToPropsIsFunction = whenMapDispatchToPropsIsFunction;
+exports.whenMapDispatchToPropsIsMissing = whenMapDispatchToPropsIsMissing;
+exports.whenMapDispatchToPropsIsObject = whenMapDispatchToPropsIsObject;
+
+var _redux = __webpack_require__(318);
+
+var _wrapMapToProps = __webpack_require__(345);
+
+function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
+  return typeof mapDispatchToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, 'mapDispatchToProps') : undefined;
+}
+
+function whenMapDispatchToPropsIsMissing(mapDispatchToProps) {
+  return !mapDispatchToProps ? (0, _wrapMapToProps.wrapMapToPropsConstant)(function (dispatch) {
+    return { dispatch: dispatch };
+  }) : undefined;
+}
+
+function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
+  return mapDispatchToProps && (typeof mapDispatchToProps === 'undefined' ? 'undefined' : _typeof(mapDispatchToProps)) === 'object' ? (0, _wrapMapToProps.wrapMapToPropsConstant)(function (dispatch) {
+    return (0, _redux.bindActionCreators)(mapDispatchToProps, dispatch);
+  }) : undefined;
+}
+
+exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
+
+/***/ }),
+/* 478 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.whenMapStateToPropsIsFunction = whenMapStateToPropsIsFunction;
+exports.whenMapStateToPropsIsMissing = whenMapStateToPropsIsMissing;
+
+var _wrapMapToProps = __webpack_require__(345);
+
+function whenMapStateToPropsIsFunction(mapStateToProps) {
+  return typeof mapStateToProps === 'function' ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, 'mapStateToProps') : undefined;
+}
+
+function whenMapStateToPropsIsMissing(mapStateToProps) {
+  return !mapStateToProps ? (0, _wrapMapToProps.wrapMapToPropsConstant)(function () {
+    return {};
+  }) : undefined;
+}
+
+exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
+
+/***/ }),
+/* 479 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.defaultMergeProps = defaultMergeProps;
+exports.wrapMergePropsFunc = wrapMergePropsFunc;
+exports.whenMergePropsIsFunction = whenMergePropsIsFunction;
+exports.whenMergePropsIsOmitted = whenMergePropsIsOmitted;
+
+var _verifyPlainObject = __webpack_require__(347);
+
+var _verifyPlainObject2 = _interopRequireDefault(_verifyPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+function defaultMergeProps(stateProps, dispatchProps, ownProps) {
+  return _extends({}, ownProps, stateProps, dispatchProps);
+}
+
+function wrapMergePropsFunc(mergeProps) {
+  return function initMergePropsProxy(dispatch, _ref) {
+    var displayName = _ref.displayName,
+        pure = _ref.pure,
+        areMergedPropsEqual = _ref.areMergedPropsEqual;
+
+    var hasRunOnce = false;
+    var mergedProps = void 0;
+
+    return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
+      var nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+
+      if (hasRunOnce) {
+        if (!pure || !areMergedPropsEqual(nextMergedProps, mergedProps)) mergedProps = nextMergedProps;
+      } else {
+        hasRunOnce = true;
+        mergedProps = nextMergedProps;
+
+        if (process.env.NODE_ENV !== 'production') (0, _verifyPlainObject2.default)(mergedProps, displayName, 'mergeProps');
+      }
+
+      return mergedProps;
+    };
+  };
+}
+
+function whenMergePropsIsFunction(mergeProps) {
+  return typeof mergeProps === 'function' ? wrapMergePropsFunc(mergeProps) : undefined;
+}
+
+function whenMergePropsIsOmitted(mergeProps) {
+  return !mergeProps ? function () {
+    return defaultMergeProps;
+  } : undefined;
+}
+
+exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 480 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.impureFinalPropsSelectorFactory = impureFinalPropsSelectorFactory;
+exports.pureFinalPropsSelectorFactory = pureFinalPropsSelectorFactory;
+exports.default = finalPropsSelectorFactory;
+
+var _verifySubselectors = __webpack_require__(481);
+
+var _verifySubselectors2 = _interopRequireDefault(_verifySubselectors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+function impureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch) {
+  return function impureFinalPropsSelector(state, ownProps) {
+    return mergeProps(mapStateToProps(state, ownProps), mapDispatchToProps(dispatch, ownProps), ownProps);
+  };
+}
+
+function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, _ref) {
+  var areStatesEqual = _ref.areStatesEqual,
+      areOwnPropsEqual = _ref.areOwnPropsEqual,
+      areStatePropsEqual = _ref.areStatePropsEqual;
+
+  var hasRunAtLeastOnce = false;
+  var state = void 0;
+  var ownProps = void 0;
+  var stateProps = void 0;
+  var dispatchProps = void 0;
+  var mergedProps = void 0;
+
+  function handleFirstCall(firstState, firstOwnProps) {
+    state = firstState;
+    ownProps = firstOwnProps;
+    stateProps = mapStateToProps(state, ownProps);
+    dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    hasRunAtLeastOnce = true;
+    return mergedProps;
+  }
+
+  function handleNewPropsAndNewState() {
+    stateProps = mapStateToProps(state, ownProps);
+
+    if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+
+  function handleNewProps() {
+    if (mapStateToProps.dependsOnOwnProps) stateProps = mapStateToProps(state, ownProps);
+
+    if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+
+  function handleNewState() {
+    var nextStateProps = mapStateToProps(state, ownProps);
+    var statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps);
+    stateProps = nextStateProps;
+
+    if (statePropsChanged) mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+
+    return mergedProps;
+  }
+
+  function handleSubsequentCalls(nextState, nextOwnProps) {
+    var propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps);
+    var stateChanged = !areStatesEqual(nextState, state);
+    state = nextState;
+    ownProps = nextOwnProps;
+
+    if (propsChanged && stateChanged) return handleNewPropsAndNewState();
+    if (propsChanged) return handleNewProps();
+    if (stateChanged) return handleNewState();
+    return mergedProps;
+  }
+
+  return function pureFinalPropsSelector(nextState, nextOwnProps) {
+    return hasRunAtLeastOnce ? handleSubsequentCalls(nextState, nextOwnProps) : handleFirstCall(nextState, nextOwnProps);
+  };
+}
+
+// TODO: Add more comments
+
+// If pure is true, the selector returned by selectorFactory will memoize its results,
+// allowing connectAdvanced's shouldComponentUpdate to return false if final
+// props have not changed. If false, the selector will always return a new
+// object and shouldComponentUpdate will always return true.
+
+function finalPropsSelectorFactory(dispatch, _ref2) {
+  var initMapStateToProps = _ref2.initMapStateToProps,
+      initMapDispatchToProps = _ref2.initMapDispatchToProps,
+      initMergeProps = _ref2.initMergeProps,
+      options = _objectWithoutProperties(_ref2, ['initMapStateToProps', 'initMapDispatchToProps', 'initMergeProps']);
+
+  var mapStateToProps = initMapStateToProps(dispatch, options);
+  var mapDispatchToProps = initMapDispatchToProps(dispatch, options);
+  var mergeProps = initMergeProps(dispatch, options);
+
+  if (process.env.NODE_ENV !== 'production') {
+    (0, _verifySubselectors2.default)(mapStateToProps, mapDispatchToProps, mergeProps, options.displayName);
+  }
+
+  var selectorFactory = options.pure ? pureFinalPropsSelectorFactory : impureFinalPropsSelectorFactory;
+
+  return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 481 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = verifySubselectors;
+
+var _warning = __webpack_require__(317);
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function verify(selector, methodName, displayName) {
+  if (!selector) {
+    throw new Error('Unexpected value for ' + methodName + ' in ' + displayName + '.');
+  } else if (methodName === 'mapStateToProps' || methodName === 'mapDispatchToProps') {
+    if (!selector.hasOwnProperty('dependsOnOwnProps')) {
+      (0, _warning2.default)('The selector for ' + methodName + ' of ' + displayName + ' did not specify a value for dependsOnOwnProps.');
+    }
+  }
+}
+
+function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, displayName) {
+  verify(mapStateToProps, 'mapStateToProps', displayName);
+  verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
+  verify(mergeProps, 'mergeProps', displayName);
+}
+
+/***/ }),
+/* 482 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+// encapsulates the subscription logic for connecting a component to the redux store, as
+// well as nesting subscriptions of descendant components, so that we can ensure the
+// ancestor components re-render before descendants
+
+var CLEARED = null;
+var nullListeners = {
+  notify: function notify() {}
+};
+
+function createListenerCollection() {
+  // the current/next pattern is copied from redux's createStore code.
+  // TODO: refactor+expose that code to be reusable here?
+  var current = [];
+  var next = [];
+
+  return {
+    clear: function clear() {
+      next = CLEARED;
+      current = CLEARED;
+    },
+    notify: function notify() {
+      var listeners = current = next;
+      for (var i = 0; i < listeners.length; i++) {
+        listeners[i]();
+      }
+    },
+    subscribe: function subscribe(listener) {
+      var isSubscribed = true;
+      if (next === current) next = current.slice();
+      next.push(listener);
+
+      return function unsubscribe() {
+        if (!isSubscribed || current === CLEARED) return;
+        isSubscribed = false;
+
+        if (next === current) next = current.slice();
+        next.splice(next.indexOf(listener), 1);
+      };
+    }
+  };
+}
+
+var Subscription = function () {
+  function Subscription(store, parentSub, onStateChange) {
+    _classCallCheck(this, Subscription);
+
+    this.store = store;
+    this.parentSub = parentSub;
+    this.onStateChange = onStateChange;
+    this.unsubscribe = null;
+    this.listeners = nullListeners;
+  }
+
+  Subscription.prototype.addNestedSub = function addNestedSub(listener) {
+    this.trySubscribe();
+    return this.listeners.subscribe(listener);
+  };
+
+  Subscription.prototype.notifyNestedSubs = function notifyNestedSubs() {
+    this.listeners.notify();
+  };
+
+  Subscription.prototype.isSubscribed = function isSubscribed() {
+    return Boolean(this.unsubscribe);
+  };
+
+  Subscription.prototype.trySubscribe = function trySubscribe() {
+    if (!this.unsubscribe) {
+      this.unsubscribe = this.parentSub ? this.parentSub.addNestedSub(this.onStateChange) : this.store.subscribe(this.onStateChange);
+
+      this.listeners = createListenerCollection();
+    }
+  };
+
+  Subscription.prototype.tryUnsubscribe = function tryUnsubscribe() {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+      this.unsubscribe = null;
+      this.listeners.clear();
+      this.listeners = nullListeners;
+    }
+  };
+
+  return Subscription;
+}();
+
+exports.default = Subscription;
+
+/***/ }),
+/* 483 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = shallowEqual;
+var hasOwn = Object.prototype.hasOwnProperty;
+
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) return true;
+
+  if ((typeof objA === 'undefined' ? 'undefined' : _typeof(objA)) !== 'object' || objA === null || (typeof objB === 'undefined' ? 'undefined' : _typeof(objB)) !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) return false;
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwn.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/***/ }),
+/* 484 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.combineEpics = undefined;
+
+var _merge = __webpack_require__(365);
+
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
+
+/**
+  Merges all epics into a single one.
+ */
+var combineEpics = exports.combineEpics = function combineEpics() {
+  for (var _len = arguments.length, epics = Array(_len), _key = 0; _key < _len; _key++) {
+    epics[_key] = arguments[_key];
+  }
+
+  return function () {
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return _merge.merge.apply(undefined, _toConsumableArray(epics.map(function (epic) {
+      var output$ = epic.apply(undefined, args);
+      if (!output$) {
+        throw new TypeError('combineEpics: one of the provided Epics "' + (epic.name || '<anonymous>') + '" does not return a stream. Double check you\'re not missing a return statement!');
+      }
+      return output$;
+    })));
+  };
+};
+
+/***/ }),
+/* 485 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createEpicMiddleware = createEpicMiddleware;
+
+var _Subject = __webpack_require__(299);
+
+var _map = __webpack_require__(319);
+
+var _switchMap = __webpack_require__(532);
+
+var _ActionsObservable = __webpack_require__(348);
+
+var _EPIC_END = __webpack_require__(349);
+
+var defaultAdapter = {
+  input: function input(action$) {
+    return action$;
+  },
+  output: function output(action$) {
+    return action$;
+  }
+};
+
+var defaultOptions = {
+  adapter: defaultAdapter
+};
+
+function createEpicMiddleware(epic) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultOptions,
+      _ref$adapter = _ref.adapter,
+      adapter = _ref$adapter === undefined ? defaultAdapter : _ref$adapter;
+
+  if (typeof epic !== 'function') {
+    throw new TypeError('You must provide a root Epic to createEpicMiddleware');
+  }
+
+  var input$ = new _Subject.Subject();
+  var action$ = adapter.input(new _ActionsObservable.ActionsObservable(input$));
+  var epic$ = new _Subject.Subject();
+  var store = void 0;
+
+  var epicMiddleware = function epicMiddleware(_store) {
+    store = _store;
+
+    return function (next) {
+      var _context;
+
+      (_context = _map.map.call(epic$, function (epic) {
+        var output$ = epic(action$, store);
+        if (!output$) {
+          throw new TypeError('Your root Epic "' + (epic.name || '<anonymous>') + '" does not return a stream. Double check you\'re not missing a return statement!');
+        }
+        return output$;
+      }), _switchMap.switchMap).call(_context, function (output$) {
+        return adapter.output(output$);
+      }).subscribe(store.dispatch);
+
+      // Setup initial root epic
+      epic$.next(epic);
+
+      return function (action) {
+        var result = next(action);
+        input$.next(action);
+        return result;
+      };
+    };
+  };
+
+  epicMiddleware.replaceEpic = function (epic) {
+    // gives the previous root Epic a last chance
+    // to do some clean up
+    store.dispatch({ type: _EPIC_END.EPIC_END });
+    // switches to the new root Epic, synchronously terminating
+    // the previous one
+    epic$.next(epic);
+  };
+
+  return epicMiddleware;
+}
+
+/***/ }),
+/* 486 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createEpicMiddleware = __webpack_require__(485);
+
+Object.defineProperty(exports, 'createEpicMiddleware', {
+  enumerable: true,
+  get: function get() {
+    return _createEpicMiddleware.createEpicMiddleware;
+  }
+});
+
+var _ActionsObservable = __webpack_require__(348);
+
+Object.defineProperty(exports, 'ActionsObservable', {
+  enumerable: true,
+  get: function get() {
+    return _ActionsObservable.ActionsObservable;
+  }
+});
+
+var _combineEpics = __webpack_require__(484);
+
+Object.defineProperty(exports, 'combineEpics', {
+  enumerable: true,
+  get: function get() {
+    return _combineEpics.combineEpics;
+  }
+});
+
+var _EPIC_END = __webpack_require__(349);
+
+Object.defineProperty(exports, 'EPIC_END', {
+  enumerable: true,
+  get: function get() {
+    return _EPIC_END.EPIC_END;
+  }
+});
+
+/***/ }),
+/* 487 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = applyMiddleware;
+
+var _compose = __webpack_require__(350);
+
+var _compose2 = _interopRequireDefault(_compose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+/**
+ * Creates a store enhancer that applies middleware to the dispatch method
+ * of the Redux store. This is handy for a variety of tasks, such as expressing
+ * asynchronous actions in a concise manner, or logging every action payload.
+ *
+ * See `redux-thunk` package as an example of the Redux middleware.
+ *
+ * Because middleware is potentially asynchronous, this should be the first
+ * store enhancer in the composition chain.
+ *
+ * Note that each middleware will be given the `dispatch` and `getState` functions
+ * as named arguments.
+ *
+ * @param {...Function} middlewares The middleware chain to be applied.
+ * @returns {Function} A store enhancer applying the middleware.
+ */
+function applyMiddleware() {
+  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
+    middlewares[_key] = arguments[_key];
+  }
+
+  return function (createStore) {
+    return function (reducer, preloadedState, enhancer) {
+      var store = createStore(reducer, preloadedState, enhancer);
+      var _dispatch = store.dispatch;
+      var chain = [];
+
+      var middlewareAPI = {
+        getState: store.getState,
+        dispatch: function dispatch(action) {
+          return _dispatch(action);
+        }
+      };
+      chain = middlewares.map(function (middleware) {
+        return middleware(middlewareAPI);
+      });
+      _dispatch = _compose2.default.apply(undefined, chain)(store.dispatch);
+
+      return _extends({}, store, {
+        dispatch: _dispatch
+      });
+    };
+  };
+}
+
+/***/ }),
+/* 488 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = bindActionCreators;
+function bindActionCreator(actionCreator, dispatch) {
+  return function () {
+    return dispatch(actionCreator.apply(undefined, arguments));
+  };
+}
+
+/**
+ * Turns an object whose values are action creators, into an object with the
+ * same keys, but with every function wrapped into a `dispatch` call so they
+ * may be invoked directly. This is just a convenience method, as you can call
+ * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
+ *
+ * For convenience, you can also pass a single function as the first argument,
+ * and get a function in return.
+ *
+ * @param {Function|Object} actionCreators An object whose values are action
+ * creator functions. One handy way to obtain it is to use ES6 `import * as`
+ * syntax. You may also pass a single function.
+ *
+ * @param {Function} dispatch The `dispatch` function available on your Redux
+ * store.
+ *
+ * @returns {Function|Object} The object mimicking the original object, but with
+ * every action creator wrapped into the `dispatch` call. If you passed a
+ * function as `actionCreators`, the return value will also be a single
+ * function.
+ */
+function bindActionCreators(actionCreators, dispatch) {
+  if (typeof actionCreators === 'function') {
+    return bindActionCreator(actionCreators, dispatch);
+  }
+
+  if ((typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) !== 'object' || actionCreators === null) {
+    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
+  }
+
+  var keys = Object.keys(actionCreators);
+  var boundActionCreators = {};
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var actionCreator = actionCreators[key];
+    if (typeof actionCreator === 'function') {
+      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
+    }
+  }
+  return boundActionCreators;
+}
+
+/***/ }),
+/* 489 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = combineReducers;
+
+var _createStore = __webpack_require__(351);
+
+var _isPlainObject = __webpack_require__(314);
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+var _warning = __webpack_require__(352);
+
+var _warning2 = _interopRequireDefault(_warning);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getUndefinedStateErrorMessage(key, action) {
+  var actionType = action && action.type;
+  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
+
+  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state. ' + 'If you want this reducer to hold no value, you can return null instead of undefined.';
+}
+
+function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+  var reducerKeys = Object.keys(reducers);
+  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
+
+  if (reducerKeys.length === 0) {
+    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
+  }
+
+  if (!(0, _isPlainObject2.default)(inputState)) {
+    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
+  }
+
+  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
+    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
+  });
+
+  unexpectedKeys.forEach(function (key) {
+    unexpectedKeyCache[key] = true;
+  });
+
+  if (unexpectedKeys.length > 0) {
+    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
+  }
+}
+
+function assertReducerShape(reducers) {
+  Object.keys(reducers).forEach(function (key) {
+    var reducer = reducers[key];
+    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
+
+    if (typeof initialState === 'undefined') {
+      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined. If you don\'t want to set a value for this reducer, ' + 'you can use null instead of undefined.');
+    }
+
+    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
+    if (typeof reducer(undefined, { type: type }) === 'undefined') {
+      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined, but can be null.');
+    }
+  });
+}
+
+/**
+ * Turns an object whose values are different reducer functions, into a single
+ * reducer function. It will call every child reducer, and gather their results
+ * into a single state object, whose keys correspond to the keys of the passed
+ * reducer functions.
+ *
+ * @param {Object} reducers An object whose values correspond to different
+ * reducer functions that need to be combined into one. One handy way to obtain
+ * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+ * undefined for any action. Instead, they should return their initial state
+ * if the state passed to them was undefined, and the current state for any
+ * unrecognized action.
+ *
+ * @returns {Function} A reducer function that invokes every reducer inside the
+ * passed object, and builds a state object with the same shape.
+ */
+function combineReducers(reducers) {
+  var reducerKeys = Object.keys(reducers);
+  var finalReducers = {};
+  for (var i = 0; i < reducerKeys.length; i++) {
+    var key = reducerKeys[i];
+
+    if (process.env.NODE_ENV !== 'production') {
+      if (typeof reducers[key] === 'undefined') {
+        (0, _warning2.default)('No reducer provided for key "' + key + '"');
+      }
+    }
+
+    if (typeof reducers[key] === 'function') {
+      finalReducers[key] = reducers[key];
+    }
+  }
+  var finalReducerKeys = Object.keys(finalReducers);
+
+  var unexpectedKeyCache = void 0;
+  if (process.env.NODE_ENV !== 'production') {
+    unexpectedKeyCache = {};
+  }
+
+  var shapeAssertionError = void 0;
+  try {
+    assertReducerShape(finalReducers);
+  } catch (e) {
+    shapeAssertionError = e;
+  }
+
+  return function combination() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var action = arguments[1];
+
+    if (shapeAssertionError) {
+      throw shapeAssertionError;
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
+      if (warningMessage) {
+        (0, _warning2.default)(warningMessage);
+      }
+    }
+
+    var hasChanged = false;
+    var nextState = {};
+    for (var _i = 0; _i < finalReducerKeys.length; _i++) {
+      var _key = finalReducerKeys[_i];
+      var reducer = finalReducers[_key];
+      var previousStateForKey = state[_key];
+      var nextStateForKey = reducer(previousStateForKey, action);
+      if (typeof nextStateForKey === 'undefined') {
+        var errorMessage = getUndefinedStateErrorMessage(_key, action);
+        throw new Error(errorMessage);
+      }
+      nextState[_key] = nextStateForKey;
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+    }
+    return hasChanged ? nextState : state;
+  };
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 490 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subject_1 = __webpack_require__(299);
+var ObjectUnsubscribedError_1 = __webpack_require__(368);
+/**
+ * @class BehaviorSubject<T>
+ */
+var BehaviorSubject = function (_super) {
+    __extends(BehaviorSubject, _super);
+    function BehaviorSubject(_value) {
+        _super.call(this);
+        this._value = _value;
+    }
+    Object.defineProperty(BehaviorSubject.prototype, "value", {
+        get: function get() {
+            return this.getValue();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    BehaviorSubject.prototype._subscribe = function (subscriber) {
+        var subscription = _super.prototype._subscribe.call(this, subscriber);
+        if (subscription && !subscription.closed) {
+            subscriber.next(this._value);
+        }
+        return subscription;
+    };
+    BehaviorSubject.prototype.getValue = function () {
+        if (this.hasError) {
+            throw this.thrownError;
+        } else if (this.closed) {
+            throw new ObjectUnsubscribedError_1.ObjectUnsubscribedError();
+        } else {
+            return this._value;
+        }
+    };
+    BehaviorSubject.prototype.next = function (value) {
+        _super.prototype.next.call(this, this._value = value);
+    };
+    return BehaviorSubject;
+}(Subject_1.Subject);
+exports.BehaviorSubject = BehaviorSubject;
+//# sourceMappingURL=BehaviorSubject.js.map
+
+/***/ }),
+/* 491 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var InnerSubscriber = function (_super) {
+    __extends(InnerSubscriber, _super);
+    function InnerSubscriber(parent, outerValue, outerIndex) {
+        _super.call(this);
+        this.parent = parent;
+        this.outerValue = outerValue;
+        this.outerIndex = outerIndex;
+        this.index = 0;
+    }
+    InnerSubscriber.prototype._next = function (value) {
+        this.parent.notifyNext(this.outerValue, value, this.outerIndex, this.index++, this);
+    };
+    InnerSubscriber.prototype._error = function (error) {
+        this.parent.notifyError(error, this);
+        this.unsubscribe();
+    };
+    InnerSubscriber.prototype._complete = function () {
+        this.parent.notifyComplete(this);
+        this.unsubscribe();
+    };
+    return InnerSubscriber;
+}(Subscriber_1.Subscriber);
+exports.InnerSubscriber = InnerSubscriber;
+//# sourceMappingURL=InnerSubscriber.js.map
+
+/***/ }),
+/* 492 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * An execution context and a data structure to order tasks and schedule their
+ * execution. Provides a notion of (potentially virtual) time, through the
+ * `now()` getter method.
+ *
+ * Each unit of work in a Scheduler is called an {@link Action}.
+ *
+ * ```ts
+ * class Scheduler {
+ *   now(): number;
+ *   schedule(work, delay?, state?): Subscription;
+ * }
+ * ```
+ *
+ * @class Scheduler
+ */
+
+var Scheduler = function () {
+    function Scheduler(SchedulerAction, now) {
+        if (now === void 0) {
+            now = Scheduler.now;
+        }
+        this.SchedulerAction = SchedulerAction;
+        this.now = now;
+    }
+    /**
+     * Schedules a function, `work`, for execution. May happen at some point in
+     * the future, according to the `delay` parameter, if specified. May be passed
+     * some context object, `state`, which will be passed to the `work` function.
+     *
+     * The given arguments will be processed an stored as an Action object in a
+     * queue of actions.
+     *
+     * @param {function(state: ?T): ?Subscription} work A function representing a
+     * task, or some unit of work to be executed by the Scheduler.
+     * @param {number} [delay] Time to wait before executing the work, where the
+     * time unit is implicit and defined by the Scheduler itself.
+     * @param {T} [state] Some contextual data that the `work` function uses when
+     * called by the Scheduler.
+     * @return {Subscription} A subscription in order to be able to unsubscribe
+     * the scheduled work.
+     */
+    Scheduler.prototype.schedule = function (work, delay, state) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        return new this.SchedulerAction(this, work).schedule(state, delay);
+    };
+    Scheduler.now = Date.now ? Date.now : function () {
+        return +new Date();
+    };
+    return Scheduler;
+}();
+exports.Scheduler = Scheduler;
+//# sourceMappingURL=Scheduler.js.map
+
+/***/ }),
+/* 493 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscription_1 = __webpack_require__(296);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var SubjectSubscription = function (_super) {
+    __extends(SubjectSubscription, _super);
+    function SubjectSubscription(subject, subscriber) {
+        _super.call(this);
+        this.subject = subject;
+        this.subscriber = subscriber;
+        this.closed = false;
+    }
+    SubjectSubscription.prototype.unsubscribe = function () {
+        if (this.closed) {
+            return;
+        }
+        this.closed = true;
+        var subject = this.subject;
+        var observers = subject.observers;
+        this.subject = null;
+        if (!observers || observers.length === 0 || subject.isStopped || subject.closed) {
+            return;
+        }
+        var subscriberIndex = observers.indexOf(this.subscriber);
+        if (subscriberIndex !== -1) {
+            observers.splice(subscriberIndex, 1);
+        }
+    };
+    return SubjectSubscription;
+}(Subscription_1.Subscription);
+exports.SubjectSubscription = SubjectSubscription;
+//# sourceMappingURL=SubjectSubscription.js.map
+
+/***/ }),
+/* 494 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var ajax_1 = __webpack_require__(515);
+Observable_1.Observable.ajax = ajax_1.ajax;
+//# sourceMappingURL=ajax.js.map
+
+/***/ }),
+/* 495 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var from_1 = __webpack_require__(364);
+Observable_1.Observable.from = from_1.from;
+//# sourceMappingURL=from.js.map
+
+/***/ }),
+/* 496 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var fromEvent_1 = __webpack_require__(517);
+Observable_1.Observable.fromEvent = fromEvent_1.fromEvent;
+//# sourceMappingURL=fromEvent.js.map
+
+/***/ }),
+/* 497 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var interval_1 = __webpack_require__(518);
+Observable_1.Observable.interval = interval_1.interval;
+//# sourceMappingURL=interval.js.map
+
+/***/ }),
+/* 498 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var merge_1 = __webpack_require__(365);
+Observable_1.Observable.merge = merge_1.merge;
+//# sourceMappingURL=merge.js.map
+
+/***/ }),
+/* 499 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var throw_1 = __webpack_require__(519);
+Observable_1.Observable.throw = throw_1._throw;
+//# sourceMappingURL=throw.js.map
+
+/***/ }),
+/* 500 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var combineLatest_1 = __webpack_require__(521);
+Observable_1.Observable.prototype.combineLatest = combineLatest_1.combineLatest;
+//# sourceMappingURL=combineLatest.js.map
+
+/***/ }),
+/* 501 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var count_1 = __webpack_require__(522);
+Observable_1.Observable.prototype.count = count_1.count;
+//# sourceMappingURL=count.js.map
+
+/***/ }),
+/* 502 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var retryWhen_1 = __webpack_require__(530);
+Observable_1.Observable.prototype.retryWhen = retryWhen_1.retryWhen;
+//# sourceMappingURL=retryWhen.js.map
+
+/***/ }),
+/* 503 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var share_1 = __webpack_require__(531);
+Observable_1.Observable.prototype.share = share_1.share;
+//# sourceMappingURL=share.js.map
+
+/***/ }),
+/* 504 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var take_1 = __webpack_require__(533);
+Observable_1.Observable.prototype.take = take_1.take;
+//# sourceMappingURL=take.js.map
+
+/***/ }),
+/* 505 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var throttleTime_1 = __webpack_require__(535);
+Observable_1.Observable.prototype.throttleTime = throttleTime_1.throttleTime;
+//# sourceMappingURL=throttleTime.js.map
+
+/***/ }),
+/* 506 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+var ScalarObservable_1 = __webpack_require__(363);
+var EmptyObservable_1 = __webpack_require__(304);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var ArrayLikeObservable = function (_super) {
+    __extends(ArrayLikeObservable, _super);
+    function ArrayLikeObservable(arrayLike, scheduler) {
+        _super.call(this);
+        this.arrayLike = arrayLike;
+        this.scheduler = scheduler;
+        if (!scheduler && arrayLike.length === 1) {
+            this._isScalar = true;
+            this.value = arrayLike[0];
+        }
+    }
+    ArrayLikeObservable.create = function (arrayLike, scheduler) {
+        var length = arrayLike.length;
+        if (length === 0) {
+            return new EmptyObservable_1.EmptyObservable();
+        } else if (length === 1) {
+            return new ScalarObservable_1.ScalarObservable(arrayLike[0], scheduler);
+        } else {
+            return new ArrayLikeObservable(arrayLike, scheduler);
+        }
+    };
+    ArrayLikeObservable.dispatch = function (state) {
+        var arrayLike = state.arrayLike,
+            index = state.index,
+            length = state.length,
+            subscriber = state.subscriber;
+        if (subscriber.closed) {
+            return;
+        }
+        if (index >= length) {
+            subscriber.complete();
+            return;
+        }
+        subscriber.next(arrayLike[index]);
+        state.index = index + 1;
+        this.schedule(state);
+    };
+    ArrayLikeObservable.prototype._subscribe = function (subscriber) {
+        var index = 0;
+        var _a = this,
+            arrayLike = _a.arrayLike,
+            scheduler = _a.scheduler;
+        var length = arrayLike.length;
+        if (scheduler) {
+            return scheduler.schedule(ArrayLikeObservable.dispatch, 0, {
+                arrayLike: arrayLike, index: index, length: length, subscriber: subscriber
+            });
+        } else {
+            for (var i = 0; i < length && !subscriber.closed; i++) {
+                subscriber.next(arrayLike[i]);
+            }
+            subscriber.complete();
+        }
+    };
+    return ArrayLikeObservable;
+}(Observable_1.Observable);
+exports.ArrayLikeObservable = ArrayLikeObservable;
+//# sourceMappingURL=ArrayLikeObservable.js.map
+
+/***/ }),
+/* 507 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subject_1 = __webpack_require__(299);
+var Observable_1 = __webpack_require__(288);
+var Subscriber_1 = __webpack_require__(290);
+var Subscription_1 = __webpack_require__(296);
+/**
+ * @class ConnectableObservable<T>
+ */
+var ConnectableObservable = function (_super) {
+    __extends(ConnectableObservable, _super);
+    function ConnectableObservable(source, subjectFactory) {
+        _super.call(this);
+        this.source = source;
+        this.subjectFactory = subjectFactory;
+        this._refCount = 0;
+        this._isComplete = false;
+    }
+    ConnectableObservable.prototype._subscribe = function (subscriber) {
+        return this.getSubject().subscribe(subscriber);
+    };
+    ConnectableObservable.prototype.getSubject = function () {
+        var subject = this._subject;
+        if (!subject || subject.isStopped) {
+            this._subject = this.subjectFactory();
+        }
+        return this._subject;
+    };
+    ConnectableObservable.prototype.connect = function () {
+        var connection = this._connection;
+        if (!connection) {
+            this._isComplete = false;
+            connection = this._connection = new Subscription_1.Subscription();
+            connection.add(this.source.subscribe(new ConnectableSubscriber(this.getSubject(), this)));
+            if (connection.closed) {
+                this._connection = null;
+                connection = Subscription_1.Subscription.EMPTY;
+            } else {
+                this._connection = connection;
+            }
+        }
+        return connection;
+    };
+    ConnectableObservable.prototype.refCount = function () {
+        return this.lift(new RefCountOperator(this));
+    };
+    return ConnectableObservable;
+}(Observable_1.Observable);
+exports.ConnectableObservable = ConnectableObservable;
+var connectableProto = ConnectableObservable.prototype;
+exports.connectableObservableDescriptor = {
+    operator: { value: null },
+    _refCount: { value: 0, writable: true },
+    _subject: { value: null, writable: true },
+    _connection: { value: null, writable: true },
+    _subscribe: { value: connectableProto._subscribe },
+    _isComplete: { value: connectableProto._isComplete, writable: true },
+    getSubject: { value: connectableProto.getSubject },
+    connect: { value: connectableProto.connect },
+    refCount: { value: connectableProto.refCount }
+};
+var ConnectableSubscriber = function (_super) {
+    __extends(ConnectableSubscriber, _super);
+    function ConnectableSubscriber(destination, connectable) {
+        _super.call(this, destination);
+        this.connectable = connectable;
+    }
+    ConnectableSubscriber.prototype._error = function (err) {
+        this._unsubscribe();
+        _super.prototype._error.call(this, err);
+    };
+    ConnectableSubscriber.prototype._complete = function () {
+        this.connectable._isComplete = true;
+        this._unsubscribe();
+        _super.prototype._complete.call(this);
+    };
+    ConnectableSubscriber.prototype._unsubscribe = function () {
+        var connectable = this.connectable;
+        if (connectable) {
+            this.connectable = null;
+            var connection = connectable._connection;
+            connectable._refCount = 0;
+            connectable._subject = null;
+            connectable._connection = null;
+            if (connection) {
+                connection.unsubscribe();
+            }
+        }
+    };
+    return ConnectableSubscriber;
+}(Subject_1.SubjectSubscriber);
+var RefCountOperator = function () {
+    function RefCountOperator(connectable) {
+        this.connectable = connectable;
+    }
+    RefCountOperator.prototype.call = function (subscriber, source) {
+        var connectable = this.connectable;
+        connectable._refCount++;
+        var refCounter = new RefCountSubscriber(subscriber, connectable);
+        var subscription = source.subscribe(refCounter);
+        if (!refCounter.closed) {
+            refCounter.connection = connectable.connect();
+        }
+        return subscription;
+    };
+    return RefCountOperator;
+}();
+var RefCountSubscriber = function (_super) {
+    __extends(RefCountSubscriber, _super);
+    function RefCountSubscriber(destination, connectable) {
+        _super.call(this, destination);
+        this.connectable = connectable;
+    }
+    RefCountSubscriber.prototype._unsubscribe = function () {
+        var connectable = this.connectable;
+        if (!connectable) {
+            this.connection = null;
+            return;
+        }
+        this.connectable = null;
+        var refCount = connectable._refCount;
+        if (refCount <= 0) {
+            this.connection = null;
+            return;
+        }
+        connectable._refCount = refCount - 1;
+        if (refCount > 1) {
+            this.connection = null;
+            return;
+        }
+        ///
+        // Compare the local RefCountSubscriber's connection Subscription to the
+        // connection Subscription on the shared ConnectableObservable. In cases
+        // where the ConnectableObservable source synchronously emits values, and
+        // the RefCountSubscriber's downstream Observers synchronously unsubscribe,
+        // execution continues to here before the RefCountOperator has a chance to
+        // supply the RefCountSubscriber with the shared connection Subscription.
+        // For example:
+        // ```
+        // Observable.range(0, 10)
+        //   .publish()
+        //   .refCount()
+        //   .take(5)
+        //   .subscribe();
+        // ```
+        // In order to account for this case, RefCountSubscriber should only dispose
+        // the ConnectableObservable's shared connection Subscription if the
+        // connection Subscription exists, *and* either:
+        //   a. RefCountSubscriber doesn't have a reference to the shared connection
+        //      Subscription yet, or,
+        //   b. RefCountSubscriber's connection Subscription reference is identical
+        //      to the shared connection Subscription
+        ///
+        var connection = this.connection;
+        var sharedConnection = connectable._connection;
+        this.connection = null;
+        if (sharedConnection && (!connection || sharedConnection === connection)) {
+            sharedConnection.unsubscribe();
+        }
+    };
+    return RefCountSubscriber;
+}(Subscriber_1.Subscriber);
+//# sourceMappingURL=ConnectableObservable.js.map
+
+/***/ }),
+/* 508 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var ErrorObservable = function (_super) {
+    __extends(ErrorObservable, _super);
+    function ErrorObservable(error, scheduler) {
+        _super.call(this);
+        this.error = error;
+        this.scheduler = scheduler;
+    }
+    /**
+     * Creates an Observable that emits no items to the Observer and immediately
+     * emits an error notification.
+     *
+     * <span class="informal">Just emits 'error', and nothing else.
+     * </span>
+     *
+     * <img src="./img/throw.png" width="100%">
+     *
+     * This static operator is useful for creating a simple Observable that only
+     * emits the error notification. It can be used for composing with other
+     * Observables, such as in a {@link mergeMap}.
+     *
+     * @example <caption>Emit the number 7, then emit an error.</caption>
+     * var result = Rx.Observable.throw(new Error('oops!')).startWith(7);
+     * result.subscribe(x => console.log(x), e => console.error(e));
+     *
+     * @example <caption>Map and flatten numbers to the sequence 'a', 'b', 'c', but throw an error for 13</caption>
+     * var interval = Rx.Observable.interval(1000);
+     * var result = interval.mergeMap(x =>
+     *   x === 13 ?
+     *     Rx.Observable.throw('Thirteens are bad') :
+     *     Rx.Observable.of('a', 'b', 'c')
+     * );
+     * result.subscribe(x => console.log(x), e => console.error(e));
+     *
+     * @see {@link create}
+     * @see {@link empty}
+     * @see {@link never}
+     * @see {@link of}
+     *
+     * @param {any} error The particular Error to pass to the error notification.
+     * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
+     * the emission of the error notification.
+     * @return {Observable} An error Observable: emits only the error notification
+     * using the given error argument.
+     * @static true
+     * @name throw
+     * @owner Observable
+     */
+    ErrorObservable.create = function (error, scheduler) {
+        return new ErrorObservable(error, scheduler);
+    };
+    ErrorObservable.dispatch = function (arg) {
+        var error = arg.error,
+            subscriber = arg.subscriber;
+        subscriber.error(error);
+    };
+    ErrorObservable.prototype._subscribe = function (subscriber) {
+        var error = this.error;
+        var scheduler = this.scheduler;
+        subscriber.syncErrorThrowable = true;
+        if (scheduler) {
+            return scheduler.schedule(ErrorObservable.dispatch, 0, {
+                error: error, subscriber: subscriber
+            });
+        } else {
+            subscriber.error(error);
+        }
+    };
+    return ErrorObservable;
+}(Observable_1.Observable);
+exports.ErrorObservable = ErrorObservable;
+//# sourceMappingURL=ErrorObservable.js.map
+
+/***/ }),
+/* 509 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Observable_1 = __webpack_require__(288);
+var tryCatch_1 = __webpack_require__(306);
+var isFunction_1 = __webpack_require__(324);
+var errorObject_1 = __webpack_require__(300);
+var Subscription_1 = __webpack_require__(296);
+var toString = Object.prototype.toString;
+function isNodeStyleEventEmitter(sourceObj) {
+    return !!sourceObj && typeof sourceObj.addListener === 'function' && typeof sourceObj.removeListener === 'function';
+}
+function isJQueryStyleEventEmitter(sourceObj) {
+    return !!sourceObj && typeof sourceObj.on === 'function' && typeof sourceObj.off === 'function';
+}
+function isNodeList(sourceObj) {
+    return !!sourceObj && toString.call(sourceObj) === '[object NodeList]';
+}
+function isHTMLCollection(sourceObj) {
+    return !!sourceObj && toString.call(sourceObj) === '[object HTMLCollection]';
+}
+function isEventTarget(sourceObj) {
+    return !!sourceObj && typeof sourceObj.addEventListener === 'function' && typeof sourceObj.removeEventListener === 'function';
+}
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var FromEventObservable = function (_super) {
+    __extends(FromEventObservable, _super);
+    function FromEventObservable(sourceObj, eventName, selector, options) {
+        _super.call(this);
+        this.sourceObj = sourceObj;
+        this.eventName = eventName;
+        this.selector = selector;
+        this.options = options;
+    }
+    /* tslint:enable:max-line-length */
+    /**
+     * Creates an Observable that emits events of a specific type coming from the
+     * given event target.
+     *
+     * <span class="informal">Creates an Observable from DOM events, or Node
+     * EventEmitter events or others.</span>
+     *
+     * <img src="./img/fromEvent.png" width="100%">
+     *
+     * Creates an Observable by attaching an event listener to an "event target",
+     * which may be an object with `addEventListener` and `removeEventListener`,
+     * a Node.js EventEmitter, a jQuery style EventEmitter, a NodeList from the
+     * DOM, or an HTMLCollection from the DOM. The event handler is attached when
+     * the output Observable is subscribed, and removed when the Subscription is
+     * unsubscribed.
+     *
+     * @example <caption>Emits clicks happening on the DOM document</caption>
+     * var clicks = Rx.Observable.fromEvent(document, 'click');
+     * clicks.subscribe(x => console.log(x));
+     *
+     * // Results in:
+     * // MouseEvent object logged to console everytime a click
+     * // occurs on the document.
+     *
+     * @see {@link from}
+     * @see {@link fromEventPattern}
+     *
+     * @param {EventTargetLike} target The DOMElement, event target, Node.js
+     * EventEmitter, NodeList or HTMLCollection to attach the event handler to.
+     * @param {string} eventName The event name of interest, being emitted by the
+     * `target`.
+     * @param {EventListenerOptions} [options] Options to pass through to addEventListener
+     * @param {SelectorMethodSignature<T>} [selector] An optional function to
+     * post-process results. It takes the arguments from the event handler and
+     * should return a single value.
+     * @return {Observable<T>}
+     * @static true
+     * @name fromEvent
+     * @owner Observable
+     */
+    FromEventObservable.create = function (target, eventName, options, selector) {
+        if (isFunction_1.isFunction(options)) {
+            selector = options;
+            options = undefined;
+        }
+        return new FromEventObservable(target, eventName, selector, options);
+    };
+    FromEventObservable.setupSubscription = function (sourceObj, eventName, handler, subscriber, options) {
+        var unsubscribe;
+        if (isNodeList(sourceObj) || isHTMLCollection(sourceObj)) {
+            for (var i = 0, len = sourceObj.length; i < len; i++) {
+                FromEventObservable.setupSubscription(sourceObj[i], eventName, handler, subscriber, options);
+            }
+        } else if (isEventTarget(sourceObj)) {
+            var source_1 = sourceObj;
+            sourceObj.addEventListener(eventName, handler, options);
+            unsubscribe = function unsubscribe() {
+                return source_1.removeEventListener(eventName, handler);
+            };
+        } else if (isJQueryStyleEventEmitter(sourceObj)) {
+            var source_2 = sourceObj;
+            sourceObj.on(eventName, handler);
+            unsubscribe = function unsubscribe() {
+                return source_2.off(eventName, handler);
+            };
+        } else if (isNodeStyleEventEmitter(sourceObj)) {
+            var source_3 = sourceObj;
+            sourceObj.addListener(eventName, handler);
+            unsubscribe = function unsubscribe() {
+                return source_3.removeListener(eventName, handler);
+            };
+        } else {
+            throw new TypeError('Invalid event target');
+        }
+        subscriber.add(new Subscription_1.Subscription(unsubscribe));
+    };
+    FromEventObservable.prototype._subscribe = function (subscriber) {
+        var sourceObj = this.sourceObj;
+        var eventName = this.eventName;
+        var options = this.options;
+        var selector = this.selector;
+        var handler = selector ? function () {
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i - 0] = arguments[_i];
+            }
+            var result = tryCatch_1.tryCatch(selector).apply(void 0, args);
+            if (result === errorObject_1.errorObject) {
+                subscriber.error(errorObject_1.errorObject.e);
+            } else {
+                subscriber.next(result);
+            }
+        } : function (e) {
+            return subscriber.next(e);
+        };
+        FromEventObservable.setupSubscription(sourceObj, eventName, handler, subscriber, options);
+    };
+    return FromEventObservable;
+}(Observable_1.Observable);
+exports.FromEventObservable = FromEventObservable;
+//# sourceMappingURL=FromEventObservable.js.map
+
+/***/ }),
+/* 510 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var isArray_1 = __webpack_require__(305);
+var isArrayLike_1 = __webpack_require__(369);
+var isPromise_1 = __webpack_require__(371);
+var PromiseObservable_1 = __webpack_require__(513);
+var IteratorObservable_1 = __webpack_require__(512);
+var ArrayObservable_1 = __webpack_require__(303);
+var ArrayLikeObservable_1 = __webpack_require__(506);
+var iterator_1 = __webpack_require__(321);
+var Observable_1 = __webpack_require__(288);
+var observeOn_1 = __webpack_require__(529);
+var observable_1 = __webpack_require__(322);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var FromObservable = function (_super) {
+    __extends(FromObservable, _super);
+    function FromObservable(ish, scheduler) {
+        _super.call(this, null);
+        this.ish = ish;
+        this.scheduler = scheduler;
+    }
+    /**
+     * Creates an Observable from an Array, an array-like object, a Promise, an
+     * iterable object, or an Observable-like object.
+     *
+     * <span class="informal">Converts almost anything to an Observable.</span>
+     *
+     * <img src="./img/from.png" width="100%">
+     *
+     * Convert various other objects and data types into Observables. `from`
+     * converts a Promise or an array-like or an
+     * [iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterable)
+     * object into an Observable that emits the items in that promise or array or
+     * iterable. A String, in this context, is treated as an array of characters.
+     * Observable-like objects (contains a function named with the ES2015 Symbol
+     * for Observable) can also be converted through this operator.
+     *
+     * @example <caption>Converts an array to an Observable</caption>
+     * var array = [10, 20, 30];
+     * var result = Rx.Observable.from(array);
+     * result.subscribe(x => console.log(x));
+     *
+     * // Results in the following:
+     * // 10 20 30
+     *
+     * @example <caption>Convert an infinite iterable (from a generator) to an Observable</caption>
+     * function* generateDoubles(seed) {
+     *   var i = seed;
+     *   while (true) {
+     *     yield i;
+     *     i = 2 * i; // double it
+     *   }
+     * }
+     *
+     * var iterator = generateDoubles(3);
+     * var result = Rx.Observable.from(iterator).take(10);
+     * result.subscribe(x => console.log(x));
+     *
+     * // Results in the following:
+     * // 3 6 12 24 48 96 192 384 768 1536
+     *
+     * @see {@link create}
+     * @see {@link fromEvent}
+     * @see {@link fromEventPattern}
+     * @see {@link fromPromise}
+     *
+     * @param {ObservableInput<T>} ish A subscribable object, a Promise, an
+     * Observable-like, an Array, an iterable or an array-like object to be
+     * converted.
+     * @param {Scheduler} [scheduler] The scheduler on which to schedule the
+     * emissions of values.
+     * @return {Observable<T>} The Observable whose values are originally from the
+     * input object that was converted.
+     * @static true
+     * @name from
+     * @owner Observable
+     */
+    FromObservable.create = function (ish, scheduler) {
+        if (ish != null) {
+            if (typeof ish[observable_1.observable] === 'function') {
+                if (ish instanceof Observable_1.Observable && !scheduler) {
+                    return ish;
+                }
+                return new FromObservable(ish, scheduler);
+            } else if (isArray_1.isArray(ish)) {
+                return new ArrayObservable_1.ArrayObservable(ish, scheduler);
+            } else if (isPromise_1.isPromise(ish)) {
+                return new PromiseObservable_1.PromiseObservable(ish, scheduler);
+            } else if (typeof ish[iterator_1.iterator] === 'function' || typeof ish === 'string') {
+                return new IteratorObservable_1.IteratorObservable(ish, scheduler);
+            } else if (isArrayLike_1.isArrayLike(ish)) {
+                return new ArrayLikeObservable_1.ArrayLikeObservable(ish, scheduler);
+            }
+        }
+        throw new TypeError((ish !== null && (typeof ish === 'undefined' ? 'undefined' : _typeof(ish)) || ish) + ' is not observable');
+    };
+    FromObservable.prototype._subscribe = function (subscriber) {
+        var ish = this.ish;
+        var scheduler = this.scheduler;
+        if (scheduler == null) {
+            return ish[observable_1.observable]().subscribe(subscriber);
+        } else {
+            return ish[observable_1.observable]().subscribe(new observeOn_1.ObserveOnSubscriber(subscriber, scheduler, 0));
+        }
+    };
+    return FromObservable;
+}(Observable_1.Observable);
+exports.FromObservable = FromObservable;
+//# sourceMappingURL=FromObservable.js.map
+
+/***/ }),
+/* 511 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var isNumeric_1 = __webpack_require__(542);
+var Observable_1 = __webpack_require__(288);
+var async_1 = __webpack_require__(320);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var IntervalObservable = function (_super) {
+    __extends(IntervalObservable, _super);
+    function IntervalObservable(period, scheduler) {
+        if (period === void 0) {
+            period = 0;
+        }
+        if (scheduler === void 0) {
+            scheduler = async_1.async;
+        }
+        _super.call(this);
+        this.period = period;
+        this.scheduler = scheduler;
+        if (!isNumeric_1.isNumeric(period) || period < 0) {
+            this.period = 0;
+        }
+        if (!scheduler || typeof scheduler.schedule !== 'function') {
+            this.scheduler = async_1.async;
+        }
+    }
+    /**
+     * Creates an Observable that emits sequential numbers every specified
+     * interval of time, on a specified IScheduler.
+     *
+     * <span class="informal">Emits incremental numbers periodically in time.
+     * </span>
+     *
+     * <img src="./img/interval.png" width="100%">
+     *
+     * `interval` returns an Observable that emits an infinite sequence of
+     * ascending integers, with a constant interval of time of your choosing
+     * between those emissions. The first emission is not sent immediately, but
+     * only after the first period has passed. By default, this operator uses the
+     * `async` IScheduler to provide a notion of time, but you may pass any
+     * IScheduler to it.
+     *
+     * @example <caption>Emits ascending numbers, one every second (1000ms)</caption>
+     * var numbers = Rx.Observable.interval(1000);
+     * numbers.subscribe(x => console.log(x));
+     *
+     * @see {@link timer}
+     * @see {@link delay}
+     *
+     * @param {number} [period=0] The interval size in milliseconds (by default)
+     * or the time unit determined by the scheduler's clock.
+     * @param {Scheduler} [scheduler=async] The IScheduler to use for scheduling
+     * the emission of values, and providing a notion of "time".
+     * @return {Observable} An Observable that emits a sequential number each time
+     * interval.
+     * @static true
+     * @name interval
+     * @owner Observable
+     */
+    IntervalObservable.create = function (period, scheduler) {
+        if (period === void 0) {
+            period = 0;
+        }
+        if (scheduler === void 0) {
+            scheduler = async_1.async;
+        }
+        return new IntervalObservable(period, scheduler);
+    };
+    IntervalObservable.dispatch = function (state) {
+        var index = state.index,
+            subscriber = state.subscriber,
+            period = state.period;
+        subscriber.next(index);
+        if (subscriber.closed) {
+            return;
+        }
+        state.index += 1;
+        this.schedule(state, period);
+    };
+    IntervalObservable.prototype._subscribe = function (subscriber) {
+        var index = 0;
+        var period = this.period;
+        var scheduler = this.scheduler;
+        subscriber.add(scheduler.schedule(IntervalObservable.dispatch, period, {
+            index: index, subscriber: subscriber, period: period
+        }));
+    };
+    return IntervalObservable;
+}(Observable_1.Observable);
+exports.IntervalObservable = IntervalObservable;
+//# sourceMappingURL=IntervalObservable.js.map
+
+/***/ }),
+/* 512 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var root_1 = __webpack_require__(292);
+var Observable_1 = __webpack_require__(288);
+var iterator_1 = __webpack_require__(321);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var IteratorObservable = function (_super) {
+    __extends(IteratorObservable, _super);
+    function IteratorObservable(iterator, scheduler) {
+        _super.call(this);
+        this.scheduler = scheduler;
+        if (iterator == null) {
+            throw new Error('iterator cannot be null.');
+        }
+        this.iterator = getIterator(iterator);
+    }
+    IteratorObservable.create = function (iterator, scheduler) {
+        return new IteratorObservable(iterator, scheduler);
+    };
+    IteratorObservable.dispatch = function (state) {
+        var index = state.index,
+            hasError = state.hasError,
+            iterator = state.iterator,
+            subscriber = state.subscriber;
+        if (hasError) {
+            subscriber.error(state.error);
+            return;
+        }
+        var result = iterator.next();
+        if (result.done) {
+            subscriber.complete();
+            return;
+        }
+        subscriber.next(result.value);
+        state.index = index + 1;
+        if (subscriber.closed) {
+            if (typeof iterator.return === 'function') {
+                iterator.return();
+            }
+            return;
+        }
+        this.schedule(state);
+    };
+    IteratorObservable.prototype._subscribe = function (subscriber) {
+        var index = 0;
+        var _a = this,
+            iterator = _a.iterator,
+            scheduler = _a.scheduler;
+        if (scheduler) {
+            return scheduler.schedule(IteratorObservable.dispatch, 0, {
+                index: index, iterator: iterator, subscriber: subscriber
+            });
+        } else {
+            do {
+                var result = iterator.next();
+                if (result.done) {
+                    subscriber.complete();
+                    break;
+                } else {
+                    subscriber.next(result.value);
+                }
+                if (subscriber.closed) {
+                    if (typeof iterator.return === 'function') {
+                        iterator.return();
+                    }
+                    break;
+                }
+            } while (true);
+        }
+    };
+    return IteratorObservable;
+}(Observable_1.Observable);
+exports.IteratorObservable = IteratorObservable;
+var StringIterator = function () {
+    function StringIterator(str, idx, len) {
+        if (idx === void 0) {
+            idx = 0;
+        }
+        if (len === void 0) {
+            len = str.length;
+        }
+        this.str = str;
+        this.idx = idx;
+        this.len = len;
+    }
+    StringIterator.prototype[iterator_1.iterator] = function () {
+        return this;
+    };
+    StringIterator.prototype.next = function () {
+        return this.idx < this.len ? {
+            done: false,
+            value: this.str.charAt(this.idx++)
+        } : {
+            done: true,
+            value: undefined
+        };
+    };
+    return StringIterator;
+}();
+var ArrayIterator = function () {
+    function ArrayIterator(arr, idx, len) {
+        if (idx === void 0) {
+            idx = 0;
+        }
+        if (len === void 0) {
+            len = toLength(arr);
+        }
+        this.arr = arr;
+        this.idx = idx;
+        this.len = len;
+    }
+    ArrayIterator.prototype[iterator_1.iterator] = function () {
+        return this;
+    };
+    ArrayIterator.prototype.next = function () {
+        return this.idx < this.len ? {
+            done: false,
+            value: this.arr[this.idx++]
+        } : {
+            done: true,
+            value: undefined
+        };
+    };
+    return ArrayIterator;
+}();
+function getIterator(obj) {
+    var i = obj[iterator_1.iterator];
+    if (!i && typeof obj === 'string') {
+        return new StringIterator(obj);
+    }
+    if (!i && obj.length !== undefined) {
+        return new ArrayIterator(obj);
+    }
+    if (!i) {
+        throw new TypeError('object is not iterable');
+    }
+    return obj[iterator_1.iterator]();
+}
+var maxSafeInteger = Math.pow(2, 53) - 1;
+function toLength(o) {
+    var len = +o.length;
+    if (isNaN(len)) {
+        return 0;
+    }
+    if (len === 0 || !numberIsFinite(len)) {
+        return len;
+    }
+    len = sign(len) * Math.floor(Math.abs(len));
+    if (len <= 0) {
+        return 0;
+    }
+    if (len > maxSafeInteger) {
+        return maxSafeInteger;
+    }
+    return len;
+}
+function numberIsFinite(value) {
+    return typeof value === 'number' && root_1.root.isFinite(value);
+}
+function sign(value) {
+    var valueAsNumber = +value;
+    if (valueAsNumber === 0) {
+        return valueAsNumber;
+    }
+    if (isNaN(valueAsNumber)) {
+        return valueAsNumber;
+    }
+    return valueAsNumber < 0 ? -1 : 1;
+}
+//# sourceMappingURL=IteratorObservable.js.map
+
+/***/ }),
+/* 513 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var root_1 = __webpack_require__(292);
+var Observable_1 = __webpack_require__(288);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var PromiseObservable = function (_super) {
+    __extends(PromiseObservable, _super);
+    function PromiseObservable(promise, scheduler) {
+        _super.call(this);
+        this.promise = promise;
+        this.scheduler = scheduler;
+    }
+    /**
+     * Converts a Promise to an Observable.
+     *
+     * <span class="informal">Returns an Observable that just emits the Promise's
+     * resolved value, then completes.</span>
+     *
+     * Converts an ES2015 Promise or a Promises/A+ spec compliant Promise to an
+     * Observable. If the Promise resolves with a value, the output Observable
+     * emits that resolved value as a `next`, and then completes. If the Promise
+     * is rejected, then the output Observable emits the corresponding Error.
+     *
+     * @example <caption>Convert the Promise returned by Fetch to an Observable</caption>
+     * var result = Rx.Observable.fromPromise(fetch('http://myserver.com/'));
+     * result.subscribe(x => console.log(x), e => console.error(e));
+     *
+     * @see {@link bindCallback}
+     * @see {@link from}
+     *
+     * @param {PromiseLike<T>} promise The promise to be converted.
+     * @param {Scheduler} [scheduler] An optional IScheduler to use for scheduling
+     * the delivery of the resolved value (or the rejection).
+     * @return {Observable<T>} An Observable which wraps the Promise.
+     * @static true
+     * @name fromPromise
+     * @owner Observable
+     */
+    PromiseObservable.create = function (promise, scheduler) {
+        return new PromiseObservable(promise, scheduler);
+    };
+    PromiseObservable.prototype._subscribe = function (subscriber) {
+        var _this = this;
+        var promise = this.promise;
+        var scheduler = this.scheduler;
+        if (scheduler == null) {
+            if (this._isScalar) {
+                if (!subscriber.closed) {
+                    subscriber.next(this.value);
+                    subscriber.complete();
+                }
+            } else {
+                promise.then(function (value) {
+                    _this.value = value;
+                    _this._isScalar = true;
+                    if (!subscriber.closed) {
+                        subscriber.next(value);
+                        subscriber.complete();
+                    }
+                }, function (err) {
+                    if (!subscriber.closed) {
+                        subscriber.error(err);
+                    }
+                }).then(null, function (err) {
+                    // escape the promise trap, throw unhandled errors
+                    root_1.root.setTimeout(function () {
+                        throw err;
+                    });
+                });
+            }
+        } else {
+            if (this._isScalar) {
+                if (!subscriber.closed) {
+                    return scheduler.schedule(dispatchNext, 0, { value: this.value, subscriber: subscriber });
+                }
+            } else {
+                promise.then(function (value) {
+                    _this.value = value;
+                    _this._isScalar = true;
+                    if (!subscriber.closed) {
+                        subscriber.add(scheduler.schedule(dispatchNext, 0, { value: value, subscriber: subscriber }));
+                    }
+                }, function (err) {
+                    if (!subscriber.closed) {
+                        subscriber.add(scheduler.schedule(dispatchError, 0, { err: err, subscriber: subscriber }));
+                    }
+                }).then(null, function (err) {
+                    // escape the promise trap, throw unhandled errors
+                    root_1.root.setTimeout(function () {
+                        throw err;
+                    });
+                });
+            }
+        }
+    };
+    return PromiseObservable;
+}(Observable_1.Observable);
+exports.PromiseObservable = PromiseObservable;
+function dispatchNext(arg) {
+    var value = arg.value,
+        subscriber = arg.subscriber;
+    if (!subscriber.closed) {
+        subscriber.next(value);
+        subscriber.complete();
+    }
+}
+function dispatchError(arg) {
+    var err = arg.err,
+        subscriber = arg.subscriber;
+    if (!subscriber.closed) {
+        subscriber.error(err);
+    }
+}
+//# sourceMappingURL=PromiseObservable.js.map
+
+/***/ }),
+/* 514 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var root_1 = __webpack_require__(292);
+var tryCatch_1 = __webpack_require__(306);
+var errorObject_1 = __webpack_require__(300);
+var Observable_1 = __webpack_require__(288);
+var Subscriber_1 = __webpack_require__(290);
+var map_1 = __webpack_require__(319);
+function getCORSRequest() {
+    if (root_1.root.XMLHttpRequest) {
+        return new root_1.root.XMLHttpRequest();
+    } else if (!!root_1.root.XDomainRequest) {
+        return new root_1.root.XDomainRequest();
+    } else {
+        throw new Error('CORS is not supported by your browser');
+    }
+}
+function getXMLHttpRequest() {
+    if (root_1.root.XMLHttpRequest) {
+        return new root_1.root.XMLHttpRequest();
+    } else {
+        var progId = void 0;
+        try {
+            var progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'];
+            for (var i = 0; i < 3; i++) {
+                try {
+                    progId = progIds[i];
+                    if (new root_1.root.ActiveXObject(progId)) {
+                        break;
+                    }
+                } catch (e) {}
+            }
+            return new root_1.root.ActiveXObject(progId);
+        } catch (e) {
+            throw new Error('XMLHttpRequest is not supported by your browser');
+        }
+    }
+}
+function ajaxGet(url, headers) {
+    if (headers === void 0) {
+        headers = null;
+    }
+    return new AjaxObservable({ method: 'GET', url: url, headers: headers });
+}
+exports.ajaxGet = ajaxGet;
+;
+function ajaxPost(url, body, headers) {
+    return new AjaxObservable({ method: 'POST', url: url, body: body, headers: headers });
+}
+exports.ajaxPost = ajaxPost;
+;
+function ajaxDelete(url, headers) {
+    return new AjaxObservable({ method: 'DELETE', url: url, headers: headers });
+}
+exports.ajaxDelete = ajaxDelete;
+;
+function ajaxPut(url, body, headers) {
+    return new AjaxObservable({ method: 'PUT', url: url, body: body, headers: headers });
+}
+exports.ajaxPut = ajaxPut;
+;
+function ajaxPatch(url, body, headers) {
+    return new AjaxObservable({ method: 'PATCH', url: url, body: body, headers: headers });
+}
+exports.ajaxPatch = ajaxPatch;
+;
+function ajaxGetJSON(url, headers) {
+    return new AjaxObservable({ method: 'GET', url: url, responseType: 'json', headers: headers }).lift(new map_1.MapOperator(function (x, index) {
+        return x.response;
+    }, null));
+}
+exports.ajaxGetJSON = ajaxGetJSON;
+;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @extends {Ignored}
+ * @hide true
+ */
+var AjaxObservable = function (_super) {
+    __extends(AjaxObservable, _super);
+    function AjaxObservable(urlOrRequest) {
+        _super.call(this);
+        var request = {
+            async: true,
+            createXHR: function createXHR() {
+                return this.crossDomain ? getCORSRequest.call(this) : getXMLHttpRequest();
+            },
+            crossDomain: false,
+            withCredentials: false,
+            headers: {},
+            method: 'GET',
+            responseType: 'json',
+            timeout: 0
+        };
+        if (typeof urlOrRequest === 'string') {
+            request.url = urlOrRequest;
+        } else {
+            for (var prop in urlOrRequest) {
+                if (urlOrRequest.hasOwnProperty(prop)) {
+                    request[prop] = urlOrRequest[prop];
+                }
+            }
+        }
+        this.request = request;
+    }
+    AjaxObservable.prototype._subscribe = function (subscriber) {
+        return new AjaxSubscriber(subscriber, this.request);
+    };
+    /**
+     * Creates an observable for an Ajax request with either a request object with
+     * url, headers, etc or a string for a URL.
+     *
+     * @example
+     * source = Rx.Observable.ajax('/products');
+     * source = Rx.Observable.ajax({ url: 'products', method: 'GET' });
+     *
+     * @param {string|Object} request Can be one of the following:
+     *   A string of the URL to make the Ajax call.
+     *   An object with the following properties
+     *   - url: URL of the request
+     *   - body: The body of the request
+     *   - method: Method of the request, such as GET, POST, PUT, PATCH, DELETE
+     *   - async: Whether the request is async
+     *   - headers: Optional headers
+     *   - crossDomain: true if a cross domain request, else false
+     *   - createXHR: a function to override if you need to use an alternate
+     *   XMLHttpRequest implementation.
+     *   - resultSelector: a function to use to alter the output value type of
+     *   the Observable. Gets {@link AjaxResponse} as an argument.
+     * @return {Observable} An observable sequence containing the XMLHttpRequest.
+     * @static true
+     * @name ajax
+     * @owner Observable
+    */
+    AjaxObservable.create = function () {
+        var create = function create(urlOrRequest) {
+            return new AjaxObservable(urlOrRequest);
+        };
+        create.get = ajaxGet;
+        create.post = ajaxPost;
+        create.delete = ajaxDelete;
+        create.put = ajaxPut;
+        create.patch = ajaxPatch;
+        create.getJSON = ajaxGetJSON;
+        return create;
+    }();
+    return AjaxObservable;
+}(Observable_1.Observable);
+exports.AjaxObservable = AjaxObservable;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var AjaxSubscriber = function (_super) {
+    __extends(AjaxSubscriber, _super);
+    function AjaxSubscriber(destination, request) {
+        _super.call(this, destination);
+        this.request = request;
+        this.done = false;
+        var headers = request.headers = request.headers || {};
+        // force CORS if requested
+        if (!request.crossDomain && !headers['X-Requested-With']) {
+            headers['X-Requested-With'] = 'XMLHttpRequest';
+        }
+        // ensure content type is set
+        if (!('Content-Type' in headers) && !(root_1.root.FormData && request.body instanceof root_1.root.FormData) && typeof request.body !== 'undefined') {
+            headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        }
+        // properly serialize body
+        request.body = this.serializeBody(request.body, request.headers['Content-Type']);
+        this.send();
+    }
+    AjaxSubscriber.prototype.next = function (e) {
+        this.done = true;
+        var _a = this,
+            xhr = _a.xhr,
+            request = _a.request,
+            destination = _a.destination;
+        var response = new AjaxResponse(e, xhr, request);
+        destination.next(response);
+    };
+    AjaxSubscriber.prototype.send = function () {
+        var _a = this,
+            request = _a.request,
+            _b = _a.request,
+            user = _b.user,
+            method = _b.method,
+            url = _b.url,
+            async = _b.async,
+            password = _b.password,
+            headers = _b.headers,
+            body = _b.body;
+        var createXHR = request.createXHR;
+        var xhr = tryCatch_1.tryCatch(createXHR).call(request);
+        if (xhr === errorObject_1.errorObject) {
+            this.error(errorObject_1.errorObject.e);
+        } else {
+            this.xhr = xhr;
+            // set up the events before open XHR
+            // https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+            // You need to add the event listeners before calling open() on the request.
+            // Otherwise the progress events will not fire.
+            this.setupEvents(xhr, request);
+            // open XHR
+            var result = void 0;
+            if (user) {
+                result = tryCatch_1.tryCatch(xhr.open).call(xhr, method, url, async, user, password);
+            } else {
+                result = tryCatch_1.tryCatch(xhr.open).call(xhr, method, url, async);
+            }
+            if (result === errorObject_1.errorObject) {
+                this.error(errorObject_1.errorObject.e);
+                return null;
+            }
+            // timeout, responseType and withCredentials can be set once the XHR is open
+            if (async) {
+                xhr.timeout = request.timeout;
+                xhr.responseType = request.responseType;
+            }
+            if ('withCredentials' in xhr) {
+                xhr.withCredentials = !!request.withCredentials;
+            }
+            // set headers
+            this.setHeaders(xhr, headers);
+            // finally send the request
+            result = body ? tryCatch_1.tryCatch(xhr.send).call(xhr, body) : tryCatch_1.tryCatch(xhr.send).call(xhr);
+            if (result === errorObject_1.errorObject) {
+                this.error(errorObject_1.errorObject.e);
+                return null;
+            }
+        }
+        return xhr;
+    };
+    AjaxSubscriber.prototype.serializeBody = function (body, contentType) {
+        if (!body || typeof body === 'string') {
+            return body;
+        } else if (root_1.root.FormData && body instanceof root_1.root.FormData) {
+            return body;
+        }
+        if (contentType) {
+            var splitIndex = contentType.indexOf(';');
+            if (splitIndex !== -1) {
+                contentType = contentType.substring(0, splitIndex);
+            }
+        }
+        switch (contentType) {
+            case 'application/x-www-form-urlencoded':
+                return Object.keys(body).map(function (key) {
+                    return encodeURI(key) + "=" + encodeURI(body[key]);
+                }).join('&');
+            case 'application/json':
+                return JSON.stringify(body);
+            default:
+                return body;
+        }
+    };
+    AjaxSubscriber.prototype.setHeaders = function (xhr, headers) {
+        for (var key in headers) {
+            if (headers.hasOwnProperty(key)) {
+                xhr.setRequestHeader(key, headers[key]);
+            }
+        }
+    };
+    AjaxSubscriber.prototype.setupEvents = function (xhr, request) {
+        var progressSubscriber = request.progressSubscriber;
+        function xhrTimeout(e) {
+            var _a = xhrTimeout,
+                subscriber = _a.subscriber,
+                progressSubscriber = _a.progressSubscriber,
+                request = _a.request;
+            if (progressSubscriber) {
+                progressSubscriber.error(e);
+            }
+            subscriber.error(new AjaxTimeoutError(this, request)); //TODO: Make betterer.
+        }
+        ;
+        xhr.ontimeout = xhrTimeout;
+        xhrTimeout.request = request;
+        xhrTimeout.subscriber = this;
+        xhrTimeout.progressSubscriber = progressSubscriber;
+        if (xhr.upload && 'withCredentials' in xhr) {
+            if (progressSubscriber) {
+                var _xhrProgress_;
+                _xhrProgress_ = function xhrProgress_1(e) {
+                    var progressSubscriber = _xhrProgress_.progressSubscriber;
+                    progressSubscriber.next(e);
+                };
+                if (root_1.root.XDomainRequest) {
+                    xhr.onprogress = _xhrProgress_;
+                } else {
+                    xhr.upload.onprogress = _xhrProgress_;
+                }
+                _xhrProgress_.progressSubscriber = progressSubscriber;
+            }
+            var _xhrError_;
+            _xhrError_ = function xhrError_1(e) {
+                var _a = _xhrError_,
+                    progressSubscriber = _a.progressSubscriber,
+                    subscriber = _a.subscriber,
+                    request = _a.request;
+                if (progressSubscriber) {
+                    progressSubscriber.error(e);
+                }
+                subscriber.error(new AjaxError('ajax error', this, request));
+            };
+            xhr.onerror = _xhrError_;
+            _xhrError_.request = request;
+            _xhrError_.subscriber = this;
+            _xhrError_.progressSubscriber = progressSubscriber;
+        }
+        function xhrReadyStateChange(e) {
+            var _a = xhrReadyStateChange,
+                subscriber = _a.subscriber,
+                progressSubscriber = _a.progressSubscriber,
+                request = _a.request;
+            if (this.readyState === 4) {
+                // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+                var status_1 = this.status === 1223 ? 204 : this.status;
+                var response = this.responseType === 'text' ? this.response || this.responseText : this.response;
+                // fix status code when it is 0 (0 status is undocumented).
+                // Occurs when accessing file resources or on Android 4.1 stock browser
+                // while retrieving files from application cache.
+                if (status_1 === 0) {
+                    status_1 = response ? 200 : 0;
+                }
+                if (200 <= status_1 && status_1 < 300) {
+                    if (progressSubscriber) {
+                        progressSubscriber.complete();
+                    }
+                    subscriber.next(e);
+                    subscriber.complete();
+                } else {
+                    if (progressSubscriber) {
+                        progressSubscriber.error(e);
+                    }
+                    subscriber.error(new AjaxError('ajax error ' + status_1, this, request));
+                }
+            }
+        }
+        ;
+        xhr.onreadystatechange = xhrReadyStateChange;
+        xhrReadyStateChange.subscriber = this;
+        xhrReadyStateChange.progressSubscriber = progressSubscriber;
+        xhrReadyStateChange.request = request;
+    };
+    AjaxSubscriber.prototype.unsubscribe = function () {
+        var _a = this,
+            done = _a.done,
+            xhr = _a.xhr;
+        if (!done && xhr && xhr.readyState !== 4 && typeof xhr.abort === 'function') {
+            xhr.abort();
+        }
+        _super.prototype.unsubscribe.call(this);
+    };
+    return AjaxSubscriber;
+}(Subscriber_1.Subscriber);
+exports.AjaxSubscriber = AjaxSubscriber;
+/**
+ * A normalized AJAX response.
+ *
+ * @see {@link ajax}
+ *
+ * @class AjaxResponse
+ */
+var AjaxResponse = function () {
+    function AjaxResponse(originalEvent, xhr, request) {
+        this.originalEvent = originalEvent;
+        this.xhr = xhr;
+        this.request = request;
+        this.status = xhr.status;
+        this.responseType = xhr.responseType || request.responseType;
+        switch (this.responseType) {
+            case 'json':
+                if ('response' in xhr) {
+                    //IE does not support json as responseType, parse it internally
+                    this.response = xhr.responseType ? xhr.response : JSON.parse(xhr.response || xhr.responseText || 'null');
+                } else {
+                    this.response = JSON.parse(xhr.responseText || 'null');
+                }
+                break;
+            case 'xml':
+                this.response = xhr.responseXML;
+                break;
+            case 'text':
+            default:
+                this.response = 'response' in xhr ? xhr.response : xhr.responseText;
+                break;
+        }
+    }
+    return AjaxResponse;
+}();
+exports.AjaxResponse = AjaxResponse;
+/**
+ * A normalized AJAX error.
+ *
+ * @see {@link ajax}
+ *
+ * @class AjaxError
+ */
+var AjaxError = function (_super) {
+    __extends(AjaxError, _super);
+    function AjaxError(message, xhr, request) {
+        _super.call(this, message);
+        this.message = message;
+        this.xhr = xhr;
+        this.request = request;
+        this.status = xhr.status;
+    }
+    return AjaxError;
+}(Error);
+exports.AjaxError = AjaxError;
+/**
+ * @see {@link ajax}
+ *
+ * @class AjaxTimeoutError
+ */
+var AjaxTimeoutError = function (_super) {
+    __extends(AjaxTimeoutError, _super);
+    function AjaxTimeoutError(xhr, request) {
+        _super.call(this, 'ajax timeout', xhr, request);
+    }
+    return AjaxTimeoutError;
+}(AjaxError);
+exports.AjaxTimeoutError = AjaxTimeoutError;
+//# sourceMappingURL=AjaxObservable.js.map
+
+/***/ }),
+/* 515 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var AjaxObservable_1 = __webpack_require__(514);
+exports.ajax = AjaxObservable_1.AjaxObservable.create;
+//# sourceMappingURL=ajax.js.map
+
+/***/ }),
+/* 516 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var EmptyObservable_1 = __webpack_require__(304);
+exports.empty = EmptyObservable_1.EmptyObservable.create;
+//# sourceMappingURL=empty.js.map
+
+/***/ }),
+/* 517 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var FromEventObservable_1 = __webpack_require__(509);
+exports.fromEvent = FromEventObservable_1.FromEventObservable.create;
+//# sourceMappingURL=fromEvent.js.map
+
+/***/ }),
+/* 518 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var IntervalObservable_1 = __webpack_require__(511);
+exports.interval = IntervalObservable_1.IntervalObservable.create;
+//# sourceMappingURL=interval.js.map
+
+/***/ }),
+/* 519 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ErrorObservable_1 = __webpack_require__(508);
+exports._throw = ErrorObservable_1.ErrorObservable.create;
+//# sourceMappingURL=throw.js.map
+
+/***/ }),
+/* 520 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var OuterSubscriber_1 = __webpack_require__(294);
+var subscribeToResult_1 = __webpack_require__(295);
+/**
+ * Catches errors on the observable to be handled by returning a new observable or throwing an error.
+ *
+ * <img src="./img/catch.png" width="100%">
+ *
+ * @example <caption>Continues with a different Observable when there's an error</caption>
+ *
+ * Observable.of(1, 2, 3, 4, 5)
+ *   .map(n => {
+ * 	   if (n == 4) {
+ * 	     throw 'four!';
+ *     }
+ *	   return n;
+ *   })
+ *   .catch(err => Observable.of('I', 'II', 'III', 'IV', 'V'))
+ *   .subscribe(x => console.log(x));
+ *   // 1, 2, 3, I, II, III, IV, V
+ *
+ * @example <caption>Retries the caught source Observable again in case of error, similar to retry() operator</caption>
+ *
+ * Observable.of(1, 2, 3, 4, 5)
+ *   .map(n => {
+ * 	   if (n === 4) {
+ * 	     throw 'four!';
+ *     }
+ * 	   return n;
+ *   })
+ *   .catch((err, caught) => caught)
+ *   .take(30)
+ *   .subscribe(x => console.log(x));
+ *   // 1, 2, 3, 1, 2, 3, ...
+ *
+ * @example <caption>Throws a new error when the source Observable throws an error</caption>
+ *
+ * Observable.of(1, 2, 3, 4, 5)
+ *   .map(n => {
+ *     if (n == 4) {
+ *       throw 'four!';
+ *     }
+ *     return n;
+ *   })
+ *   .catch(err => {
+ *     throw 'error in source. Details: ' + err;
+ *   })
+ *   .subscribe(
+ *     x => console.log(x),
+ *     err => console.log(err)
+ *   );
+ *   // 1, 2, 3, error in source. Details: four!
+ *
+ * @param {function} selector a function that takes as arguments `err`, which is the error, and `caught`, which
+ *  is the source observable, in case you'd like to "retry" that observable by returning it again. Whatever observable
+ *  is returned by the `selector` will be used to continue the observable chain.
+ * @return {Observable} An observable that originates from either the source or the observable returned by the
+ *  catch `selector` function.
+ * @method catch
+ * @name catch
+ * @owner Observable
+ */
+function _catch(selector) {
+    var operator = new CatchOperator(selector);
+    var caught = this.lift(operator);
+    return operator.caught = caught;
+}
+exports._catch = _catch;
+var CatchOperator = function () {
+    function CatchOperator(selector) {
+        this.selector = selector;
+    }
+    CatchOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new CatchSubscriber(subscriber, this.selector, this.caught));
+    };
+    return CatchOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var CatchSubscriber = function (_super) {
+    __extends(CatchSubscriber, _super);
+    function CatchSubscriber(destination, selector, caught) {
+        _super.call(this, destination);
+        this.selector = selector;
+        this.caught = caught;
+    }
+    // NOTE: overriding `error` instead of `_error` because we don't want
+    // to have this flag this subscriber as `isStopped`. We can mimic the
+    // behavior of the RetrySubscriber (from the `retry` operator), where
+    // we unsubscribe from our source chain, reset our Subscriber flags,
+    // then subscribe to the selector result.
+    CatchSubscriber.prototype.error = function (err) {
+        if (!this.isStopped) {
+            var result = void 0;
+            try {
+                result = this.selector(err, this.caught);
+            } catch (err2) {
+                _super.prototype.error.call(this, err2);
+                return;
+            }
+            this._unsubscribeAndRecycle();
+            this.add(subscribeToResult_1.subscribeToResult(this, result));
+        }
+    };
+    return CatchSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+//# sourceMappingURL=catch.js.map
+
+/***/ }),
+/* 521 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var ArrayObservable_1 = __webpack_require__(303);
+var isArray_1 = __webpack_require__(305);
+var OuterSubscriber_1 = __webpack_require__(294);
+var subscribeToResult_1 = __webpack_require__(295);
+var none = {};
+/* tslint:enable:max-line-length */
+/**
+ * Combines multiple Observables to create an Observable whose values are
+ * calculated from the latest values of each of its input Observables.
+ *
+ * <span class="informal">Whenever any input Observable emits a value, it
+ * computes a formula using the latest values from all the inputs, then emits
+ * the output of that formula.</span>
+ *
+ * <img src="./img/combineLatest.png" width="100%">
+ *
+ * `combineLatest` combines the values from this Observable with values from
+ * Observables passed as arguments. This is done by subscribing to each
+ * Observable, in order, and collecting an array of each of the most recent
+ * values any time any of the input Observables emits, then either taking that
+ * array and passing it as arguments to an optional `project` function and
+ * emitting the return value of that, or just emitting the array of recent
+ * values directly if there is no `project` function.
+ *
+ * @example <caption>Dynamically calculate the Body-Mass Index from an Observable of weight and one for height</caption>
+ * var weight = Rx.Observable.of(70, 72, 76, 79, 75);
+ * var height = Rx.Observable.of(1.76, 1.77, 1.78);
+ * var bmi = weight.combineLatest(height, (w, h) => w / (h * h));
+ * bmi.subscribe(x => console.log('BMI is ' + x));
+ *
+ * // With output to console:
+ * // BMI is 24.212293388429753
+ * // BMI is 23.93948099205209
+ * // BMI is 23.671253629592222
+ *
+ * @see {@link combineAll}
+ * @see {@link merge}
+ * @see {@link withLatestFrom}
+ *
+ * @param {ObservableInput} other An input Observable to combine with the source
+ * Observable. More than one input Observables may be given as argument.
+ * @param {function} [project] An optional function to project the values from
+ * the combined latest values into a new value on the output Observable.
+ * @return {Observable} An Observable of projected values from the most recent
+ * values from each input Observable, or an array of the most recent values from
+ * each input Observable.
+ * @method combineLatest
+ * @owner Observable
+ */
+function combineLatest() {
+    var observables = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        observables[_i - 0] = arguments[_i];
+    }
+    var project = null;
+    if (typeof observables[observables.length - 1] === 'function') {
+        project = observables.pop();
+    }
+    // if the first and only other argument besides the resultSelector is an array
+    // assume it's been called with `combineLatest([obs1, obs2, obs3], project)`
+    if (observables.length === 1 && isArray_1.isArray(observables[0])) {
+        observables = observables[0].slice();
+    }
+    observables.unshift(this);
+    return this.lift.call(new ArrayObservable_1.ArrayObservable(observables), new CombineLatestOperator(project));
+}
+exports.combineLatest = combineLatest;
+var CombineLatestOperator = function () {
+    function CombineLatestOperator(project) {
+        this.project = project;
+    }
+    CombineLatestOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new CombineLatestSubscriber(subscriber, this.project));
+    };
+    return CombineLatestOperator;
+}();
+exports.CombineLatestOperator = CombineLatestOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var CombineLatestSubscriber = function (_super) {
+    __extends(CombineLatestSubscriber, _super);
+    function CombineLatestSubscriber(destination, project) {
+        _super.call(this, destination);
+        this.project = project;
+        this.active = 0;
+        this.values = [];
+        this.observables = [];
+    }
+    CombineLatestSubscriber.prototype._next = function (observable) {
+        this.values.push(none);
+        this.observables.push(observable);
+    };
+    CombineLatestSubscriber.prototype._complete = function () {
+        var observables = this.observables;
+        var len = observables.length;
+        if (len === 0) {
+            this.destination.complete();
+        } else {
+            this.active = len;
+            this.toRespond = len;
+            for (var i = 0; i < len; i++) {
+                var observable = observables[i];
+                this.add(subscribeToResult_1.subscribeToResult(this, observable, observable, i));
+            }
+        }
+    };
+    CombineLatestSubscriber.prototype.notifyComplete = function (unused) {
+        if ((this.active -= 1) === 0) {
+            this.destination.complete();
+        }
+    };
+    CombineLatestSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
+        var values = this.values;
+        var oldVal = values[outerIndex];
+        var toRespond = !this.toRespond ? 0 : oldVal === none ? --this.toRespond : this.toRespond;
+        values[outerIndex] = innerValue;
+        if (toRespond === 0) {
+            if (this.project) {
+                this._tryProject(values);
+            } else {
+                this.destination.next(values.slice());
+            }
+        }
+    };
+    CombineLatestSubscriber.prototype._tryProject = function (values) {
+        var result;
+        try {
+            result = this.project.apply(this, values);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        this.destination.next(result);
+    };
+    return CombineLatestSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+exports.CombineLatestSubscriber = CombineLatestSubscriber;
+//# sourceMappingURL=combineLatest.js.map
+
+/***/ }),
+/* 522 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+/**
+ * Counts the number of emissions on the source and emits that number when the
+ * source completes.
+ *
+ * <span class="informal">Tells how many values were emitted, when the source
+ * completes.</span>
+ *
+ * <img src="./img/count.png" width="100%">
+ *
+ * `count` transforms an Observable that emits values into an Observable that
+ * emits a single value that represents the number of values emitted by the
+ * source Observable. If the source Observable terminates with an error, `count`
+ * will pass this error notification along without emitting a value first. If
+ * the source Observable does not terminate at all, `count` will neither emit
+ * a value nor terminate. This operator takes an optional `predicate` function
+ * as argument, in which case the output emission will represent the number of
+ * source values that matched `true` with the `predicate`.
+ *
+ * @example <caption>Counts how many seconds have passed before the first click happened</caption>
+ * var seconds = Rx.Observable.interval(1000);
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var secondsBeforeClick = seconds.takeUntil(clicks);
+ * var result = secondsBeforeClick.count();
+ * result.subscribe(x => console.log(x));
+ *
+ * @example <caption>Counts how many odd numbers are there between 1 and 7</caption>
+ * var numbers = Rx.Observable.range(1, 7);
+ * var result = numbers.count(i => i % 2 === 1);
+ * result.subscribe(x => console.log(x));
+ *
+ * // Results in:
+ * // 4
+ *
+ * @see {@link max}
+ * @see {@link min}
+ * @see {@link reduce}
+ *
+ * @param {function(value: T, i: number, source: Observable<T>): boolean} [predicate] A
+ * boolean function to select what values are to be counted. It is provided with
+ * arguments of:
+ * - `value`: the value from the source Observable.
+ * - `index`: the (zero-based) "index" of the value from the source Observable.
+ * - `source`: the source Observable instance itself.
+ * @return {Observable} An Observable of one number that represents the count as
+ * described above.
+ * @method count
+ * @owner Observable
+ */
+function count(predicate) {
+    return this.lift(new CountOperator(predicate, this));
+}
+exports.count = count;
+var CountOperator = function () {
+    function CountOperator(predicate, source) {
+        this.predicate = predicate;
+        this.source = source;
+    }
+    CountOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new CountSubscriber(subscriber, this.predicate, this.source));
+    };
+    return CountOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var CountSubscriber = function (_super) {
+    __extends(CountSubscriber, _super);
+    function CountSubscriber(destination, predicate, source) {
+        _super.call(this, destination);
+        this.predicate = predicate;
+        this.source = source;
+        this.count = 0;
+        this.index = 0;
+    }
+    CountSubscriber.prototype._next = function (value) {
+        if (this.predicate) {
+            this._tryPredicate(value);
+        } else {
+            this.count++;
+        }
+    };
+    CountSubscriber.prototype._tryPredicate = function (value) {
+        var result;
+        try {
+            result = this.predicate(value, this.index++, this.source);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        if (result) {
+            this.count++;
+        }
+    };
+    CountSubscriber.prototype._complete = function () {
+        this.destination.next(this.count);
+        this.destination.complete();
+    };
+    return CountSubscriber;
+}(Subscriber_1.Subscriber);
+//# sourceMappingURL=count.js.map
+
+/***/ }),
+/* 523 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var async_1 = __webpack_require__(320);
+var isDate_1 = __webpack_require__(541);
+var Subscriber_1 = __webpack_require__(290);
+var Notification_1 = __webpack_require__(353);
+/**
+ * Delays the emission of items from the source Observable by a given timeout or
+ * until a given Date.
+ *
+ * <span class="informal">Time shifts each item by some specified amount of
+ * milliseconds.</span>
+ *
+ * <img src="./img/delay.png" width="100%">
+ *
+ * If the delay argument is a Number, this operator time shifts the source
+ * Observable by that amount of time expressed in milliseconds. The relative
+ * time intervals between the values are preserved.
+ *
+ * If the delay argument is a Date, this operator time shifts the start of the
+ * Observable execution until the given date occurs.
+ *
+ * @example <caption>Delay each click by one second</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var delayedClicks = clicks.delay(1000); // each click emitted after 1 second
+ * delayedClicks.subscribe(x => console.log(x));
+ *
+ * @example <caption>Delay all clicks until a future date happens</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var date = new Date('March 15, 2050 12:00:00'); // in the future
+ * var delayedClicks = clicks.delay(date); // click emitted only after that date
+ * delayedClicks.subscribe(x => console.log(x));
+ *
+ * @see {@link debounceTime}
+ * @see {@link delayWhen}
+ *
+ * @param {number|Date} delay The delay duration in milliseconds (a `number`) or
+ * a `Date` until which the emission of the source items is delayed.
+ * @param {Scheduler} [scheduler=async] The IScheduler to use for
+ * managing the timers that handle the time-shift for each item.
+ * @return {Observable} An Observable that delays the emissions of the source
+ * Observable by the specified timeout or Date.
+ * @method delay
+ * @owner Observable
+ */
+function delay(delay, scheduler) {
+    if (scheduler === void 0) {
+        scheduler = async_1.async;
+    }
+    var absoluteDelay = isDate_1.isDate(delay);
+    var delayFor = absoluteDelay ? +delay - scheduler.now() : Math.abs(delay);
+    return this.lift(new DelayOperator(delayFor, scheduler));
+}
+exports.delay = delay;
+var DelayOperator = function () {
+    function DelayOperator(delay, scheduler) {
+        this.delay = delay;
+        this.scheduler = scheduler;
+    }
+    DelayOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new DelaySubscriber(subscriber, this.delay, this.scheduler));
+    };
+    return DelayOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var DelaySubscriber = function (_super) {
+    __extends(DelaySubscriber, _super);
+    function DelaySubscriber(destination, delay, scheduler) {
+        _super.call(this, destination);
+        this.delay = delay;
+        this.scheduler = scheduler;
+        this.queue = [];
+        this.active = false;
+        this.errored = false;
+    }
+    DelaySubscriber.dispatch = function (state) {
+        var source = state.source;
+        var queue = source.queue;
+        var scheduler = state.scheduler;
+        var destination = state.destination;
+        while (queue.length > 0 && queue[0].time - scheduler.now() <= 0) {
+            queue.shift().notification.observe(destination);
+        }
+        if (queue.length > 0) {
+            var delay_1 = Math.max(0, queue[0].time - scheduler.now());
+            this.schedule(state, delay_1);
+        } else {
+            source.active = false;
+        }
+    };
+    DelaySubscriber.prototype._schedule = function (scheduler) {
+        this.active = true;
+        this.add(scheduler.schedule(DelaySubscriber.dispatch, this.delay, {
+            source: this, destination: this.destination, scheduler: scheduler
+        }));
+    };
+    DelaySubscriber.prototype.scheduleNotification = function (notification) {
+        if (this.errored === true) {
+            return;
+        }
+        var scheduler = this.scheduler;
+        var message = new DelayMessage(scheduler.now() + this.delay, notification);
+        this.queue.push(message);
+        if (this.active === false) {
+            this._schedule(scheduler);
+        }
+    };
+    DelaySubscriber.prototype._next = function (value) {
+        this.scheduleNotification(Notification_1.Notification.createNext(value));
+    };
+    DelaySubscriber.prototype._error = function (err) {
+        this.errored = true;
+        this.queue = [];
+        this.destination.error(err);
+    };
+    DelaySubscriber.prototype._complete = function () {
+        this.scheduleNotification(Notification_1.Notification.createComplete());
+    };
+    return DelaySubscriber;
+}(Subscriber_1.Subscriber);
+var DelayMessage = function () {
+    function DelayMessage(time, notification) {
+        this.time = time;
+        this.notification = notification;
+    }
+    return DelayMessage;
+}();
+//# sourceMappingURL=delay.js.map
+
+/***/ }),
+/* 524 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+/* tslint:enable:max-line-length */
+/**
+ * Perform a side effect for every emission on the source Observable, but return
+ * an Observable that is identical to the source.
+ *
+ * <span class="informal">Intercepts each emission on the source and runs a
+ * function, but returns an output which is identical to the source as long as errors don't occur.</span>
+ *
+ * <img src="./img/do.png" width="100%">
+ *
+ * Returns a mirrored Observable of the source Observable, but modified so that
+ * the provided Observer is called to perform a side effect for every value,
+ * error, and completion emitted by the source. Any errors that are thrown in
+ * the aforementioned Observer or handlers are safely sent down the error path
+ * of the output Observable.
+ *
+ * This operator is useful for debugging your Observables for the correct values
+ * or performing other side effects.
+ *
+ * Note: this is different to a `subscribe` on the Observable. If the Observable
+ * returned by `do` is not subscribed, the side effects specified by the
+ * Observer will never happen. `do` therefore simply spies on existing
+ * execution, it does not trigger an execution to happen like `subscribe` does.
+ *
+ * @example <caption>Map every click to the clientX position of that click, while also logging the click event</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var positions = clicks
+ *   .do(ev => console.log(ev))
+ *   .map(ev => ev.clientX);
+ * positions.subscribe(x => console.log(x));
+ *
+ * @see {@link map}
+ * @see {@link subscribe}
+ *
+ * @param {Observer|function} [nextOrObserver] A normal Observer object or a
+ * callback for `next`.
+ * @param {function} [error] Callback for errors in the source.
+ * @param {function} [complete] Callback for the completion of the source.
+ * @return {Observable} An Observable identical to the source, but runs the
+ * specified Observer or callback(s) for each item.
+ * @method do
+ * @name do
+ * @owner Observable
+ */
+function _do(nextOrObserver, error, complete) {
+    return this.lift(new DoOperator(nextOrObserver, error, complete));
+}
+exports._do = _do;
+var DoOperator = function () {
+    function DoOperator(nextOrObserver, error, complete) {
+        this.nextOrObserver = nextOrObserver;
+        this.error = error;
+        this.complete = complete;
+    }
+    DoOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new DoSubscriber(subscriber, this.nextOrObserver, this.error, this.complete));
+    };
+    return DoOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var DoSubscriber = function (_super) {
+    __extends(DoSubscriber, _super);
+    function DoSubscriber(destination, nextOrObserver, error, complete) {
+        _super.call(this, destination);
+        var safeSubscriber = new Subscriber_1.Subscriber(nextOrObserver, error, complete);
+        safeSubscriber.syncErrorThrowable = true;
+        this.add(safeSubscriber);
+        this.safeSubscriber = safeSubscriber;
+    }
+    DoSubscriber.prototype._next = function (value) {
+        var safeSubscriber = this.safeSubscriber;
+        safeSubscriber.next(value);
+        if (safeSubscriber.syncErrorThrown) {
+            this.destination.error(safeSubscriber.syncErrorValue);
+        } else {
+            this.destination.next(value);
+        }
+    };
+    DoSubscriber.prototype._error = function (err) {
+        var safeSubscriber = this.safeSubscriber;
+        safeSubscriber.error(err);
+        if (safeSubscriber.syncErrorThrown) {
+            this.destination.error(safeSubscriber.syncErrorValue);
+        } else {
+            this.destination.error(err);
+        }
+    };
+    DoSubscriber.prototype._complete = function () {
+        var safeSubscriber = this.safeSubscriber;
+        safeSubscriber.complete();
+        if (safeSubscriber.syncErrorThrown) {
+            this.destination.error(safeSubscriber.syncErrorValue);
+        } else {
+            this.destination.complete();
+        }
+    };
+    return DoSubscriber;
+}(Subscriber_1.Subscriber);
+//# sourceMappingURL=do.js.map
+
+/***/ }),
+/* 525 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Observable_1 = __webpack_require__(288);
+var ArrayObservable_1 = __webpack_require__(303);
+var mergeAll_1 = __webpack_require__(526);
+var isScheduler_1 = __webpack_require__(372);
+/* tslint:enable:max-line-length */
+/**
+ * Creates an output Observable which concurrently emits all values from every
+ * given input Observable.
+ *
+ * <span class="informal">Flattens multiple Observables together by blending
+ * their values into one Observable.</span>
+ *
+ * <img src="./img/merge.png" width="100%">
+ *
+ * `merge` subscribes to each given input Observable (either the source or an
+ * Observable given as argument), and simply forwards (without doing any
+ * transformation) all the values from all the input Observables to the output
+ * Observable. The output Observable only completes once all input Observables
+ * have completed. Any error delivered by an input Observable will be immediately
+ * emitted on the output Observable.
+ *
+ * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var timer = Rx.Observable.interval(1000);
+ * var clicksOrTimer = clicks.merge(timer);
+ * clicksOrTimer.subscribe(x => console.log(x));
+ *
+ * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
+ * var timer1 = Rx.Observable.interval(1000).take(10);
+ * var timer2 = Rx.Observable.interval(2000).take(6);
+ * var timer3 = Rx.Observable.interval(500).take(10);
+ * var concurrent = 2; // the argument
+ * var merged = timer1.merge(timer2, timer3, concurrent);
+ * merged.subscribe(x => console.log(x));
+ *
+ * @see {@link mergeAll}
+ * @see {@link mergeMap}
+ * @see {@link mergeMapTo}
+ * @see {@link mergeScan}
+ *
+ * @param {ObservableInput} other An input Observable to merge with the source
+ * Observable. More than one input Observables may be given as argument.
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
+ * Observables being subscribed to concurrently.
+ * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
+ * concurrency of input Observables.
+ * @return {Observable} An Observable that emits items that are the result of
+ * every input Observable.
+ * @method merge
+ * @owner Observable
+ */
+function merge() {
+    var observables = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        observables[_i - 0] = arguments[_i];
+    }
+    return this.lift.call(mergeStatic.apply(void 0, [this].concat(observables)));
+}
+exports.merge = merge;
+/* tslint:enable:max-line-length */
+/**
+ * Creates an output Observable which concurrently emits all values from every
+ * given input Observable.
+ *
+ * <span class="informal">Flattens multiple Observables together by blending
+ * their values into one Observable.</span>
+ *
+ * <img src="./img/merge.png" width="100%">
+ *
+ * `merge` subscribes to each given input Observable (as arguments), and simply
+ * forwards (without doing any transformation) all the values from all the input
+ * Observables to the output Observable. The output Observable only completes
+ * once all input Observables have completed. Any error delivered by an input
+ * Observable will be immediately emitted on the output Observable.
+ *
+ * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var timer = Rx.Observable.interval(1000);
+ * var clicksOrTimer = Rx.Observable.merge(clicks, timer);
+ * clicksOrTimer.subscribe(x => console.log(x));
+ *
+ * // Results in the following:
+ * // timer will emit ascending values, one every second(1000ms) to console
+ * // clicks logs MouseEvents to console everytime the "document" is clicked
+ * // Since the two streams are merged you see these happening
+ * // as they occur.
+ *
+ * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
+ * var timer1 = Rx.Observable.interval(1000).take(10);
+ * var timer2 = Rx.Observable.interval(2000).take(6);
+ * var timer3 = Rx.Observable.interval(500).take(10);
+ * var concurrent = 2; // the argument
+ * var merged = Rx.Observable.merge(timer1, timer2, timer3, concurrent);
+ * merged.subscribe(x => console.log(x));
+ *
+ * // Results in the following:
+ * // - First timer1 and timer2 will run concurrently
+ * // - timer1 will emit a value every 1000ms for 10 iterations
+ * // - timer2 will emit a value every 2000ms for 6 iterations
+ * // - after timer1 hits it's max iteration, timer2 will
+ * //   continue, and timer3 will start to run concurrently with timer2
+ * // - when timer2 hits it's max iteration it terminates, and
+ * //   timer3 will continue to emit a value every 500ms until it is complete
+ *
+ * @see {@link mergeAll}
+ * @see {@link mergeMap}
+ * @see {@link mergeMapTo}
+ * @see {@link mergeScan}
+ *
+ * @param {...ObservableInput} observables Input Observables to merge together.
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
+ * Observables being subscribed to concurrently.
+ * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
+ * concurrency of input Observables.
+ * @return {Observable} an Observable that emits items that are the result of
+ * every input Observable.
+ * @static true
+ * @name merge
+ * @owner Observable
+ */
+function mergeStatic() {
+    var observables = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        observables[_i - 0] = arguments[_i];
+    }
+    var concurrent = Number.POSITIVE_INFINITY;
+    var scheduler = null;
+    var last = observables[observables.length - 1];
+    if (isScheduler_1.isScheduler(last)) {
+        scheduler = observables.pop();
+        if (observables.length > 1 && typeof observables[observables.length - 1] === 'number') {
+            concurrent = observables.pop();
+        }
+    } else if (typeof last === 'number') {
+        concurrent = observables.pop();
+    }
+    if (scheduler === null && observables.length === 1 && observables[0] instanceof Observable_1.Observable) {
+        return observables[0];
+    }
+    return new ArrayObservable_1.ArrayObservable(observables, scheduler).lift(new mergeAll_1.MergeAllOperator(concurrent));
+}
+exports.mergeStatic = mergeStatic;
+//# sourceMappingURL=merge.js.map
+
+/***/ }),
+/* 526 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var OuterSubscriber_1 = __webpack_require__(294);
+var subscribeToResult_1 = __webpack_require__(295);
+/**
+ * Converts a higher-order Observable into a first-order Observable which
+ * concurrently delivers all values that are emitted on the inner Observables.
+ *
+ * <span class="informal">Flattens an Observable-of-Observables.</span>
+ *
+ * <img src="./img/mergeAll.png" width="100%">
+ *
+ * `mergeAll` subscribes to an Observable that emits Observables, also known as
+ * a higher-order Observable. Each time it observes one of these emitted inner
+ * Observables, it subscribes to that and delivers all the values from the
+ * inner Observable on the output Observable. The output Observable only
+ * completes once all inner Observables have completed. Any error delivered by
+ * a inner Observable will be immediately emitted on the output Observable.
+ *
+ * @example <caption>Spawn a new interval Observable for each click event, and blend their outputs as one Observable</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000));
+ * var firstOrder = higherOrder.mergeAll();
+ * firstOrder.subscribe(x => console.log(x));
+ *
+ * @example <caption>Count from 0 to 9 every second for each click, but only allow 2 concurrent timers</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000).take(10));
+ * var firstOrder = higherOrder.mergeAll(2);
+ * firstOrder.subscribe(x => console.log(x));
+ *
+ * @see {@link combineAll}
+ * @see {@link concatAll}
+ * @see {@link exhaust}
+ * @see {@link merge}
+ * @see {@link mergeMap}
+ * @see {@link mergeMapTo}
+ * @see {@link mergeScan}
+ * @see {@link switch}
+ * @see {@link zipAll}
+ *
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of inner
+ * Observables being subscribed to concurrently.
+ * @return {Observable} An Observable that emits values coming from all the
+ * inner Observables emitted by the source Observable.
+ * @method mergeAll
+ * @owner Observable
+ */
+function mergeAll(concurrent) {
+    if (concurrent === void 0) {
+        concurrent = Number.POSITIVE_INFINITY;
+    }
+    return this.lift(new MergeAllOperator(concurrent));
+}
+exports.mergeAll = mergeAll;
+var MergeAllOperator = function () {
+    function MergeAllOperator(concurrent) {
+        this.concurrent = concurrent;
+    }
+    MergeAllOperator.prototype.call = function (observer, source) {
+        return source.subscribe(new MergeAllSubscriber(observer, this.concurrent));
+    };
+    return MergeAllOperator;
+}();
+exports.MergeAllOperator = MergeAllOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var MergeAllSubscriber = function (_super) {
+    __extends(MergeAllSubscriber, _super);
+    function MergeAllSubscriber(destination, concurrent) {
+        _super.call(this, destination);
+        this.concurrent = concurrent;
+        this.hasCompleted = false;
+        this.buffer = [];
+        this.active = 0;
+    }
+    MergeAllSubscriber.prototype._next = function (observable) {
+        if (this.active < this.concurrent) {
+            this.active++;
+            this.add(subscribeToResult_1.subscribeToResult(this, observable));
+        } else {
+            this.buffer.push(observable);
+        }
+    };
+    MergeAllSubscriber.prototype._complete = function () {
+        this.hasCompleted = true;
+        if (this.active === 0 && this.buffer.length === 0) {
+            this.destination.complete();
+        }
+    };
+    MergeAllSubscriber.prototype.notifyComplete = function (innerSub) {
+        var buffer = this.buffer;
+        this.remove(innerSub);
+        this.active--;
+        if (buffer.length > 0) {
+            this._next(buffer.shift());
+        } else if (this.active === 0 && this.hasCompleted) {
+            this.destination.complete();
+        }
+    };
+    return MergeAllSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+exports.MergeAllSubscriber = MergeAllSubscriber;
+//# sourceMappingURL=mergeAll.js.map
+
+/***/ }),
+/* 527 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var subscribeToResult_1 = __webpack_require__(295);
+var OuterSubscriber_1 = __webpack_require__(294);
+/* tslint:enable:max-line-length */
+/**
+ * Projects each source value to an Observable which is merged in the output
+ * Observable.
+ *
+ * <span class="informal">Maps each value to an Observable, then flattens all of
+ * these inner Observables using {@link mergeAll}.</span>
+ *
+ * <img src="./img/mergeMap.png" width="100%">
+ *
+ * Returns an Observable that emits items based on applying a function that you
+ * supply to each item emitted by the source Observable, where that function
+ * returns an Observable, and then merging those resulting Observables and
+ * emitting the results of this merger.
+ *
+ * @example <caption>Map and flatten each letter to an Observable ticking every 1 second</caption>
+ * var letters = Rx.Observable.of('a', 'b', 'c');
+ * var result = letters.mergeMap(x =>
+ *   Rx.Observable.interval(1000).map(i => x+i)
+ * );
+ * result.subscribe(x => console.log(x));
+ *
+ * // Results in the following:
+ * // a0
+ * // b0
+ * // c0
+ * // a1
+ * // b1
+ * // c1
+ * // continues to list a,b,c with respective ascending integers
+ *
+ * @see {@link concatMap}
+ * @see {@link exhaustMap}
+ * @see {@link merge}
+ * @see {@link mergeAll}
+ * @see {@link mergeMapTo}
+ * @see {@link mergeScan}
+ * @see {@link switchMap}
+ *
+ * @param {function(value: T, ?index: number): ObservableInput} project A function
+ * that, when applied to an item emitted by the source Observable, returns an
+ * Observable.
+ * @param {function(outerValue: T, innerValue: I, outerIndex: number, innerIndex: number): any} [resultSelector]
+ * A function to produce the value on the output Observable based on the values
+ * and the indices of the source (outer) emission and the inner Observable
+ * emission. The arguments passed to this function are:
+ * - `outerValue`: the value that came from the source
+ * - `innerValue`: the value that came from the projected Observable
+ * - `outerIndex`: the "index" of the value that came from the source
+ * - `innerIndex`: the "index" of the value from the projected Observable
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
+ * Observables being subscribed to concurrently.
+ * @return {Observable} An Observable that emits the result of applying the
+ * projection function (and the optional `resultSelector`) to each item emitted
+ * by the source Observable and merging the results of the Observables obtained
+ * from this transformation.
+ * @method mergeMap
+ * @owner Observable
+ */
+function mergeMap(project, resultSelector, concurrent) {
+    if (concurrent === void 0) {
+        concurrent = Number.POSITIVE_INFINITY;
+    }
+    if (typeof resultSelector === 'number') {
+        concurrent = resultSelector;
+        resultSelector = null;
+    }
+    return this.lift(new MergeMapOperator(project, resultSelector, concurrent));
+}
+exports.mergeMap = mergeMap;
+var MergeMapOperator = function () {
+    function MergeMapOperator(project, resultSelector, concurrent) {
+        if (concurrent === void 0) {
+            concurrent = Number.POSITIVE_INFINITY;
+        }
+        this.project = project;
+        this.resultSelector = resultSelector;
+        this.concurrent = concurrent;
+    }
+    MergeMapOperator.prototype.call = function (observer, source) {
+        return source.subscribe(new MergeMapSubscriber(observer, this.project, this.resultSelector, this.concurrent));
+    };
+    return MergeMapOperator;
+}();
+exports.MergeMapOperator = MergeMapOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var MergeMapSubscriber = function (_super) {
+    __extends(MergeMapSubscriber, _super);
+    function MergeMapSubscriber(destination, project, resultSelector, concurrent) {
+        if (concurrent === void 0) {
+            concurrent = Number.POSITIVE_INFINITY;
+        }
+        _super.call(this, destination);
+        this.project = project;
+        this.resultSelector = resultSelector;
+        this.concurrent = concurrent;
+        this.hasCompleted = false;
+        this.buffer = [];
+        this.active = 0;
+        this.index = 0;
+    }
+    MergeMapSubscriber.prototype._next = function (value) {
+        if (this.active < this.concurrent) {
+            this._tryNext(value);
+        } else {
+            this.buffer.push(value);
+        }
+    };
+    MergeMapSubscriber.prototype._tryNext = function (value) {
+        var result;
+        var index = this.index++;
+        try {
+            result = this.project(value, index);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        this.active++;
+        this._innerSub(result, value, index);
+    };
+    MergeMapSubscriber.prototype._innerSub = function (ish, value, index) {
+        this.add(subscribeToResult_1.subscribeToResult(this, ish, value, index));
+    };
+    MergeMapSubscriber.prototype._complete = function () {
+        this.hasCompleted = true;
+        if (this.active === 0 && this.buffer.length === 0) {
+            this.destination.complete();
+        }
+    };
+    MergeMapSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
+        if (this.resultSelector) {
+            this._notifyResultSelector(outerValue, innerValue, outerIndex, innerIndex);
+        } else {
+            this.destination.next(innerValue);
+        }
+    };
+    MergeMapSubscriber.prototype._notifyResultSelector = function (outerValue, innerValue, outerIndex, innerIndex) {
+        var result;
+        try {
+            result = this.resultSelector(outerValue, innerValue, outerIndex, innerIndex);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        this.destination.next(result);
+    };
+    MergeMapSubscriber.prototype.notifyComplete = function (innerSub) {
+        var buffer = this.buffer;
+        this.remove(innerSub);
+        this.active--;
+        if (buffer.length > 0) {
+            this._next(buffer.shift());
+        } else if (this.active === 0 && this.hasCompleted) {
+            this.destination.complete();
+        }
+    };
+    return MergeMapSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+exports.MergeMapSubscriber = MergeMapSubscriber;
+//# sourceMappingURL=mergeMap.js.map
+
+/***/ }),
+/* 528 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ConnectableObservable_1 = __webpack_require__(507);
+/* tslint:enable:max-line-length */
+/**
+ * Returns an Observable that emits the results of invoking a specified selector on items
+ * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
+ *
+ * <img src="./img/multicast.png" width="100%">
+ *
+ * @param {Function|Subject} subjectOrSubjectFactory - Factory function to create an intermediate subject through
+ * which the source sequence's elements will be multicast to the selector function
+ * or Subject to push source elements into.
+ * @param {Function} [selector] - Optional selector function that can use the multicasted source stream
+ * as many times as needed, without causing multiple subscriptions to the source stream.
+ * Subscribers to the given source will receive all notifications of the source from the
+ * time of the subscription forward.
+ * @return {Observable} An Observable that emits the results of invoking the selector
+ * on the items emitted by a `ConnectableObservable` that shares a single subscription to
+ * the underlying stream.
+ * @method multicast
+ * @owner Observable
+ */
+function multicast(subjectOrSubjectFactory, selector) {
+    var subjectFactory;
+    if (typeof subjectOrSubjectFactory === 'function') {
+        subjectFactory = subjectOrSubjectFactory;
+    } else {
+        subjectFactory = function subjectFactory() {
+            return subjectOrSubjectFactory;
+        };
+    }
+    if (typeof selector === 'function') {
+        return this.lift(new MulticastOperator(subjectFactory, selector));
+    }
+    var connectable = Object.create(this, ConnectableObservable_1.connectableObservableDescriptor);
+    connectable.source = this;
+    connectable.subjectFactory = subjectFactory;
+    return connectable;
+}
+exports.multicast = multicast;
+var MulticastOperator = function () {
+    function MulticastOperator(subjectFactory, selector) {
+        this.subjectFactory = subjectFactory;
+        this.selector = selector;
+    }
+    MulticastOperator.prototype.call = function (subscriber, source) {
+        var selector = this.selector;
+        var subject = this.subjectFactory();
+        var subscription = selector(subject).subscribe(subscriber);
+        subscription.add(source.subscribe(subject));
+        return subscription;
+    };
+    return MulticastOperator;
+}();
+exports.MulticastOperator = MulticastOperator;
+//# sourceMappingURL=multicast.js.map
+
+/***/ }),
+/* 529 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+var Notification_1 = __webpack_require__(353);
+/**
+ *
+ * Re-emits all notifications from source Observable with specified scheduler.
+ *
+ * <span class="informal">Ensure a specific scheduler is used, from outside of an Observable.</span>
+ *
+ * `observeOn` is an operator that accepts a scheduler as a first parameter, which will be used to reschedule
+ * notifications emitted by the source Observable. It might be useful, if you do not have control over
+ * internal scheduler of a given Observable, but want to control when its values are emitted nevertheless.
+ *
+ * Returned Observable emits the same notifications (nexted values, complete and error events) as the source Observable,
+ * but rescheduled with provided scheduler. Note that this doesn't mean that source Observables internal
+ * scheduler will be replaced in any way. Original scheduler still will be used, but when the source Observable emits
+ * notification, it will be immediately scheduled again - this time with scheduler passed to `observeOn`.
+ * An anti-pattern would be calling `observeOn` on Observable that emits lots of values synchronously, to split
+ * that emissions into asynchronous chunks. For this to happen, scheduler would have to be passed into the source
+ * Observable directly (usually into the operator that creates it). `observeOn` simply delays notifications a
+ * little bit more, to ensure that they are emitted at expected moments.
+ *
+ * As a matter of fact, `observeOn` accepts second parameter, which specifies in milliseconds with what delay notifications
+ * will be emitted. The main difference between {@link delay} operator and `observeOn` is that `observeOn`
+ * will delay all notifications - including error notifications - while `delay` will pass through error
+ * from source Observable immediately when it is emitted. In general it is highly recommended to use `delay` operator
+ * for any kind of delaying of values in the stream, while using `observeOn` to specify which scheduler should be used
+ * for notification emissions in general.
+ *
+ * @example <caption>Ensure values in subscribe are called just before browser repaint.</caption>
+ * const intervals = Rx.Observable.interval(10); // Intervals are scheduled
+ *                                               // with async scheduler by default...
+ *
+ * intervals
+ * .observeOn(Rx.Scheduler.animationFrame)       // ...but we will observe on animationFrame
+ * .subscribe(val => {                           // scheduler to ensure smooth animation.
+ *   someDiv.style.height = val + 'px';
+ * });
+ *
+ * @see {@link delay}
+ *
+ * @param {IScheduler} scheduler Scheduler that will be used to reschedule notifications from source Observable.
+ * @param {number} [delay] Number of milliseconds that states with what delay every notification should be rescheduled.
+ * @return {Observable<T>} Observable that emits the same notifications as the source Observable,
+ * but with provided scheduler.
+ *
+ * @method observeOn
+ * @owner Observable
+ */
+function observeOn(scheduler, delay) {
+    if (delay === void 0) {
+        delay = 0;
+    }
+    return this.lift(new ObserveOnOperator(scheduler, delay));
+}
+exports.observeOn = observeOn;
+var ObserveOnOperator = function () {
+    function ObserveOnOperator(scheduler, delay) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        this.scheduler = scheduler;
+        this.delay = delay;
+    }
+    ObserveOnOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new ObserveOnSubscriber(subscriber, this.scheduler, this.delay));
+    };
+    return ObserveOnOperator;
+}();
+exports.ObserveOnOperator = ObserveOnOperator;
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var ObserveOnSubscriber = function (_super) {
+    __extends(ObserveOnSubscriber, _super);
+    function ObserveOnSubscriber(destination, scheduler, delay) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        _super.call(this, destination);
+        this.scheduler = scheduler;
+        this.delay = delay;
+    }
+    ObserveOnSubscriber.dispatch = function (arg) {
+        var notification = arg.notification,
+            destination = arg.destination;
+        notification.observe(destination);
+        this.unsubscribe();
+    };
+    ObserveOnSubscriber.prototype.scheduleMessage = function (notification) {
+        this.add(this.scheduler.schedule(ObserveOnSubscriber.dispatch, this.delay, new ObserveOnMessage(notification, this.destination)));
+    };
+    ObserveOnSubscriber.prototype._next = function (value) {
+        this.scheduleMessage(Notification_1.Notification.createNext(value));
+    };
+    ObserveOnSubscriber.prototype._error = function (err) {
+        this.scheduleMessage(Notification_1.Notification.createError(err));
+    };
+    ObserveOnSubscriber.prototype._complete = function () {
+        this.scheduleMessage(Notification_1.Notification.createComplete());
+    };
+    return ObserveOnSubscriber;
+}(Subscriber_1.Subscriber);
+exports.ObserveOnSubscriber = ObserveOnSubscriber;
+var ObserveOnMessage = function () {
+    function ObserveOnMessage(notification, destination) {
+        this.notification = notification;
+        this.destination = destination;
+    }
+    return ObserveOnMessage;
+}();
+exports.ObserveOnMessage = ObserveOnMessage;
+//# sourceMappingURL=observeOn.js.map
+
+/***/ }),
+/* 530 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subject_1 = __webpack_require__(299);
+var tryCatch_1 = __webpack_require__(306);
+var errorObject_1 = __webpack_require__(300);
+var OuterSubscriber_1 = __webpack_require__(294);
+var subscribeToResult_1 = __webpack_require__(295);
+/**
+ * Returns an Observable that mirrors the source Observable with the exception of an `error`. If the source Observable
+ * calls `error`, this method will emit the Throwable that caused the error to the Observable returned from `notifier`.
+ * If that Observable calls `complete` or `error` then this method will call `complete` or `error` on the child
+ * subscription. Otherwise this method will resubscribe to the source Observable.
+ *
+ * <img src="./img/retryWhen.png" width="100%">
+ *
+ * @param {function(errors: Observable): Observable} notifier - Receives an Observable of notifications with which a
+ * user can `complete` or `error`, aborting the retry.
+ * @return {Observable} The source Observable modified with retry logic.
+ * @method retryWhen
+ * @owner Observable
+ */
+function retryWhen(notifier) {
+    return this.lift(new RetryWhenOperator(notifier, this));
+}
+exports.retryWhen = retryWhen;
+var RetryWhenOperator = function () {
+    function RetryWhenOperator(notifier, source) {
+        this.notifier = notifier;
+        this.source = source;
+    }
+    RetryWhenOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new RetryWhenSubscriber(subscriber, this.notifier, this.source));
+    };
+    return RetryWhenOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var RetryWhenSubscriber = function (_super) {
+    __extends(RetryWhenSubscriber, _super);
+    function RetryWhenSubscriber(destination, notifier, source) {
+        _super.call(this, destination);
+        this.notifier = notifier;
+        this.source = source;
+    }
+    RetryWhenSubscriber.prototype.error = function (err) {
+        if (!this.isStopped) {
+            var errors = this.errors;
+            var retries = this.retries;
+            var retriesSubscription = this.retriesSubscription;
+            if (!retries) {
+                errors = new Subject_1.Subject();
+                retries = tryCatch_1.tryCatch(this.notifier)(errors);
+                if (retries === errorObject_1.errorObject) {
+                    return _super.prototype.error.call(this, errorObject_1.errorObject.e);
+                }
+                retriesSubscription = subscribeToResult_1.subscribeToResult(this, retries);
+            } else {
+                this.errors = null;
+                this.retriesSubscription = null;
+            }
+            this._unsubscribeAndRecycle();
+            this.errors = errors;
+            this.retries = retries;
+            this.retriesSubscription = retriesSubscription;
+            errors.next(err);
+        }
+    };
+    RetryWhenSubscriber.prototype._unsubscribe = function () {
+        var _a = this,
+            errors = _a.errors,
+            retriesSubscription = _a.retriesSubscription;
+        if (errors) {
+            errors.unsubscribe();
+            this.errors = null;
+        }
+        if (retriesSubscription) {
+            retriesSubscription.unsubscribe();
+            this.retriesSubscription = null;
+        }
+        this.retries = null;
+    };
+    RetryWhenSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
+        var _a = this,
+            errors = _a.errors,
+            retries = _a.retries,
+            retriesSubscription = _a.retriesSubscription;
+        this.errors = null;
+        this.retries = null;
+        this.retriesSubscription = null;
+        this._unsubscribeAndRecycle();
+        this.errors = errors;
+        this.retries = retries;
+        this.retriesSubscription = retriesSubscription;
+        this.source.subscribe(this);
+    };
+    return RetryWhenSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+//# sourceMappingURL=retryWhen.js.map
+
+/***/ }),
+/* 531 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var multicast_1 = __webpack_require__(528);
+var Subject_1 = __webpack_require__(299);
+function shareSubjectFactory() {
+    return new Subject_1.Subject();
+}
+/**
+ * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
+ * Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will
+ * unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream `hot`.
+ * This is an alias for .publish().refCount().
+ *
+ * <img src="./img/share.png" width="100%">
+ *
+ * @return {Observable<T>} An Observable that upon connection causes the source Observable to emit items to its Observers.
+ * @method share
+ * @owner Observable
+ */
+function share() {
+    return multicast_1.multicast.call(this, shareSubjectFactory).refCount();
+}
+exports.share = share;
+;
+//# sourceMappingURL=share.js.map
+
+/***/ }),
+/* 532 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var OuterSubscriber_1 = __webpack_require__(294);
+var subscribeToResult_1 = __webpack_require__(295);
+/* tslint:enable:max-line-length */
+/**
+ * Projects each source value to an Observable which is merged in the output
+ * Observable, emitting values only from the most recently projected Observable.
+ *
+ * <span class="informal">Maps each value to an Observable, then flattens all of
+ * these inner Observables using {@link switch}.</span>
+ *
+ * <img src="./img/switchMap.png" width="100%">
+ *
+ * Returns an Observable that emits items based on applying a function that you
+ * supply to each item emitted by the source Observable, where that function
+ * returns an (so-called "inner") Observable. Each time it observes one of these
+ * inner Observables, the output Observable begins emitting the items emitted by
+ * that inner Observable. When a new inner Observable is emitted, `switchMap`
+ * stops emitting items from the earlier-emitted inner Observable and begins
+ * emitting items from the new one. It continues to behave like this for
+ * subsequent inner Observables.
+ *
+ * @example <caption>Rerun an interval Observable on every click event</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var result = clicks.switchMap((ev) => Rx.Observable.interval(1000));
+ * result.subscribe(x => console.log(x));
+ *
+ * @see {@link concatMap}
+ * @see {@link exhaustMap}
+ * @see {@link mergeMap}
+ * @see {@link switch}
+ * @see {@link switchMapTo}
+ *
+ * @param {function(value: T, ?index: number): ObservableInput} project A function
+ * that, when applied to an item emitted by the source Observable, returns an
+ * Observable.
+ * @param {function(outerValue: T, innerValue: I, outerIndex: number, innerIndex: number): any} [resultSelector]
+ * A function to produce the value on the output Observable based on the values
+ * and the indices of the source (outer) emission and the inner Observable
+ * emission. The arguments passed to this function are:
+ * - `outerValue`: the value that came from the source
+ * - `innerValue`: the value that came from the projected Observable
+ * - `outerIndex`: the "index" of the value that came from the source
+ * - `innerIndex`: the "index" of the value from the projected Observable
+ * @return {Observable} An Observable that emits the result of applying the
+ * projection function (and the optional `resultSelector`) to each item emitted
+ * by the source Observable and taking only the values from the most recently
+ * projected inner Observable.
+ * @method switchMap
+ * @owner Observable
+ */
+function switchMap(project, resultSelector) {
+    return this.lift(new SwitchMapOperator(project, resultSelector));
+}
+exports.switchMap = switchMap;
+var SwitchMapOperator = function () {
+    function SwitchMapOperator(project, resultSelector) {
+        this.project = project;
+        this.resultSelector = resultSelector;
+    }
+    SwitchMapOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new SwitchMapSubscriber(subscriber, this.project, this.resultSelector));
+    };
+    return SwitchMapOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var SwitchMapSubscriber = function (_super) {
+    __extends(SwitchMapSubscriber, _super);
+    function SwitchMapSubscriber(destination, project, resultSelector) {
+        _super.call(this, destination);
+        this.project = project;
+        this.resultSelector = resultSelector;
+        this.index = 0;
+    }
+    SwitchMapSubscriber.prototype._next = function (value) {
+        var result;
+        var index = this.index++;
+        try {
+            result = this.project(value, index);
+        } catch (error) {
+            this.destination.error(error);
+            return;
+        }
+        this._innerSub(result, value, index);
+    };
+    SwitchMapSubscriber.prototype._innerSub = function (result, value, index) {
+        var innerSubscription = this.innerSubscription;
+        if (innerSubscription) {
+            innerSubscription.unsubscribe();
+        }
+        this.add(this.innerSubscription = subscribeToResult_1.subscribeToResult(this, result, value, index));
+    };
+    SwitchMapSubscriber.prototype._complete = function () {
+        var innerSubscription = this.innerSubscription;
+        if (!innerSubscription || innerSubscription.closed) {
+            _super.prototype._complete.call(this);
+        }
+    };
+    SwitchMapSubscriber.prototype._unsubscribe = function () {
+        this.innerSubscription = null;
+    };
+    SwitchMapSubscriber.prototype.notifyComplete = function (innerSub) {
+        this.remove(innerSub);
+        this.innerSubscription = null;
+        if (this.isStopped) {
+            _super.prototype._complete.call(this);
+        }
+    };
+    SwitchMapSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
+        if (this.resultSelector) {
+            this._tryNotifyNext(outerValue, innerValue, outerIndex, innerIndex);
+        } else {
+            this.destination.next(innerValue);
+        }
+    };
+    SwitchMapSubscriber.prototype._tryNotifyNext = function (outerValue, innerValue, outerIndex, innerIndex) {
+        var result;
+        try {
+            result = this.resultSelector(outerValue, innerValue, outerIndex, innerIndex);
+        } catch (err) {
+            this.destination.error(err);
+            return;
+        }
+        this.destination.next(result);
+    };
+    return SwitchMapSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+//# sourceMappingURL=switchMap.js.map
+
+/***/ }),
+/* 533 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+var ArgumentOutOfRangeError_1 = __webpack_require__(539);
+var EmptyObservable_1 = __webpack_require__(304);
+/**
+ * Emits only the first `count` values emitted by the source Observable.
+ *
+ * <span class="informal">Takes the first `count` values from the source, then
+ * completes.</span>
+ *
+ * <img src="./img/take.png" width="100%">
+ *
+ * `take` returns an Observable that emits only the first `count` values emitted
+ * by the source Observable. If the source emits fewer than `count` values then
+ * all of its values are emitted. After that, it completes, regardless if the
+ * source completes.
+ *
+ * @example <caption>Take the first 5 seconds of an infinite 1-second interval Observable</caption>
+ * var interval = Rx.Observable.interval(1000);
+ * var five = interval.take(5);
+ * five.subscribe(x => console.log(x));
+ *
+ * @see {@link takeLast}
+ * @see {@link takeUntil}
+ * @see {@link takeWhile}
+ * @see {@link skip}
+ *
+ * @throws {ArgumentOutOfRangeError} When using `take(i)`, it delivers an
+ * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0`.
+ *
+ * @param {number} count The maximum number of `next` values to emit.
+ * @return {Observable<T>} An Observable that emits only the first `count`
+ * values emitted by the source Observable, or all of the values from the source
+ * if the source emits fewer than `count` values.
+ * @method take
+ * @owner Observable
+ */
+function take(count) {
+    if (count === 0) {
+        return new EmptyObservable_1.EmptyObservable();
+    } else {
+        return this.lift(new TakeOperator(count));
+    }
+}
+exports.take = take;
+var TakeOperator = function () {
+    function TakeOperator(total) {
+        this.total = total;
+        if (this.total < 0) {
+            throw new ArgumentOutOfRangeError_1.ArgumentOutOfRangeError();
+        }
+    }
+    TakeOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new TakeSubscriber(subscriber, this.total));
+    };
+    return TakeOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var TakeSubscriber = function (_super) {
+    __extends(TakeSubscriber, _super);
+    function TakeSubscriber(destination, total) {
+        _super.call(this, destination);
+        this.total = total;
+        this.count = 0;
+    }
+    TakeSubscriber.prototype._next = function (value) {
+        var total = this.total;
+        var count = ++this.count;
+        if (count <= total) {
+            this.destination.next(value);
+            if (count === total) {
+                this.destination.complete();
+                this.unsubscribe();
+            }
+        }
+    };
+    return TakeSubscriber;
+}(Subscriber_1.Subscriber);
+//# sourceMappingURL=take.js.map
+
+/***/ }),
+/* 534 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var OuterSubscriber_1 = __webpack_require__(294);
+var subscribeToResult_1 = __webpack_require__(295);
+exports.defaultThrottleConfig = {
+    leading: true,
+    trailing: false
+};
+/**
+ * Emits a value from the source Observable, then ignores subsequent source
+ * values for a duration determined by another Observable, then repeats this
+ * process.
+ *
+ * <span class="informal">It's like {@link throttleTime}, but the silencing
+ * duration is determined by a second Observable.</span>
+ *
+ * <img src="./img/throttle.png" width="100%">
+ *
+ * `throttle` emits the source Observable values on the output Observable
+ * when its internal timer is disabled, and ignores source values when the timer
+ * is enabled. Initially, the timer is disabled. As soon as the first source
+ * value arrives, it is forwarded to the output Observable, and then the timer
+ * is enabled by calling the `durationSelector` function with the source value,
+ * which returns the "duration" Observable. When the duration Observable emits a
+ * value or completes, the timer is disabled, and this process repeats for the
+ * next source value.
+ *
+ * @example <caption>Emit clicks at a rate of at most one click per second</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var result = clicks.throttle(ev => Rx.Observable.interval(1000));
+ * result.subscribe(x => console.log(x));
+ *
+ * @see {@link audit}
+ * @see {@link debounce}
+ * @see {@link delayWhen}
+ * @see {@link sample}
+ * @see {@link throttleTime}
+ *
+ * @param {function(value: T): SubscribableOrPromise} durationSelector A function
+ * that receives a value from the source Observable, for computing the silencing
+ * duration for each source value, returned as an Observable or a Promise.
+ * @param {Object} config a configuration object to define `leading` and `trailing` behavior. Defaults
+ * to `{ leading: true, trailing: false }`.
+ * @return {Observable<T>} An Observable that performs the throttle operation to
+ * limit the rate of emissions from the source.
+ * @method throttle
+ * @owner Observable
+ */
+function throttle(durationSelector, config) {
+    if (config === void 0) {
+        config = exports.defaultThrottleConfig;
+    }
+    return this.lift(new ThrottleOperator(durationSelector, config.leading, config.trailing));
+}
+exports.throttle = throttle;
+var ThrottleOperator = function () {
+    function ThrottleOperator(durationSelector, leading, trailing) {
+        this.durationSelector = durationSelector;
+        this.leading = leading;
+        this.trailing = trailing;
+    }
+    ThrottleOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new ThrottleSubscriber(subscriber, this.durationSelector, this.leading, this.trailing));
+    };
+    return ThrottleOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc
+ * @ignore
+ * @extends {Ignored}
+ */
+var ThrottleSubscriber = function (_super) {
+    __extends(ThrottleSubscriber, _super);
+    function ThrottleSubscriber(destination, durationSelector, _leading, _trailing) {
+        _super.call(this, destination);
+        this.destination = destination;
+        this.durationSelector = durationSelector;
+        this._leading = _leading;
+        this._trailing = _trailing;
+        this._hasTrailingValue = false;
+    }
+    ThrottleSubscriber.prototype._next = function (value) {
+        if (this.throttled) {
+            if (this._trailing) {
+                this._hasTrailingValue = true;
+                this._trailingValue = value;
+            }
+        } else {
+            var duration = this.tryDurationSelector(value);
+            if (duration) {
+                this.add(this.throttled = subscribeToResult_1.subscribeToResult(this, duration));
+            }
+            if (this._leading) {
+                this.destination.next(value);
+                if (this._trailing) {
+                    this._hasTrailingValue = true;
+                    this._trailingValue = value;
+                }
+            }
+        }
+    };
+    ThrottleSubscriber.prototype.tryDurationSelector = function (value) {
+        try {
+            return this.durationSelector(value);
+        } catch (err) {
+            this.destination.error(err);
+            return null;
+        }
+    };
+    ThrottleSubscriber.prototype._unsubscribe = function () {
+        var _a = this,
+            throttled = _a.throttled,
+            _trailingValue = _a._trailingValue,
+            _hasTrailingValue = _a._hasTrailingValue,
+            _trailing = _a._trailing;
+        this._trailingValue = null;
+        this._hasTrailingValue = false;
+        if (throttled) {
+            this.remove(throttled);
+            this.throttled = null;
+            throttled.unsubscribe();
+        }
+    };
+    ThrottleSubscriber.prototype._sendTrailing = function () {
+        var _a = this,
+            destination = _a.destination,
+            throttled = _a.throttled,
+            _trailing = _a._trailing,
+            _trailingValue = _a._trailingValue,
+            _hasTrailingValue = _a._hasTrailingValue;
+        if (throttled && _trailing && _hasTrailingValue) {
+            destination.next(_trailingValue);
+            this._trailingValue = null;
+            this._hasTrailingValue = false;
+        }
+    };
+    ThrottleSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
+        this._sendTrailing();
+        this._unsubscribe();
+    };
+    ThrottleSubscriber.prototype.notifyComplete = function () {
+        this._sendTrailing();
+        this._unsubscribe();
+    };
+    return ThrottleSubscriber;
+}(OuterSubscriber_1.OuterSubscriber);
+//# sourceMappingURL=throttle.js.map
+
+/***/ }),
+/* 535 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__(290);
+var async_1 = __webpack_require__(320);
+var throttle_1 = __webpack_require__(534);
+/**
+ * Emits a value from the source Observable, then ignores subsequent source
+ * values for `duration` milliseconds, then repeats this process.
+ *
+ * <span class="informal">Lets a value pass, then ignores source values for the
+ * next `duration` milliseconds.</span>
+ *
+ * <img src="./img/throttleTime.png" width="100%">
+ *
+ * `throttleTime` emits the source Observable values on the output Observable
+ * when its internal timer is disabled, and ignores source values when the timer
+ * is enabled. Initially, the timer is disabled. As soon as the first source
+ * value arrives, it is forwarded to the output Observable, and then the timer
+ * is enabled. After `duration` milliseconds (or the time unit determined
+ * internally by the optional `scheduler`) has passed, the timer is disabled,
+ * and this process repeats for the next source value. Optionally takes a
+ * {@link IScheduler} for managing timers.
+ *
+ * @example <caption>Emit clicks at a rate of at most one click per second</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var result = clicks.throttleTime(1000);
+ * result.subscribe(x => console.log(x));
+ *
+ * @see {@link auditTime}
+ * @see {@link debounceTime}
+ * @see {@link delay}
+ * @see {@link sampleTime}
+ * @see {@link throttle}
+ *
+ * @param {number} duration Time to wait before emitting another value after
+ * emitting the last value, measured in milliseconds or the time unit determined
+ * internally by the optional `scheduler`.
+ * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
+ * managing the timers that handle the throttling.
+ * @return {Observable<T>} An Observable that performs the throttle operation to
+ * limit the rate of emissions from the source.
+ * @method throttleTime
+ * @owner Observable
+ */
+function throttleTime(duration, scheduler, config) {
+    if (scheduler === void 0) {
+        scheduler = async_1.async;
+    }
+    if (config === void 0) {
+        config = throttle_1.defaultThrottleConfig;
+    }
+    return this.lift(new ThrottleTimeOperator(duration, scheduler, config.leading, config.trailing));
+}
+exports.throttleTime = throttleTime;
+var ThrottleTimeOperator = function () {
+    function ThrottleTimeOperator(duration, scheduler, leading, trailing) {
+        this.duration = duration;
+        this.scheduler = scheduler;
+        this.leading = leading;
+        this.trailing = trailing;
+    }
+    ThrottleTimeOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new ThrottleTimeSubscriber(subscriber, this.duration, this.scheduler, this.leading, this.trailing));
+    };
+    return ThrottleTimeOperator;
+}();
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var ThrottleTimeSubscriber = function (_super) {
+    __extends(ThrottleTimeSubscriber, _super);
+    function ThrottleTimeSubscriber(destination, duration, scheduler, leading, trailing) {
+        _super.call(this, destination);
+        this.duration = duration;
+        this.scheduler = scheduler;
+        this.leading = leading;
+        this.trailing = trailing;
+        this._hasTrailingValue = false;
+        this._trailingValue = null;
+    }
+    ThrottleTimeSubscriber.prototype._next = function (value) {
+        if (this.throttled) {
+            if (this.trailing) {
+                this._trailingValue = value;
+                this._hasTrailingValue = true;
+            }
+        } else {
+            this.add(this.throttled = this.scheduler.schedule(dispatchNext, this.duration, { subscriber: this }));
+            if (this.leading) {
+                this.destination.next(value);
+            }
+        }
+    };
+    ThrottleTimeSubscriber.prototype.clearThrottle = function () {
+        var throttled = this.throttled;
+        if (throttled) {
+            if (this.trailing && this._hasTrailingValue) {
+                this.destination.next(this._trailingValue);
+                this._trailingValue = null;
+                this._hasTrailingValue = false;
+            }
+            throttled.unsubscribe();
+            this.remove(throttled);
+            this.throttled = null;
+        }
+    };
+    return ThrottleTimeSubscriber;
+}(Subscriber_1.Subscriber);
+function dispatchNext(arg) {
+    var subscriber = arg.subscriber;
+    subscriber.clearThrottle();
+}
+//# sourceMappingURL=throttleTime.js.map
+
+/***/ }),
+/* 536 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscription_1 = __webpack_require__(296);
+/**
+ * A unit of work to be executed in a {@link Scheduler}. An action is typically
+ * created from within a Scheduler and an RxJS user does not need to concern
+ * themselves about creating and manipulating an Action.
+ *
+ * ```ts
+ * class Action<T> extends Subscription {
+ *   new (scheduler: Scheduler, work: (state?: T) => void);
+ *   schedule(state?: T, delay: number = 0): Subscription;
+ * }
+ * ```
+ *
+ * @class Action<T>
+ */
+var Action = function (_super) {
+    __extends(Action, _super);
+    function Action(scheduler, work) {
+        _super.call(this);
+    }
+    /**
+     * Schedules this action on its parent Scheduler for execution. May be passed
+     * some context object, `state`. May happen at some point in the future,
+     * according to the `delay` parameter, if specified.
+     * @param {T} [state] Some contextual data that the `work` function uses when
+     * called by the Scheduler.
+     * @param {number} [delay] Time to wait before executing the work, where the
+     * time unit is implicit and defined by the Scheduler.
+     * @return {void}
+     */
+    Action.prototype.schedule = function (state, delay) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        return this;
+    };
+    return Action;
+}(Subscription_1.Subscription);
+exports.Action = Action;
+//# sourceMappingURL=Action.js.map
+
+/***/ }),
+/* 537 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var root_1 = __webpack_require__(292);
+var Action_1 = __webpack_require__(536);
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var AsyncAction = function (_super) {
+    __extends(AsyncAction, _super);
+    function AsyncAction(scheduler, work) {
+        _super.call(this, scheduler, work);
+        this.scheduler = scheduler;
+        this.work = work;
+        this.pending = false;
+    }
+    AsyncAction.prototype.schedule = function (state, delay) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        if (this.closed) {
+            return this;
+        }
+        // Always replace the current state with the new state.
+        this.state = state;
+        // Set the pending flag indicating that this action has been scheduled, or
+        // has recursively rescheduled itself.
+        this.pending = true;
+        var id = this.id;
+        var scheduler = this.scheduler;
+        //
+        // Important implementation note:
+        //
+        // Actions only execute once by default, unless rescheduled from within the
+        // scheduled callback. This allows us to implement single and repeat
+        // actions via the same code path, without adding API surface area, as well
+        // as mimic traditional recursion but across asynchronous boundaries.
+        //
+        // However, JS runtimes and timers distinguish between intervals achieved by
+        // serial `setTimeout` calls vs. a single `setInterval` call. An interval of
+        // serial `setTimeout` calls can be individually delayed, which delays
+        // scheduling the next `setTimeout`, and so on. `setInterval` attempts to
+        // guarantee the interval callback will be invoked more precisely to the
+        // interval period, regardless of load.
+        //
+        // Therefore, we use `setInterval` to schedule single and repeat actions.
+        // If the action reschedules itself with the same delay, the interval is not
+        // canceled. If the action doesn't reschedule, or reschedules with a
+        // different delay, the interval will be canceled after scheduled callback
+        // execution.
+        //
+        if (id != null) {
+            this.id = this.recycleAsyncId(scheduler, id, delay);
+        }
+        this.delay = delay;
+        // If this action has already an async Id, don't request a new one.
+        this.id = this.id || this.requestAsyncId(scheduler, this.id, delay);
+        return this;
+    };
+    AsyncAction.prototype.requestAsyncId = function (scheduler, id, delay) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        return root_1.root.setInterval(scheduler.flush.bind(scheduler, this), delay);
+    };
+    AsyncAction.prototype.recycleAsyncId = function (scheduler, id, delay) {
+        if (delay === void 0) {
+            delay = 0;
+        }
+        // If this action is rescheduled with the same delay time, don't clear the interval id.
+        if (delay !== null && this.delay === delay && this.pending === false) {
+            return id;
+        }
+        // Otherwise, if the action's delay time is different from the current delay,
+        // or the action has been rescheduled before it's executed, clear the interval id
+        return root_1.root.clearInterval(id) && undefined || undefined;
+    };
+    /**
+     * Immediately executes this action and the `work` it contains.
+     * @return {any}
+     */
+    AsyncAction.prototype.execute = function (state, delay) {
+        if (this.closed) {
+            return new Error('executing a cancelled action');
+        }
+        this.pending = false;
+        var error = this._execute(state, delay);
+        if (error) {
+            return error;
+        } else if (this.pending === false && this.id != null) {
+            // Dequeue if the action didn't reschedule itself. Don't call
+            // unsubscribe(), because the action could reschedule later.
+            // For example:
+            // ```
+            // scheduler.schedule(function doWork(counter) {
+            //   /* ... I'm a busy worker bee ... */
+            //   var originalAction = this;
+            //   /* wait 100ms before rescheduling the action */
+            //   setTimeout(function () {
+            //     originalAction.schedule(counter + 1);
+            //   }, 100);
+            // }, 1000);
+            // ```
+            this.id = this.recycleAsyncId(this.scheduler, this.id, null);
+        }
+    };
+    AsyncAction.prototype._execute = function (state, delay) {
+        var errored = false;
+        var errorValue = undefined;
+        try {
+            this.work(state);
+        } catch (e) {
+            errored = true;
+            errorValue = !!e && e || new Error(e);
+        }
+        if (errored) {
+            this.unsubscribe();
+            return errorValue;
+        }
+    };
+    AsyncAction.prototype._unsubscribe = function () {
+        var id = this.id;
+        var scheduler = this.scheduler;
+        var actions = scheduler.actions;
+        var index = actions.indexOf(this);
+        this.work = null;
+        this.state = null;
+        this.pending = false;
+        this.scheduler = null;
+        if (index !== -1) {
+            actions.splice(index, 1);
+        }
+        if (id != null) {
+            this.id = this.recycleAsyncId(scheduler, id, null);
+        }
+        this.delay = null;
+    };
+    return AsyncAction;
+}(Action_1.Action);
+exports.AsyncAction = AsyncAction;
+//# sourceMappingURL=AsyncAction.js.map
+
+/***/ }),
+/* 538 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Scheduler_1 = __webpack_require__(492);
+var AsyncScheduler = function (_super) {
+    __extends(AsyncScheduler, _super);
+    function AsyncScheduler() {
+        _super.apply(this, arguments);
+        this.actions = [];
+        /**
+         * A flag to indicate whether the Scheduler is currently executing a batch of
+         * queued actions.
+         * @type {boolean}
+         */
+        this.active = false;
+        /**
+         * An internal ID used to track the latest asynchronous task such as those
+         * coming from `setTimeout`, `setInterval`, `requestAnimationFrame`, and
+         * others.
+         * @type {any}
+         */
+        this.scheduled = undefined;
+    }
+    AsyncScheduler.prototype.flush = function (action) {
+        var actions = this.actions;
+        if (this.active) {
+            actions.push(action);
+            return;
+        }
+        var error;
+        this.active = true;
+        do {
+            if (error = action.execute(action.state, action.delay)) {
+                break;
+            }
+        } while (action = actions.shift()); // exhaust the scheduler queue
+        this.active = false;
+        if (error) {
+            while (action = actions.shift()) {
+                action.unsubscribe();
+            }
+            throw error;
+        }
+    };
+    return AsyncScheduler;
+}(Scheduler_1.Scheduler);
+exports.AsyncScheduler = AsyncScheduler;
+//# sourceMappingURL=AsyncScheduler.js.map
+
+/***/ }),
+/* 539 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+/**
+ * An error thrown when an element was queried at a certain index of an
+ * Observable, but no such index or position exists in that sequence.
+ *
+ * @see {@link elementAt}
+ * @see {@link take}
+ * @see {@link takeLast}
+ *
+ * @class ArgumentOutOfRangeError
+ */
+var ArgumentOutOfRangeError = function (_super) {
+    __extends(ArgumentOutOfRangeError, _super);
+    function ArgumentOutOfRangeError() {
+        var err = _super.call(this, 'argument out of range');
+        this.name = err.name = 'ArgumentOutOfRangeError';
+        this.stack = err.stack;
+        this.message = err.message;
+    }
+    return ArgumentOutOfRangeError;
+}(Error);
+exports.ArgumentOutOfRangeError = ArgumentOutOfRangeError;
+//# sourceMappingURL=ArgumentOutOfRangeError.js.map
+
+/***/ }),
+/* 540 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __extends = undefined && undefined.__extends || function (d, b) {
+    for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+    }function __() {
+        this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+/**
+ * An error thrown when one or more errors have occurred during the
+ * `unsubscribe` of a {@link Subscription}.
+ */
+var UnsubscriptionError = function (_super) {
+    __extends(UnsubscriptionError, _super);
+    function UnsubscriptionError(errors) {
+        _super.call(this);
+        this.errors = errors;
+        var err = Error.call(this, errors ? errors.length + " errors occurred during unsubscription:\n  " + errors.map(function (err, i) {
+            return i + 1 + ") " + err.toString();
+        }).join('\n  ') : '');
+        this.name = err.name = 'UnsubscriptionError';
+        this.stack = err.stack;
+        this.message = err.message;
+    }
+    return UnsubscriptionError;
+}(Error);
+exports.UnsubscriptionError = UnsubscriptionError;
+//# sourceMappingURL=UnsubscriptionError.js.map
+
+/***/ }),
+/* 541 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function isDate(value) {
+    return value instanceof Date && !isNaN(+value);
+}
+exports.isDate = isDate;
+//# sourceMappingURL=isDate.js.map
+
+/***/ }),
+/* 542 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isArray_1 = __webpack_require__(305);
+function isNumeric(val) {
+    // parseFloat NaNs numeric-cast false positives (null|true|false|"")
+    // ...but misinterprets leading-number strings, particularly hex literals ("0x...")
+    // subtraction forces infinities to NaN
+    // adding 1 corrects loss of precision from parseFloat (#15100)
+    return !isArray_1.isArray(val) && val - parseFloat(val) + 1 >= 0;
+}
+exports.isNumeric = isNumeric;
+;
+//# sourceMappingURL=isNumeric.js.map
+
+/***/ }),
+/* 543 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Subscriber_1 = __webpack_require__(290);
+var rxSubscriber_1 = __webpack_require__(323);
+var Observer_1 = __webpack_require__(354);
+function toSubscriber(nextOrObserver, error, complete) {
+    if (nextOrObserver) {
+        if (nextOrObserver instanceof Subscriber_1.Subscriber) {
+            return nextOrObserver;
+        }
+        if (nextOrObserver[rxSubscriber_1.rxSubscriber]) {
+            return nextOrObserver[rxSubscriber_1.rxSubscriber]();
+        }
+    }
+    if (!nextOrObserver && !error && !complete) {
+        return new Subscriber_1.Subscriber(Observer_1.empty);
+    }
+    return new Subscriber_1.Subscriber(nextOrObserver, error, complete);
+}
+exports.toSubscriber = toSubscriber;
+//# sourceMappingURL=toSubscriber.js.map
+
+/***/ }),
+/* 544 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(545);
+
+/***/ }),
+/* 545 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _ponyfill = __webpack_require__(546);
+
+var _ponyfill2 = _interopRequireDefault(_ponyfill);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+var root; /* global window */
+
+if (typeof self !== 'undefined') {
+  root = self;
+} else if (typeof window !== 'undefined') {
+  root = window;
+} else if (typeof global !== 'undefined') {
+  root = global;
+} else if (true) {
+  root = module;
+} else {
+  root = Function('return this')();
+}
+
+var result = (0, _ponyfill2['default'])(root);
+exports['default'] = result;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(307), __webpack_require__(376)(module)))
+
+/***/ }),
+/* 546 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports['default'] = symbolObservablePonyfill;
+function symbolObservablePonyfill(root) {
+	var result;
+	var _Symbol = root.Symbol;
+
+	if (typeof _Symbol === 'function') {
+		if (_Symbol.observable) {
+			result = _Symbol.observable;
+		} else {
+			result = _Symbol('observable');
+			_Symbol.observable = result;
+		}
+	} else {
+		result = '@@observable';
+	}
+
+	return result;
+};
+
+/***/ }),
+/* 547 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = /[\xAD\u0600-\u0605\u061C\u06DD\u070F\u08E2\u180E\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u206F\uFEFF\uFFF9-\uFFFB]|\uD804\uDCBD|\uD82F[\uDCA0-\uDCA3]|\uD834[\uDD73-\uDD7A]|\uDB40[\uDC01\uDC20-\uDC7F]/;
+
+/***/ }),
+/* 548 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.Any = __webpack_require__(375);
+exports.Cc = __webpack_require__(373);
+exports.Cf = __webpack_require__(547);
+exports.P = __webpack_require__(325);
+exports.Z = __webpack_require__(374);
+
+/***/ }),
+/* 549 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"supportsInteractivity": true,
+	"strongSeparation": {
+		"spacing": 40,
+		"lineThickness": 1,
+		"lineColor": "#eeeeee"
+	},
+	"fontFamily": "\"Segoe UI\", sans-serif",
+	"fontSizes": {
+		"small": 12,
+		"normal": 13,
+		"medium": 15,
+		"large": 17,
+		"extraLarge": 19
+	},
+	"fontWeights": {
+		"lighter": 200,
+		"normal": 400,
+		"bolder": 700
+	},
+	"colors": {
+		"dark": {
+			"normal": "#000000",
+			"subtle": "#808c95"
+		},
+		"light": {
+			"normal": "#ffffff",
+			"subtle": "#88ffff"
+		},
+		"accent": {
+			"normal": "#2e89fc",
+			"subtle": "#802E8901"
+		},
+		"attention": {
+			"normal": "#ffd800",
+			"subtle": "#CCFFD800"
+		},
+		"good": {
+			"normal": "#00ff00",
+			"subtle": "#CC00FF00"
+		},
+		"warning": {
+			"normal": "#ff0000",
+			"subtle": "#CCFF0000"
+		}
+	},
+	"imageSizes": {
+		"small": 40,
+		"medium": 64,
+		"large": 96
+	},
+	"actions": {
+		"maxActions": 100,
+		"separation": {
+			"spacing": 8
+		},
+		"buttonSpacing": 8,
+		"stretch": false,
+		"showCard": {
+			"actionMode": "inlineEdgeToEdge",
+			"inlineTopMargin": 16,
+			"backgroundColor": "#00000000",
+			"padding": {
+				"top": 8,
+				"right": 8,
+				"bottom": 8,
+				"left": 8
+			}
+		},
+		"actionsOrientation": "vertical",
+		"actionAlignment": "left"
+	},
+	"adaptiveCard": {
+		"backgroundColor": "#00000000",
+		"padding": {
+			"left": 8,
+			"top": 8,
+			"right": 8,
+			"bottom": 8
+		}
+	},
+	"container": {
+		"separation": {
+			"spacing": 8
+		},
+		"normal": {
+			"backgroundColor": "#00000000"
+		},
+		"emphasis": {
+			"backgroundColor": "#eeeeee",
+			"borderColor": "#aaaaaa",
+			"borderThickness": {
+				"top": 1,
+				"right": 1,
+				"bottom": 1,
+				"left": 1
+			},
+			"padding": {
+				"top": 8,
+				"right": 8,
+				"bottom": 8,
+				"left": 8
+			}
+		}
+	},
+	"textBlock": {
+		"color": "dark",
+		"separations": {
+			"small": {
+				"spacing": 8
+			},
+			"normal": {
+				"spacing": 8
+			},
+			"medium": {
+				"spacing": 8
+			},
+			"large": {
+				"spacing": 8
+			},
+			"extraLarge": {
+				"spacing": 8
+			}
+		}
+	},
+	"image": {
+		"size": "medium",
+		"separation": {
+			"spacing": 8
+		}
+	},
+	"imageSet": {
+		"imageSize": "medium",
+		"separation": {
+			"spacing": 8
+		}
+	},
+	"factSet": {
+		"separation": {
+			"spacing": 8
+		},
+		"title": {
+			"color": "dark",
+			"size": "normal",
+			"isSubtle": false,
+			"weight": "bolder",
+			"wrap": true,
+			"maxWidth": 150
+		},
+		"value": {
+			"color": "dark",
+			"size": "normal",
+			"isSubtle": false,
+			"weight": "normal",
+			"wrap": true
+		},
+		"spacing": 8
+	},
+	"input": {
+		"separation": {
+			"spacing": 8
+		}
+	},
+	"columnSet": {
+		"separation": {
+			"spacing": 8
+		}
+	},
+	"column": {
+		"separation": {
+			"spacing": 8
+		}
+	}
+};
+
+/***/ }),
+/* 550 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"Aacute": "Á",
+	"aacute": "á",
+	"Abreve": "Ă",
+	"abreve": "ă",
+	"ac": "∾",
+	"acd": "∿",
+	"acE": "∾̳",
+	"Acirc": "Â",
+	"acirc": "â",
+	"acute": "´",
+	"Acy": "А",
+	"acy": "а",
+	"AElig": "Æ",
+	"aelig": "æ",
+	"af": "⁡",
+	"Afr": "𝔄",
+	"afr": "𝔞",
+	"Agrave": "À",
+	"agrave": "à",
+	"alefsym": "ℵ",
+	"aleph": "ℵ",
+	"Alpha": "Α",
+	"alpha": "α",
+	"Amacr": "Ā",
+	"amacr": "ā",
+	"amalg": "⨿",
+	"amp": "&",
+	"AMP": "&",
+	"andand": "⩕",
+	"And": "⩓",
+	"and": "∧",
+	"andd": "⩜",
+	"andslope": "⩘",
+	"andv": "⩚",
+	"ang": "∠",
+	"ange": "⦤",
+	"angle": "∠",
+	"angmsdaa": "⦨",
+	"angmsdab": "⦩",
+	"angmsdac": "⦪",
+	"angmsdad": "⦫",
+	"angmsdae": "⦬",
+	"angmsdaf": "⦭",
+	"angmsdag": "⦮",
+	"angmsdah": "⦯",
+	"angmsd": "∡",
+	"angrt": "∟",
+	"angrtvb": "⊾",
+	"angrtvbd": "⦝",
+	"angsph": "∢",
+	"angst": "Å",
+	"angzarr": "⍼",
+	"Aogon": "Ą",
+	"aogon": "ą",
+	"Aopf": "𝔸",
+	"aopf": "𝕒",
+	"apacir": "⩯",
+	"ap": "≈",
+	"apE": "⩰",
+	"ape": "≊",
+	"apid": "≋",
+	"apos": "'",
+	"ApplyFunction": "⁡",
+	"approx": "≈",
+	"approxeq": "≊",
+	"Aring": "Å",
+	"aring": "å",
+	"Ascr": "𝒜",
+	"ascr": "𝒶",
+	"Assign": "≔",
+	"ast": "*",
+	"asymp": "≈",
+	"asympeq": "≍",
+	"Atilde": "Ã",
+	"atilde": "ã",
+	"Auml": "Ä",
+	"auml": "ä",
+	"awconint": "∳",
+	"awint": "⨑",
+	"backcong": "≌",
+	"backepsilon": "϶",
+	"backprime": "‵",
+	"backsim": "∽",
+	"backsimeq": "⋍",
+	"Backslash": "∖",
+	"Barv": "⫧",
+	"barvee": "⊽",
+	"barwed": "⌅",
+	"Barwed": "⌆",
+	"barwedge": "⌅",
+	"bbrk": "⎵",
+	"bbrktbrk": "⎶",
+	"bcong": "≌",
+	"Bcy": "Б",
+	"bcy": "б",
+	"bdquo": "„",
+	"becaus": "∵",
+	"because": "∵",
+	"Because": "∵",
+	"bemptyv": "⦰",
+	"bepsi": "϶",
+	"bernou": "ℬ",
+	"Bernoullis": "ℬ",
+	"Beta": "Β",
+	"beta": "β",
+	"beth": "ℶ",
+	"between": "≬",
+	"Bfr": "𝔅",
+	"bfr": "𝔟",
+	"bigcap": "⋂",
+	"bigcirc": "◯",
+	"bigcup": "⋃",
+	"bigodot": "⨀",
+	"bigoplus": "⨁",
+	"bigotimes": "⨂",
+	"bigsqcup": "⨆",
+	"bigstar": "★",
+	"bigtriangledown": "▽",
+	"bigtriangleup": "△",
+	"biguplus": "⨄",
+	"bigvee": "⋁",
+	"bigwedge": "⋀",
+	"bkarow": "⤍",
+	"blacklozenge": "⧫",
+	"blacksquare": "▪",
+	"blacktriangle": "▴",
+	"blacktriangledown": "▾",
+	"blacktriangleleft": "◂",
+	"blacktriangleright": "▸",
+	"blank": "␣",
+	"blk12": "▒",
+	"blk14": "░",
+	"blk34": "▓",
+	"block": "█",
+	"bne": "=⃥",
+	"bnequiv": "≡⃥",
+	"bNot": "⫭",
+	"bnot": "⌐",
+	"Bopf": "𝔹",
+	"bopf": "𝕓",
+	"bot": "⊥",
+	"bottom": "⊥",
+	"bowtie": "⋈",
+	"boxbox": "⧉",
+	"boxdl": "┐",
+	"boxdL": "╕",
+	"boxDl": "╖",
+	"boxDL": "╗",
+	"boxdr": "┌",
+	"boxdR": "╒",
+	"boxDr": "╓",
+	"boxDR": "╔",
+	"boxh": "─",
+	"boxH": "═",
+	"boxhd": "┬",
+	"boxHd": "╤",
+	"boxhD": "╥",
+	"boxHD": "╦",
+	"boxhu": "┴",
+	"boxHu": "╧",
+	"boxhU": "╨",
+	"boxHU": "╩",
+	"boxminus": "⊟",
+	"boxplus": "⊞",
+	"boxtimes": "⊠",
+	"boxul": "┘",
+	"boxuL": "╛",
+	"boxUl": "╜",
+	"boxUL": "╝",
+	"boxur": "└",
+	"boxuR": "╘",
+	"boxUr": "╙",
+	"boxUR": "╚",
+	"boxv": "│",
+	"boxV": "║",
+	"boxvh": "┼",
+	"boxvH": "╪",
+	"boxVh": "╫",
+	"boxVH": "╬",
+	"boxvl": "┤",
+	"boxvL": "╡",
+	"boxVl": "╢",
+	"boxVL": "╣",
+	"boxvr": "├",
+	"boxvR": "╞",
+	"boxVr": "╟",
+	"boxVR": "╠",
+	"bprime": "‵",
+	"breve": "˘",
+	"Breve": "˘",
+	"brvbar": "¦",
+	"bscr": "𝒷",
+	"Bscr": "ℬ",
+	"bsemi": "⁏",
+	"bsim": "∽",
+	"bsime": "⋍",
+	"bsolb": "⧅",
+	"bsol": "\\",
+	"bsolhsub": "⟈",
+	"bull": "•",
+	"bullet": "•",
+	"bump": "≎",
+	"bumpE": "⪮",
+	"bumpe": "≏",
+	"Bumpeq": "≎",
+	"bumpeq": "≏",
+	"Cacute": "Ć",
+	"cacute": "ć",
+	"capand": "⩄",
+	"capbrcup": "⩉",
+	"capcap": "⩋",
+	"cap": "∩",
+	"Cap": "⋒",
+	"capcup": "⩇",
+	"capdot": "⩀",
+	"CapitalDifferentialD": "ⅅ",
+	"caps": "∩︀",
+	"caret": "⁁",
+	"caron": "ˇ",
+	"Cayleys": "ℭ",
+	"ccaps": "⩍",
+	"Ccaron": "Č",
+	"ccaron": "č",
+	"Ccedil": "Ç",
+	"ccedil": "ç",
+	"Ccirc": "Ĉ",
+	"ccirc": "ĉ",
+	"Cconint": "∰",
+	"ccups": "⩌",
+	"ccupssm": "⩐",
+	"Cdot": "Ċ",
+	"cdot": "ċ",
+	"cedil": "¸",
+	"Cedilla": "¸",
+	"cemptyv": "⦲",
+	"cent": "¢",
+	"centerdot": "·",
+	"CenterDot": "·",
+	"cfr": "𝔠",
+	"Cfr": "ℭ",
+	"CHcy": "Ч",
+	"chcy": "ч",
+	"check": "✓",
+	"checkmark": "✓",
+	"Chi": "Χ",
+	"chi": "χ",
+	"circ": "ˆ",
+	"circeq": "≗",
+	"circlearrowleft": "↺",
+	"circlearrowright": "↻",
+	"circledast": "⊛",
+	"circledcirc": "⊚",
+	"circleddash": "⊝",
+	"CircleDot": "⊙",
+	"circledR": "®",
+	"circledS": "Ⓢ",
+	"CircleMinus": "⊖",
+	"CirclePlus": "⊕",
+	"CircleTimes": "⊗",
+	"cir": "○",
+	"cirE": "⧃",
+	"cire": "≗",
+	"cirfnint": "⨐",
+	"cirmid": "⫯",
+	"cirscir": "⧂",
+	"ClockwiseContourIntegral": "∲",
+	"CloseCurlyDoubleQuote": "”",
+	"CloseCurlyQuote": "’",
+	"clubs": "♣",
+	"clubsuit": "♣",
+	"colon": ":",
+	"Colon": "∷",
+	"Colone": "⩴",
+	"colone": "≔",
+	"coloneq": "≔",
+	"comma": ",",
+	"commat": "@",
+	"comp": "∁",
+	"compfn": "∘",
+	"complement": "∁",
+	"complexes": "ℂ",
+	"cong": "≅",
+	"congdot": "⩭",
+	"Congruent": "≡",
+	"conint": "∮",
+	"Conint": "∯",
+	"ContourIntegral": "∮",
+	"copf": "𝕔",
+	"Copf": "ℂ",
+	"coprod": "∐",
+	"Coproduct": "∐",
+	"copy": "©",
+	"COPY": "©",
+	"copysr": "℗",
+	"CounterClockwiseContourIntegral": "∳",
+	"crarr": "↵",
+	"cross": "✗",
+	"Cross": "⨯",
+	"Cscr": "𝒞",
+	"cscr": "𝒸",
+	"csub": "⫏",
+	"csube": "⫑",
+	"csup": "⫐",
+	"csupe": "⫒",
+	"ctdot": "⋯",
+	"cudarrl": "⤸",
+	"cudarrr": "⤵",
+	"cuepr": "⋞",
+	"cuesc": "⋟",
+	"cularr": "↶",
+	"cularrp": "⤽",
+	"cupbrcap": "⩈",
+	"cupcap": "⩆",
+	"CupCap": "≍",
+	"cup": "∪",
+	"Cup": "⋓",
+	"cupcup": "⩊",
+	"cupdot": "⊍",
+	"cupor": "⩅",
+	"cups": "∪︀",
+	"curarr": "↷",
+	"curarrm": "⤼",
+	"curlyeqprec": "⋞",
+	"curlyeqsucc": "⋟",
+	"curlyvee": "⋎",
+	"curlywedge": "⋏",
+	"curren": "¤",
+	"curvearrowleft": "↶",
+	"curvearrowright": "↷",
+	"cuvee": "⋎",
+	"cuwed": "⋏",
+	"cwconint": "∲",
+	"cwint": "∱",
+	"cylcty": "⌭",
+	"dagger": "†",
+	"Dagger": "‡",
+	"daleth": "ℸ",
+	"darr": "↓",
+	"Darr": "↡",
+	"dArr": "⇓",
+	"dash": "‐",
+	"Dashv": "⫤",
+	"dashv": "⊣",
+	"dbkarow": "⤏",
+	"dblac": "˝",
+	"Dcaron": "Ď",
+	"dcaron": "ď",
+	"Dcy": "Д",
+	"dcy": "д",
+	"ddagger": "‡",
+	"ddarr": "⇊",
+	"DD": "ⅅ",
+	"dd": "ⅆ",
+	"DDotrahd": "⤑",
+	"ddotseq": "⩷",
+	"deg": "°",
+	"Del": "∇",
+	"Delta": "Δ",
+	"delta": "δ",
+	"demptyv": "⦱",
+	"dfisht": "⥿",
+	"Dfr": "𝔇",
+	"dfr": "𝔡",
+	"dHar": "⥥",
+	"dharl": "⇃",
+	"dharr": "⇂",
+	"DiacriticalAcute": "´",
+	"DiacriticalDot": "˙",
+	"DiacriticalDoubleAcute": "˝",
+	"DiacriticalGrave": "`",
+	"DiacriticalTilde": "˜",
+	"diam": "⋄",
+	"diamond": "⋄",
+	"Diamond": "⋄",
+	"diamondsuit": "♦",
+	"diams": "♦",
+	"die": "¨",
+	"DifferentialD": "ⅆ",
+	"digamma": "ϝ",
+	"disin": "⋲",
+	"div": "÷",
+	"divide": "÷",
+	"divideontimes": "⋇",
+	"divonx": "⋇",
+	"DJcy": "Ђ",
+	"djcy": "ђ",
+	"dlcorn": "⌞",
+	"dlcrop": "⌍",
+	"dollar": "$",
+	"Dopf": "𝔻",
+	"dopf": "𝕕",
+	"Dot": "¨",
+	"dot": "˙",
+	"DotDot": "⃜",
+	"doteq": "≐",
+	"doteqdot": "≑",
+	"DotEqual": "≐",
+	"dotminus": "∸",
+	"dotplus": "∔",
+	"dotsquare": "⊡",
+	"doublebarwedge": "⌆",
+	"DoubleContourIntegral": "∯",
+	"DoubleDot": "¨",
+	"DoubleDownArrow": "⇓",
+	"DoubleLeftArrow": "⇐",
+	"DoubleLeftRightArrow": "⇔",
+	"DoubleLeftTee": "⫤",
+	"DoubleLongLeftArrow": "⟸",
+	"DoubleLongLeftRightArrow": "⟺",
+	"DoubleLongRightArrow": "⟹",
+	"DoubleRightArrow": "⇒",
+	"DoubleRightTee": "⊨",
+	"DoubleUpArrow": "⇑",
+	"DoubleUpDownArrow": "⇕",
+	"DoubleVerticalBar": "∥",
+	"DownArrowBar": "⤓",
+	"downarrow": "↓",
+	"DownArrow": "↓",
+	"Downarrow": "⇓",
+	"DownArrowUpArrow": "⇵",
+	"DownBreve": "̑",
+	"downdownarrows": "⇊",
+	"downharpoonleft": "⇃",
+	"downharpoonright": "⇂",
+	"DownLeftRightVector": "⥐",
+	"DownLeftTeeVector": "⥞",
+	"DownLeftVectorBar": "⥖",
+	"DownLeftVector": "↽",
+	"DownRightTeeVector": "⥟",
+	"DownRightVectorBar": "⥗",
+	"DownRightVector": "⇁",
+	"DownTeeArrow": "↧",
+	"DownTee": "⊤",
+	"drbkarow": "⤐",
+	"drcorn": "⌟",
+	"drcrop": "⌌",
+	"Dscr": "𝒟",
+	"dscr": "𝒹",
+	"DScy": "Ѕ",
+	"dscy": "ѕ",
+	"dsol": "⧶",
+	"Dstrok": "Đ",
+	"dstrok": "đ",
+	"dtdot": "⋱",
+	"dtri": "▿",
+	"dtrif": "▾",
+	"duarr": "⇵",
+	"duhar": "⥯",
+	"dwangle": "⦦",
+	"DZcy": "Џ",
+	"dzcy": "џ",
+	"dzigrarr": "⟿",
+	"Eacute": "É",
+	"eacute": "é",
+	"easter": "⩮",
+	"Ecaron": "Ě",
+	"ecaron": "ě",
+	"Ecirc": "Ê",
+	"ecirc": "ê",
+	"ecir": "≖",
+	"ecolon": "≕",
+	"Ecy": "Э",
+	"ecy": "э",
+	"eDDot": "⩷",
+	"Edot": "Ė",
+	"edot": "ė",
+	"eDot": "≑",
+	"ee": "ⅇ",
+	"efDot": "≒",
+	"Efr": "𝔈",
+	"efr": "𝔢",
+	"eg": "⪚",
+	"Egrave": "È",
+	"egrave": "è",
+	"egs": "⪖",
+	"egsdot": "⪘",
+	"el": "⪙",
+	"Element": "∈",
+	"elinters": "⏧",
+	"ell": "ℓ",
+	"els": "⪕",
+	"elsdot": "⪗",
+	"Emacr": "Ē",
+	"emacr": "ē",
+	"empty": "∅",
+	"emptyset": "∅",
+	"EmptySmallSquare": "◻",
+	"emptyv": "∅",
+	"EmptyVerySmallSquare": "▫",
+	"emsp13": " ",
+	"emsp14": " ",
+	"emsp": " ",
+	"ENG": "Ŋ",
+	"eng": "ŋ",
+	"ensp": " ",
+	"Eogon": "Ę",
+	"eogon": "ę",
+	"Eopf": "𝔼",
+	"eopf": "𝕖",
+	"epar": "⋕",
+	"eparsl": "⧣",
+	"eplus": "⩱",
+	"epsi": "ε",
+	"Epsilon": "Ε",
+	"epsilon": "ε",
+	"epsiv": "ϵ",
+	"eqcirc": "≖",
+	"eqcolon": "≕",
+	"eqsim": "≂",
+	"eqslantgtr": "⪖",
+	"eqslantless": "⪕",
+	"Equal": "⩵",
+	"equals": "=",
+	"EqualTilde": "≂",
+	"equest": "≟",
+	"Equilibrium": "⇌",
+	"equiv": "≡",
+	"equivDD": "⩸",
+	"eqvparsl": "⧥",
+	"erarr": "⥱",
+	"erDot": "≓",
+	"escr": "ℯ",
+	"Escr": "ℰ",
+	"esdot": "≐",
+	"Esim": "⩳",
+	"esim": "≂",
+	"Eta": "Η",
+	"eta": "η",
+	"ETH": "Ð",
+	"eth": "ð",
+	"Euml": "Ë",
+	"euml": "ë",
+	"euro": "€",
+	"excl": "!",
+	"exist": "∃",
+	"Exists": "∃",
+	"expectation": "ℰ",
+	"exponentiale": "ⅇ",
+	"ExponentialE": "ⅇ",
+	"fallingdotseq": "≒",
+	"Fcy": "Ф",
+	"fcy": "ф",
+	"female": "♀",
+	"ffilig": "ﬃ",
+	"fflig": "ﬀ",
+	"ffllig": "ﬄ",
+	"Ffr": "𝔉",
+	"ffr": "𝔣",
+	"filig": "ﬁ",
+	"FilledSmallSquare": "◼",
+	"FilledVerySmallSquare": "▪",
+	"fjlig": "fj",
+	"flat": "♭",
+	"fllig": "ﬂ",
+	"fltns": "▱",
+	"fnof": "ƒ",
+	"Fopf": "𝔽",
+	"fopf": "𝕗",
+	"forall": "∀",
+	"ForAll": "∀",
+	"fork": "⋔",
+	"forkv": "⫙",
+	"Fouriertrf": "ℱ",
+	"fpartint": "⨍",
+	"frac12": "½",
+	"frac13": "⅓",
+	"frac14": "¼",
+	"frac15": "⅕",
+	"frac16": "⅙",
+	"frac18": "⅛",
+	"frac23": "⅔",
+	"frac25": "⅖",
+	"frac34": "¾",
+	"frac35": "⅗",
+	"frac38": "⅜",
+	"frac45": "⅘",
+	"frac56": "⅚",
+	"frac58": "⅝",
+	"frac78": "⅞",
+	"frasl": "⁄",
+	"frown": "⌢",
+	"fscr": "𝒻",
+	"Fscr": "ℱ",
+	"gacute": "ǵ",
+	"Gamma": "Γ",
+	"gamma": "γ",
+	"Gammad": "Ϝ",
+	"gammad": "ϝ",
+	"gap": "⪆",
+	"Gbreve": "Ğ",
+	"gbreve": "ğ",
+	"Gcedil": "Ģ",
+	"Gcirc": "Ĝ",
+	"gcirc": "ĝ",
+	"Gcy": "Г",
+	"gcy": "г",
+	"Gdot": "Ġ",
+	"gdot": "ġ",
+	"ge": "≥",
+	"gE": "≧",
+	"gEl": "⪌",
+	"gel": "⋛",
+	"geq": "≥",
+	"geqq": "≧",
+	"geqslant": "⩾",
+	"gescc": "⪩",
+	"ges": "⩾",
+	"gesdot": "⪀",
+	"gesdoto": "⪂",
+	"gesdotol": "⪄",
+	"gesl": "⋛︀",
+	"gesles": "⪔",
+	"Gfr": "𝔊",
+	"gfr": "𝔤",
+	"gg": "≫",
+	"Gg": "⋙",
+	"ggg": "⋙",
+	"gimel": "ℷ",
+	"GJcy": "Ѓ",
+	"gjcy": "ѓ",
+	"gla": "⪥",
+	"gl": "≷",
+	"glE": "⪒",
+	"glj": "⪤",
+	"gnap": "⪊",
+	"gnapprox": "⪊",
+	"gne": "⪈",
+	"gnE": "≩",
+	"gneq": "⪈",
+	"gneqq": "≩",
+	"gnsim": "⋧",
+	"Gopf": "𝔾",
+	"gopf": "𝕘",
+	"grave": "`",
+	"GreaterEqual": "≥",
+	"GreaterEqualLess": "⋛",
+	"GreaterFullEqual": "≧",
+	"GreaterGreater": "⪢",
+	"GreaterLess": "≷",
+	"GreaterSlantEqual": "⩾",
+	"GreaterTilde": "≳",
+	"Gscr": "𝒢",
+	"gscr": "ℊ",
+	"gsim": "≳",
+	"gsime": "⪎",
+	"gsiml": "⪐",
+	"gtcc": "⪧",
+	"gtcir": "⩺",
+	"gt": ">",
+	"GT": ">",
+	"Gt": "≫",
+	"gtdot": "⋗",
+	"gtlPar": "⦕",
+	"gtquest": "⩼",
+	"gtrapprox": "⪆",
+	"gtrarr": "⥸",
+	"gtrdot": "⋗",
+	"gtreqless": "⋛",
+	"gtreqqless": "⪌",
+	"gtrless": "≷",
+	"gtrsim": "≳",
+	"gvertneqq": "≩︀",
+	"gvnE": "≩︀",
+	"Hacek": "ˇ",
+	"hairsp": " ",
+	"half": "½",
+	"hamilt": "ℋ",
+	"HARDcy": "Ъ",
+	"hardcy": "ъ",
+	"harrcir": "⥈",
+	"harr": "↔",
+	"hArr": "⇔",
+	"harrw": "↭",
+	"Hat": "^",
+	"hbar": "ℏ",
+	"Hcirc": "Ĥ",
+	"hcirc": "ĥ",
+	"hearts": "♥",
+	"heartsuit": "♥",
+	"hellip": "…",
+	"hercon": "⊹",
+	"hfr": "𝔥",
+	"Hfr": "ℌ",
+	"HilbertSpace": "ℋ",
+	"hksearow": "⤥",
+	"hkswarow": "⤦",
+	"hoarr": "⇿",
+	"homtht": "∻",
+	"hookleftarrow": "↩",
+	"hookrightarrow": "↪",
+	"hopf": "𝕙",
+	"Hopf": "ℍ",
+	"horbar": "―",
+	"HorizontalLine": "─",
+	"hscr": "𝒽",
+	"Hscr": "ℋ",
+	"hslash": "ℏ",
+	"Hstrok": "Ħ",
+	"hstrok": "ħ",
+	"HumpDownHump": "≎",
+	"HumpEqual": "≏",
+	"hybull": "⁃",
+	"hyphen": "‐",
+	"Iacute": "Í",
+	"iacute": "í",
+	"ic": "⁣",
+	"Icirc": "Î",
+	"icirc": "î",
+	"Icy": "И",
+	"icy": "и",
+	"Idot": "İ",
+	"IEcy": "Е",
+	"iecy": "е",
+	"iexcl": "¡",
+	"iff": "⇔",
+	"ifr": "𝔦",
+	"Ifr": "ℑ",
+	"Igrave": "Ì",
+	"igrave": "ì",
+	"ii": "ⅈ",
+	"iiiint": "⨌",
+	"iiint": "∭",
+	"iinfin": "⧜",
+	"iiota": "℩",
+	"IJlig": "Ĳ",
+	"ijlig": "ĳ",
+	"Imacr": "Ī",
+	"imacr": "ī",
+	"image": "ℑ",
+	"ImaginaryI": "ⅈ",
+	"imagline": "ℐ",
+	"imagpart": "ℑ",
+	"imath": "ı",
+	"Im": "ℑ",
+	"imof": "⊷",
+	"imped": "Ƶ",
+	"Implies": "⇒",
+	"incare": "℅",
+	"in": "∈",
+	"infin": "∞",
+	"infintie": "⧝",
+	"inodot": "ı",
+	"intcal": "⊺",
+	"int": "∫",
+	"Int": "∬",
+	"integers": "ℤ",
+	"Integral": "∫",
+	"intercal": "⊺",
+	"Intersection": "⋂",
+	"intlarhk": "⨗",
+	"intprod": "⨼",
+	"InvisibleComma": "⁣",
+	"InvisibleTimes": "⁢",
+	"IOcy": "Ё",
+	"iocy": "ё",
+	"Iogon": "Į",
+	"iogon": "į",
+	"Iopf": "𝕀",
+	"iopf": "𝕚",
+	"Iota": "Ι",
+	"iota": "ι",
+	"iprod": "⨼",
+	"iquest": "¿",
+	"iscr": "𝒾",
+	"Iscr": "ℐ",
+	"isin": "∈",
+	"isindot": "⋵",
+	"isinE": "⋹",
+	"isins": "⋴",
+	"isinsv": "⋳",
+	"isinv": "∈",
+	"it": "⁢",
+	"Itilde": "Ĩ",
+	"itilde": "ĩ",
+	"Iukcy": "І",
+	"iukcy": "і",
+	"Iuml": "Ï",
+	"iuml": "ï",
+	"Jcirc": "Ĵ",
+	"jcirc": "ĵ",
+	"Jcy": "Й",
+	"jcy": "й",
+	"Jfr": "𝔍",
+	"jfr": "𝔧",
+	"jmath": "ȷ",
+	"Jopf": "𝕁",
+	"jopf": "𝕛",
+	"Jscr": "𝒥",
+	"jscr": "𝒿",
+	"Jsercy": "Ј",
+	"jsercy": "ј",
+	"Jukcy": "Є",
+	"jukcy": "є",
+	"Kappa": "Κ",
+	"kappa": "κ",
+	"kappav": "ϰ",
+	"Kcedil": "Ķ",
+	"kcedil": "ķ",
+	"Kcy": "К",
+	"kcy": "к",
+	"Kfr": "𝔎",
+	"kfr": "𝔨",
+	"kgreen": "ĸ",
+	"KHcy": "Х",
+	"khcy": "х",
+	"KJcy": "Ќ",
+	"kjcy": "ќ",
+	"Kopf": "𝕂",
+	"kopf": "𝕜",
+	"Kscr": "𝒦",
+	"kscr": "𝓀",
+	"lAarr": "⇚",
+	"Lacute": "Ĺ",
+	"lacute": "ĺ",
+	"laemptyv": "⦴",
+	"lagran": "ℒ",
+	"Lambda": "Λ",
+	"lambda": "λ",
+	"lang": "⟨",
+	"Lang": "⟪",
+	"langd": "⦑",
+	"langle": "⟨",
+	"lap": "⪅",
+	"Laplacetrf": "ℒ",
+	"laquo": "«",
+	"larrb": "⇤",
+	"larrbfs": "⤟",
+	"larr": "←",
+	"Larr": "↞",
+	"lArr": "⇐",
+	"larrfs": "⤝",
+	"larrhk": "↩",
+	"larrlp": "↫",
+	"larrpl": "⤹",
+	"larrsim": "⥳",
+	"larrtl": "↢",
+	"latail": "⤙",
+	"lAtail": "⤛",
+	"lat": "⪫",
+	"late": "⪭",
+	"lates": "⪭︀",
+	"lbarr": "⤌",
+	"lBarr": "⤎",
+	"lbbrk": "❲",
+	"lbrace": "{",
+	"lbrack": "[",
+	"lbrke": "⦋",
+	"lbrksld": "⦏",
+	"lbrkslu": "⦍",
+	"Lcaron": "Ľ",
+	"lcaron": "ľ",
+	"Lcedil": "Ļ",
+	"lcedil": "ļ",
+	"lceil": "⌈",
+	"lcub": "{",
+	"Lcy": "Л",
+	"lcy": "л",
+	"ldca": "⤶",
+	"ldquo": "“",
+	"ldquor": "„",
+	"ldrdhar": "⥧",
+	"ldrushar": "⥋",
+	"ldsh": "↲",
+	"le": "≤",
+	"lE": "≦",
+	"LeftAngleBracket": "⟨",
+	"LeftArrowBar": "⇤",
+	"leftarrow": "←",
+	"LeftArrow": "←",
+	"Leftarrow": "⇐",
+	"LeftArrowRightArrow": "⇆",
+	"leftarrowtail": "↢",
+	"LeftCeiling": "⌈",
+	"LeftDoubleBracket": "⟦",
+	"LeftDownTeeVector": "⥡",
+	"LeftDownVectorBar": "⥙",
+	"LeftDownVector": "⇃",
+	"LeftFloor": "⌊",
+	"leftharpoondown": "↽",
+	"leftharpoonup": "↼",
+	"leftleftarrows": "⇇",
+	"leftrightarrow": "↔",
+	"LeftRightArrow": "↔",
+	"Leftrightarrow": "⇔",
+	"leftrightarrows": "⇆",
+	"leftrightharpoons": "⇋",
+	"leftrightsquigarrow": "↭",
+	"LeftRightVector": "⥎",
+	"LeftTeeArrow": "↤",
+	"LeftTee": "⊣",
+	"LeftTeeVector": "⥚",
+	"leftthreetimes": "⋋",
+	"LeftTriangleBar": "⧏",
+	"LeftTriangle": "⊲",
+	"LeftTriangleEqual": "⊴",
+	"LeftUpDownVector": "⥑",
+	"LeftUpTeeVector": "⥠",
+	"LeftUpVectorBar": "⥘",
+	"LeftUpVector": "↿",
+	"LeftVectorBar": "⥒",
+	"LeftVector": "↼",
+	"lEg": "⪋",
+	"leg": "⋚",
+	"leq": "≤",
+	"leqq": "≦",
+	"leqslant": "⩽",
+	"lescc": "⪨",
+	"les": "⩽",
+	"lesdot": "⩿",
+	"lesdoto": "⪁",
+	"lesdotor": "⪃",
+	"lesg": "⋚︀",
+	"lesges": "⪓",
+	"lessapprox": "⪅",
+	"lessdot": "⋖",
+	"lesseqgtr": "⋚",
+	"lesseqqgtr": "⪋",
+	"LessEqualGreater": "⋚",
+	"LessFullEqual": "≦",
+	"LessGreater": "≶",
+	"lessgtr": "≶",
+	"LessLess": "⪡",
+	"lesssim": "≲",
+	"LessSlantEqual": "⩽",
+	"LessTilde": "≲",
+	"lfisht": "⥼",
+	"lfloor": "⌊",
+	"Lfr": "𝔏",
+	"lfr": "𝔩",
+	"lg": "≶",
+	"lgE": "⪑",
+	"lHar": "⥢",
+	"lhard": "↽",
+	"lharu": "↼",
+	"lharul": "⥪",
+	"lhblk": "▄",
+	"LJcy": "Љ",
+	"ljcy": "љ",
+	"llarr": "⇇",
+	"ll": "≪",
+	"Ll": "⋘",
+	"llcorner": "⌞",
+	"Lleftarrow": "⇚",
+	"llhard": "⥫",
+	"lltri": "◺",
+	"Lmidot": "Ŀ",
+	"lmidot": "ŀ",
+	"lmoustache": "⎰",
+	"lmoust": "⎰",
+	"lnap": "⪉",
+	"lnapprox": "⪉",
+	"lne": "⪇",
+	"lnE": "≨",
+	"lneq": "⪇",
+	"lneqq": "≨",
+	"lnsim": "⋦",
+	"loang": "⟬",
+	"loarr": "⇽",
+	"lobrk": "⟦",
+	"longleftarrow": "⟵",
+	"LongLeftArrow": "⟵",
+	"Longleftarrow": "⟸",
+	"longleftrightarrow": "⟷",
+	"LongLeftRightArrow": "⟷",
+	"Longleftrightarrow": "⟺",
+	"longmapsto": "⟼",
+	"longrightarrow": "⟶",
+	"LongRightArrow": "⟶",
+	"Longrightarrow": "⟹",
+	"looparrowleft": "↫",
+	"looparrowright": "↬",
+	"lopar": "⦅",
+	"Lopf": "𝕃",
+	"lopf": "𝕝",
+	"loplus": "⨭",
+	"lotimes": "⨴",
+	"lowast": "∗",
+	"lowbar": "_",
+	"LowerLeftArrow": "↙",
+	"LowerRightArrow": "↘",
+	"loz": "◊",
+	"lozenge": "◊",
+	"lozf": "⧫",
+	"lpar": "(",
+	"lparlt": "⦓",
+	"lrarr": "⇆",
+	"lrcorner": "⌟",
+	"lrhar": "⇋",
+	"lrhard": "⥭",
+	"lrm": "‎",
+	"lrtri": "⊿",
+	"lsaquo": "‹",
+	"lscr": "𝓁",
+	"Lscr": "ℒ",
+	"lsh": "↰",
+	"Lsh": "↰",
+	"lsim": "≲",
+	"lsime": "⪍",
+	"lsimg": "⪏",
+	"lsqb": "[",
+	"lsquo": "‘",
+	"lsquor": "‚",
+	"Lstrok": "Ł",
+	"lstrok": "ł",
+	"ltcc": "⪦",
+	"ltcir": "⩹",
+	"lt": "<",
+	"LT": "<",
+	"Lt": "≪",
+	"ltdot": "⋖",
+	"lthree": "⋋",
+	"ltimes": "⋉",
+	"ltlarr": "⥶",
+	"ltquest": "⩻",
+	"ltri": "◃",
+	"ltrie": "⊴",
+	"ltrif": "◂",
+	"ltrPar": "⦖",
+	"lurdshar": "⥊",
+	"luruhar": "⥦",
+	"lvertneqq": "≨︀",
+	"lvnE": "≨︀",
+	"macr": "¯",
+	"male": "♂",
+	"malt": "✠",
+	"maltese": "✠",
+	"Map": "⤅",
+	"map": "↦",
+	"mapsto": "↦",
+	"mapstodown": "↧",
+	"mapstoleft": "↤",
+	"mapstoup": "↥",
+	"marker": "▮",
+	"mcomma": "⨩",
+	"Mcy": "М",
+	"mcy": "м",
+	"mdash": "—",
+	"mDDot": "∺",
+	"measuredangle": "∡",
+	"MediumSpace": " ",
+	"Mellintrf": "ℳ",
+	"Mfr": "𝔐",
+	"mfr": "𝔪",
+	"mho": "℧",
+	"micro": "µ",
+	"midast": "*",
+	"midcir": "⫰",
+	"mid": "∣",
+	"middot": "·",
+	"minusb": "⊟",
+	"minus": "−",
+	"minusd": "∸",
+	"minusdu": "⨪",
+	"MinusPlus": "∓",
+	"mlcp": "⫛",
+	"mldr": "…",
+	"mnplus": "∓",
+	"models": "⊧",
+	"Mopf": "𝕄",
+	"mopf": "𝕞",
+	"mp": "∓",
+	"mscr": "𝓂",
+	"Mscr": "ℳ",
+	"mstpos": "∾",
+	"Mu": "Μ",
+	"mu": "μ",
+	"multimap": "⊸",
+	"mumap": "⊸",
+	"nabla": "∇",
+	"Nacute": "Ń",
+	"nacute": "ń",
+	"nang": "∠⃒",
+	"nap": "≉",
+	"napE": "⩰̸",
+	"napid": "≋̸",
+	"napos": "ŉ",
+	"napprox": "≉",
+	"natural": "♮",
+	"naturals": "ℕ",
+	"natur": "♮",
+	"nbsp": " ",
+	"nbump": "≎̸",
+	"nbumpe": "≏̸",
+	"ncap": "⩃",
+	"Ncaron": "Ň",
+	"ncaron": "ň",
+	"Ncedil": "Ņ",
+	"ncedil": "ņ",
+	"ncong": "≇",
+	"ncongdot": "⩭̸",
+	"ncup": "⩂",
+	"Ncy": "Н",
+	"ncy": "н",
+	"ndash": "–",
+	"nearhk": "⤤",
+	"nearr": "↗",
+	"neArr": "⇗",
+	"nearrow": "↗",
+	"ne": "≠",
+	"nedot": "≐̸",
+	"NegativeMediumSpace": "​",
+	"NegativeThickSpace": "​",
+	"NegativeThinSpace": "​",
+	"NegativeVeryThinSpace": "​",
+	"nequiv": "≢",
+	"nesear": "⤨",
+	"nesim": "≂̸",
+	"NestedGreaterGreater": "≫",
+	"NestedLessLess": "≪",
+	"NewLine": "\n",
+	"nexist": "∄",
+	"nexists": "∄",
+	"Nfr": "𝔑",
+	"nfr": "𝔫",
+	"ngE": "≧̸",
+	"nge": "≱",
+	"ngeq": "≱",
+	"ngeqq": "≧̸",
+	"ngeqslant": "⩾̸",
+	"nges": "⩾̸",
+	"nGg": "⋙̸",
+	"ngsim": "≵",
+	"nGt": "≫⃒",
+	"ngt": "≯",
+	"ngtr": "≯",
+	"nGtv": "≫̸",
+	"nharr": "↮",
+	"nhArr": "⇎",
+	"nhpar": "⫲",
+	"ni": "∋",
+	"nis": "⋼",
+	"nisd": "⋺",
+	"niv": "∋",
+	"NJcy": "Њ",
+	"njcy": "њ",
+	"nlarr": "↚",
+	"nlArr": "⇍",
+	"nldr": "‥",
+	"nlE": "≦̸",
+	"nle": "≰",
+	"nleftarrow": "↚",
+	"nLeftarrow": "⇍",
+	"nleftrightarrow": "↮",
+	"nLeftrightarrow": "⇎",
+	"nleq": "≰",
+	"nleqq": "≦̸",
+	"nleqslant": "⩽̸",
+	"nles": "⩽̸",
+	"nless": "≮",
+	"nLl": "⋘̸",
+	"nlsim": "≴",
+	"nLt": "≪⃒",
+	"nlt": "≮",
+	"nltri": "⋪",
+	"nltrie": "⋬",
+	"nLtv": "≪̸",
+	"nmid": "∤",
+	"NoBreak": "⁠",
+	"NonBreakingSpace": " ",
+	"nopf": "𝕟",
+	"Nopf": "ℕ",
+	"Not": "⫬",
+	"not": "¬",
+	"NotCongruent": "≢",
+	"NotCupCap": "≭",
+	"NotDoubleVerticalBar": "∦",
+	"NotElement": "∉",
+	"NotEqual": "≠",
+	"NotEqualTilde": "≂̸",
+	"NotExists": "∄",
+	"NotGreater": "≯",
+	"NotGreaterEqual": "≱",
+	"NotGreaterFullEqual": "≧̸",
+	"NotGreaterGreater": "≫̸",
+	"NotGreaterLess": "≹",
+	"NotGreaterSlantEqual": "⩾̸",
+	"NotGreaterTilde": "≵",
+	"NotHumpDownHump": "≎̸",
+	"NotHumpEqual": "≏̸",
+	"notin": "∉",
+	"notindot": "⋵̸",
+	"notinE": "⋹̸",
+	"notinva": "∉",
+	"notinvb": "⋷",
+	"notinvc": "⋶",
+	"NotLeftTriangleBar": "⧏̸",
+	"NotLeftTriangle": "⋪",
+	"NotLeftTriangleEqual": "⋬",
+	"NotLess": "≮",
+	"NotLessEqual": "≰",
+	"NotLessGreater": "≸",
+	"NotLessLess": "≪̸",
+	"NotLessSlantEqual": "⩽̸",
+	"NotLessTilde": "≴",
+	"NotNestedGreaterGreater": "⪢̸",
+	"NotNestedLessLess": "⪡̸",
+	"notni": "∌",
+	"notniva": "∌",
+	"notnivb": "⋾",
+	"notnivc": "⋽",
+	"NotPrecedes": "⊀",
+	"NotPrecedesEqual": "⪯̸",
+	"NotPrecedesSlantEqual": "⋠",
+	"NotReverseElement": "∌",
+	"NotRightTriangleBar": "⧐̸",
+	"NotRightTriangle": "⋫",
+	"NotRightTriangleEqual": "⋭",
+	"NotSquareSubset": "⊏̸",
+	"NotSquareSubsetEqual": "⋢",
+	"NotSquareSuperset": "⊐̸",
+	"NotSquareSupersetEqual": "⋣",
+	"NotSubset": "⊂⃒",
+	"NotSubsetEqual": "⊈",
+	"NotSucceeds": "⊁",
+	"NotSucceedsEqual": "⪰̸",
+	"NotSucceedsSlantEqual": "⋡",
+	"NotSucceedsTilde": "≿̸",
+	"NotSuperset": "⊃⃒",
+	"NotSupersetEqual": "⊉",
+	"NotTilde": "≁",
+	"NotTildeEqual": "≄",
+	"NotTildeFullEqual": "≇",
+	"NotTildeTilde": "≉",
+	"NotVerticalBar": "∤",
+	"nparallel": "∦",
+	"npar": "∦",
+	"nparsl": "⫽⃥",
+	"npart": "∂̸",
+	"npolint": "⨔",
+	"npr": "⊀",
+	"nprcue": "⋠",
+	"nprec": "⊀",
+	"npreceq": "⪯̸",
+	"npre": "⪯̸",
+	"nrarrc": "⤳̸",
+	"nrarr": "↛",
+	"nrArr": "⇏",
+	"nrarrw": "↝̸",
+	"nrightarrow": "↛",
+	"nRightarrow": "⇏",
+	"nrtri": "⋫",
+	"nrtrie": "⋭",
+	"nsc": "⊁",
+	"nsccue": "⋡",
+	"nsce": "⪰̸",
+	"Nscr": "𝒩",
+	"nscr": "𝓃",
+	"nshortmid": "∤",
+	"nshortparallel": "∦",
+	"nsim": "≁",
+	"nsime": "≄",
+	"nsimeq": "≄",
+	"nsmid": "∤",
+	"nspar": "∦",
+	"nsqsube": "⋢",
+	"nsqsupe": "⋣",
+	"nsub": "⊄",
+	"nsubE": "⫅̸",
+	"nsube": "⊈",
+	"nsubset": "⊂⃒",
+	"nsubseteq": "⊈",
+	"nsubseteqq": "⫅̸",
+	"nsucc": "⊁",
+	"nsucceq": "⪰̸",
+	"nsup": "⊅",
+	"nsupE": "⫆̸",
+	"nsupe": "⊉",
+	"nsupset": "⊃⃒",
+	"nsupseteq": "⊉",
+	"nsupseteqq": "⫆̸",
+	"ntgl": "≹",
+	"Ntilde": "Ñ",
+	"ntilde": "ñ",
+	"ntlg": "≸",
+	"ntriangleleft": "⋪",
+	"ntrianglelefteq": "⋬",
+	"ntriangleright": "⋫",
+	"ntrianglerighteq": "⋭",
+	"Nu": "Ν",
+	"nu": "ν",
+	"num": "#",
+	"numero": "№",
+	"numsp": " ",
+	"nvap": "≍⃒",
+	"nvdash": "⊬",
+	"nvDash": "⊭",
+	"nVdash": "⊮",
+	"nVDash": "⊯",
+	"nvge": "≥⃒",
+	"nvgt": ">⃒",
+	"nvHarr": "⤄",
+	"nvinfin": "⧞",
+	"nvlArr": "⤂",
+	"nvle": "≤⃒",
+	"nvlt": "<⃒",
+	"nvltrie": "⊴⃒",
+	"nvrArr": "⤃",
+	"nvrtrie": "⊵⃒",
+	"nvsim": "∼⃒",
+	"nwarhk": "⤣",
+	"nwarr": "↖",
+	"nwArr": "⇖",
+	"nwarrow": "↖",
+	"nwnear": "⤧",
+	"Oacute": "Ó",
+	"oacute": "ó",
+	"oast": "⊛",
+	"Ocirc": "Ô",
+	"ocirc": "ô",
+	"ocir": "⊚",
+	"Ocy": "О",
+	"ocy": "о",
+	"odash": "⊝",
+	"Odblac": "Ő",
+	"odblac": "ő",
+	"odiv": "⨸",
+	"odot": "⊙",
+	"odsold": "⦼",
+	"OElig": "Œ",
+	"oelig": "œ",
+	"ofcir": "⦿",
+	"Ofr": "𝔒",
+	"ofr": "𝔬",
+	"ogon": "˛",
+	"Ograve": "Ò",
+	"ograve": "ò",
+	"ogt": "⧁",
+	"ohbar": "⦵",
+	"ohm": "Ω",
+	"oint": "∮",
+	"olarr": "↺",
+	"olcir": "⦾",
+	"olcross": "⦻",
+	"oline": "‾",
+	"olt": "⧀",
+	"Omacr": "Ō",
+	"omacr": "ō",
+	"Omega": "Ω",
+	"omega": "ω",
+	"Omicron": "Ο",
+	"omicron": "ο",
+	"omid": "⦶",
+	"ominus": "⊖",
+	"Oopf": "𝕆",
+	"oopf": "𝕠",
+	"opar": "⦷",
+	"OpenCurlyDoubleQuote": "“",
+	"OpenCurlyQuote": "‘",
+	"operp": "⦹",
+	"oplus": "⊕",
+	"orarr": "↻",
+	"Or": "⩔",
+	"or": "∨",
+	"ord": "⩝",
+	"order": "ℴ",
+	"orderof": "ℴ",
+	"ordf": "ª",
+	"ordm": "º",
+	"origof": "⊶",
+	"oror": "⩖",
+	"orslope": "⩗",
+	"orv": "⩛",
+	"oS": "Ⓢ",
+	"Oscr": "𝒪",
+	"oscr": "ℴ",
+	"Oslash": "Ø",
+	"oslash": "ø",
+	"osol": "⊘",
+	"Otilde": "Õ",
+	"otilde": "õ",
+	"otimesas": "⨶",
+	"Otimes": "⨷",
+	"otimes": "⊗",
+	"Ouml": "Ö",
+	"ouml": "ö",
+	"ovbar": "⌽",
+	"OverBar": "‾",
+	"OverBrace": "⏞",
+	"OverBracket": "⎴",
+	"OverParenthesis": "⏜",
+	"para": "¶",
+	"parallel": "∥",
+	"par": "∥",
+	"parsim": "⫳",
+	"parsl": "⫽",
+	"part": "∂",
+	"PartialD": "∂",
+	"Pcy": "П",
+	"pcy": "п",
+	"percnt": "%",
+	"period": ".",
+	"permil": "‰",
+	"perp": "⊥",
+	"pertenk": "‱",
+	"Pfr": "𝔓",
+	"pfr": "𝔭",
+	"Phi": "Φ",
+	"phi": "φ",
+	"phiv": "ϕ",
+	"phmmat": "ℳ",
+	"phone": "☎",
+	"Pi": "Π",
+	"pi": "π",
+	"pitchfork": "⋔",
+	"piv": "ϖ",
+	"planck": "ℏ",
+	"planckh": "ℎ",
+	"plankv": "ℏ",
+	"plusacir": "⨣",
+	"plusb": "⊞",
+	"pluscir": "⨢",
+	"plus": "+",
+	"plusdo": "∔",
+	"plusdu": "⨥",
+	"pluse": "⩲",
+	"PlusMinus": "±",
+	"plusmn": "±",
+	"plussim": "⨦",
+	"plustwo": "⨧",
+	"pm": "±",
+	"Poincareplane": "ℌ",
+	"pointint": "⨕",
+	"popf": "𝕡",
+	"Popf": "ℙ",
+	"pound": "£",
+	"prap": "⪷",
+	"Pr": "⪻",
+	"pr": "≺",
+	"prcue": "≼",
+	"precapprox": "⪷",
+	"prec": "≺",
+	"preccurlyeq": "≼",
+	"Precedes": "≺",
+	"PrecedesEqual": "⪯",
+	"PrecedesSlantEqual": "≼",
+	"PrecedesTilde": "≾",
+	"preceq": "⪯",
+	"precnapprox": "⪹",
+	"precneqq": "⪵",
+	"precnsim": "⋨",
+	"pre": "⪯",
+	"prE": "⪳",
+	"precsim": "≾",
+	"prime": "′",
+	"Prime": "″",
+	"primes": "ℙ",
+	"prnap": "⪹",
+	"prnE": "⪵",
+	"prnsim": "⋨",
+	"prod": "∏",
+	"Product": "∏",
+	"profalar": "⌮",
+	"profline": "⌒",
+	"profsurf": "⌓",
+	"prop": "∝",
+	"Proportional": "∝",
+	"Proportion": "∷",
+	"propto": "∝",
+	"prsim": "≾",
+	"prurel": "⊰",
+	"Pscr": "𝒫",
+	"pscr": "𝓅",
+	"Psi": "Ψ",
+	"psi": "ψ",
+	"puncsp": " ",
+	"Qfr": "𝔔",
+	"qfr": "𝔮",
+	"qint": "⨌",
+	"qopf": "𝕢",
+	"Qopf": "ℚ",
+	"qprime": "⁗",
+	"Qscr": "𝒬",
+	"qscr": "𝓆",
+	"quaternions": "ℍ",
+	"quatint": "⨖",
+	"quest": "?",
+	"questeq": "≟",
+	"quot": "\"",
+	"QUOT": "\"",
+	"rAarr": "⇛",
+	"race": "∽̱",
+	"Racute": "Ŕ",
+	"racute": "ŕ",
+	"radic": "√",
+	"raemptyv": "⦳",
+	"rang": "⟩",
+	"Rang": "⟫",
+	"rangd": "⦒",
+	"range": "⦥",
+	"rangle": "⟩",
+	"raquo": "»",
+	"rarrap": "⥵",
+	"rarrb": "⇥",
+	"rarrbfs": "⤠",
+	"rarrc": "⤳",
+	"rarr": "→",
+	"Rarr": "↠",
+	"rArr": "⇒",
+	"rarrfs": "⤞",
+	"rarrhk": "↪",
+	"rarrlp": "↬",
+	"rarrpl": "⥅",
+	"rarrsim": "⥴",
+	"Rarrtl": "⤖",
+	"rarrtl": "↣",
+	"rarrw": "↝",
+	"ratail": "⤚",
+	"rAtail": "⤜",
+	"ratio": "∶",
+	"rationals": "ℚ",
+	"rbarr": "⤍",
+	"rBarr": "⤏",
+	"RBarr": "⤐",
+	"rbbrk": "❳",
+	"rbrace": "}",
+	"rbrack": "]",
+	"rbrke": "⦌",
+	"rbrksld": "⦎",
+	"rbrkslu": "⦐",
+	"Rcaron": "Ř",
+	"rcaron": "ř",
+	"Rcedil": "Ŗ",
+	"rcedil": "ŗ",
+	"rceil": "⌉",
+	"rcub": "}",
+	"Rcy": "Р",
+	"rcy": "р",
+	"rdca": "⤷",
+	"rdldhar": "⥩",
+	"rdquo": "”",
+	"rdquor": "”",
+	"rdsh": "↳",
+	"real": "ℜ",
+	"realine": "ℛ",
+	"realpart": "ℜ",
+	"reals": "ℝ",
+	"Re": "ℜ",
+	"rect": "▭",
+	"reg": "®",
+	"REG": "®",
+	"ReverseElement": "∋",
+	"ReverseEquilibrium": "⇋",
+	"ReverseUpEquilibrium": "⥯",
+	"rfisht": "⥽",
+	"rfloor": "⌋",
+	"rfr": "𝔯",
+	"Rfr": "ℜ",
+	"rHar": "⥤",
+	"rhard": "⇁",
+	"rharu": "⇀",
+	"rharul": "⥬",
+	"Rho": "Ρ",
+	"rho": "ρ",
+	"rhov": "ϱ",
+	"RightAngleBracket": "⟩",
+	"RightArrowBar": "⇥",
+	"rightarrow": "→",
+	"RightArrow": "→",
+	"Rightarrow": "⇒",
+	"RightArrowLeftArrow": "⇄",
+	"rightarrowtail": "↣",
+	"RightCeiling": "⌉",
+	"RightDoubleBracket": "⟧",
+	"RightDownTeeVector": "⥝",
+	"RightDownVectorBar": "⥕",
+	"RightDownVector": "⇂",
+	"RightFloor": "⌋",
+	"rightharpoondown": "⇁",
+	"rightharpoonup": "⇀",
+	"rightleftarrows": "⇄",
+	"rightleftharpoons": "⇌",
+	"rightrightarrows": "⇉",
+	"rightsquigarrow": "↝",
+	"RightTeeArrow": "↦",
+	"RightTee": "⊢",
+	"RightTeeVector": "⥛",
+	"rightthreetimes": "⋌",
+	"RightTriangleBar": "⧐",
+	"RightTriangle": "⊳",
+	"RightTriangleEqual": "⊵",
+	"RightUpDownVector": "⥏",
+	"RightUpTeeVector": "⥜",
+	"RightUpVectorBar": "⥔",
+	"RightUpVector": "↾",
+	"RightVectorBar": "⥓",
+	"RightVector": "⇀",
+	"ring": "˚",
+	"risingdotseq": "≓",
+	"rlarr": "⇄",
+	"rlhar": "⇌",
+	"rlm": "‏",
+	"rmoustache": "⎱",
+	"rmoust": "⎱",
+	"rnmid": "⫮",
+	"roang": "⟭",
+	"roarr": "⇾",
+	"robrk": "⟧",
+	"ropar": "⦆",
+	"ropf": "𝕣",
+	"Ropf": "ℝ",
+	"roplus": "⨮",
+	"rotimes": "⨵",
+	"RoundImplies": "⥰",
+	"rpar": ")",
+	"rpargt": "⦔",
+	"rppolint": "⨒",
+	"rrarr": "⇉",
+	"Rrightarrow": "⇛",
+	"rsaquo": "›",
+	"rscr": "𝓇",
+	"Rscr": "ℛ",
+	"rsh": "↱",
+	"Rsh": "↱",
+	"rsqb": "]",
+	"rsquo": "’",
+	"rsquor": "’",
+	"rthree": "⋌",
+	"rtimes": "⋊",
+	"rtri": "▹",
+	"rtrie": "⊵",
+	"rtrif": "▸",
+	"rtriltri": "⧎",
+	"RuleDelayed": "⧴",
+	"ruluhar": "⥨",
+	"rx": "℞",
+	"Sacute": "Ś",
+	"sacute": "ś",
+	"sbquo": "‚",
+	"scap": "⪸",
+	"Scaron": "Š",
+	"scaron": "š",
+	"Sc": "⪼",
+	"sc": "≻",
+	"sccue": "≽",
+	"sce": "⪰",
+	"scE": "⪴",
+	"Scedil": "Ş",
+	"scedil": "ş",
+	"Scirc": "Ŝ",
+	"scirc": "ŝ",
+	"scnap": "⪺",
+	"scnE": "⪶",
+	"scnsim": "⋩",
+	"scpolint": "⨓",
+	"scsim": "≿",
+	"Scy": "С",
+	"scy": "с",
+	"sdotb": "⊡",
+	"sdot": "⋅",
+	"sdote": "⩦",
+	"searhk": "⤥",
+	"searr": "↘",
+	"seArr": "⇘",
+	"searrow": "↘",
+	"sect": "§",
+	"semi": ";",
+	"seswar": "⤩",
+	"setminus": "∖",
+	"setmn": "∖",
+	"sext": "✶",
+	"Sfr": "𝔖",
+	"sfr": "𝔰",
+	"sfrown": "⌢",
+	"sharp": "♯",
+	"SHCHcy": "Щ",
+	"shchcy": "щ",
+	"SHcy": "Ш",
+	"shcy": "ш",
+	"ShortDownArrow": "↓",
+	"ShortLeftArrow": "←",
+	"shortmid": "∣",
+	"shortparallel": "∥",
+	"ShortRightArrow": "→",
+	"ShortUpArrow": "↑",
+	"shy": "­",
+	"Sigma": "Σ",
+	"sigma": "σ",
+	"sigmaf": "ς",
+	"sigmav": "ς",
+	"sim": "∼",
+	"simdot": "⩪",
+	"sime": "≃",
+	"simeq": "≃",
+	"simg": "⪞",
+	"simgE": "⪠",
+	"siml": "⪝",
+	"simlE": "⪟",
+	"simne": "≆",
+	"simplus": "⨤",
+	"simrarr": "⥲",
+	"slarr": "←",
+	"SmallCircle": "∘",
+	"smallsetminus": "∖",
+	"smashp": "⨳",
+	"smeparsl": "⧤",
+	"smid": "∣",
+	"smile": "⌣",
+	"smt": "⪪",
+	"smte": "⪬",
+	"smtes": "⪬︀",
+	"SOFTcy": "Ь",
+	"softcy": "ь",
+	"solbar": "⌿",
+	"solb": "⧄",
+	"sol": "/",
+	"Sopf": "𝕊",
+	"sopf": "𝕤",
+	"spades": "♠",
+	"spadesuit": "♠",
+	"spar": "∥",
+	"sqcap": "⊓",
+	"sqcaps": "⊓︀",
+	"sqcup": "⊔",
+	"sqcups": "⊔︀",
+	"Sqrt": "√",
+	"sqsub": "⊏",
+	"sqsube": "⊑",
+	"sqsubset": "⊏",
+	"sqsubseteq": "⊑",
+	"sqsup": "⊐",
+	"sqsupe": "⊒",
+	"sqsupset": "⊐",
+	"sqsupseteq": "⊒",
+	"square": "□",
+	"Square": "□",
+	"SquareIntersection": "⊓",
+	"SquareSubset": "⊏",
+	"SquareSubsetEqual": "⊑",
+	"SquareSuperset": "⊐",
+	"SquareSupersetEqual": "⊒",
+	"SquareUnion": "⊔",
+	"squarf": "▪",
+	"squ": "□",
+	"squf": "▪",
+	"srarr": "→",
+	"Sscr": "𝒮",
+	"sscr": "𝓈",
+	"ssetmn": "∖",
+	"ssmile": "⌣",
+	"sstarf": "⋆",
+	"Star": "⋆",
+	"star": "☆",
+	"starf": "★",
+	"straightepsilon": "ϵ",
+	"straightphi": "ϕ",
+	"strns": "¯",
+	"sub": "⊂",
+	"Sub": "⋐",
+	"subdot": "⪽",
+	"subE": "⫅",
+	"sube": "⊆",
+	"subedot": "⫃",
+	"submult": "⫁",
+	"subnE": "⫋",
+	"subne": "⊊",
+	"subplus": "⪿",
+	"subrarr": "⥹",
+	"subset": "⊂",
+	"Subset": "⋐",
+	"subseteq": "⊆",
+	"subseteqq": "⫅",
+	"SubsetEqual": "⊆",
+	"subsetneq": "⊊",
+	"subsetneqq": "⫋",
+	"subsim": "⫇",
+	"subsub": "⫕",
+	"subsup": "⫓",
+	"succapprox": "⪸",
+	"succ": "≻",
+	"succcurlyeq": "≽",
+	"Succeeds": "≻",
+	"SucceedsEqual": "⪰",
+	"SucceedsSlantEqual": "≽",
+	"SucceedsTilde": "≿",
+	"succeq": "⪰",
+	"succnapprox": "⪺",
+	"succneqq": "⪶",
+	"succnsim": "⋩",
+	"succsim": "≿",
+	"SuchThat": "∋",
+	"sum": "∑",
+	"Sum": "∑",
+	"sung": "♪",
+	"sup1": "¹",
+	"sup2": "²",
+	"sup3": "³",
+	"sup": "⊃",
+	"Sup": "⋑",
+	"supdot": "⪾",
+	"supdsub": "⫘",
+	"supE": "⫆",
+	"supe": "⊇",
+	"supedot": "⫄",
+	"Superset": "⊃",
+	"SupersetEqual": "⊇",
+	"suphsol": "⟉",
+	"suphsub": "⫗",
+	"suplarr": "⥻",
+	"supmult": "⫂",
+	"supnE": "⫌",
+	"supne": "⊋",
+	"supplus": "⫀",
+	"supset": "⊃",
+	"Supset": "⋑",
+	"supseteq": "⊇",
+	"supseteqq": "⫆",
+	"supsetneq": "⊋",
+	"supsetneqq": "⫌",
+	"supsim": "⫈",
+	"supsub": "⫔",
+	"supsup": "⫖",
+	"swarhk": "⤦",
+	"swarr": "↙",
+	"swArr": "⇙",
+	"swarrow": "↙",
+	"swnwar": "⤪",
+	"szlig": "ß",
+	"Tab": "\t",
+	"target": "⌖",
+	"Tau": "Τ",
+	"tau": "τ",
+	"tbrk": "⎴",
+	"Tcaron": "Ť",
+	"tcaron": "ť",
+	"Tcedil": "Ţ",
+	"tcedil": "ţ",
+	"Tcy": "Т",
+	"tcy": "т",
+	"tdot": "⃛",
+	"telrec": "⌕",
+	"Tfr": "𝔗",
+	"tfr": "𝔱",
+	"there4": "∴",
+	"therefore": "∴",
+	"Therefore": "∴",
+	"Theta": "Θ",
+	"theta": "θ",
+	"thetasym": "ϑ",
+	"thetav": "ϑ",
+	"thickapprox": "≈",
+	"thicksim": "∼",
+	"ThickSpace": "  ",
+	"ThinSpace": " ",
+	"thinsp": " ",
+	"thkap": "≈",
+	"thksim": "∼",
+	"THORN": "Þ",
+	"thorn": "þ",
+	"tilde": "˜",
+	"Tilde": "∼",
+	"TildeEqual": "≃",
+	"TildeFullEqual": "≅",
+	"TildeTilde": "≈",
+	"timesbar": "⨱",
+	"timesb": "⊠",
+	"times": "×",
+	"timesd": "⨰",
+	"tint": "∭",
+	"toea": "⤨",
+	"topbot": "⌶",
+	"topcir": "⫱",
+	"top": "⊤",
+	"Topf": "𝕋",
+	"topf": "𝕥",
+	"topfork": "⫚",
+	"tosa": "⤩",
+	"tprime": "‴",
+	"trade": "™",
+	"TRADE": "™",
+	"triangle": "▵",
+	"triangledown": "▿",
+	"triangleleft": "◃",
+	"trianglelefteq": "⊴",
+	"triangleq": "≜",
+	"triangleright": "▹",
+	"trianglerighteq": "⊵",
+	"tridot": "◬",
+	"trie": "≜",
+	"triminus": "⨺",
+	"TripleDot": "⃛",
+	"triplus": "⨹",
+	"trisb": "⧍",
+	"tritime": "⨻",
+	"trpezium": "⏢",
+	"Tscr": "𝒯",
+	"tscr": "𝓉",
+	"TScy": "Ц",
+	"tscy": "ц",
+	"TSHcy": "Ћ",
+	"tshcy": "ћ",
+	"Tstrok": "Ŧ",
+	"tstrok": "ŧ",
+	"twixt": "≬",
+	"twoheadleftarrow": "↞",
+	"twoheadrightarrow": "↠",
+	"Uacute": "Ú",
+	"uacute": "ú",
+	"uarr": "↑",
+	"Uarr": "↟",
+	"uArr": "⇑",
+	"Uarrocir": "⥉",
+	"Ubrcy": "Ў",
+	"ubrcy": "ў",
+	"Ubreve": "Ŭ",
+	"ubreve": "ŭ",
+	"Ucirc": "Û",
+	"ucirc": "û",
+	"Ucy": "У",
+	"ucy": "у",
+	"udarr": "⇅",
+	"Udblac": "Ű",
+	"udblac": "ű",
+	"udhar": "⥮",
+	"ufisht": "⥾",
+	"Ufr": "𝔘",
+	"ufr": "𝔲",
+	"Ugrave": "Ù",
+	"ugrave": "ù",
+	"uHar": "⥣",
+	"uharl": "↿",
+	"uharr": "↾",
+	"uhblk": "▀",
+	"ulcorn": "⌜",
+	"ulcorner": "⌜",
+	"ulcrop": "⌏",
+	"ultri": "◸",
+	"Umacr": "Ū",
+	"umacr": "ū",
+	"uml": "¨",
+	"UnderBar": "_",
+	"UnderBrace": "⏟",
+	"UnderBracket": "⎵",
+	"UnderParenthesis": "⏝",
+	"Union": "⋃",
+	"UnionPlus": "⊎",
+	"Uogon": "Ų",
+	"uogon": "ų",
+	"Uopf": "𝕌",
+	"uopf": "𝕦",
+	"UpArrowBar": "⤒",
+	"uparrow": "↑",
+	"UpArrow": "↑",
+	"Uparrow": "⇑",
+	"UpArrowDownArrow": "⇅",
+	"updownarrow": "↕",
+	"UpDownArrow": "↕",
+	"Updownarrow": "⇕",
+	"UpEquilibrium": "⥮",
+	"upharpoonleft": "↿",
+	"upharpoonright": "↾",
+	"uplus": "⊎",
+	"UpperLeftArrow": "↖",
+	"UpperRightArrow": "↗",
+	"upsi": "υ",
+	"Upsi": "ϒ",
+	"upsih": "ϒ",
+	"Upsilon": "Υ",
+	"upsilon": "υ",
+	"UpTeeArrow": "↥",
+	"UpTee": "⊥",
+	"upuparrows": "⇈",
+	"urcorn": "⌝",
+	"urcorner": "⌝",
+	"urcrop": "⌎",
+	"Uring": "Ů",
+	"uring": "ů",
+	"urtri": "◹",
+	"Uscr": "𝒰",
+	"uscr": "𝓊",
+	"utdot": "⋰",
+	"Utilde": "Ũ",
+	"utilde": "ũ",
+	"utri": "▵",
+	"utrif": "▴",
+	"uuarr": "⇈",
+	"Uuml": "Ü",
+	"uuml": "ü",
+	"uwangle": "⦧",
+	"vangrt": "⦜",
+	"varepsilon": "ϵ",
+	"varkappa": "ϰ",
+	"varnothing": "∅",
+	"varphi": "ϕ",
+	"varpi": "ϖ",
+	"varpropto": "∝",
+	"varr": "↕",
+	"vArr": "⇕",
+	"varrho": "ϱ",
+	"varsigma": "ς",
+	"varsubsetneq": "⊊︀",
+	"varsubsetneqq": "⫋︀",
+	"varsupsetneq": "⊋︀",
+	"varsupsetneqq": "⫌︀",
+	"vartheta": "ϑ",
+	"vartriangleleft": "⊲",
+	"vartriangleright": "⊳",
+	"vBar": "⫨",
+	"Vbar": "⫫",
+	"vBarv": "⫩",
+	"Vcy": "В",
+	"vcy": "в",
+	"vdash": "⊢",
+	"vDash": "⊨",
+	"Vdash": "⊩",
+	"VDash": "⊫",
+	"Vdashl": "⫦",
+	"veebar": "⊻",
+	"vee": "∨",
+	"Vee": "⋁",
+	"veeeq": "≚",
+	"vellip": "⋮",
+	"verbar": "|",
+	"Verbar": "‖",
+	"vert": "|",
+	"Vert": "‖",
+	"VerticalBar": "∣",
+	"VerticalLine": "|",
+	"VerticalSeparator": "❘",
+	"VerticalTilde": "≀",
+	"VeryThinSpace": " ",
+	"Vfr": "𝔙",
+	"vfr": "𝔳",
+	"vltri": "⊲",
+	"vnsub": "⊂⃒",
+	"vnsup": "⊃⃒",
+	"Vopf": "𝕍",
+	"vopf": "𝕧",
+	"vprop": "∝",
+	"vrtri": "⊳",
+	"Vscr": "𝒱",
+	"vscr": "𝓋",
+	"vsubnE": "⫋︀",
+	"vsubne": "⊊︀",
+	"vsupnE": "⫌︀",
+	"vsupne": "⊋︀",
+	"Vvdash": "⊪",
+	"vzigzag": "⦚",
+	"Wcirc": "Ŵ",
+	"wcirc": "ŵ",
+	"wedbar": "⩟",
+	"wedge": "∧",
+	"Wedge": "⋀",
+	"wedgeq": "≙",
+	"weierp": "℘",
+	"Wfr": "𝔚",
+	"wfr": "𝔴",
+	"Wopf": "𝕎",
+	"wopf": "𝕨",
+	"wp": "℘",
+	"wr": "≀",
+	"wreath": "≀",
+	"Wscr": "𝒲",
+	"wscr": "𝓌",
+	"xcap": "⋂",
+	"xcirc": "◯",
+	"xcup": "⋃",
+	"xdtri": "▽",
+	"Xfr": "𝔛",
+	"xfr": "𝔵",
+	"xharr": "⟷",
+	"xhArr": "⟺",
+	"Xi": "Ξ",
+	"xi": "ξ",
+	"xlarr": "⟵",
+	"xlArr": "⟸",
+	"xmap": "⟼",
+	"xnis": "⋻",
+	"xodot": "⨀",
+	"Xopf": "𝕏",
+	"xopf": "𝕩",
+	"xoplus": "⨁",
+	"xotime": "⨂",
+	"xrarr": "⟶",
+	"xrArr": "⟹",
+	"Xscr": "𝒳",
+	"xscr": "𝓍",
+	"xsqcup": "⨆",
+	"xuplus": "⨄",
+	"xutri": "△",
+	"xvee": "⋁",
+	"xwedge": "⋀",
+	"Yacute": "Ý",
+	"yacute": "ý",
+	"YAcy": "Я",
+	"yacy": "я",
+	"Ycirc": "Ŷ",
+	"ycirc": "ŷ",
+	"Ycy": "Ы",
+	"ycy": "ы",
+	"yen": "¥",
+	"Yfr": "𝔜",
+	"yfr": "𝔶",
+	"YIcy": "Ї",
+	"yicy": "ї",
+	"Yopf": "𝕐",
+	"yopf": "𝕪",
+	"Yscr": "𝒴",
+	"yscr": "𝓎",
+	"YUcy": "Ю",
+	"yucy": "ю",
+	"yuml": "ÿ",
+	"Yuml": "Ÿ",
+	"Zacute": "Ź",
+	"zacute": "ź",
+	"Zcaron": "Ž",
+	"zcaron": "ž",
+	"Zcy": "З",
+	"zcy": "з",
+	"Zdot": "Ż",
+	"zdot": "ż",
+	"zeetrf": "ℨ",
+	"ZeroWidthSpace": "​",
+	"Zeta": "Ζ",
+	"zeta": "ζ",
+	"zfr": "𝔷",
+	"Zfr": "ℨ",
+	"ZHcy": "Ж",
+	"zhcy": "ж",
+	"zigrarr": "⇝",
+	"zopf": "𝕫",
+	"Zopf": "ℤ",
+	"Zscr": "𝒵",
+	"zscr": "𝓏",
+	"zwj": "‍",
+	"zwnj": "‌"
+};
 
 /***/ })
 /******/ ]);

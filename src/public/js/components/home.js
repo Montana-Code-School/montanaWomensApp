@@ -4,7 +4,7 @@ import ReactRouter from 'react-router';
 import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem, Navbar, NavItem, Nav, Button} from 'react-dynamic-ui';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Flexbox from 'flexbox-react';
-import Chatbot from '/chatbot.js';
+import Chatbot from './chatbot.js';
 
 class Homepage extends React.Component {
   render() {
