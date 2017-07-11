@@ -635,7 +635,7 @@ var mode = "diagnosis";
         var skinLink = jQuery("<a/>", {
             "class": "skin-link",
             href: "javascript:void(0)",
-            text: skinText,
+            // text: skinText,
             click: function () { _selectBodyPart(SymptomsLocations.Skin); }
         });
 
@@ -2098,7 +2098,7 @@ var mode = "diagnosis";
                 var spec = jQuery("<a/>", {
                     "text": this.Name,
                     //TODO
-                    //"href": specUrl + "/" + this.Name + "/" + this.ID
+                    // "href": specUrl + "/" + this.Name + "/" + this.ID
                     "href": specUrl + "?specId=" + this.SpecialistID
                 });
 
