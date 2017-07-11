@@ -111,7 +111,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
             <JumbotronCol  style={{width: '60%'}}>
               <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
-               <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Birth Control Options</h1>
+               <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Birth Control Methods</h1>
                <h3>Discover and compare the many options available to you. </h3>
 
               </div>

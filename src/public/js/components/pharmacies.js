@@ -75,7 +75,6 @@ export default class Pharmacy extends React.Component {
               <Gmap style={mapStyle} array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'} styles={this.state.styles}/>
               <Table array={this.state.array} />
             </Flexbox>
-          </div>
         </div>
       )}
     };
