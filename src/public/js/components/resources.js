@@ -36,8 +36,10 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
      var borderBottom = {
        borderBottomStyle: 'solid',
        borderColor: '#a44200',
-       borderWidth: '1px'
-
+       borderWidth: '1px',
+       fontSize: "18px",
+       padding: "5px",
+       textAlign:"center",
      }
 
      var topBottom= {
@@ -55,7 +57,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
           <h1 style={headerStyle}> {this.props.title} </h1>
           <p  style={pStyle}> {this.props.description} </p>
           <a href='#'><h5 style={webStyle}> {this.props.website} </h5></a>
-          <h6 style={fontStyle}> {this.props.number} </h6>
+          <h6 style={borderBottom}> {this.props.number} </h6>
          </div>
        );
 
@@ -92,7 +94,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
       return (
         <div>
-        <Jumbotron style={{backgroundImage:"url('../../css/img/resource.png')", backgroundPosition: "center"}}>
+        <Jumbotron style={{backgroundImage:"url('./css/img/resource.png')", backgroundPosition: "center"}}>
           <JumbotronCol style={{width:'40%'}}>
             <div style={{height: '400px'}}>
               <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />

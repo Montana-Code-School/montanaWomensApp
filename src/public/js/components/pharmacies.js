@@ -55,8 +55,8 @@ export default class Pharmacy extends React.Component {
         boxShadow: '5px 5px 2px #a44200',
       }
       return (
-        <div >
-        <Jumbotron style={{backgroundImage:"url('../../css/img/pharmacy-2.png')", backgroundPosition: "center"}}>
+        <div>
+        <Jumbotron style={{backgroundImage:"url('./css/img/pharmacy.png')"}}>
           <JumbotronCol style={{width:'40%'}}>
             <div style={{height: '400px'}}>
               <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
@@ -70,12 +70,11 @@ export default class Pharmacy extends React.Component {
              </div>
           </JumbotronCol>
         </Jumbotron>
-          <div>
+
             <Flexbox style={topBottom} className="healthPage pharmacy" flexDirection="row">
               <Gmap style={mapStyle} array={this.state.array} icon={'../../css/img/icon_local_pharmacy.png'} styles={this.state.styles}/>
               <Table array={this.state.array} />
             </Flexbox>
-          </div>
         </div>
       )}
     };

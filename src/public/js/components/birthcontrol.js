@@ -102,7 +102,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
       <div>
 
-          <Jumbotron style={{backgroundImage:"url('../../css/img/bc.png')", backgroundPosition: "center"}}>
+          <Jumbotron style={{backgroundImage:"url('./css/img/bc.png')", backgroundPosition: "center"}}>
             <JumbotronCol style={{width:'40%'}}>
               <div style={{height: '400px'}}>
                 <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />
@@ -111,7 +111,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
             <JumbotronCol  style={{width: '60%'}}>
               <div style={{height: '400px', paddingTop: '125px', paddingBottom:'20px'}}>
-               <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Birth Control Options</h1>
+               <h1 style={{fontSize:'5em', paddingRight:'165px'}}>Birth Control Methods</h1>
                <h3>Discover and compare the many options available to you. </h3>
 
               </div>

@@ -31,6 +31,20 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
      borderWidth: '1px',
      paddingTop: '30px',
    }
+   var borderTop = {
+     borderTopStyle:'solid',
+     borderColor:'#a44200',
+     borderWidth: '1px'
+   }
+
+   var borderBottom = {
+     borderBottomStyle: 'solid',
+     borderColor: '#a44200',
+     borderWidth: '1px',
+     fontSize: "18px",
+     padding: "5px",
+     textAlign:"center",
+   }
 
    class List extends React.Component {
      render (){
@@ -39,8 +53,8 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
        <h1 style = {titleStyle}> {this.props.title} </h1>
        <h6 style = {fontStyle}> {this.props.name}</h6>
        <p style = {pStyle}> {this.props.description} </p>
-       <a href={this.props.website}><h5 style = {websiteStyle}> {this.props.website} </h5></a>
-       <h6 style = {fontStyle}> {this.props.number} </h6>
+       <a href='#'><h5 style = {websiteStyle}> {this.props.website} </h5></a>
+       <h6 style = {fontStyle, borderBottom}> {this.props.number} </h6>
        </div>
      );
     }
@@ -87,7 +101,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
         return (
           <div>
-          <Jumbotron style={{backgroundImage:"url('../../css/img/hands.png')", backgroundPosition: "center"}}>
+          <Jumbotron style={{backgroundImage:"url('./css/img/counsel.png')", backgroundPosition: "center"}}>
             <JumbotronCol style={{width:'40%'}}>
               <div style={{height: '400px'}}>
                 <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />

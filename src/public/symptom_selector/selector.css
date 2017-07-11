@@ -354,7 +354,8 @@ table.container-table {
     border-collapse: separate;
     background-color:#8f3985;
     height:550px;
-    margin-left: 10% !important;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
 }
 .container-table .td-header
 {

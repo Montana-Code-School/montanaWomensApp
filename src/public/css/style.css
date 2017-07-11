@@ -33,19 +33,21 @@ a {
   font-weight: 500;
 }
 
-.symptom-head {
+/*.symptom-head {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+}*/
 
-.symptom-item {
+.symptom-thing {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
   }
-
+#symptom-head.jumbotron {
+  background-image: url("public/css/img/symptom.png");
+}
 .sympText {
   display: flex;
   flex-direction: column;
@@ -67,13 +69,8 @@ a {
   border-color: #a44200;
   border-width: 1px;
   padding-top: 30px;
+  background-image: url("/css/img/symptom.png") !important;
 }
-
-.symptom {
-
-  margin-top: 5px;
-}
-
 
 #nav {
     width: 100%;
@@ -304,13 +301,12 @@ p {
   flex-wrap: wrap;
 }
 
-
 .pharmacy {
   background-color: #edd3ea;
 }
 
 .doctor {
-  background-color: #d4f7f3;
+  background-color: rgba(147,236,225, .3);
 }
 
 .infowindow h5 {
