@@ -42,7 +42,7 @@ a {
 .symptom-item {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -56,6 +56,7 @@ a {
   width:auto;
   height: auto;
   margin-left: 20px;
+  margin-right: 60px;
   margin-top: 60px;
 }
 
@@ -70,13 +71,6 @@ a {
 
 .symptom {
 
-  text-align: right;
-  background-color: #cbe8ed !important;
-  height: 400px;
-  font-size: 5em;
-  padding-right: 8.8em;
-  padding-top: 3em !important;
-  z-index: 195;
   margin-top: 5px;
 }
 

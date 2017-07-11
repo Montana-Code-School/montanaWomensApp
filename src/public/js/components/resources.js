@@ -92,7 +92,7 @@ import { Jumbotron, JumbotronCol, HoverRow, HoverCol, DrawerContainer, MenuItem,
 
       return (
         <div>
-        <Jumbotron style={{backgroundColor: '#cbe8ed'}}>
+        <Jumbotron style={{backgroundImage:"url('../../css/img/resource.png')", backgroundPosition: "center"}}>
           <JumbotronCol style={{width:'40%'}}>
             <div style={{height: '400px'}}>
               <img style={{paddingTop: '100px', paddingLeft:'100px', paddingBottom:'80px'}} src="css/img/health-symbol-sm.png" />

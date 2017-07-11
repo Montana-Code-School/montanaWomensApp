@@ -25,7 +25,7 @@ class Homepage extends React.Component {
    <div className='drawerStyle' style={{height: '-1em'}}>
      <DrawerContainer className="Drawer">
 
-       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><b>Emergency Help Lines</b></MenuItem>
+       <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><strong>Emergency Help Lines</strong></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:911">Emergency<br/>Dial 911</a></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:1-855-603-2445">Substance Abuse (Drug and Alcohol)<br/> 1(855)603-2445</a></MenuItem>
        <MenuItem hoverStyle={{backgroundColor: '#cbe8ed'}}><a href="tel:1-800-799-7233">Domestic Violence<br/>1(800)799-7233</a></MenuItem>
