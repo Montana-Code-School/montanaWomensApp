@@ -13540,6 +13540,10 @@ var _flexboxReact = __webpack_require__(18);
 
 var _flexboxReact2 = _interopRequireDefault(_flexboxReact);
 
+var _chatbot = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"/chatbot.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _chatbot2 = _interopRequireDefault(_chatbot);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13752,65 +13756,8 @@ var Homepage = function (_React$Component) {
 
 ;
 
-var Chatbot = function (_React$Component2) {
-  _inherits(Chatbot, _React$Component2);
-
-  function Chatbot() {
-    _classCallCheck(this, Chatbot);
-
-    return _possibleConstructorReturn(this, (Chatbot.__proto__ || Object.getPrototypeOf(Chatbot)).apply(this, arguments));
-  }
-
-  _createClass(Chatbot, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'chatbot' },
-        _react2.default.createElement(
-          _reactDynamicUi.Jumbotron,
-          { className: 'jumbo-fadeIn fade-stagger' },
-          _react2.default.createElement(
-            _flexboxReact2.default,
-            { flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap', minHeight: '20vh' },
-            _react2.default.createElement(
-              _reactDynamicUi.JumbotronCol,
-              { fadeEffect: 'fadeInRight', style: { width: '50%' } },
-              _react2.default.createElement(
-                _flexboxReact2.default,
-                { flexDirection: 'column', element: 'section' },
-                _react2.default.createElement(
-                  'h1',
-                  { className: 'symptomheader', style: { paddingTop: '3em' } },
-                  'Have a question about local resources?'
-                ),
-                _react2.default.createElement(
-                  'h3',
-                  { className: 'symptomdescript' },
-                  'Try our chatbot to get information fast. '
-                )
-              )
-            ),
-            _react2.default.createElement(
-              _reactDynamicUi.JumbotronCol,
-              { className: 'jumbo-fadeUp' },
-              _react2.default.createElement(
-                _flexboxReact2.default,
-                { flexDirection: 'column', element: 'section' },
-                _react2.default.createElement('iframe', { src: 'https://webchat.botframework.com/embed/MTWomensResourceChatbot?s=x6RUQOKGgBg.cwA.HRY.UEt6QhX_zF_DXKeFOZ5Dn5LHEFzJMa5q8RYesbAvJCc' })
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Chatbot;
-}(_react2.default.Component);
-
-var Home = function (_React$Component3) {
-  _inherits(Home, _React$Component3);
+var Home = function (_React$Component2) {
+  _inherits(Home, _React$Component2);
 
   function Home() {
     _classCallCheck(this, Home);
@@ -13825,7 +13772,7 @@ var Home = function (_React$Component3) {
         'div',
         null,
         _react2.default.createElement(Homepage, null),
-        _react2.default.createElement(Chatbot, null)
+        _react2.default.createElement(_chatbot2.default, null)
       );
     }
   }]);
