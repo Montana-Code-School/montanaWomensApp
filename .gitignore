@@ -1,16 +1,1 @@
 node_modules
-<<<<<<< HEAD
-=======
-dist/*
-src/public/vendor.bundle.js
-  src/public/app.bundle.js.map
-  src/public/vendor.bundle.js.map
- src/public/vendor.bundle.map.js
- src/public/app.bundle.map.js
- src/public/libs/typeahead.bundle.js
-
- app.bundle.js
-
- dist/server.js
- 	dist/server.js.map
->>>>>>> meredith
