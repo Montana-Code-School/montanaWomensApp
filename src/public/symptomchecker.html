@@ -14,8 +14,9 @@
        <script src="symptom_selector/selector.js?v=3.3"></script>
 
     </head>
-    <body>
-      <ul id="nav">
+    <body >
+
+      <ul id="nav" class="sym">
       	<li><a href="#">Home</a></li>
         <li><a href="#">Counselors</a></li>
         <li><a href="#">Pharmacies</a></li>
@@ -24,8 +25,15 @@
         <li><a href="#">Doctors</a></li>
         <li><a href="#">Symptom Checker</a></li>
       </ul>
-
-      <h1 class='jumbotron symptom'id='symptom-header'>Symptom Checker</h1>
+      <div id="symptom-head" class='jumbotron symptom top-bottom'>
+        <div class="symptom-item">
+          <img class="sympImg" src="css/img/health-symbol-sm.png" />
+          <div class="symptom-item sympText">
+            <h1>Symptom Checker</h1>
+            <h3>Worried something's wrong? Use our symptom checker to get more information</h3>
+          </div>
+        </div>
+      </div>
 
       <table class="container-table">
          <tr>

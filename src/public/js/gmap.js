@@ -29,8 +29,6 @@ class Gmap extends React.Component {
     console.log('onClick', e);
   }
 
-
-
   render() {
     var self = this;
     var pinLoop = this.props.array.map((place) => {
@@ -44,28 +42,31 @@ class Gmap extends React.Component {
                   title={place.name}
                   onClick={function(e){
                         var infowindow = new google.maps.InfoWindow({
-                                            content: "<div className='infowindow'><h5>"+place.name+"</h5>"+place.vicinity+"</div>",
+                                            content: "<div className='infowindow' style='color:#A44200'><h5>"+place.name+"</h5>"+place.vicinity+"</div>",
                                             position: e.latLng,
-
                                         });
+
                         infowindow.open(this.get('map'), this);
                   }} />
             )
         });
 
     return(
-      <Gmaps
-        width={'600px'}
-        height= {'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={13}
-        scrollwheel={false}
-        loadingMessage={'Be happy'}
-        params={params}
-        onMapCreated={this.onMapCreated}>
-        {pinLoop}
-      </Gmaps>
+      <div style={this.props.style}>
+        <Gmaps
+          width={'600px'}
+          height= {'890px'}
+          styles={this.props.styles}
+          lat={coords.lat}
+          lng={coords.lng}
+          zoom={13}
+          scrollwheel={false}
+          loadingMessage={'Be happy'}
+          params={params}
+          onMapCreated={this.onMapCreated}>
+          {pinLoop}
+        </Gmaps>
+      </div>
     )
   };
 }
