@@ -254,11 +254,11 @@ input.symptom-search
 }
 .spec_list li a {
   margin-left: 10px;
-  color: #4193d0;
+  color: #4193d0 !important;
   text-decoration:none;
 }
 .spec_list li a:hover {
-    color: #4d4d4d;
+    color: #4d4d4d !important;
 }
 
 .spec_list li a:before {
